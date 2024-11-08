@@ -44,13 +44,19 @@ const Forgotpassword = () => {
       </div>
 
       {/* Left side - Image with overlay text */}
-      <div className="relative w-full lg:w-1/2 -ml-40">
-        <img src={loginimage} alt="login" className="w-full h-64 lg:h-[592px] rounded-lg object-cover" />
-        <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-          <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
-          <p className="text-lg m-0">Caring for You, Every Step</p>
-        </div>
-      </div>
+     {/* Left side - Image with overlay text */}
+<div className="relative w-full lg:w-1/2 lg:-ml-40">
+  <img 
+    src={loginimage} 
+    alt="login" 
+    className="w-full h-64 lg:h-[592px] rounded-lg object-cover" 
+  />
+  <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+    <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
+    <p className="text-lg m-0">Caring for You, Every Step</p>
+  </div>
+</div>
+
 
       {/* Right Side - Form */}
       <div className="w-full lg:w-1/2 p-8 lg:p-10 bg-white rounded-lg mt-5 lg:mt-0 mr-0 lg:mr-5">
