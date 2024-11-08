@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { User } from "lucide-react";
-import  {Input} from "../../../shadcn/components/ui/Input"
+import { Input } from "../../../shadcn/components/ui/Input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../../shadcn/components/ui/Select"
+} from "../../../shadcn/components/ui/Select";
 import { BottomBar } from "./Bottombar";
 import axios from "axios";
 
