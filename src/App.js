@@ -17,7 +17,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/Dashboard/:section" element={<Dashboard/>} />
+          <Route path="/Dashboard/:section?" element={<Dashboard />} />
+
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/otp" element={<Otp />} />

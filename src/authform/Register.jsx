@@ -94,13 +94,16 @@ function Register() {
       </div>
 
       {/* Left side - Image with overlay text */}
-      <div className="relative max-w-lg">
-        <img src={registerimage} alt="register" className="w-[666px] h-[632px] rounded-lg object-cover -ml-4" />
-        <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-          <h2 className="text-2xl font-bold m-0">Welcome to GapCure</h2>
-        
-        </div>
-      </div>
+  {/* Left side - Image with overlay text */}
+<div className="relative w-full lg:max-w-lg mt-[10px] lg:mt-0">
+  <img src={registerimage} alt="login" className="w-full h-auto lg:w-[666px] lg:h-[592px] rounded-lg object-cover" />
+  <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+    <h2 className="text-2xl font-bold m-0">Welcome to Gapcure</h2>
+  </div>
+</div>
+
+
+
 
       {/* Right side - Form */}
       <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0">
