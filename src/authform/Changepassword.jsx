@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';  // Importing toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css';  // Import Toastify CSS
 import loginimage from '../assets/login.png';
 import logo from '../assets/image.png';
 
@@ -13,23 +15,22 @@ const Changepassword = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match.');
+      toast.error('Passwords do not match.');  // Display error toast
       return;
     }
 
     try {
       const response = await axios.post('/api/reset-password', { password });
       if (response.status === 200) {
-        alert('Password reset successfully!');
+        toast.success('Password reset successfully!');  // Success toast
         localStorage.removeItem('otpVerified');
-
         navigate('/completion');
       } else {
-        alert('Failed to reset password. Please try again.');
+        toast.error('Failed to reset password. Please try again.');  // Error toast
       }
     } catch (error) {
       console.error('Failed to reset password:', error);
-      alert('An error occurred. Please try again later.');
+      toast.error('An error occurred. Please try again later.');  // Error toast
     }
   };
 
@@ -41,18 +42,13 @@ const Changepassword = () => {
       </div>
 
       {/* Left side - Image with overlay text */}
-      <div className="relative w-full lg:max-w-lg">
-  <img
-    src={loginimage}
-    alt="login"
-    className="w-full h-64 lg:h-[592px] rounded-lg object-cover"
-  />
-  <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-    <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
-    <p className="text-lg m-0">Caring for You, Every Step</p>
-  </div>
-</div>
-
+      <div className="relative w-full lg:w-1/2 -ml-40">
+        <img src={loginimage} alt="login" className="w-full h-64 lg:h-[592px] rounded-lg object-cover" />
+        <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+          <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
+          <p className="text-lg m-0">Caring for You, Every Step</p>
+        </div>
+      </div>
       {/* Right Side - Password Reset Form */}
       <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0 mr-0 lg:mr-5">
         <button
@@ -101,6 +97,9 @@ const Changepassword = () => {
           </button>
         </form>
       </div>
+
+      {/* Toast Container for Notifications */}
+      <ToastContainer />
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import registerimage from "../assets/register.png";
+import loginimage from '../assets/login.png';
 import logo from '../assets/image.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const [fullName, setFullName] = useState('');
@@ -63,6 +65,13 @@ function Register() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Check if any field is empty or invalid
+    if (!fullName || !phoneNumber || !email || !password || !role) {
+      toast.error("Please fill in all fields before submitting.");
+      return;
+    }
+
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
@@ -78,65 +87,56 @@ function Register() {
           role,
         });
         console.log(response.data);
+        toast.success("Registration successful!");
         navigate('/login');
       } catch (error) {
         console.error('Registration failed:', error);
-        alert('Registration failed! Please try again.');
+        toast.error("Registration failed! Please try again.");
       }
     }
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col lg:flex-row items-center lg:justify-between px-4 lg:px-10 bg-gray-100">
-      {/* Logo */}
-      <div className="absolute top-3 right-3">
+    <div className="relative min-h-screen flex flex-col lg:flex-row items-center lg:justify-between px-4 lg:px-10 bg-gray-100 pl-8 lg:pl-16">
+      {/* Toastify container for notifications */}
+      <ToastContainer />
+        {/* Logo in top-right corner */}
+        <div className="absolute top-3 right-3">
         <img src={logo} alt="Logo" className="w-20 h-auto hidden lg:block" />
       </div>
 
       {/* Left side - Image with overlay text */}
-  {/* Left side - Image with overlay text */}
-<div className="relative w-full lg:max-w-lg mt-[10px] lg:mt-0">
-  <img src={registerimage} alt="login" className="w-full h-auto lg:w-[666px] lg:h-[592px] rounded-lg object-cover" />
-  <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-    <h2 className="text-2xl font-bold m-0">Welcome to Gapcure</h2>
-  </div>
-</div>
+      <div className="relative w-full h-full lg:w-1/2 -ml-40">
+        <img src={loginimage} alt="login" className="w-full h-full  lg:h-[592px] rounded-lg object-cover" />
+        <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+          <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
+          <p className="text-lg m-0">Caring for You, Every Step</p>
+        </div>
+      </div>
 
-
-
-
-      {/* Right side - Form */}
+      {/* Right side - Form moved to left */}
       <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0">
         <h2 className="text-center text-gray-800 mb-5 text-2xl font-bold">Welcome to GapCure</h2>
 
         {/* Login/Register Toggle with Outline */}
         <div className="flex justify-center gap-4 mb-8 p-2 rounded-full">
           <button
-            onClick={() => {setActiveTab('login')
-                            navigate('/Login');
-            }}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${
-              activeTab === 'login' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'
-            }`}
+            onClick={() => {setActiveTab('login'); navigate('/Login');}}
+            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'login' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
           >
             Login
           </button>
           <button
-            onClick={() => {
-              setActiveTab('register');
-              navigate('/Register');
-            }}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${
-              activeTab === 'register' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'
-            }`}
+            onClick={() => {setActiveTab('register'); navigate('/Register');}}
+            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'register' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
           >
             Register
           </button>
         </div>
 
         <form onSubmit={handleSubmit}>
-
-        <div className="mb-4">
+          {/* Role Field */}
+          <div className="mb-4">
             <label className="block mb-1 text-gray-600">User Role</label>
             <select
               className="w-full px-3 py-2 rounded-full border border-gray-300 bg-gray-100"
@@ -150,6 +150,7 @@ function Register() {
               <option>Insurance Company</option>
             </select>
           </div>
+
           {/* Full Name Field */}
           <div className="mb-4">
             <label className="block mb-1 text-gray-600">Full Name</label>
@@ -206,14 +207,11 @@ function Register() {
             {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
           </div>
 
-         
-          
-
           <button
             type="submit"
-            className="w-full lg:w-1/3 px-4 py-2  rounded-2xl border-none bg-purple-600 text-white font-bold cursor-pointer text-lg mt-2 lg:float-right"
+            className="w-full lg:w-1/3 px-4 py-2 rounded-2xl border-none bg-purple-600 text-white font-semibold text-lg"
           >
-            Sign up
+            Register
           </button>
         </form>
       </div>
