@@ -181,7 +181,7 @@ function Register() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-3 py-2 rounded-md border border-gray-300"
+              className="w-full px-3 py-2 rounded-full border border-gray-300"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={() => validateEmail(email)}
@@ -195,7 +195,7 @@ function Register() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="w-full px-3 py-2 rounded-md border border-gray-300"
+              className="w-full px-3 py-2 rounded-full border border-gray-300"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onBlur={() => validatePassword(password)}
