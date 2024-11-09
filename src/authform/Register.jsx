@@ -79,7 +79,7 @@ function Register() {
       validatePassword(password)
     ) {
       try {
-        const response = await axios.post('https://yourapiurl.com/register', {
+        const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/register', {
           fullName,
           phoneNumber,
           email,

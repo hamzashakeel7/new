@@ -22,7 +22,7 @@ const Forgotpassword = () => {
     }
 
     try {
-      const response = await axios.post('/api/forgot-password', { emailOrPhone });
+      const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/forgotpassword', { emailOrPhone });
 
       if (response.status === 200) {
         notifySuccess('Password reset link sent to your email/phone!');

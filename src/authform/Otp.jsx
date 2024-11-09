@@ -44,7 +44,7 @@ const Otp = () => {
     setLoading(true); // Set loading state to true
 
     try {
-      const response = await axios.post('/api/verify-otp', { otp: otpCode });
+      const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/otpcheck', { otp: otpCode });
 
       if (response.status === 200) {
         notifySuccess('OTP verified successfully!');

@@ -20,7 +20,7 @@ const Changepassword = () => {
     }
 
     try {
-      const response = await axios.post('/api/reset-password', { password });
+      const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/changepassword', { password });
       if (response.status === 200) {
         toast.success('Password reset successfully!');  // Success toast
         localStorage.removeItem('otpVerified');
@@ -42,7 +42,7 @@ const Changepassword = () => {
       </div>
 
       {/* Left side - Image with overlay text */}
-    {/* Left side - Image with overlay text */}
+  
 <div className="relative w-full lg:w-1/2 lg:-ml-40">
   <img 
     src={loginimage} 
