@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import loginimage from '../assets/login.png';
+import loginimage from '../assets/register.png';
 import logo from '../assets/image.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -213,9 +213,15 @@ function Register() {
               {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
             </div>
 
-            <div className="mb-6">
-              <button type="submit" className="w-full py-2 rounded-full bg-purple-600 text-white font-semibold text-lg">Register</button>
-            </div>
+           
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="w-32 px-4 py-2 rounded-full bg-purple-600 text-white font-bold text-lg"
+              >
+                Register
+              </button>
+              </div>
           </form>
         </div>
       </div>
