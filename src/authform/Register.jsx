@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const [fullName, setFullName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -69,7 +69,7 @@ function Register() {
     e.preventDefault();
 
     // Check if any field is empty or invalid
-    if (!fullName || !phoneNumber || !email || !password || !role) {
+    if (!fullName || !phonenumber || !email || !password || !role) {
       toast.error("Please fill in all fields before submitting.");
       return;
     }
@@ -77,7 +77,7 @@ function Register() {
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
-      validatePhoneNumber(phoneNumber) &&
+      validatePhoneNumber(phonenumber) &&
       validatePassword(password)
     ) {
       try {
@@ -87,7 +87,7 @@ function Register() {
             name: fullName,
             email,
             password,
-            phoneNumber,
+            phonenumber,
             role,
           }
         );
@@ -95,7 +95,7 @@ function Register() {
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-        navigate("/otp", { state: { phoneNumber } }); // Redirect to OTP page
+        navigate("/otp", { state: { phonenumber } }); // Redirect to OTP page
       } catch (error) {
         console.error(
           "Registration failed:",
@@ -207,9 +207,9 @@ function Register() {
                 type="text"
                 placeholder="Enter your phone number"
                 className="w-full px-3 py-2 rounded-full border border-gray-300"
-                value={phoneNumber}
+                value={phonenumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                onBlur={() => validatePhoneNumber(phoneNumber)}
+                onBlur={() => validatePhoneNumber(phonenumber)}
               />
               {phoneNumberError && (
                 <p className="text-red-500 text-sm">{phoneNumberError}</p>

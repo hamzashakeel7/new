@@ -47,10 +47,11 @@ function Login() {
             role,
           }
         );
+        console.log(response.data);
         toast.success("Login successful!");
         navigate("/Dashboard/");
       } catch (error) {
-        console.error("Login failed:", error);
+        console.error("login failed:", error.response?.data || error.message);
         toast.error(
           "Login failed! Please check your credentials and try again."
         );

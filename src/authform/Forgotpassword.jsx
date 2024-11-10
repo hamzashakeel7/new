@@ -7,7 +7,7 @@ import loginimage from "../assets/login.png";
 import logo from "../assets/image.png";
 
 const Forgotpassword = () => {
-  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [email, setemail] = useState("");
   const navigate = useNavigate();
 
   const notifySuccess = (message) => toast.success(message);
@@ -16,7 +16,7 @@ const Forgotpassword = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
 
-    if (!emailOrPhone) {
+    if (!email) {
       notifyError("Please enter your email or phone number.");
       return;
     }
@@ -24,7 +24,7 @@ const Forgotpassword = () => {
     try {
       const response = await axios.post(
         "https://silvertlcbackend.vercel.app/api/v1/auth/forgotpassword",
-        { emailOrPhone }
+        { email }
       );
 
       if (response.status === 200) {
@@ -89,8 +89,8 @@ const Forgotpassword = () => {
                 type="text"
                 id="emailOrPhone"
                 placeholder="Enter your email or phone number"
-                value={emailOrPhone}
-                onChange={(e) => setEmailOrPhone(e.target.value)}
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-purple-500"
                 required
               />
