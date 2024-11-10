@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import loginimage from '../assets/login.png';
-import logo from '../assets/image.png';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import loginimage from "../assets/login.png";
+import logo from "../assets/image.png";
+import axios from "axios";
 
 function Login() {
-  const [activeTab, setActiveTab] = useState('login');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [activeTab, setActiveTab] = useState("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [emailError, setEmailError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setEmailError('Please enter a valid email.');
+      setEmailError("Please enter a valid email.");
       return false;
     }
-    setEmailError('');
+    setEmailError("");
     return true;
   };
 
   const validateForm = () => {
     if (!email || !password || !role) {
-      toast.error('Please fill in all fields.');
+      toast.error("Please fill in all fields.");
       return false;
     }
     if (!validateEmail(email)) {
@@ -39,16 +39,21 @@ function Login() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/login', {
-          email,
-          password,
-          role,
-        });
-        toast.success('Login successful!');
-        navigate('/Dashboard/');
+        const response = await axios.post(
+          "https://silvertlcbackend.vercel.app/api/v1/auth/login",
+          {
+            email,
+            password,
+            role,
+          }
+        );
+        toast.success("Login successful!");
+        navigate("/Dashboard/");
       } catch (error) {
-        console.error('Login failed:', error);
-        toast.error('Login failed! Please check your credentials and try again.');
+        console.error("Login failed:", error);
+        toast.error(
+          "Login failed! Please check your credentials and try again."
+        );
       }
     }
   };
@@ -60,43 +65,52 @@ function Login() {
 
         {/* Left Section - Image with Overlay Text */}
         <div className="w-full lg:w-2/5 relative">
-          <img src={loginimage} alt="login" className="w-96 h-full object-cover" />
+          <img
+            src={loginimage}
+            alt="login"
+            className="w-96 h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">Your Health, Our Priority</h2>
-            <p className="text-lg m-0 whitespace-nowrap">Caring for You, Every Step</p>
+            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">
+              Your Health, Our Priority
+            </h2>
+            <p className="text-lg m-0 whitespace-nowrap">
+              Caring for You, Every Step
+            </p>
           </div>
         </div>
 
         {/* Right Section - Form */}
         <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
-        <div className="absolute top-4 right-0 z-10">
+          <div className="absolute top-6 right-4 md:top-4 md:right-0 z-10">
             <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
           </div>
 
-          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">Welcome to SilverTLC</h2>
-
+          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">
+            Welcome to SilverTLC
+          </h2>
 
           <div className="flex justify-center gap-4 mb-6 w-full">
             <button
-              onClick={() => setActiveTab('login')}
+              onClick={() => setActiveTab("login")}
               className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === 'login'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-transparent text-black border-2 border-black'
+                activeTab === "login"
+                  ? "bg-purple-600 text-white"
+                  : "bg-transparent text-black border-2 border-black"
               }`}
             >
               Login
             </button>
             <button
               onClick={() => {
-                setActiveTab('register');
-                navigate('/Register');
+                setActiveTab("register");
+                navigate("/Register");
               }}
               className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === 'register'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-transparent text-black border-2 border-black'
+                activeTab === "register"
+                  ? "bg-purple-600 text-white"
+                  : "bg-transparent text-black border-2 border-black"
               }`}
             >
               Register
@@ -129,7 +143,9 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
                 onBlur={() => validateEmail(email)}
               />
-              {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+              {emailError && (
+                <p className="text-red-500 text-sm">{emailError}</p>
+              )}
             </div>
 
             <div>
@@ -148,7 +164,10 @@ function Login() {
                 <input type="checkbox" className="mr-2" />
                 Remember me
               </label>
-              <a href="/Forgotpassword" className="text-purple-600 no-underline text-sm">
+              <a
+                href="/Forgotpassword"
+                className="text-purple-600 no-underline text-sm"
+              >
                 Forgot Password?
               </a>
             </div>
