@@ -97,7 +97,10 @@ function Register() {
         );
         navigate("/otp", { state: { phoneNumber } }); // Redirect to OTP page
       } catch (error) {
-        console.error("Registration failed:", error);
+        console.error(
+          "Registration failed:",
+          error.response?.data || error.message
+        );
         toast.error("Registration failed! Please try again.");
       }
     }
