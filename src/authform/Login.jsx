@@ -14,7 +14,6 @@ function Login() {
   const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
 
-  // Email validation
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -25,7 +24,6 @@ function Login() {
     return true;
   };
 
-  // Form validation
   const validateForm = () => {
     if (!email || !password || !role) {
       toast.error('Please fill in all fields.');
@@ -37,7 +35,6 @@ function Login() {
     return true;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -57,113 +54,115 @@ function Login() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col lg:flex-row items-center lg:justify-between px-4 lg:px-10 bg-gray-100 pl-8 lg:pl-16">
-      {/* Toast Container */}
-      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+    <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-90 overflow-hidden">
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-      {/* Logo in top-right corner */}
-      <div className="absolute top-3 right-3">
-        <img src={logo} alt="Logo" className="w-20 h-auto hidden lg:block" />
-      </div>
-
-      {/* Left side - Image with overlay text */}
-     {/* Left side - Image with overlay text */}
-<div className="relative w-full lg:w-1/2 lg:-ml-40">
-  <img 
-    src={loginimage} 
-    alt="login" 
-    className="w-full h-64 lg:h-[592px] rounded-lg object-cover" 
-  />
-  <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-    <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
-    <p className="text-lg m-0">Caring for You, Every Step</p>
-  </div>
-</div>
-
-
-      {/* Right Side - Form */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-10  mt-5 lg:mt-0">
-        <h2 className="text-center text-gray-800 mb-5 text-2xl font-bold">Welcome to SilverTLC</h2>
-
-        {/* Login/Register Toggle with Outline */}
-        <div className="flex justify-center gap-4 mb-8 p-2 rounded-full">
-          <button
-            onClick={() => setActiveTab('login')}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'login' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
-          >
-            Login
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab('register');
-              navigate('/Register');
-            }}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'register' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
-          >
-            Register
-          </button>
+        {/* Left Section - Image with Overlay Text */}
+        <div className="w-full lg:w-2/5 relative">
+          <img src={loginimage} alt="login" className="w-96 h-full object-cover" />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">Your Health, Our Priority</h2>
+            <p className="text-lg m-0 whitespace-nowrap">Caring for You, Every Step</p>
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* User Role Dropdown */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">User Role</label>
-            <select
-              className="w-full px-3 py-2 rounded-full border border-gray-300 bg-gray-100"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
+        {/* Right Section - Form */}
+        <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
+        <div className="absolute top-4 right-0 z-10">
+            <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
+          </div>
+
+          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">Welcome to SilverTLC</h2>
+
+
+          <div className="flex justify-center gap-4 mb-6 w-full">
+            <button
+              onClick={() => setActiveTab('login')}
+              className={`px-6 py-2 rounded-full font-semibold text-lg ${
+                activeTab === 'login'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-transparent text-black border-2 border-black'
+              }`}
             >
-              <option value="">Select Role</option>
-              <option>Corporate User</option>
-              <option>Individual</option>
-              <option>Service Provider</option>
-              <option>Insurance Company</option>
-            </select>
+              Login
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('register');
+                navigate('/Register');
+              }}
+              className={`px-6 py-2 rounded-full font-semibold text-lg ${
+                activeTab === 'register'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-transparent text-black border-2 border-black'
+              }`}
+            >
+              Register
+            </button>
           </div>
 
-          {/* Email Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onBlur={() => validateEmail(email)}
-            />
-            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
-          </div>
+          <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-4">
+            <div>
+              <label className="block mb-1 text-gray-600">User Role</label>
+              <select
+                className="w-full px-4 py-2 rounded-full border border-gray-300 bg-white"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="">Select Role</option>
+                <option>Corporate User</option>
+                <option>Individual</option>
+                <option>Service Provider</option>
+                <option>Insurance Company</option>
+              </select>
+            </div>
 
-          {/* Password Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+            <div>
+              <label className="block mb-1 text-gray-600">Email</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 rounded-full border border-gray-300"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => validateEmail(email)}
+              />
+              {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+            </div>
 
-          {/* Remember Me and Forgot Password */}
-          <div className="flex justify-between items-center mb-5">
-            <label className="text-gray-600">
-              <input type="checkbox" className="mr-2" />
-              Remember me
-            </label>
-            <a href="/Forgotpassword" className="text-purple-600 no-underline text-sm">Forgot Password?</a>
-          </div>
+            <div>
+              <label className="block mb-1 text-gray-600">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 rounded-full border border-gray-300"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
 
-          {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full lg:w-1/3 px-4 py-2 rounded-2xl border-none bg-purple-600 text-white font-bold cursor-pointer text-lg mt-2 lg:float-right"
-          >
-            Login
-          </button>
-        </form>
+            <div className="flex justify-between items-center">
+              <label className="text-gray-600">
+                <input type="checkbox" className="mr-2" />
+                Remember me
+              </label>
+              <a href="/Forgotpassword" className="text-purple-600 no-underline text-sm">
+                Forgot Password?
+              </a>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="w-32 px-4 py-2 rounded-full bg-purple-600 text-white font-bold text-lg"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

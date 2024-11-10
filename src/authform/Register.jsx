@@ -80,15 +80,15 @@ function Register() {
     ) {
       try {
         const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/register', {
-          fullName,
-          phoneNumber,
+          name: fullName,
           email,
           password,
+          phoneNumber,
           role,
         });
         console.log(response.data);
-        toast.success("Registration successful!");
-        navigate('/login');
+        toast.success("Registration successful! Please check your email for OTP.");
+        navigate('/otp', { state: { phoneNumber } });  // Redirect to OTP page
       } catch (error) {
         console.error('Registration failed:', error);
         toast.error("Registration failed! Please try again.");
@@ -97,129 +97,127 @@ function Register() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col lg:flex-row items-center lg:justify-between px-4 lg:px-10 bg-gray-100 pl-8 lg:pl-16">
-      {/* Toastify container for notifications */}
+    <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 lg:px-10 bg-gray-100 pl-8 lg:pl-16 overflow-auto">
       <ToastContainer />
-        {/* Logo in top-right corner */}
-        <div className="absolute top-3 right-3">
-        <img src={logo} alt="Logo" className="w-20 h-auto hidden lg:block" />
-      </div>
-
-      {/* Left side - Image with overlay text */}
-     {/* Left side - Image with overlay text */}
-<div className="relative w-full lg:w-1/2 lg:-ml-40">
-  <img 
-    src={loginimage} 
-    alt="login" 
-    className="w-full h-64 lg:h-[592px] rounded-lg object-cover" 
-  />
-  <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-    <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
-    <p className="text-lg m-0">Caring for You, Every Step</p>
-  </div>
-</div>
-
-
-      {/* Right side - Form moved to left */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0">
-        <h2 className="text-center text-gray-800 mb-5 text-2xl font-bold">Welcome to SilverTLC</h2>
-
-        {/* Login/Register Toggle with Outline */}
-        <div className="flex justify-center gap-4 mb-8 p-2 rounded-full">
-          <button
-            onClick={() => {setActiveTab('login'); navigate('/Login');}}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'login' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
-          >
-            Login
-          </button>
-          <button
-            onClick={() => {setActiveTab('register'); navigate('/Register');}}
-            className={`px-6 py-2 rounded-full font-semibold text-lg ${activeTab === 'register' ? 'bg-purple-600 text-white' : 'bg-transparent text-black border-2 border-black'}`}
-          >
-            Register
-          </button>
+      
+      {/* Main Container with Logo positioned on the right */}
+      <div className="flex shadow-lg rounded-xl bg-white w-full lg:w-4/5 h-auto lg:h-[90vh] overflow-hidden relative flex-col lg:flex-row">
+        
+        {/* Left Image */}
+        <div className="w-full lg:w-2/5 relative">
+          <img src={loginimage} alt="login" className="w-96 h-full object-cover" />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">Your Health, Our Priority</h2>
+            <p className="text-lg m-0 whitespace-nowrap">Caring for You, Every Step</p>
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* Role Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">User Role</label>
-            <select
-              className="w-full px-3 py-2 rounded-full border border-gray-300 bg-gray-100"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
+
+        {/* Registration Form */}
+        <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0 overflow-auto">
+          {/* Logo and Title in a Flex container with the logo on the right */}
+          <div className="flex justify-end items-center mb-5">
+           
+            <h2 className="text-gray-800 text-xl lg:text-2xl font-bold ml-4">Welcome to SilverTLC</h2>
+            <img src={logo} alt="Logo" className="w-12 h-auto sm:w-16 md:w-20 lg:w-14" />
+          </div>
+
+          <div className="flex justify-center gap-4 mb-6 w-full">
+            <button
+              onClick={() => {
+                setActiveTab('login');
+                navigate('/Login');
+              }}
+              className={`px-6 py-2 rounded-full font-semibold text-lg ${
+                activeTab === 'login'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-transparent text-black border-2 border-black'
+              }`}
             >
-              <option>Select Role</option>
-              <option>Corporate User</option>
-              <option>Individual</option>
-              <option>Service Provider</option>
-              <option>Insurance Company</option>
-            </select>
+              Login
+            </button>
+            <button
+              onClick={() => setActiveTab('register')}
+              className={`px-6 py-2 rounded-full font-semibold text-lg ${
+                activeTab === 'register'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-transparent text-black border-2 border-black'
+              }`}
+            >
+              Register
+            </button>
           </div>
+          
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block mb-1 text-gray-600">User Role</label>
+              <select className="w-full px-3 py-2 rounded-full border border-gray-300 bg-gray-100" value={role} onChange={(e) => setRole(e.target.value)}>
+                <option>Select Role</option>
+                <option>Corporate User</option>
+                <option>Individual</option>
+                <option>Service Provider</option>
+                <option>Insurance Company</option>
+              </select>
+            </div>
 
-          {/* Full Name Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Full Name</label>
-            <input
-              type="text"
-              placeholder="Enter your full name"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              onBlur={() => validateFullName(fullName)}
-            />
-            {fullNameError && <p className="text-red-500 text-sm">{fullNameError}</p>}
-          </div>
+            <div className="mb-4">
+              <label className="block mb-1 text-gray-600">Full Name</label>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                className="w-full px-3 py-2 rounded-full border border-gray-300"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                onBlur={() => validateFullName(fullName)}
+              />
+              {fullNameError && <p className="text-red-500 text-sm">{fullNameError}</p>}
+            </div>
 
-          {/* Phone Number Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Phone Number</label>
-            <input
-              type="text"
-              placeholder="Enter your phone number"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              onBlur={() => validatePhoneNumber(phoneNumber)}
-            />
-            {phoneNumberError && <p className="text-red-500 text-sm">{phoneNumberError}</p>}
-          </div>
+            <div className="mb-4">
+              <label className="block mb-1 text-gray-600">Phone Number</label>
+              <input
+                type="text"
+                placeholder="Enter your phone number"
+                className="w-full px-3 py-2 rounded-full border border-gray-300"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                onBlur={() => validatePhoneNumber(phoneNumber)}
+              />
+              {phoneNumberError && <p className="text-red-500 text-sm">{phoneNumberError}</p>}
+            </div>
 
-          {/* Email Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onBlur={() => validateEmail(email)}
-            />
-            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
-          </div>
+            <div className="mb-4">
+              <label className="block mb-1 text-gray-600">Email</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-3 py-2 rounded-full border border-gray-300"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => validateEmail(email)}
+              />
+              {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+            </div>
 
-          {/* Password Field */}
-          <div className="mb-4">
-            <label className="block mb-1 text-gray-600">Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full px-3 py-2 rounded-full border border-gray-300"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onBlur={() => validatePassword(password)}
-            />
-            {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
-          </div>
+            <div className="mb-4">
+              <label className="block mb-1 text-gray-600">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="w-full px-3 py-2 rounded-full border border-gray-300"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={() => validatePassword(password)}
+              />
+              {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
+            </div>
 
-          <button
-            type="submit"
-            className="w-full lg:w-1/3 px-4 py-2 rounded-2xl border-none bg-purple-600 text-white font-semibold text-lg"
-          >
-            Register
-          </button>
-        </form>
+            <div className="mb-6">
+              <button type="submit" className="w-full py-2 rounded-full bg-purple-600 text-white font-semibold text-lg">Register</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

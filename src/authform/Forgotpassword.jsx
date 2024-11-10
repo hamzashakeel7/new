@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';  // Correct imports
-import 'react-toastify/dist/ReactToastify.css';  // Ensure this is imported
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import loginimage from '../assets/login.png';
 import logo from '../assets/image.png';
 
@@ -37,58 +37,53 @@ const Forgotpassword = () => {
   };
 
   return (
-    <div className="relative h-screen flex flex-col lg:flex-row items-center lg:justify-between px-4 lg:px-10">
-      {/* Logo in top-right corner */}
-      <div className="absolute top-3 right-3">
-        <img src={logo} alt="Logo" className="w-20 h-auto hidden lg:block" />
-      </div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
+      <div className="w-full max-w-3xl lg:max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row overflow-hidden lg:h-[90vh] h-auto">
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-      {/* Left side - Image with overlay text */}
-     {/* Left side - Image with overlay text */}
-<div className="relative w-full lg:w-1/2 lg:-ml-40">
-  <img 
-    src={loginimage} 
-    alt="login" 
-    className="w-full h-64 lg:h-[592px] rounded-lg object-cover" 
-  />
-  <div className="absolute bottom-5 left-1/3 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-    <h2 className="text-2xl font-bold m-0">Your Health, Our Priority</h2>
-    <p className="text-lg m-0">Caring for You, Every Step</p>
-  </div>
-</div>
+        {/* Left Section - Image with Overlay */}
+        <div className="w-full lg:w-2/5 relative">
+          <img src={loginimage} alt="login" className="w-96 h-full object-cover" />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
+            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">Your Health, Our Priority</h2>
+            <p className="text-lg m-0 whitespace-nowrap">Caring for You, Every Step</p>
+          </div>
+        </div>
 
-
-      {/* Right Side - Form */}
-      <div className="w-full lg:w-1/2 p-8 lg:p-10 bg-white rounded-lg mt-5 lg:mt-0 mr-0 lg:mr-5">
-        <h2 className="text-center text-gray-800 mb-5 text-2xl font-bold">Welcome to SilverTLC</h2>
-
-        <form onSubmit={handleForgotPassword}>
-          <div className="mb-4">
-            <label htmlFor="emailOrPhone" className="block text-gray-700 mb-2 font-medium">
-              Email or Phone Number
-            </label>
-            <input
-              type="text"
-              id="emailOrPhone"
-              placeholder="Enter your email or phone number"
-              value={emailOrPhone}
-              onChange={(e) => setEmailOrPhone(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-purple-500"
-              required
-            />
+        {/* Right Section - Form */}
+        <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
+          <div className="absolute top-4 right-4 z-10">
+            <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
           </div>
 
-          <button
-            type="submit"
-            className="w-full lg:w-1/3 px-4 py-2 rounded-2xl bg-purple-600 text-white font-bold cursor-pointer text-lg mt-2 lg:float-right"
-          >
-            Confirm
-          </button>
-        </form>
-      </div>
+          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">Welcome to SilverTLC</h2>
 
-      {/* Toastify Container */}
-      <ToastContainer />
+          <form onSubmit={handleForgotPassword} className="w-full max-w-sm space-y-4">
+            <div>
+              <label htmlFor="emailOrPhone" className="block text-gray-700 mb-2 font-medium">
+                Email or Phone Number
+              </label>
+              <input
+                type="text"
+                id="emailOrPhone"
+                placeholder="Enter your email or phone number"
+                value={emailOrPhone}
+                onChange={(e) => setEmailOrPhone(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-purple-500"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-4 py-2 rounded-full bg-purple-600 text-white font-bold cursor-pointer text-lg"
+            >
+              Confirm
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
