@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 export function Dashboard() {
   const { section } = useParams();
-  const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024);
+  const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024); // smaller screens
 
   useEffect(() => {
     const handleResize = () => {
