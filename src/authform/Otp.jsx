@@ -58,7 +58,7 @@ function Otp() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[90vh] overflow-hidden">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
         {/* Left Section - Image with Overlay Text */}

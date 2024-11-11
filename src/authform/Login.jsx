@@ -61,7 +61,7 @@ function Login() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-90 overflow-hidden">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
         {/* Left Section - Image with Overlay Text */}
@@ -88,11 +88,11 @@ function Login() {
             <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
           </div>
 
-          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">
+          <h2 className="text-gray-800 pt-4 text-center text-xl lg:text-2xl font-bold mb-6">
             Welcome to SilverTLC
           </h2>
 
-          <div className="flex justify-center gap-4 mb-6 w-full">
+          <div className="flex justify-center gap-4 mb-4 w-full">
             <button
               onClick={() => setActiveTab("login")}
               className={`px-6 py-2 rounded-full font-semibold text-lg ${
@@ -135,7 +135,7 @@ function Login() {
             </div>
 
             <div>
-              <label className="block mb-1 text-gray-600">Email</label>
+              <label className="block  text-gray-600">Email</label>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -173,7 +173,7 @@ function Login() {
               </a>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end pb-6">
               <button
                 type="submit"
                 className="w-32 px-4 py-2 rounded-full bg-purple-600 text-white font-bold text-lg"

@@ -13,7 +13,7 @@ const Completion = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
-      <div className="relative w-full max-w-3xl lg:max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row overflow-hidden lg:h-[90vh] h-auto">
+      <div className="relative w-full max-w-3xl lg:max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row overflow-hidden lg:h-[77vh] h-auto">
         
         {/* Logo in Top Right within the Main Container */}
         <div className="absolute top-4 right-4 z-10">

@@ -43,7 +43,7 @@ const Forgotpassword = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
-      <div className="w-full max-w-3xl lg:w-[60rem] bg-white rounded-lg shadow-lg flex flex-col lg:flex-row overflow-hidden lg:h-[70vh] h-auto">
+      <div className="w-full max-w-3xl lg:w-[60rem] bg-white rounded-lg shadow-lg flex flex-col lg:flex-row overflow-hidden lg:h-[77vh] h-auto">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
         {/* Left Section - Image with Overlay */}
