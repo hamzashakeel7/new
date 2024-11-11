@@ -95,7 +95,7 @@ function Register() {
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-        navigate("/otp", { state: { phonenumber } }); // Redirect to OTP page
+        navigate("/Dashboard", { state: { phonenumber } }); // Redirect to OTP page
       } catch (error) {
         console.error(
           "Registration failed:",
