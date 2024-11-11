@@ -1,4 +1,4 @@
-import { Input } from "../../../../shadcn/components/ui/Input"
+import { Input } from "../../../../shadcn/components/ui/Input";
 import { Label } from "../../../../shadcn/components/ui/Label";
 import { Checkbox } from "../../../../shadcn/components/ui/Checkbox";
 import { Button } from "../../../../shadcn/components/ui/Button";
@@ -56,9 +56,9 @@ export function RentalApplicationForm() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-0 md:p-6">
       <form onSubmit={handleSubmit} className="space-y-8">
-        <Card>
+        <Card className="bg-gray-100">
           <CardHeader>
             <CardTitle>Rental Application</CardTitle>
           </CardHeader>

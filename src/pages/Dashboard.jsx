@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 export function Dashboard() {
   const { section } = useParams();
-  const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024); // smaller screens
+  const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,28 +20,21 @@ export function Dashboard() {
   }, []);
 
   const toggleSidebar = () => {
-    setIsOpen((open) => !open);
-    console.log("Sidebar state:", !isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <SidebarProvider>
+    <SidebarProvider className="">
       <div className="flex min-h-screen w-full">
         <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-        <div className="flex-1 flex flex-col">
-          <Topbar toggleSidebar={toggleSidebar} />
+        <div className={`flex-1 flex flex-col`}>
+          <Topbar />
           <main className="flex-1 overflow-auto p-4">
             {section === "profile" && <Mainform />}
             {section === "services" && <Servicesform />}
             {section === "application" && <RentalApplicationForm />}
           </main>
         </div>
-        {isOpen && window.innerWidth < 1024 && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
-            onClick={toggleSidebar}
-          ></div>
-        )}
       </div>
     </SidebarProvider>
   );

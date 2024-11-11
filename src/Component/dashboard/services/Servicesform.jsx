@@ -21,7 +21,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../../shadcn/components/ui/Dropdown-menu"
+} from "../../../shadcn/components/ui/Dropdown-menu";
 import {
   Table,
   TableBody,
@@ -83,12 +83,12 @@ export function Servicesform() {
   }
 
   return (
-    <div className="space-y-4 p-4 md:p-6">
+    <div className="space-y-4 p-0 md:p-6">
       {/* Sort By Section */}
       <div className="rounded-lg border bg-gray-100 p-4">
         <h2 className="mb-4 text-lg font-semibold">Sort By</h2>
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <Popover>
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Popover className="">
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
@@ -101,7 +101,7 @@ export function Servicesform() {
                 {fromDate ? format(fromDate, "PPP") : <span>From Date</span>}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
+            <PopoverContent className="w-full p-0" align="start">
               <Calendar
                 mode="single"
                 selected={fromDate}
@@ -116,7 +116,7 @@ export function Servicesform() {
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full justify-start text-left font-normal sm:w-[240px]",
+                  "w-full items-center justify-start text-center font-normal sm:w-[240px]",
                   !toDate && "text-muted-foreground"
                 )}
               >
@@ -142,8 +142,8 @@ export function Servicesform() {
           <FileText className="h-5 w-5" />
           Selected Services
         </h2>
-        <div className="overflow-x-auto">
-          <Table className="w-full border-collapse">
+        <div className="grid grid-cols-1 overflow-x-auto">
+          <Table className="w-full">
             <TableHeader>
               <TableRow className="border-b">
                 <TableHead className="border-r p-2 text-left">

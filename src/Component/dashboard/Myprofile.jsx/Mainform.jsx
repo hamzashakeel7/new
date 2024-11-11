@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { User } from "lucide-react";
 import { Input } from "../../../shadcn/components/ui/Input";
 import {
@@ -11,8 +11,7 @@ import {
 import { BottomBar } from "./Bottombar";
 import axios from "axios";
 
-export function Mainform() {
-  //  state for fields
+export function Mainform({ isSidebarOpen }) {
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -25,8 +24,16 @@ export function Mainform() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024);
 
-  // Function to handle form input changes
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -35,13 +42,11 @@ export function Mainform() {
     });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Replace the api here...
       const response = await axios.post("/api-endpoint", formData);
       console.log("Form submitted successfully:", response.data);
     } catch (error) {
@@ -52,7 +57,12 @@ export function Mainform() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full p-6">
+    <form
+      onSubmit={handleSubmit}
+      className={`w-full md:p-6 pb-14 transition-all duration-300 ${
+        isSmallScreen && isSidebarOpen ? "ml-64" : ""
+      }`}
+    >
       <div className="rounded-lg border p-5 lg:p-10 bg-gray-100">
         <div className="mb-6 flex items-center gap-2">
           <div className="rounded-lg bg-purple-100 p-2">
@@ -62,7 +72,6 @@ export function Mainform() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {/* Individual Name */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Individual Name</label>
             <Input
@@ -73,7 +82,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* Address */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Address</label>
             <Input
@@ -84,7 +92,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* Phone Number */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Phone Number</label>
             <Input
@@ -96,7 +103,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* Email Address */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Email Address</label>
             <Input
@@ -107,7 +113,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* City */}
           <div className="space-y-2">
             <label className="text-sm font-medium">City</label>
             <Input
@@ -118,7 +123,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* Referral Source */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Referral Source</label>
             <Select
@@ -140,7 +144,6 @@ export function Mainform() {
             </Select>
           </div>
 
-          {/* State */}
           <div className="space-y-2">
             <label className="text-sm font-medium">State</label>
             <Input
@@ -151,7 +154,6 @@ export function Mainform() {
             />
           </div>
 
-          {/* Zip */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Zip</label>
             <Input
@@ -161,11 +163,9 @@ export function Mainform() {
               onChange={handleChange}
             />
           </div>
-
-          {/* Bottom Bar with Submit Button */}
-          <BottomBar loading={loading} />
         </div>
       </div>
+      <BottomBar loading={loading} />
     </form>
   );
 }
