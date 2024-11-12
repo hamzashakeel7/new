@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Login from "./authform/Login";
 import Register from "./authform/Register";
 import Forgotpassword from "./authform/Forgotpassword";
@@ -18,7 +23,11 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           {/* user dashborad route */}
-          <Route path="/Dashboard/:section?" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={<Navigate to="/dashboard/profile" replace />}
+          />
+          <Route path="/dashboard/:section" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/otp" element={<Otp />} />

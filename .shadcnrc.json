@@ -1,0 +1,5 @@
+{
+  "componentDirectory": "src/components/ui",
+  "style": "css",
+  "framework": "react"
+}

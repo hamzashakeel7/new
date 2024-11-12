@@ -5,12 +5,12 @@ import {
   AvatarImage,
 } from "../../shadcn/components/ui/Avatar";
 
-export function Topbar() {
+export function Topbar({ section }) {
   return (
     <div className="flex h-16 items-center justify-between border-b px-5 lg:px-20 w-full">
       <div className="flex items-center gap-4">
-        <h1 className="text-sm md:text-xl font-semibold">
-          Individual Information
+        <h1 className="text-sm md:text-xl font-semibold capitalize">
+          {section}
         </h1>
       </div>
       <div className="flex items-center gap-4">

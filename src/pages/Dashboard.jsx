@@ -28,7 +28,7 @@ export function Dashboard() {
       <div className="flex min-h-screen w-full">
         <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
         <div className={`flex-1 flex flex-col`}>
-          <Topbar />
+          <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {section === "profile" && <Mainform />}
             {section === "services" && <Servicesform />}

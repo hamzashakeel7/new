@@ -87,13 +87,13 @@ export function Servicesform() {
       {/* Sort By Section */}
       <div className="rounded-lg border bg-gray-100 p-4">
         <h2 className="mb-4 text-lg font-semibold">Sort By</h2>
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Popover className="">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <Popover>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full justify-start text-left font-normal sm:w-[240px]",
+                  "w-full font-normal sm:w-[240px]",
                   !fromDate && "text-muted-foreground"
                 )}
               >
@@ -101,7 +101,7 @@ export function Servicesform() {
                 {fromDate ? format(fromDate, "PPP") : <span>From Date</span>}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-full p-0" align="start">
+            <PopoverContent className="w-auto p-0" align="start">
               <Calendar
                 mode="single"
                 selected={fromDate}
