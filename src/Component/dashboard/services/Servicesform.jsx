@@ -83,7 +83,7 @@ export function Servicesform() {
   return (
     <div className="space-y-6  md:p-6">
       {/* Sort By Section */}
-      <div className="rounded-lg border bg-card p-4 w-full">
+      <div className="rounded-lg border bg-card p-4 w-full bg-gray-100">
         <h3 className="mb-4 text-lg font-medium">Sort By</h3>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Popover>
