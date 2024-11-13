@@ -121,7 +121,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-2 -right-10 bg-white shadow-md"
+            className="absolute top-14 -right-10 bg-white shadow-md"
             onClick={toggleSidebar}
           >
             {isOpen ? (
