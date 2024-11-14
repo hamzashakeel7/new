@@ -81,7 +81,7 @@ export function Servicesform() {
   };
 
   return (
-    <div className="space-y-6  md:p-6">
+    <div className="space-y-6  md:p-6  w-[75vw] lg:w-full">
       {/* Sort By Section */}
       <div className="rounded-lg border bg-card p-4 w-full bg-gray-100">
         <h3 className="mb-4 text-lg font-medium">Sort By</h3>

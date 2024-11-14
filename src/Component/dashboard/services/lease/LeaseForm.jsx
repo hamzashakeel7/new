@@ -4,7 +4,7 @@ import { Input } from "../../../../shadcn/components/ui/Input";
 import axios from "axios";
 
 export function LeaseForm() {
-  const [formData, setFormData] = useState({
+  const leaseFormData = {
     landlord: "",
     landlordAddress: "",
     tenant: "",
@@ -13,31 +13,52 @@ export function LeaseForm() {
     demisedProperty: "",
     leaseTerm: "",
     commencementDate: "",
-    rentalForTerm: "",
-    securityDeposit: "",
-    totalDueAtCommencement: "",
+    rentalForTerm: 0,
+    securityDeposit: 0,
+    totalAtCommencement: 0,
     permittedUse: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(leaseFormData);
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Convert specific fields to numbers if needed
+    const numberFields = [
+      "rentalForTerm",
+      "securityDeposit",
+      "totalAtCommencement",
+    ];
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: numberFields.includes(name) ? Number(value) : value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
 
     try {
-      const response = await axios.post("/api-endpoint", formData);
+      const response = await axios.post(
+        "https://silvertlcbackend.vercel.app/api/v1/individual/leaseform/submit",
+        {
+          leaseFormData: formData, // Wrap form data in leaseFormData key
+          token: "{{vault:json-web-token}}", // Replace with actual token if required
+        }
+      );
       console.log("Form submitted successfully:", response.data);
+      setSuccessMessage("Thank you for filling out the form!");
+      setFormData(leaseFormData); // Clear form
     } catch (error) {
       console.error("Error submitting form:", error);
+      setErrorMessage("Sorry, please try again.");
     } finally {
       setLoading(false);
     }
@@ -62,6 +83,7 @@ export function LeaseForm() {
               </label>
               <Input
                 name={key}
+                type={typeof value === "number" ? "number" : "text"}
                 placeholder={`Enter ${
                   key.charAt(0).toUpperCase() +
                   key.slice(1).replace(/([A-Z])/g, " $1")
@@ -72,6 +94,11 @@ export function LeaseForm() {
             </div>
           ))}
         </div>
+
+        {successMessage && (
+          <p className="mt-4 text-green-600">{successMessage}</p>
+        )}
+        {errorMessage && <p className="mt-4 text-red-600">{errorMessage}</p>}
 
         <div className="mt-6 flex justify-end">
           <button

@@ -25,7 +25,7 @@ function App() {
           {/* user dashborad route */}
           <Route
             path="/dashboard"
-            element={<Navigate to="/dashboard/profile" replace />}
+            element={<Navigate to="/dashboard/My profile" replace />}
           />
           <Route path="/dashboard/:section" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />

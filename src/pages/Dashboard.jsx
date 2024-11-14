@@ -6,6 +6,9 @@ import { useParams } from "react-router-dom";
 import { Servicesform } from "../Component/dashboard/services/Servicesform";
 import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
 import { useEffect, useState } from "react";
+import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
+import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
+import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -30,9 +33,12 @@ export function Dashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "profile" && <Mainform />}
+            {section === "My profile" && <Mainform />}
             {section === "services" && <Servicesform />}
             {section === "application" && <RentalApplicationForm />}
+            {section === "accounting" && <AccountingPage />}
+            {section === "Help & Support" && <HelpAndSupport />}
+            {section === "lease Form" && <LeaseForm />}
           </main>
         </div>
       </div>

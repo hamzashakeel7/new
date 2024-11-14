@@ -25,12 +25,13 @@ import { Button } from "../../shadcn/components/ui/Button";
 import "../../App.css";
 
 const menuItems = [
-  { icon: Home, label: "My Profile", section: "profile" },
+  { icon: Home, label: "My Profile", section: "My profile" },
   { icon: Building2, label: "Service / Properties", section: "services" },
   { icon: LayoutGrid, label: "Applications", section: "application" },
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
-  { icon: HelpCircle, label: "Help & Support", section: "support" },
+  { icon: HelpCircle, label: "Help & Support", section: "Help & Support" },
+  { icon: HelpCircle, label: "temp lease form", section: "lease Form" },
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
