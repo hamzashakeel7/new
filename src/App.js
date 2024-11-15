@@ -28,6 +28,7 @@ function App() {
             element={<Navigate to="/dashboard/My profile" replace />}
           />
           <Route path="/dashboard/:section" element={<Dashboard />} />
+          {/* register */}
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/otp" element={<Otp />} />

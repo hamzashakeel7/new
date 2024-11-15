@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
+import { Invoice } from "../Component/dashboard/Invoice";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -38,7 +39,9 @@ export function Dashboard() {
             {section === "application" && <RentalApplicationForm />}
             {section === "accounting" && <AccountingPage />}
             {section === "Help & Support" && <HelpAndSupport />}
+            {/* temperory links added for ui */}
             {section === "lease Form" && <LeaseForm />}
+            {section === "Invoicing" && <Invoice />}
           </main>
         </div>
       </div>
