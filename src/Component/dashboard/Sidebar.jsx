@@ -31,7 +31,9 @@ const menuItems = [
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
   { icon: HelpCircle, label: "Help & Support", section: "Help & Support" },
+  // temperory links added to check the ui
   { icon: HelpCircle, label: "temp lease form", section: "lease Form" },
+  { icon: HelpCircle, label: "temp invoice", section: "Invoicing" },
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
