@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBell, FaRegUser, FaComment, FaEnvelope, FaAddressCard } from 'react-icons/fa';
+import { FaBell, FaComment } from 'react-icons/fa';
 import { Avatar, AvatarImage, AvatarFallback } from '../../../shadcn/components/ui/Avatar';
 
 const PropertyForm = () => {
