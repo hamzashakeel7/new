@@ -47,6 +47,8 @@ function Login() {
             role,
           }
         );
+        const token = response.data.token;
+        console.log(token);
         console.log(response.data);
         toast.success("Login successful!");
         navigate("/Dashboard/");
@@ -127,7 +129,7 @@ function Login() {
                 onChange={(e) => setRole(e.target.value)}
               >
                 <option value="">Select Role</option>
-                
+
                 <option>Individual</option>
                 <option>Property Owner</option>
                 <option>Insurance Company</option>
