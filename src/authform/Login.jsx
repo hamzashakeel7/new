@@ -127,10 +127,13 @@ function Login() {
                 onChange={(e) => setRole(e.target.value)}
               >
                 <option value="">Select Role</option>
-                <option>Corporate User</option>
+                
                 <option>Individual</option>
-                <option>Service Provider</option>
+                <option>Property Owner</option>
                 <option>Insurance Company</option>
+                <option>Hospital System/Managed Care Organizations</option>
+                <option>Real Estate Professionals</option>
+                <option>Non Profits</option>
               </select>
             </div>
 

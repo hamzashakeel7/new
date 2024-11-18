@@ -15,6 +15,9 @@ import ChangepasswordProtected from "./Component/ChangepasswordProtected";
 import { Dashboard } from "./pages/Dashboard";
 
 import Notfound from "./pages/Not-Found";
+import PropertyForm from "./Component/dashboard/Propertyform/Propertyform";
+import ServiceInformationForm from "./Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
+import Transportationform from "./Component/dashboard/Transportation/Trasportationform";
 
 function App() {
   return (
@@ -42,6 +45,9 @@ function App() {
             }
           />
           <Route path="/completion" element={<Completion />} />
+          <Route path="/propertyform" element={<PropertyForm/>}></Route>
+          <Route path="/Serviceinfoform" element={<ServiceInformationForm/>}></Route>
+          <Route path="/Transportationform" element={<Transportationform/>}></Route>
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
         </Routes>
       </div>
