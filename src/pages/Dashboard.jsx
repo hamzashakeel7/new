@@ -10,11 +10,7 @@ import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 import Message from "../Component/dashboard/messages/Messages";
-import { ApplicationReview } from "../Component/dashboard/services/RentalApplication/ApplicationReview";
-import { Invoice } from "../Component/dashboard/Invoice";
-import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
-import ServiceInformationForm from "../Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
-import Transportationform from "../Component/dashboard/Transportation/Trasportationform";
+
 
 export function Dashboard() {
   const { section } = useParams();
@@ -47,11 +43,9 @@ export function Dashboard() {
             {section === "Help & Support" && <HelpAndSupport />}
             {/* tempperory routes */}
             {section === "lease Form" && <LeaseForm />}
-            {section === "invoice" && <Invoice />}
-            {section === "Applications" && <ApplicationReview />}
-            {section === "Propertyform" && <PropertyForm />}
-            {section === "ServiceInformationForm" && <ServiceInformationForm />}
-            {section === "Transportationform" && <Transportationform />}
+            
+          
+          
           </main>
         </div>
       </div>

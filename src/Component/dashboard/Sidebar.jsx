@@ -32,24 +32,10 @@ const menuItems = [
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
   { icon: HelpCircle, label: "Help & Support", section: "Help & Support" },
   // temperory links added to check the ui
-  { icon: HelpCircle, label: "temp lease form", section: "lease Form" },
-  { icon: HelpCircle, label: "temp invoice", section: "invoice" },
-  {
-    icon: HelpCircle,
-    label: "temp application overview",
-    section: "Applications",
-  },
-  { icon: HelpCircle, label: "temp property form", section: "Propertyform" },
-  {
-    icon: HelpCircle,
-    label: "temp service info form",
-    section: "ServiceInformationForm",
-  },
-  {
-    icon: HelpCircle,
-    label: "temp transport form",
-    section: "Transportationform",
-  },
+  
+  
+ 
+
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
