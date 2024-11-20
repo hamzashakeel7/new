@@ -13,14 +13,15 @@ import Changepassword from "./authform/Changepassword";
 import Completion from "./authform/Completion";
 import ChangepasswordProtected from "./Component/ChangepasswordProtected";
 import { Dashboard } from "./pages/Dashboard";
-import {Invoice} from "./Component/dashboard/Invoice"
+import { Invoice } from "./Component/dashboard/Invoice";
 
 import Notfound from "./pages/Not-Found";
 import PropertyForm from "./Component/dashboard/Propertyform/Propertyform";
 import ServiceInformationForm from "./Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
 import Transportationform from "./Component/dashboard/Transportation/Trasportationform";
-import {ApplicationReview} from "./Component/dashboard/services/RentalApplication/ApplicationReview";
-import {LeaseForm} from "./Component/dashboard/services/lease/LeaseForm";
+import { ApplicationReview } from "./Component/dashboard/services/RentalApplication/ApplicationReview";
+import { LeaseForm } from "./Component/dashboard/services/lease/LeaseForm";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
+          {/* Home page */}
+          <Route path="/" element={<Home />} />
           {/* user dashborad route */}
           <Route
             path="/dashboard"
@@ -48,18 +51,22 @@ function App() {
             }
           />
           <Route path="/completion" element={<Completion />} />
-          <Route path="/propertyform" element={<PropertyForm/>}></Route>
-          <Route path="/Serviceinfoform" element={<ServiceInformationForm/>}></Route>
-          <Route path="/Transportationform" element={<Transportationform/>}></Route>
-          
-          <Route path="/invoice" element={<Invoice/>}></Route>
-          <Route path="/ApplicationReview" element={<ApplicationReview/>}></Route>
-          <Route path="/lease" element={<LeaseForm/>}></Route>
-
-        
-       
+          <Route path="/propertyform" element={<PropertyForm />}></Route>
+          <Route
+            path="/Serviceinfoform"
+            element={<ServiceInformationForm />}
+          ></Route>
+          <Route
+            path="/Transportationform"
+            element={<Transportationform />}
+          ></Route>
+          <Route path="/invoice" element={<Invoice />}></Route>
+          <Route
+            path="/ApplicationReview"
+            element={<ApplicationReview />}
+          ></Route>
+          <Route path="/lease" element={<LeaseForm />}></Route>
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
-
         </Routes>
       </div>
     </Router>
