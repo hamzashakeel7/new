@@ -15,13 +15,13 @@ export function Mission() {
   return (
     <div className="relative py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8 w-full">
-          <p className="mb-6 text-lg leading-relaxed">
+        <div className="w-full">
+          <p className="mb-6 text-sm lg:text-lg leading-relaxed">
             At The TLC Company, LLC, We Believe That America's Seniors And
             Disabled Deserve The Opportunity To Access Safe And Secure Housing
             Where They Can Live As Independently As Possible.
           </p>
-          <p className="mb-8 text-lg leading-relaxed">
+          <p className="mb-8 text-sm lg:text-lg leading-relaxed">
             TLC And Our SilverTLC.Com Webpage And App Have Been Created As A
             Customer And Service Relations Management Agency To Assist
             Government; National Insurance; Non-Profits; Hospital/Health Care
@@ -35,13 +35,13 @@ export function Mission() {
           </p>
           <Button
             variant="outline"
-            className="rounded-full border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white text-xl py-6 px-12"
+            className="rounded-full border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white text-lg lg:text-xl py-4 px-8 lg:py-6 lg:px-12"
             onClick={() => setShowMission(true)}
           >
             Mission
           </Button>
         </div>
-        <div className="absolute top-[2rem]  right-[-10rem] w-[60rem]">
+        <div className="absolute top-[2rem]  right-[-10rem] w-[60rem] hidden md:block">
           <img
             src={walking}
             alt="walking"
