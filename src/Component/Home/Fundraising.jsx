@@ -1,10 +1,8 @@
 import * as React from "react";
-import { Input } from "../../shadcn/components/ui/Input";
 import { Button } from "../../shadcn/components/ui/Button";
 import fund1 from "../../assets/home/fundraising/fund1.jpg";
 import fund2 from "../../assets/home/fundraising/fund2.jpg";
 import fund3 from "../../assets/home/fundraising/fund3.jpg";
-import { ArrowLeft } from "lucide-react";
 
 export function Fundraising() {
   const funds = [
@@ -83,35 +81,6 @@ export function Fundraising() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* newsletter */}
-      <div className="relative bg-gradient-to-r from-red-500 to-pink-500 py-12 text-white">
-        <div className="container mx-auto flex items-center justify-between px-4">
-          <div className="flex flex-col">
-            <h3 className="text-sm mb-2">Keep In Touch</h3>
-            <h2 className="text-3xl font-bold mb-4">Get The News!</h2>
-            <div className="flex items-center bg-white rounded-full overflow-hidden">
-              <Button className="bg-purple-600 text-white p-3">
-                <ArrowLeft className="h-5 w-5" />
-              </Button>
-              <Input
-                placeholder="Enter Your Mail Here"
-                className="w-64 bg-transparent text-gray-900 placeholder:text-gray-500 border-none focus:ring-0"
-              />
-              <img
-                src="/placeholder.svg?height=24&width=24"
-                alt="Mail Icon"
-                className="h-6 w-6 mr-3"
-              />
-            </div>
-          </div>
-          <img
-            src="/placeholder.svg?height=150&width=150"
-            alt="Smiling Couple"
-            className="h-32 w-32 object-cover rounded-full"
-          />
-        </div>
       </div>
     </div>
   );

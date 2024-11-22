@@ -9,6 +9,8 @@ import Contact from "../Component/Home/Contact";
 import { Reviews } from "../Component/Home/Reviews";
 import { PurpleSection } from "../Component/Home/PurpleSection";
 import { Fundraising } from "../Component/Home/Fundraising";
+import Newsletter from "../Component/Home/Newsletter";
+import { Footer } from "../Component/Footer";
 
 const Home = () => {
   return (
@@ -29,7 +31,9 @@ const Home = () => {
         </div>
         <div>
           <Fundraising />
+          <Newsletter />
         </div>
+        <Footer />
       </div>
     </div>
   );
