@@ -47,11 +47,36 @@ function Login() {
             role,
           }
         );
+
         const token = response.data.token;
+        const userRole = response.data.user.role;  // Assuming the role is part of the response
+
         console.log(token);
         console.log(response.data);
+
         toast.success("Login successful!");
-        navigate("/Dashboard/");
+
+        // Store token and role in localStorage (optional, depending on your auth flow)
+        localStorage.setItem("token", token);
+        localStorage.setItem("role", userRole);
+
+        // Navigate based on the user's role
+        if (userRole === "Individual") {
+          navigate("Dashboard");
+        } else if (userRole === "Property Owner") {
+          navigate("/property-owner/dashboard");
+        } else if (userRole === "Insurance Company") {
+          navigate("/insurance/dashboard");
+        } else if (userRole === "Hospital System/Managed Care Organizations") {
+          navigate("/hospital/dashboard");
+        } else if (userRole === "Real Estate Professionals") {
+          navigate("/real-estate/dashboard");
+        } else if (userRole === "Non Profits") {
+          navigate("/non-profits/dashboard");
+        } else {
+          // Default dashboard or a fallback
+          navigate("/guest/dashboard");
+        }
       } catch (error) {
         console.error("login failed:", error.response?.data || error.message);
         toast.error(
@@ -129,7 +154,6 @@ function Login() {
                 onChange={(e) => setRole(e.target.value)}
               >
                 <option value="">Select Role</option>
-
                 <option>Individual</option>
                 <option>Property Owner</option>
                 <option>Insurance Company</option>

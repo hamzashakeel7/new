@@ -67,13 +67,13 @@ function Register() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Check if any field is empty or invalid
     if (!fullName || !phonenumber || !email || !password || !role) {
       toast.error("Please fill in all fields before submitting.");
       return;
     }
-
+  
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
@@ -95,16 +95,31 @@ function Register() {
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-        navigate("/Dashboard", { state: { phonenumber } }); // Redirect to OTP page
+  
+        // Retrieve the role from the response (ensure your backend is sending the role correctly)
+        const userRole = response.data.role;  // Adjust this if your API sends the role differently
+        const otpPage = "/otp"; // OTP page route
+  
+        // Check the role and navigate accordingly
+        if (userRole === "Corporate User") {
+          navigate("/corporate-dashboard", { state: { phonenumber } });
+        } else if (userRole === "Individual") {
+          navigate("/individual-dashboard", { state: { phonenumber } });
+        } else if (userRole === "Service Provider") {
+          navigate("/service-provider-dashboard", { state: { phonenumber } });
+        } else if (userRole === "Insurance Company") {
+          navigate("/insurance-dashboard", { state: { phonenumber } });
+        } else {
+          // Default navigation to OTP page
+          navigate(otpPage, { state: { phonenumber } });
+        }
       } catch (error) {
-        console.error(
-          "Registration failed:",
-          error.response?.data || error.message
-        );
+        console.error("Registration failed:", error.response?.data || error.message);
         toast.error("Registration failed! Please try again.");
       }
     }
   };
+  
 
   return (
     <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 py-10 lg:px-10 bg-gray-100 pl-8 lg:pl-16 overflow-auto w-full">
