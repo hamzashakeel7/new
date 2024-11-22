@@ -62,17 +62,17 @@ function Login() {
 
         // Navigate based on the user's role
         if (userRole === "Individual") {
-          navigate("Dashboard");
+          navigate("/Dashboard");
         } else if (userRole === "Property Owner") {
-          navigate("/property-owner/dashboard");
+          navigate("/");
         } else if (userRole === "Insurance Company") {
-          navigate("/insurance/dashboard");
+          navigate("/");
         } else if (userRole === "Hospital System/Managed Care Organizations") {
-          navigate("/hospital/dashboard");
+          navigate("/");
         } else if (userRole === "Real Estate Professionals") {
-          navigate("/real-estate/dashboard");
+          navigate("/");
         } else if (userRole === "Non Profits") {
-          navigate("/non-profits/dashboard");
+          navigate("/");
         } else {
           // Default dashboard or a fallback
           navigate("/guest/dashboard");

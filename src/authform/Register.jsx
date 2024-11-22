@@ -102,13 +102,13 @@ function Register() {
   
         // Check the role and navigate accordingly
         if (userRole === "Corporate User") {
-          navigate("/corporate-dashboard", { state: { phonenumber } });
+          navigate("/", { state: { phonenumber } });
         } else if (userRole === "Individual") {
-          navigate("/individual-dashboard", { state: { phonenumber } });
+          navigate("/Dashboard", { state: { phonenumber } });
         } else if (userRole === "Service Provider") {
-          navigate("/service-provider-dashboard", { state: { phonenumber } });
+          navigate("/", { state: { phonenumber } });
         } else if (userRole === "Insurance Company") {
-          navigate("/insurance-dashboard", { state: { phonenumber } });
+          navigate("/", { state: { phonenumber } });
         } else {
           // Default navigation to OTP page
           navigate(otpPage, { state: { phonenumber } });
