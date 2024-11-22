@@ -24,6 +24,7 @@ import { LeaseForm } from "./Component/dashboard/services/lease/LeaseForm";
 import Home from "./pages/Home";
 import Service from "./pages/Services";
 import Community from "./pages/Community";
+import AboutUs from "./pages/About";
 
 function App() {
   return (
@@ -33,8 +34,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           {/* Home page */}
           <Route path="/" element={<Home />} />
-          <Route path="/Service" element={<Service/>} />
-          <Route path="/Community" element={<Community/>} />
+          <Route path="/Service" element={<Service />} />
+          <Route path="/Community" element={<Community />} />
+          <Route path="/about" element={<AboutUs />} />
           {/* user dashborad route */}
           <Route
             path="/dashboard"
