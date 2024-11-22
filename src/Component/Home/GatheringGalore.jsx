@@ -2,7 +2,8 @@ import { Building, Building2, Cog, DollarSign } from "lucide-react";
 import React from "react";
 import gathering from "../../assets/home/gathering.png";
 
-const GatheringGalore = () => {
+const 
+GatheringGalore = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen lg:px-10  ">
       <div

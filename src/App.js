@@ -22,6 +22,8 @@ import Transportationform from "./Component/dashboard/Transportation/Trasportati
 import { ApplicationReview } from "./Component/dashboard/services/RentalApplication/ApplicationReview";
 import { LeaseForm } from "./Component/dashboard/services/lease/LeaseForm";
 import Home from "./pages/Home";
+import Service from "./pages/Services";
+import Community from "./pages/Community";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           {/* Home page */}
           <Route path="/" element={<Home />} />
+          <Route path="/Service" element={<Service/>} />
+          <Route path="/Community" element={<Community/>} />
           {/* user dashborad route */}
           <Route
             path="/dashboard"
