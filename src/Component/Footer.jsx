@@ -73,48 +73,50 @@ export function Footer() {
           </div>
 
           {/* Main Branch */}
-          <div>
-            <h3 className="text-red-400 font-semibold mb-6">Main Branch</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
-                <p className="text-sm">
-                  No: 58 A, East Madison Street,
-                  <br />
-                  Baltimore, MD, USA 4508
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                <p className="text-sm">456789</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                <p className="text-sm">support@example.com</p>
+          <div className="flex items-center justify-center gap-5">
+            <div className="flex items-start justify-start flex-col">
+              <h3 className="text-red-400 font-semibold mb-6">Main Branch</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  <p className="text-sm">
+                    No: 58 A, East Madison Street,
+                    <br />
+                    Baltimore, MD, USA 4508
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  <p className="text-sm">456789</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  <p className="text-sm">support@example.com</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Facilities */}
-          <div>
-            <h3 className="text-red-400 font-semibold mb-6">Facilities</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/service">Our Service</Link>
-              </li>
-              <li>
-                <Link to="/donation">Donation</Link>
-              </li>
-              <li>
-                <Link to="/journal">Journal</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-            </ul>
+            {/* Facilities */}
+            <div>
+              <h3 className="text-red-400 font-semibold mb-6">Facilities</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/service">Our Service</Link>
+                </li>
+                <li>
+                  <Link to="/donation">Donation</Link>
+                </li>
+                <li>
+                  <Link to="/journal">Journal</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Logo and Social */}

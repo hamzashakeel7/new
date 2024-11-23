@@ -205,7 +205,7 @@ export function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <span>Mon To Sat 9:00 AM to 8:00 PM</span>
+              <span className="">Mon To Sat 9:00 AM to 8:00 PM</span>
             </div>
           </div>
         </div>

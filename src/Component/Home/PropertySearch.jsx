@@ -4,7 +4,7 @@ import propertySeach from "../../assets/home/propertySeach.png";
 
 export function PropertySearch() {
   return (
-    <div className="relative mt-10 h-[250px] w-full overflow-hidden rounded-xl">
+    <div className="relative mt-10 h-full lg:h-[250px] w-full overflow-hidden rounded-xl">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -14,13 +14,18 @@ export function PropertySearch() {
       />
       <div className="absolute inset-0 bg-purple-900/30" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-white">
-        <h2 className="mb-2 text-3xl font-semibold">Property Search</h2>
-        <p className="mb-8 text-sm text-gray-200">
+        <h2 className="lg:mb-2 mt-5 lg:mt-0 text-2xl lg:text-3xl font-semibold">
+          Property Search
+        </h2>
+        <p className="mb-4 lg:mb-8 text-sm text-gray-200">
           Where would you like to find a place?
         </p>
-        <div className="flex w-full max-w-4xl flex-col gap-4 sm:flex-row text-black">
+        <div className="flex w-full lg:max-w-4xl h-full flex-col gap-4 sm:flex-row text-black">
           <div className="flex-1 ">
-            <label htmlFor="city" className="mb-1 block text-sm text-white">
+            <label
+              htmlFor="city"
+              className="mb-1 block text-sm text-white font-semibold"
+            >
               City
             </label>
             <Input
@@ -30,7 +35,10 @@ export function PropertySearch() {
             />
           </div>
           <div className="w-full sm:w-24">
-            <label htmlFor="number" className="mb-1 block text-sm text-white">
+            <label
+              htmlFor="number"
+              className="mb-1 block text-sm text-white font-semibold"
+            >
               State
             </label>
             <Input
@@ -39,8 +47,11 @@ export function PropertySearch() {
               placeholder="2"
             />
           </div>
-          <div className="flex-1">
-            <label htmlFor="zip" className="mb-1 block text-sm text-white">
+          <div className="flex-1 mb-6 lg:mb-0">
+            <label
+              htmlFor="zip"
+              className="mb-1 block text-sm text-white font-semibold"
+            >
               ZIP
             </label>
             <Input

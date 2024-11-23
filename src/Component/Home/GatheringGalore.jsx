@@ -2,17 +2,16 @@ import { Building, Building2, Cog, DollarSign } from "lucide-react";
 import React from "react";
 import gathering from "../../assets/home/gathering.png";
 
-const 
-GatheringGalore = () => {
+const GatheringGalore = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen lg:px-10  ">
+    <div className="relative flex flex-col items-center justify-center min-h-screen lg:px-10  mt-5 lg:mt-0">
       <div
-        className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-10 hidden md:block"
+        className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-10 w-[500px] lg:w-full md:block"
         style={{
           backgroundImage: `url(${gathering})`,
         }}
       />
-      <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-5 w-full">
+      <div className="relative z-10 flex flex-col items-center gap-2 lg:gap-5 w-full">
         <h3 className="text-sm text-purple-600">Gatherings Galore</h3>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-purple-600 w-full lg:w-1/2  text-center">
           Seniors at our center have a choice of single or multi-bed rooms, with
@@ -24,7 +23,7 @@ GatheringGalore = () => {
       </div>
       {/* boxes start */}
       <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-3 px-0 lg:px-28">
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[22rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-2 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Building2 />
             <p className="font-bold">Agencies</p>
@@ -35,7 +34,7 @@ GatheringGalore = () => {
             care/rehabilitation and mental health facilities
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[22rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Cog />
             <p className="font-bold">Service Providers</p>
@@ -47,7 +46,7 @@ GatheringGalore = () => {
             Bill Pay Services.
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[22rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Building />
             <p className="font-bold">Real Estate</p>
@@ -57,7 +56,7 @@ GatheringGalore = () => {
             State Housing Authorities,
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[22rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <DollarSign />
             <p className="font-bold">Non-Profits</p>
