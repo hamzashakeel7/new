@@ -106,7 +106,9 @@ export function Navbar() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem>Option 1</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/cardiac">Cardiac Services</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>Option 2</DropdownMenuItem>
                   <DropdownMenuItem>Option 3</DropdownMenuItem>
                 </DropdownMenuContent>

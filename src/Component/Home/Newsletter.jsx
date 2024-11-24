@@ -36,7 +36,7 @@ const Newsletter = () => {
               <img
                 src={newsletter}
                 alt="Smiling Couple"
-                className="lg:h-[20rem] lg:w-[22rem] h-full w-full object-cover relative lg:bottom-32 bottom-20 right-6"
+                className="lg:h-[20rem] lg:w-[22rem] h-full w-full object-cover relative lg:bottom-32 hidden lg:block"
               />
             </div>
           </div>

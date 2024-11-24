@@ -25,6 +25,7 @@ import Home from "./pages/Home";
 import Service from "./pages/Services";
 import Community from "./pages/Community";
 import AboutUs from "./pages/About";
+import CardiacCareService from "./pages/Cardiac";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/Service" element={<Service />} />
           <Route path="/Community" element={<Community />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/cardiac" element={<CardiacCareService />} />
           {/* user dashborad route */}
           <Route
             path="/dashboard"

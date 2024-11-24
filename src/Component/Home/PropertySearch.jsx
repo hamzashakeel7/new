@@ -14,7 +14,7 @@ export function PropertySearch() {
       />
       <div className="absolute inset-0 bg-purple-900/30" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-white">
-        <h2 className="lg:mb-2 mt-5 lg:mt-0 text-2xl lg:text-3xl font-semibold">
+        <h2 className="lg:mb-2 mt-5 text-2xl lg:text-3xl font-semibold">
           Property Search
         </h2>
         <p className="mb-4 lg:mb-8 text-sm text-gray-200">

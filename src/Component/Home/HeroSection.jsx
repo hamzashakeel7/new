@@ -20,7 +20,7 @@ const HeroSection = () => {
             Welcome To The TLC Company, LLC
           </h1>
           <div className="absolute opacity-30">
-            <img src={heart} alt="heart" className=" w-[20rem]" />
+            <img src={heart} alt="heart" className="w-[20rem]" />
           </div>
           <p className="text-gray-100 text-lg lg:text-xl text-center">
             The moral test of government is how that government treats those who
@@ -31,7 +31,11 @@ const HeroSection = () => {
           <p className="text-white font-bold shadow-lg">Hubert Humphreys</p>
         </div>
         <div className=" flex items-center justify-center mx-auto lg:relative">
-          <img src={herohand} alt="hands" className="w-[17rem] mt-[-5rem]" />
+          <img
+            src={herohand}
+            alt="hands"
+            className="w-[17rem] mt-[-5rem] lg:w-full lg:right-0"
+          />
         </div>
       </div>
     </div>
