@@ -2,18 +2,18 @@ import { CheckCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../Component/Navbar";
 import { useState } from "react";
-import hero from "../assets/cardiac&travel/hero.png";
-import health from "../assets/cardiac&travel/health.png";
-import slider1 from "../assets/cardiac&travel/slider1.png";
-import slider2 from "../assets/cardiac&travel/slider2.png";
-import slider3 from "../assets/cardiac&travel/slider3.png";
+import hero2 from "../assets/cardiac&travel/hero2.png";
+import ambulance from "../assets/cardiac&travel/ambulance.png";
+import slider4 from "../assets/cardiac&travel/slider4.png";
+import slider5 from "../assets/cardiac&travel/slider5.png";
+import slider6 from "../assets/cardiac&travel/slider6.png";
 import bgImg from "../assets/cardiac&travel/bg-img.png";
 import Newsletter from "../Component/Home/Newsletter";
 import { Footer } from "../Component/Footer";
 
 const serviceSlides = [
   {
-    image: slider1,
+    image: slider4,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -28,7 +28,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider2,
+    image: slider5,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -43,7 +43,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider3,
+    image: slider6,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -58,7 +58,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider1,
+    image: slider5,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -74,7 +74,7 @@ const serviceSlides = [
   },
 ];
 
-export default function CardiacCareService() {
+export default function TravelService() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -107,7 +107,7 @@ export default function CardiacCareService() {
               Query Services
             </Link>
             <ChevronRight className="h-4 w-4 text-gray-400" />
-            <span className="text-purple-600">Cardiac Care Service</span>
+            <span className="text-purple-600">Travel Services</span>
           </div>
         </div>
 
@@ -116,14 +116,14 @@ export default function CardiacCareService() {
           <div
             className="absolute inset-0 bg-cover bg-top"
             style={{
-              backgroundImage: `url(${hero})`,
+              backgroundImage: `url(${hero2})`,
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 to-purple-500/40" />
           </div>
           <div className="relative flex h-full items-center justify-center">
             <h1 className="text-3xl lg:text-6xl font-bold text-white tracking-widest">
-              Cardiac Care Service
+              Travel Service
             </h1>
           </div>
         </div>
@@ -147,9 +147,7 @@ export default function CardiacCareService() {
               <div className="space-y-8">
                 {/* Service Description */}
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">
-                    Cardiac Care Service
-                  </h2>
+                  <h2 className="text-2xl font-bold mb-4">Travel Service</h2>
                   <p className="text-gray-600 leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -337,10 +335,10 @@ export default function CardiacCareService() {
                 Service Type
               </h3>
               <div className="flex justify-center">
-                <img src={health} alt="Healthcare" className="w-[130px]" />
+                <img src={ambulance} alt="Healthcare" className="w-[130px]" />
               </div>
               <p className="text-center text-2xl text-gray-400 tracking-[0.5em] mt-4">
-                HEALTHCARE
+                TRANSPORTATION
               </p>
             </div>
 

@@ -109,7 +109,9 @@ export function Navbar() {
                   <DropdownMenuItem>
                     <Link to="/cardiac">Cardiac Services</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>Option 2</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/travel">Travel Services</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>Option 3</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
