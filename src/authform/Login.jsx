@@ -12,6 +12,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [roleError, setRoleError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -25,14 +26,23 @@ function Login() {
   };
 
   const validateForm = () => {
+    let isValid = true;
+
     if (!email || !password || !role) {
       toast.error("Please fill in all fields.");
-      return false;
+      isValid = false;
     }
     if (!validateEmail(email)) {
-      return false;
+      isValid = false;
     }
-    return true;
+    if (!role) {
+      setRoleError("Please select a role.");
+      isValid = false;
+    } else {
+      setRoleError("");
+    }
+
+    return isValid;
   };
 
   const handleSubmit = async (e) => {
@@ -47,35 +57,29 @@ function Login() {
             role,
           }
         );
-
+        console.log("Response Data:", response.data);
+  
         const token = response.data.token;
-        const userRole = response.data.user.role;  // Assuming the role is part of the response
-
-        console.log(token);
-        console.log(response.data);
-
+  
         toast.success("Login successful!");
-
-        // Store token and role in localStorage (optional, depending on your auth flow)
+  
         localStorage.setItem("token", token);
-        localStorage.setItem("role", userRole);
-
-        // Navigate based on the user's role
-        if (userRole === "Individual") {
-          navigate("/Dashboard");
-        } else if (userRole === "Property Owner") {
-          navigate("/");
-        } else if (userRole === "Insurance Company") {
-          navigate("/");
-        } else if (userRole === "Hospital System/Managed Care Organizations") {
-          navigate("/");
-        } else if (userRole === "Real Estate Professionals") {
-          navigate("/");
-        } else if (userRole === "Non Profits") {
-          navigate("/");
-        } else {
-          // Default dashboard or a fallback
-          navigate("/guest/dashboard");
+        localStorage.setItem("role", role);
+  
+        // Use the selected role from the input state for navigation
+        switch (role) {
+          case "Individual":
+            navigate("/dashboard");
+            break;
+          case "Property Owner":
+          case "Insurance Company":
+          case "Hospital System/Managed Care Organizations":
+          case "Real Estate Professionals":
+          case "Non Profits":
+            navigate("/");
+            break;
+          default:
+            navigate("/dashboard");
         }
       } catch (error) {
         console.error("login failed:", error.response?.data || error.message);
@@ -85,13 +89,13 @@ function Login() {
       }
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-        {/* Left Section - Image with Overlay Text */}
         <div className="w-full lg:w-2/5 relative">
           <img
             src={loginimage}
@@ -109,7 +113,6 @@ function Login() {
           </div>
         </div>
 
-        {/* Right Section - Form */}
         <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
           <div className="absolute top-6 right-4 md:top-4 md:right-0 z-10">
             <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
@@ -154,17 +157,22 @@ function Login() {
                 onChange={(e) => setRole(e.target.value)}
               >
                 <option value="">Select Role</option>
-                <option>Individual</option>
-                <option>Property Owner</option>
-                <option>Insurance Company</option>
-                <option>Hospital System/Managed Care Organizations</option>
-                <option>Real Estate Professionals</option>
-                <option>Non Profits</option>
+                <option value="Individual">Individual</option>
+                <option value="Property Owner">Property Owner</option>
+                <option value="Insurance Company">Insurance Company</option>
+                <option value="Hospital System/Managed Care Organizations">
+                  Hospital System/Managed Care Organizations
+                </option>
+                <option value="Real Estate Professionals">
+                  Real Estate Professionals
+                </option>
+                <option value="Non Profits">Non Profits</option>
               </select>
+              {roleError && <p className="text-red-500 text-sm">{roleError}</p>}
             </div>
 
             <div>
-              <label className="block  text-gray-600">Email</label>
+              <label className="block text-gray-600">Email</label>
               <input
                 type="email"
                 placeholder="Enter your email"
