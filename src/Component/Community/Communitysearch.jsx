@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Communitysearch = () => {
   return (
@@ -31,8 +31,15 @@ const Communitysearch = () => {
 
       {/* Dropdown Sections */}
       <div className="max-w-3xl mx-auto space-y-4">
-        {["Support Groups", "Local Assistance Centers", "Health and Wellness Resources"].map((item, index) => (
-          <div key={index} className="border border-gray-300 rounded-full shadow-md bg-white">
+        {[
+          "Support Groups",
+          "Local Assistance Centers",
+          "Health and Wellness Resources",
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="border border-gray-300 rounded-full shadow-md bg-white"
+          >
             <button className="w-full text-left px-4 py-3 font-medium flex justify-between items-center">
               {item}
               <span className="text-purple-500">▼</span>

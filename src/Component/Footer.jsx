@@ -29,7 +29,7 @@ export function Footer() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Urgent Causes */}
           <div>
             <h3 className="text-red-400 font-semibold mb-6">Urgent Causes</h3>
@@ -73,52 +73,54 @@ export function Footer() {
           </div>
 
           {/* Main Branch */}
-          <div>
-            <h3 className="text-red-400 font-semibold mb-6">Main Branch</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
-                <p className="text-sm">
-                  No: 58 A, East Madison Street,
-                  <br />
-                  Baltimore, MD, USA 4508
-                </p>
+          <div className="flex items-center justify-between gap-5">
+            <div className="flex items-start justify-start flex-col">
+              <h3 className="text-red-400 font-semibold mb-6">Main Branch</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  <p className="text-sm">
+                    No: 58 A, East Madison Street,
+                    <br />
+                    Baltimore, MD, USA 4508
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  <p className="text-sm">456789</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  <p className="text-sm">support@example.com</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                <p className="text-sm">456789</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                <p className="text-sm">support@example.com</p>
-              </div>
+            </div>
+
+            {/* Facilities */}
+            <div>
+              <h3 className="text-red-400 font-semibold mb-6">Facilities</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/service">Our Service</Link>
+                </li>
+                <li>
+                  <Link to="/donation">Donation</Link>
+                </li>
+                <li>
+                  <Link to="/journal">Journal</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Facilities */}
-          <div>
-            <h3 className="text-red-400 font-semibold mb-6">Facilities</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/service">Our Service</Link>
-              </li>
-              <li>
-                <Link to="/donation">Donation</Link>
-              </li>
-              <li>
-                <Link to="/journal">Journal</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Logo and Social */}
-          <div>
+          <div className="lg:ml-36 w-full">
             <div className="flex items-center gap-2 mb-4">
               <img src={logo} alt="Silver TLC" className="w-28 h-20" />
               <span className="text-xl font-bold">SILVER TLC</span>

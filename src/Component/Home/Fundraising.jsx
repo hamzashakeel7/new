@@ -38,16 +38,16 @@ export function Fundraising() {
         <h2 className="text-center text-sm text-purple-600 mb-2">
           Small Acts, Big Impact
         </h2>
-        <h1 className="text-center text-3xl font-bold text-purple-600 mb-2">
+        <h1 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-2">
           Join Us In Our Fundraising Campaigns
         </h1>
-        <p className="text-center text-purple-600 font-semibold lg:w-1/2 w-full mb-12">
+        <p className="text-center text-purple-600 font-semibold lg:w-1/2 w-full mb-12 px-3">
           SilverTLC.com Partners With Non Profits Servicing Senior And Disabled
           Living And Support Services. Your Giving Will Go To Those
           Organizations Based On Your Giving Terms And Territory.
         </p>
       </div>
-      <div className="flex justify-center gap-6 mb-12">
+      <div className="flex flex-wrap justify-center gap-6 mb-12">
         {funds.map((fund, index) => (
           <div
             key={index}

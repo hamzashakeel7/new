@@ -106,8 +106,12 @@ export function Navbar() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem>Option 1</DropdownMenuItem>
-                  <DropdownMenuItem>Option 2</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/cardiac">Cardiac Services</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/travel">Travel Services</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>Option 3</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -205,7 +209,7 @@ export function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <span>Mon To Sat 9:00 AM to 8:00 PM</span>
+              <span className="">Mon To Sat 9:00 AM to 8:00 PM</span>
             </div>
           </div>
         </div>

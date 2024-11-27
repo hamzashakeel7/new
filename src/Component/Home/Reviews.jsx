@@ -40,11 +40,11 @@ export function Reviews() {
 
   return (
     <div className="py-12">
-      <h2 className="text-center text-3xl font-bold text-purple-600 mb-8">
+      <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-8">
         Listen To What Our Members Have To Say
       </h2>
-      <div className="relative flex items-center justify-center mx-auto p-10 w-full lg:w-[60vw] h-[28vh]">
-        <div className="absolute inset-0 rounded-lg overflow-hidden">
+      <div className="relative flex items-center justify-center flex-col lg:flex-row mx-auto p-1 lg:p-10 h-full w-full lg:w-[60vw]  lg:h-[37vh]">
+        <div className="absolute inset-0 rounded-lg overflow-hidden flex">
           <img
             src={contact}
             alt="Background"
@@ -54,12 +54,12 @@ export function Reviews() {
         </div>
         <button
           onClick={handlePrev}
-          className="absolute left-10 p-2 bg-purple-700 rounded-full shadow-md z-10"
+          className="absolute left-2 lg:left-10 p-2 bg-purple-700 rounded-full shadow-md z-10"
         >
           <ChevronLeft className="h-6 w-6 text-white" />
         </button>
-        <div className="relative z-10 flex gap-10 items-center bg-transparent text-white p-6 max-w-xl transition-transform duration-500 ease-in-out transform">
-          <p className="text-center text-lg mb-4">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:gap-10 items-center bg-transparent text-white p-6 w-full lg:max-w-xl transition-transform duration-500 ease-in-out transform">
+          <p className="text-center text-lg mb-4 w-full">
             {testimonials[currentIndex].text}
           </p>
           <div className="flex items-center gap-4">
@@ -72,13 +72,13 @@ export function Reviews() {
             <img
               src={testimonials[currentIndex].image}
               alt={testimonials[currentIndex].name}
-              className="h-20 w-28 rounded-full"
+              className="w-[80px]  lg:h-20 lg:w-28 rounded-full"
             />
           </div>
         </div>
         <button
           onClick={handleNext}
-          className="absolute right-10 p-2 bg-purple-700 rounded-full shadow-md z-10"
+          className="absolute right-2 lg:right-10 p-2 bg-purple-700 rounded-full shadow-md z-10"
         >
           <ChevronRight className="h-6 w-6 text-white" />
         </button>

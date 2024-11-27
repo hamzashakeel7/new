@@ -13,15 +13,15 @@ export function Mission() {
   const [showMission, setShowMission] = React.useState(false);
 
   return (
-    <div className="relative py-12">
+    <div className="relative py-6 lg:py-12">
       <div className="container mx-auto px-4">
         <div className="w-full">
-          <p className="mb-6 text-sm lg:text-lg leading-relaxed">
+          <p className="mb-3 lg:mb-6 text-sm lg:text-lg leading-relaxed">
             At The TLC Company, LLC, We Believe That America's Seniors And
             Disabled Deserve The Opportunity To Access Safe And Secure Housing
             Where They Can Live As Independently As Possible.
           </p>
-          <p className="mb-8 text-sm lg:text-lg leading-relaxed">
+          <p className="mb-5 lg:mb-8 text-sm lg:text-lg leading-relaxed">
             TLC And Our SilverTLC.Com Webpage And App Have Been Created As A
             Customer And Service Relations Management Agency To Assist
             Government; National Insurance; Non-Profits; Hospital/Health Care
@@ -41,7 +41,7 @@ export function Mission() {
             Mission
           </Button>
         </div>
-        <div className="absolute top-[2rem]  right-[-10rem] w-[60rem] hidden md:block">
+        <div className="absolute top-[7rem] right-[-20rem] lg:top-[2rem] lg:right-[-10rem] w-[60rem] md:block">
           <img
             src={walking}
             alt="walking"
