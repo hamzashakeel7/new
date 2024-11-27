@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { Servicesform } from "../Component/dashboard/services/Servicesform";
 import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
 import { useEffect, useState } from "react";
-import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
 import { MessageBoard } from "../Component/serviceProvider dashboard/messages/MessageBoard";
