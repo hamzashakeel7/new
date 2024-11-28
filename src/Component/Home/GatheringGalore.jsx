@@ -1,6 +1,6 @@
 import { Building, Building2, Cog, DollarSign } from "lucide-react";
 import React from "react";
-import gathering from "../../assets/home/gathering.png";
+import gathering from "../../assets/home/gathering.webp";
 
 const GatheringGalore = () => {
   return (

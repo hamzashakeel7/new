@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Button } from "../../shadcn/components/ui/Button";
-import fund1 from "../../assets/home/fundraising/fund1.jpg";
-import fund2 from "../../assets/home/fundraising/fund2.jpg";
-import fund3 from "../../assets/home/fundraising/fund3.jpg";
+import fund1 from "../../assets/home/fundraising/fund1.webp";
+import fund2 from "../../assets/home/fundraising/fund2.webp";
+import fund3 from "../../assets/home/fundraising/fund3.webp";
 
 export function Fundraising() {
   const funds = [

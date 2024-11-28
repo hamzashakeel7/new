@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../../../../shadcn/components/ui/Button";
-import { Input } from "../../../../shadcn/components/ui/Input";
-import { Calendar } from "../../../../shadcn/components/ui/Calendar";
+import { Button } from "../../../shadcn/components/ui/Button";
+import { Input } from "../../../shadcn/components/ui/Input";
+import { Calendar } from "../../../shadcn/components/ui/Calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "../../../../shadcn/components/ui/Popover";
+} from "../../../shadcn/components/ui/Popover";
 import { CalendarIcon, ChevronDown, X } from "lucide-react";
 import { format } from "date-fns";
-import { cn } from "../../../../shadcn/lib/utils";
+import { cn } from "../../../shadcn/lib/utils";
 
 const applications = Array.from({ length: 8 }, (_, i) => ({
   id: `APP${i + 1}`,
@@ -21,7 +21,7 @@ const applications = Array.from({ length: 8 }, (_, i) => ({
   status: "open",
 }));
 
-export function ApplicationReview() {
+export function Applications() {
   const [searchQuery, setSearchQuery] = useState("");
   const [dateFrom, setDateFrom] = useState();
   const [dateTo, setDateTo] = useState();

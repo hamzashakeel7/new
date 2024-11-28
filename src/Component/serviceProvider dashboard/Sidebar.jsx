@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import {
   Home,
-  Building2,
   LayoutGrid,
   Mail,
   Receipt,
@@ -39,7 +38,7 @@ const menuItems = [
   { icon: LayoutGrid, label: "Applications", section: "application" },
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
-  { icon: HelpCircle, label: "Help & Support", section: "Help & Support" },
+  { icon: HelpCircle, label: "Help & Support", section: "Corporate Tickets" },
   {
     icon: ChartArea,
     label: "Industry Relations",
@@ -54,6 +53,11 @@ const menuItems = [
     icon: Grip,
     label: "temp corporate messages",
     section: "corporate messages",
+  },
+  {
+    icon: Grip,
+    label: "temp Ticket Threat",
+    section: "Ticket Thread",
   },
 ];
 

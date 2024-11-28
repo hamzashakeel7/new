@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import reviewAvatar from "../../assets/home/contact/reviewAvatar.jpg";
-import contact from "../../assets/home/contact/contact.jpg";
+import reviewAvatar from "../../assets/home/contact/reviewAvatar.webp";
+import contact from "../../assets/home/contact/contact.webp";
 
 export function Reviews() {
   const [currentIndex, setCurrentIndex] = React.useState(0);

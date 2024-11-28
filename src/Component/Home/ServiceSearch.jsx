@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../shadcn/components/ui/Select";
-import serviceSearch from "../../assets/home/serviceSearch.png";
+import serviceSearch from "../../assets/home/serviceSearch.webp";
 
 export function ServiceSearch() {
   return (

@@ -3,7 +3,7 @@ import { Filter, Clock } from "lucide-react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import { Input } from "../../../shadcn/components/ui/Input";
 import { Badge } from "../../../shadcn/components/ui/Badge";
-import industryrelations1 from "../../../assets/serviceProvider dashboard/industry relations/industryrelations1.png";
+import industryrelations1 from "../../../assets/serviceProvider dashboard/industry relations/industryrelations1.webp";
 import { IndustryPopup } from "./IndustryPopup";
 
 export function IndustryRelations() {

@@ -28,6 +28,9 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
+import { ServiceDashboard } from "./pages/ServiceDashboard";
+import CardiacCareService from "./pages/Cardiac";
+import TravelService from "./pages/Travel";
 
 function App() {
   return (
@@ -45,6 +48,8 @@ function App() {
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
           <Route path="/PropertyService" element={<Properties />} />
+          <Route path="/cardiac" element={<CardiacCareService />} />
+          <Route path="/travel" element={<TravelService />} />
           {/* User dashboard route */}
           <Route
             path="/dashboard"
@@ -82,7 +87,7 @@ function App() {
           <Route path="/lease" element={<LeaseForm />} />
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
-          <Route path="/PropertyService" element={<Properties/>} />
+          <Route path="/PropertyService" element={<Properties />} />
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
         </Routes>
       </div>
