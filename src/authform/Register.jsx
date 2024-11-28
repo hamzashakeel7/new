@@ -67,13 +67,13 @@ function Register() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Check if any field is empty or invalid
     if (!fullName || !phonenumber || !email || !password || !role) {
       toast.error("Please fill in all fields before submitting.");
       return;
     }
-  
+
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
@@ -95,11 +95,11 @@ function Register() {
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-  
+
         // Retrieve the role from the response (ensure your backend is sending the role correctly)
-        const userRole = response.data.role;  // Adjust this if your API sends the role differently
-        const otpPage = "/otp"; // OTP page route
-  
+        const userRole = response.data.role; // Adjust this if your API sends the role differently
+        const dashboard = "/dashboard"; // OTP page route
+
         // Check the role and navigate accordingly
         if (userRole === "Corporate User") {
           navigate("/", { state: { phonenumber } });
@@ -111,15 +111,17 @@ function Register() {
           navigate("/", { state: { phonenumber } });
         } else {
           // Default navigation to OTP page
-          navigate(otpPage, { state: { phonenumber } });
+          navigate(dashboard, { state: { phonenumber } });
         }
       } catch (error) {
-        console.error("Registration failed:", error.response?.data || error.message);
+        console.error(
+          "Registration failed:",
+          error.response?.data || error.message
+        );
         toast.error("Registration failed! Please try again.");
       }
     }
   };
-  
 
   return (
     <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 py-10 lg:px-10 bg-gray-100 pl-8 lg:pl-16 overflow-auto w-full">
@@ -193,7 +195,7 @@ function Register() {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               >
-               <option value="">Select Role</option>
+                <option value="">Select Role</option>
                 <option value="Individual">Individual</option>
                 <option value="Property Owner">Property Owner</option>
                 <option value="Insurance Company">Insurance Company</option>
