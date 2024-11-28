@@ -14,7 +14,6 @@ import Completion from "./authform/Completion";
 import ChangepasswordProtected from "./Component/ChangepasswordProtected";
 import { Dashboard } from "./pages/Dashboard";
 import { Invoice } from "./Component/dashboard/Invoice";
-
 import Notfound from "./pages/Not-Found";
 import PropertyForm from "./Component/dashboard/Propertyform/Propertyform";
 import ServiceInformationForm from "./Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
@@ -28,6 +27,9 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
+import CardiacCareService from "./pages/Cardiac";
+import TravelService from "./pages/Travel";
+import { ServiceDashboard } from "./pages/ServiceDashboard";
 
 function App() {
   return (
@@ -60,7 +62,7 @@ function App() {
           />
           <Route
             path="/servicedashboard/:section"
-            element={<ServiceDashboard/>}
+            element={<ServiceDashboard />}
           />
           {/* Auth setup */}
           <Route path="/register" element={<Register />} />
