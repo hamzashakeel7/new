@@ -193,11 +193,17 @@ function Register() {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               >
-                <option>Select Role</option>
-                <option>Corporate User</option>
-                <option>Individual</option>
-                <option>Service Provider</option>
-                <option>Insurance Company</option>
+               <option value="">Select Role</option>
+                <option value="Individual">Individual</option>
+                <option value="Property Owner">Property Owner</option>
+                <option value="Insurance Company">Insurance Company</option>
+                <option value="Hospital System/Managed Care Organizations">
+                  Hospital System/Managed Care Organizations
+                </option>
+                <option value="Real Estate Professionals">
+                  Real Estate Professionals
+                </option>
+                <option value="Non Profits">Non Profits</option>
               </select>
             </div>
 

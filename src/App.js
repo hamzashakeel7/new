@@ -28,6 +28,9 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
+import ProfileForm from "./Component/dashboard/Serviceprovider Dahboard/Profile";
+import MyPropertiesServices from "./Component/dashboard/Serviceprovider Dahboard/Mypropertyservice";
+import PostForm from "./Component/dashboard/Serviceprovider Dahboard/Postservice";
 
 function App() {
   return (
@@ -78,6 +81,9 @@ function App() {
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
           <Route path="/PropertyService" element={<Properties/>} />
+          <Route path="/Profile" element={<ProfileForm/>} />
+          <Route path="/Propertyservicedashboard" element={<MyPropertiesServices/>} />
+          <Route path="/Serviceproviderpost" element={<PostForm/>} />
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
         </Routes>
       </div>
