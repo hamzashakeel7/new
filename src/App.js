@@ -28,28 +28,39 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
-import ProfileForm from "./Component/dashboard/Serviceprovider Dahboard/Profile";
-import MyPropertiesServices from "./Component/dashboard/Serviceprovider Dahboard/Mypropertyservice";
-import PostForm from "./Component/dashboard/Serviceprovider Dahboard/Postservice";
 
 function App() {
   return (
-    <Router> {/* Single BrowserRouter for the whole app */}
+    <Router>
+      {" "}
+      {/* Single BrowserRouter for the whole app */}
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
-          {/* Home page */}
+          {/* User side pages */}
           <Route path="/" element={<Home />} />
           <Route path="/Service" element={<Service />} />
           <Route path="/Community" element={<Community />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/property" element={<Property />} />
+          <Route path="/propertydetail" element={<PropertyDetail />} />
+          <Route path="/PropertyService" element={<Properties />} />
           {/* User dashboard route */}
           <Route
             path="/dashboard"
             element={<Navigate to="/dashboard/My profile" replace />}
           />
           <Route path="/dashboard/:section" element={<Dashboard />} />
-          {/* Register */}
+          {/* Service provider dashboard */}
+          <Route
+            path="/servicedashboard"
+            element={<Navigate to="/servicedashboard/My profile" replace />}
+          />
+          <Route
+            path="/servicedashboard/:section"
+            element={<ServiceDashboard />}
+          />
+          {/* Auth setup */}
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
           <Route path="/otp" element={<Otp />} />
@@ -64,26 +75,14 @@ function App() {
           />
           <Route path="/completion" element={<Completion />} />
           <Route path="/propertyform" element={<PropertyForm />} />
-          <Route
-            path="/Serviceinfoform"
-            element={<ServiceInformationForm />}
-          />
-          <Route
-            path="/Transportationform"
-            element={<Transportationform />}
-          />
+          <Route path="/Serviceinfoform" element={<ServiceInformationForm />} />
+          <Route path="/Transportationform" element={<Transportationform />} />
           <Route path="/invoice" element={<Invoice />} />
-          <Route
-            path="/ApplicationReview"
-            element={<ApplicationReview />}
-          />
+          <Route path="/ApplicationReview" element={<ApplicationReview />} />
           <Route path="/lease" element={<LeaseForm />} />
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
           <Route path="/PropertyService" element={<Properties/>} />
-          <Route path="/Profile" element={<ProfileForm/>} />
-          <Route path="/Propertyservicedashboard" element={<MyPropertiesServices/>} />
-          <Route path="/Serviceproviderpost" element={<PostForm/>} />
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
         </Routes>
       </div>
