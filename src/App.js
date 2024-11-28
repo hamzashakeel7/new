@@ -28,9 +28,6 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
-import { ServiceDashboard } from "./pages/ServiceDashboard";
-import CardiacCareService from "./pages/Cardiac";
-import TravelService from "./pages/Travel";
 
 function App() {
   return (
@@ -63,7 +60,7 @@ function App() {
           />
           <Route
             path="/servicedashboard/:section"
-            element={<ServiceDashboard />}
+            element={<ServiceDashboard/>}
           />
           {/* Auth setup */}
           <Route path="/register" element={<Register />} />
