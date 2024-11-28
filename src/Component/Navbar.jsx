@@ -107,12 +107,11 @@ export function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link to="/cardiac">Cardiac Services</Link>
+                    <Link to="/property">Property</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/travel">Travel Services</Link>
+                    <Link to="/PropertyService">Services</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>Option 3</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <Link to="/community" className="hover:text-gray-300">
