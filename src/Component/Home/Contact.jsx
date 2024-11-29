@@ -1,8 +1,8 @@
 import * as React from "react";
-import contact from "../../assets/home/contact/contact.jpg";
-import contact1 from "../../assets/home/contact/contact1.jpg";
-import contact2 from "../../assets/home/contact/contact2.jpg";
-import contact3 from "../../assets/home/contact/contact3.jpg";
+import contact from "../../assets/home/contact/contact.webp";
+import contact1 from "../../assets/home/contact/contact1.webp";
+import contact2 from "../../assets/home/contact/contact2.webp";
+import contact3 from "../../assets/home/contact/contact3.webp";
 
 const Contact = () => {
   const images = [contact1, contact2, contact3];

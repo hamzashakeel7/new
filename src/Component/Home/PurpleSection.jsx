@@ -1,10 +1,10 @@
 import React from "react";
-import purpleSection1 from "../../assets/home/purpleSection/purpleSection1.png";
-import purpleSection2 from "../../assets/home/purpleSection/purpleSection2.png";
-import purpleSection3 from "../../assets/home/purpleSection/purpleSection3.png";
-import purpleSection4 from "../../assets/home/purpleSection/purpleSection4.png";
-import purpleSection5 from "../../assets/home/purpleSection/purpleSection5.png";
-import purpleSection6 from "../../assets/home/purpleSection/purpleSection6.png";
+import purpleSection1 from "../../assets/home/purpleSection/purpleSection1.webp";
+import purpleSection2 from "../../assets/home/purpleSection/purpleSection2.webp";
+import purpleSection3 from "../../assets/home/purpleSection/purpleSection3.webp";
+import purpleSection4 from "../../assets/home/purpleSection/purpleSection4.webp";
+import purpleSection5 from "../../assets/home/purpleSection/purpleSection5.webp";
+import purpleSection6 from "../../assets/home/purpleSection/purpleSection6.webp";
 import { Link } from "react-router-dom";
 
 export const PurpleSection = () => {

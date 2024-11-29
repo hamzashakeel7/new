@@ -1,5 +1,5 @@
 import React from "react";
-import about1 from "../assets/about/about1.png";
+import about1 from "../assets/about/about1.webp";
 import goals from "../assets/about/goals.png";
 import bgImg from "../assets/about/bg-img.png";
 import { Navbar } from "../Component/Navbar";

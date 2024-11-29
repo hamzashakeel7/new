@@ -2,7 +2,7 @@ import { CheckCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../Component/Navbar";
 import { useState } from "react";
-import hero2 from "../assets/cardiac&travel/hero2.png";
+import hero2 from "../assets/cardiac&travel/hero2.webp";
 import ambulance from "../assets/cardiac&travel/ambulance.png";
 import slider4 from "../assets/cardiac&travel/slider4.png";
 import slider5 from "../assets/cardiac&travel/slider5.png";

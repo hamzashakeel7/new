@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from "../../shadcn/components/ui/Button";
 import { ArrowLeft } from "lucide-react";
-import { Input } from "../../shadcn/components/ui/Input";
-import newsletter from "../../assets/home/fundraising/newsletter.png";
+import newsletter from "../../assets/home/fundraising/newsletter.webp";
 
 const Newsletter = () => {
   return (

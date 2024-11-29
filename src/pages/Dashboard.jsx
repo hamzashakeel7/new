@@ -1,6 +1,5 @@
 import { SidebarProvider } from "../shadcn/components/ui/Sidebar";
 import { Topbar } from "../Component/dashboard/Topbar";
-import { Mainform } from "../Component/dashboard/Myprofile.jsx/Mainform";
 import { DashboardSidebar as Sidebar } from "../Component/dashboard/Sidebar";
 import { useParams } from "react-router-dom";
 import { Servicesform } from "../Component/dashboard/services/Servicesform";
@@ -10,7 +9,7 @@ import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 import Message from "../Component/dashboard/messages/Messages";
-
+import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -35,7 +34,7 @@ export function Dashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My profile" && <Mainform />}
+            {section === "My profile" && <MyProfile />}
             {section === "services" && <Servicesform />}
             {section === "application" && <RentalApplicationForm />}
             {section === "accounting" && <AccountingPage />}
@@ -43,9 +42,6 @@ export function Dashboard() {
             {section === "Help & Support" && <HelpAndSupport />}
             {/* tempperory routes */}
             {section === "lease Form" && <LeaseForm />}
-            
-          
-          
           </main>
         </div>
       </div>

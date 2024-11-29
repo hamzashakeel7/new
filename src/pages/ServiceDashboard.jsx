@@ -1,10 +1,8 @@
 import { SidebarProvider } from "../shadcn/components/ui/Sidebar";
 import { Topbar } from "../Component/dashboard/Topbar";
-import { Mainform } from "../Component/dashboard/Myprofile.jsx/Mainform";
 import { DashboardSidebar as Sidebar } from "../Component/serviceProvider dashboard/Sidebar";
 import { useParams } from "react-router-dom";
 import { Servicesform } from "../Component/dashboard/services/Servicesform";
-import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
 import { useEffect, useState } from "react";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
@@ -12,6 +10,10 @@ import { MessageBoard } from "../Component/serviceProvider dashboard/messages/Me
 import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
 import { CorporateMessages } from "../Component/serviceProvider dashboard/messages/CorporateMessages";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
+import { CorporateTickets } from "../Component/serviceProvider dashboard/HelpAndSupport/CorporateTickets";
+import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { TicketThread } from "../Component/serviceProvider dashboard/TicketThread";
+import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
 
 export function ServiceDashboard() {
   const { section } = useParams();
@@ -36,16 +38,18 @@ export function ServiceDashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My profile" && <Mainform />}
+            {section === "My profile" && <MyProfile />}
             {section === "services" && <Servicesform />}
-            {section === "application" && <RentalApplicationForm />}
+            {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}
-            {section === "Help & Support" && <HelpAndSupport />}
+            {section === "Corporate Tickets" && <CorporateTickets />}
             {section === "Industry Relations" && <IndustryRelations />}
             {section === "My Properties / Services" && <HelpAndSupport />}
             {section === "livechat" && <LiveChat />}
+            {/* temperory routing */}
             {section === "corporate messages" && <CorporateMessages />}
+            {section === "Ticket Thread" && <TicketThread />}
           </main>
         </div>
       </div>

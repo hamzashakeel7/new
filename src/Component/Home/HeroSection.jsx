@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "../../assets/home/hero/hero.png";
+import hero from "../../assets/home/hero/hero.webp";
 import herohand from "../../assets/home/hero/herohand.png";
 import heart from "../../assets/home/hero/heart.png";
 

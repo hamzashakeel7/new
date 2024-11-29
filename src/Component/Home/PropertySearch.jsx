@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Input } from "../../shadcn/components/ui/Input";
-import propertySeach from "../../assets/home/propertySeach.png";
+import propertySeach from "../../assets/home/propertySeach.webp";
 
 export function PropertySearch() {
   return (
