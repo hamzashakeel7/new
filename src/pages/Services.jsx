@@ -27,10 +27,6 @@ const Service = () => {
           <Reviews />
         </div>
         <div>
-          
-          
-
-
           <PurpleSection />
         </div>
         <div>

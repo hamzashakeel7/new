@@ -1,77 +1,78 @@
 import { useState } from "react";
-import banner1 from "../../assets/home/prperty/zpage.png"
-import detail from "../../assets/home/prperty/details1.png"
-import detail1 from "../../assets/home/prperty/details2.png"
-import amb from "../../assets/home/prperty/details2.png"
-import amb1 from "../../assets/home/prperty//amb2.png"
-import banner2 from "../../assets/home/prperty/detailbg.png"
+import banner1 from "../../assets/home/prperty/zpage.png";
+import detail from "../../assets/home/prperty/details1.png";
+import detail1 from "../../assets/home/prperty/details2.png";
+import amb from "../../assets/home/prperty/details2.png";
+import amb1 from "../../assets/home/prperty//amb2.png";
+import banner2 from "../../assets/home/prperty/detailbg.png";
 import { Navbar } from "../../Component/Navbar";
 import { Footer } from "../../Component/Footer";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Properties() {
   const [services, setServices] = useState([
     {
       id: 1,
-      title: "Cndidate Service",
+      title: "Cardiac Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: detail,
     },
-    
+
     {
       id: 2,
       title: "Health care",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: detail1,
     },
     {
       id: 1,
-      title: "Cndidate Service",
+      title: "Cardiac Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: detail,
     },
-    
+
     {
       id: 2,
       title: "Health care",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: detail1,
     },
     {
       id: 1,
-      title: "Cndidate Service",
+      title: "Cardiac Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: detail,
     },
-    
+
     {
       id: 2,
       title: "Health care",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: detail1,
     },
-  //addd more service items here...
-  
+    //addd more service items here...
+
     // Add more service items here...
   ]);
   const [services1, setServices1] = useState([
@@ -80,89 +81,100 @@ export default function Properties() {
       title: "Ambulance Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: amb,
     },
-    
+
     {
       id: 2,
       title: "Ambulance Service",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: amb1,
     },
-  //addd more service items here...
+    //addd more service items here...
     {
       id: 1,
       title: "Ambulance Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: amb,
     },
-    
+
     {
       id: 2,
       title: "Ambulance Service",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: amb1,
     },
-  //addd more service items here...
+    //addd more service items here...
     {
       id: 1,
       title: "Ambulance Service",
       price: "$99.99",
       location: "Australia",
-      avaibility:"Availaible",
+      avaibility: "Availaible",
       rating: "★ ★ ★ ★ ★",
       image: amb,
     },
-    
+
     {
       id: 2,
       title: "Ambulance Service",
       price: "$99.99",
       location: "USA",
-      avaibility:"Availaible",
-      
+      avaibility: "Availaible",
+
       rating: "★ ★ ★ ★ ★",
       image: amb1,
     },
-  //addd more service items here...
-  
+    //addd more service items here...
+
     // Add more service items here...
   ]);
+
+  const navigate = useNavigate();
+
+  const handleRedirect = (title) => {
+    if (title === "Cardiac Service") {
+      navigate("/cardiac");
+    } else if (title === "Health care") {
+      navigate("/travel");
+    } else {
+      navigate("/"); // Default fallback route
+    }
+  };
 
   return (
     <div>
       {/* Hero Section */}
-      <Navbar/>
-   <div
-  className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 opacity-50 w-[90vw] h-64 rounded-lg px-8 mx-auto"
-  style={{ backgroundImage: `url(${banner1})` }}
->
-  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-transparent opacity-60"></div>
-  <div className="relative z-10 flex flex-col items-center justify-center text-white">
-    <h1 className="text-4xl font-bold">General Services</h1>
-    <div className="mt-4">
-      <input
-        type="text"
-        placeholder="Search for Services"
-        className="px-6 py-3 rounded-full text-black w-96 shadow-lg focus:outline-none"
-      />
-    </div>
-  </div>
-
-</div>
+      <Navbar />
+      <div
+        className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 opacity-50 w-[90vw] h-64 rounded-lg px-8 mx-auto"
+        style={{ backgroundImage: `url(${banner1})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-transparent opacity-60"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-white">
+          <h1 className="text-4xl font-bold">General Services</h1>
+          <div className="mt-4">
+            <input
+              type="text"
+              placeholder="Search for Services"
+              className="px-6 py-3 rounded-full text-black w-96 shadow-lg focus:outline-none"
+            />
+          </div>
+        </div>
+      </div>
 
       <div className="flex flex-wrap p-8">
         {/* Sidebar Filters */}
@@ -193,14 +205,14 @@ export default function Properties() {
                 <option>USA</option>
               </select>
             </div>
-           
+
             <div className="flex  space-x-2">
-            <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
-              Reset
-            </button>
-            <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
-              Apply
-            </button>
+              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+                Reset
+              </button>
+              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+                Apply
+              </button>
             </div>
           </div>
         </div>
@@ -223,7 +235,10 @@ export default function Properties() {
                 <p className="text-gray-500">{service.location}</p>
                 <p>{service.avaibility}</p>
                 <div className="flex items-center justify-between mt-4">
-                  <button className="px-4 py-2 bg-purple-600 text-white rounded-lg">
+                  <button
+                    onClick={() => handleRedirect(service.title)}
+                    className="px-4 py-2 bg-purple-600 text-white rounded-lg"
+                  >
                     Book Now
                   </button>
                   <span className="text-yellow-400">{service.rating}</span>
@@ -238,10 +253,7 @@ export default function Properties() {
       <div className="flex justify-center space-x-4 mt-8">
         <button className="px-4 py-2  rounded">Previous</button>
         {[1, 2, 3].map((page) => (
-          <button
-            key={page}
-            className="px-4 py-2 text-black rounded"
-          >
+          <button key={page} className="px-4 py-2 text-black rounded">
             {page}
           </button>
         ))}
@@ -249,15 +261,14 @@ export default function Properties() {
       </div>
 
       <div
-  className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 w-[90vw] h-[50vh] rounded-lg px-8 mx-auto"
-  style={{ backgroundImage: `url(${banner2})` }}
->
-  <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60"></div>
-  <div className="relative z-10 flex flex-col items-center justify-center text-white">
-    <h1 className="text-4xl font-bold">Transportation Services</h1>
-  </div>
-</div>
-
+        className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 w-[90vw] h-[50vh] rounded-lg px-8 mx-auto"
+        style={{ backgroundImage: `url(${banner2})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-white">
+          <h1 className="text-4xl font-bold">Transportation Services</h1>
+        </div>
+      </div>
 
       <div className="flex flex-wrap p-8">
         {/* Sidebar Filters */}
@@ -288,14 +299,14 @@ export default function Properties() {
                 <option>USA</option>
               </select>
             </div>
-           
+
             <div className="flex  space-x-2">
-            <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
-              Reset
-            </button>
-            <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
-              Apply
-            </button>
+              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+                Reset
+              </button>
+              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+                Apply
+              </button>
             </div>
           </div>
         </div>
@@ -321,6 +332,7 @@ export default function Properties() {
                   <button className="px-4 py-2 bg-purple-600 text-white rounded-lg">
                     Book Now
                   </button>
+
                   <span className="text-yellow-400">{services1.rating}</span>
                 </div>
               </div>
@@ -333,16 +345,13 @@ export default function Properties() {
       <div className="flex justify-center space-x-4 mt-8">
         <button className="px-4 py-2  rounded">Previous</button>
         {[1, 2, 3].map((page) => (
-          <button
-            key={page}
-            className="px-4 py-2 text-black rounded"
-          >
+          <button key={page} className="px-4 py-2 text-black rounded">
             {page}
           </button>
         ))}
         <button className="px-4 py-20 rounded">Next</button>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
