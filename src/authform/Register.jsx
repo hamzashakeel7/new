@@ -16,10 +16,10 @@ function Register() {
   const [fullNameError, setFullNameError] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [activeTab, setActiveTab] = useState("register"); // Active tab state
+  const [passwordVisible, setPasswordVisible] = useState(false); // New state for password visibility
+  const [activeTab, setActiveTab] = useState("register");
   const navigate = useNavigate();
 
-  // Email validation
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -30,7 +30,6 @@ function Register() {
     return true;
   };
 
-  // Full Name validation
   const validateFullName = (name) => {
     if (name.length < 3) {
       setFullNameError("Full name must be at least 3 characters.");
@@ -40,7 +39,6 @@ function Register() {
     return true;
   };
 
-  // Phone Number validation
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(phone)) {
@@ -51,9 +49,8 @@ function Register() {
     return true;
   };
 
-  // Password validation
   const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; // At least 6 characters, one letter, one number
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     if (!passwordRegex.test(password)) {
       setPasswordError(
         "Password must be at least 6 characters long and include both letters and numbers."
@@ -64,16 +61,14 @@ function Register() {
     return true;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if any field is empty or invalid
-    if (!fullName || !phonenumber || !email || !password || !role) {
-      toast.error("Please fill in all fields before submitting.");
+  
+    if (!role) {
+      toast.error("Please select a role.");
       return;
     }
-
+  
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
@@ -91,45 +86,23 @@ function Register() {
             role,
           }
         );
-        console.log(response.data);
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-
-        // Retrieve the role from the response (ensure your backend is sending the role correctly)
-        const userRole = response.data.role; // Adjust this if your API sends the role differently
-        const dashboard = "/dashboard"; // OTP page route
-
-        // Check the role and navigate accordingly
-        if (userRole === "Corporate User") {
-          navigate("/", { state: { phonenumber } });
-        } else if (userRole === "Individual") {
-          navigate("/Dashboard", { state: { phonenumber } });
-        } else if (userRole === "Service Provider") {
-          navigate("/", { state: { phonenumber } });
-        } else if (userRole === "Insurance Company") {
-          navigate("/", { state: { phonenumber } });
-        } else {
-          // Default navigation to OTP page
-          navigate(dashboard, { state: { phonenumber } });
-        }
+        navigate("/login");
       } catch (error) {
-        console.error(
-          "Registration failed:",
-          error.response?.data || error.message
-        );
-        toast.error("Registration failed! Please try again.");
+        console.error("Registration failed:", error);
+        toast.error(error.response?.data?.message || "Registration failed.");
       }
     }
   };
+  
 
   return (
     <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 py-10 lg:px-10 bg-gray-100 pl-8 lg:pl-16 overflow-auto w-full">
       <ToastContainer />
 
-      {/* Main Container with Logo positioned on the right */}
       <div className="flex shadow-lg rounded-xl bg-white w-full lg:w-[60rem] h-auto lg:h-[77vh] overflow-hidden relative flex-col lg:flex-row">
-        {/* Left Image */}
         <div className=" w-[30rem] relative">
           <img
             src={loginimage}
@@ -147,9 +120,7 @@ function Register() {
           </div>
         </div>
 
-        {/* Registration Form */}
         <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0 overflow-auto">
-          {/* Logo and Title in a Flex container with the logo on the right */}
           <div className="flex justify-center gap-6 items-center mb-5">
             <h2 className="text-gray-800 text-xl lg:text-2xl font-bold ml-4">
               Welcome to SilverTLC
@@ -195,8 +166,7 @@ function Register() {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               >
-                <option value="">Select Role</option>
-                <option value="Individual">Individual</option>
+                  <option value="Individual">Individual</option>
                 <option value="Property Owner">Property Owner</option>
                 <option value="Insurance Company">Insurance Company</option>
                 <option value="Hospital System/Managed Care Organizations">
@@ -205,7 +175,9 @@ function Register() {
                 <option value="Real Estate Professionals">
                   Real Estate Professionals
                 </option>
+                <option value="Service Provider">Service Provider</option>
                 <option value="Non Profits">Non Profits</option>
+               
               </select>
             </div>
 
@@ -254,29 +226,34 @@ function Register() {
               )}
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 relative">
               <label className="block mb-1 text-gray-600">Password</label>
               <input
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 placeholder="Enter your password"
                 className="w-full px-3 py-2 rounded-full border border-gray-300"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onBlur={() => validatePassword(password)}
               />
+              <button
+                type="button"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+                className="absolute mt-6 inset-y-0 right-3 flex items-center text-gray-500"
+              >
+                {passwordVisible ? "Hide" : "Show"}
+              </button>
               {passwordError && (
                 <p className="text-red-500 text-sm">{passwordError}</p>
               )}
             </div>
 
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="w-32 px-4 py-2 rounded-full bg-purple-600 text-white font-bold text-lg"
-              >
-                Register
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full bg-purple-600 text-white py-2 rounded-full mt-4 hover:bg-purple-700 transition duration-300"
+            >
+              Register
+            </button>
           </form>
         </div>
       </div>

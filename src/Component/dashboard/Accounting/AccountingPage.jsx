@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import {
   Table,
@@ -9,96 +9,38 @@ import {
   TableRow,
 } from "../../../shadcn/components/ui/Table";
 import { FileText, Download, CreditCard, Eye } from "lucide-react";
+import { Invoice } from "../../dashboard/Invoice"; // Import the Invoice component
 
 // Fake data
 const invoices = [
-  {
-    id: 1,
-    number: "INV001",
-    date: "2023-05-01",
-    clientName: "Acme Corp",
-    amount: "$1000",
-    status: "Paid",
-  },
-  {
-    id: 2,
-    number: "INV002",
-    date: "2023-05-05",
-    clientName: "Globex Inc",
-    amount: "$1500",
-    status: "Paid",
-  },
-  {
-    id: 3,
-    number: "INV003",
-    date: "2023-05-10",
-    clientName: "Initech",
-    amount: "$800",
-    status: "Paid",
-  },
-  {
-    id: 4,
-    number: "INV004",
-    date: "2023-05-15",
-    clientName: "Umbrella Corp",
-    amount: "$2000",
-    status: "Paid",
-  },
-  {
-    id: 5,
-    number: "INV005",
-    date: "2023-05-20",
-    clientName: "Hooli",
-    amount: "$1200",
-    status: "Paid",
-  },
-  {
-    id: 6,
-    number: "INV006",
-    date: "2023-05-25",
-    clientName: "Pied Piper",
-    amount: "$950",
-    status: "Paid",
-  },
-  {
-    id: 7,
-    number: "INV007",
-    date: "2023-05-30",
-    clientName: "Dunder Mifflin",
-    amount: "$750",
-    status: "Paid",
-  },
-  {
-    id: 8,
-    number: "INV008",
-    date: "2023-06-01",
-    clientName: "Wayne Enterprises",
-    amount: "$3000",
-    status: "Paid",
-  },
-  {
-    id: 9,
-    number: "INV009",
-    date: "2023-06-05",
-    clientName: "Stark Industries",
-    amount: "$5000",
-    status: "Paid",
-  },
-  {
-    id: 10,
-    number: "INV010",
-    date: "2023-06-10",
-    clientName: "Cyberdyne Systems",
-    amount: "$1800",
-    status: "Paid",
-  },
+  { id: 1, number: "INV001", date: "2023-05-01", clientName: "Acme Corp", amount: "$1000", status: "Paid" },
+  { id: 2, number: "INV002", date: "2023-05-05", clientName: "Globex Inc", amount: "$1500", status: "Paid" },
+  // Additional invoices...
+  { id: 1, number: "INV001", date: "2023-05-01", clientName: "Acme Corp", amount: "$1000", status: "Paid" },
+  { id: 2, number: "INV002", date: "2023-05-05", clientName: "Globex Inc", amount: "$1500", status: "Paid" },
+  // Additional invoices...
+  { id: 1, number: "INV001", date: "2023-05-01", clientName: "Acme Corp", amount: "$1000", status: "Paid" },
+  { id: 2, number: "INV002", date: "2023-05-05", clientName: "Globex Inc", amount: "$1500", status: "Paid" },
+  // Additional invoices...
+  { id: 1, number: "INV001", date: "2023-05-01", clientName: "Acme Corp", amount: "$1000", status: "Paid" },
+  { id: 2, number: "INV002", date: "2023-05-05", clientName: "Globex Inc", amount: "$1500", status: "Paid" },
+  // Additional invoices...
+  { id: 1, number: "INV001", date: "2023-05-01", clientName: "Acme Corp", amount: "$1000", status: "Paid" },
+  { id: 2, number: "INV002", date: "2023-05-05", clientName: "Globex Inc", amount: "$1500", status: "Paid" },
+  // Additional invoices...
 ];
 
 export function AccountingPage() {
+  const [selectedInvoice, setSelectedInvoice] = useState(null);
+
+  const handleCloseInvoice = () => {
+    setSelectedInvoice(null); // Reset the selected invoice to null
+  };
+
   return (
     <div className="p-0 ml-0 lg:p-3 lg:ml-1">
-      <div className="p-2 lg:p-5 bg-gray-100 rounded-md w-[75vw] lg:w-full ">
-        <div className="flex justify-between items-center mb-6 ">
+      <div className={`p-2 lg:p-5 bg-gray-100 rounded-md w-[75vw] lg:w-full ${selectedInvoice ? "hidden" : ""}`}>
+        <div className="flex justify-between items-center mb-6">
           <div className="flex items-center space-x-2">
             <FileText className="h-6 w-6" />
             <h2 className="text-2xl font-semibold">Invoices</h2>
@@ -109,7 +51,7 @@ export function AccountingPage() {
           </div>
         </div>
         <div className="border rounded-lg overflow-x-hidden">
-          <Table className=" bg-white ">
+          <Table className="bg-white">
             <TableHeader>
               <TableRow>
                 <TableHead>Invoice Number</TableHead>
@@ -117,7 +59,6 @@ export function AccountingPage() {
                 <TableHead>Client Name</TableHead>
                 <TableHead>Amount</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Invoice</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -129,9 +70,12 @@ export function AccountingPage() {
                   <TableCell>{invoice.clientName}</TableCell>
                   <TableCell>{invoice.amount}</TableCell>
                   <TableCell>{invoice.status}</TableCell>
-                  <TableCell>{invoice.status}</TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="sm">
+                    <Button
+                      onClick={() => setSelectedInvoice(invoice)}
+                      variant="ghost"
+                      size="sm"
+                    >
                       <Eye className="h-4 w-4 mr-2" />
                       View
                     </Button>
@@ -150,6 +94,13 @@ export function AccountingPage() {
           </Table>
         </div>
       </div>
+
+      {/* Modal for Invoice */}
+      {selectedInvoice && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <Invoice invoice={selectedInvoice} onClose={handleCloseInvoice} />
+        </div>
+      )}
     </div>
   );
 }

@@ -18,7 +18,8 @@ export function Invoice({ onClose }) {
   };
 
   const handleClose = () => {
-    setIsVisible(false);
+    setIsVisible(false); // Hide the invoice modal
+    onClose(); // Notify the parent to reset state and show the main page again
   };
 
   if (!isVisible) return null;

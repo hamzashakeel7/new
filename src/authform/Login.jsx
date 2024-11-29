@@ -10,6 +10,7 @@ function Login() {
   const [activeTab, setActiveTab] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false); // For show/hide password
   const [role, setRole] = useState("");
   const [emailError, setEmailError] = useState("");
   const [roleError, setRoleError] = useState("");
@@ -58,15 +59,14 @@ function Login() {
           }
         );
         console.log("Response Data:", response.data);
-  
+
         const token = response.data.token;
-  
+
         toast.success("Login successful!");
-  
+
         localStorage.setItem("token", token);
         localStorage.setItem("role", role);
-  
-        // Use the selected role from the input state for navigation
+
         switch (role) {
           case "Individual":
             navigate("/dashboard");
@@ -76,20 +76,20 @@ function Login() {
           case "Hospital System/Managed Care Organizations":
           case "Real Estate Professionals":
           case "Non Profits":
-            navigate("/");
+          case "Service Provider":
+            navigate("/servicedashboard");
             break;
           default:
             navigate("/dashboard");
         }
       } catch (error) {
-        console.error("login failed:", error.response?.data || error.message);
+        console.error("Login failed:", error.response?.data || error.message);
         toast.error(
           "Login failed! Please check your credentials and try again."
         );
       }
     }
   };
-  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
@@ -167,6 +167,7 @@ function Login() {
                   Real Estate Professionals
                 </option>
                 <option value="Non Profits">Non Profits</option>
+                <option value="Service Provider">Service Provider</option>
               </select>
               {roleError && <p className="text-red-500 text-sm">{roleError}</p>}
             </div>
@@ -186,15 +187,22 @@ function Login() {
               )}
             </div>
 
-            <div>
+            <div className="relative">
               <label className="block mb-1 text-gray-600">Password</label>
               <input
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 rounded-full border border-gray-300"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                type="button"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+                className="absolute inset-y-0 right-3 mt-6 flex items-center text-gray-500"
+              >
+                {passwordVisible ? "Hide" : "Show"}
+              </button>
             </div>
 
             <div className="flex justify-between items-center">
