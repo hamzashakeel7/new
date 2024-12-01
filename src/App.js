@@ -27,6 +27,7 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
+<<<<<<< HEAD
 import TravelService from "./pages/Travel";
 import CardiacCareService from "./pages/Cardiac";
 import { ServiceDashboard } from "./pages/ServiceDashboard";
@@ -39,6 +40,11 @@ import ServiceInfoedit from "./Component/serviceProvider dashboard/serviceinfo/S
 import PostTypeModal from "./Component/serviceProvider dashboard/Posttype";
 import PostPropertyForm from "./Component/dashboard/postservice/Postservice";
 import { RentalApplicationForm } from "./Component/dashboard/services/RentalApplication/RentalForm";
+=======
+import CardiacCareService from "./pages/Cardiac";
+import TravelService from "./pages/Travel";
+import ServiceDashboard from "./pages/ServiceDashboard";
+>>>>>>> a306adf26b938cb0243ad995224725957f7f510c
 
 function App() {
   return (
@@ -56,8 +62,8 @@ function App() {
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
           <Route path="/PropertyService" element={<Properties />} />
-          <Route path="/cardiac" element={<CardiacCareService/>} />
-          <Route path="/travel" element={<TravelService/>} />
+          <Route path="/cardiac" element={<CardiacCareService />} />
+          <Route path="/travel" element={<TravelService />} />
           {/* User dashboard route */}
           <Route
             path="/dashboard"
