@@ -4,10 +4,10 @@ const Transportationform = () => {
   return (
     <>
       {/* Modal */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="fixed inset-0 overflow-y-auto bg-black bg-opacity-50 flex justify-center items-center">
         <div
           className="bg-white w-full max-w-3xl rounded-lg p-6 shadow-lg overflow-hidden"
-          style={{ maxHeight: "90vh" }} // Limit the modal's height
+          style={{ maxHeight: "90vh" }}
         >
           {/* Modal Header */}
           <div className="flex justify-between items-center border-b pb-2 mb-4">
@@ -26,7 +26,7 @@ const Transportationform = () => {
             style={{ maxHeight: "80vh" }}
           >
             <h3 className="text-md font-medium mb-4">Vehicle Information</h3>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <label
                   htmlFor="name"
@@ -139,7 +139,7 @@ const Transportationform = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <label
                   htmlFor="companions"
@@ -170,19 +170,30 @@ const Transportationform = () => {
               </div>
             </div>
 
-            {/* Uploaded Files */}
-            <h3 className="text-md font-medium mb-4">Uploaded Files</h3>
-            <div className="grid grid-cols-3 gap-4 mb-28">
-              <div className="h-44 bg-gray-200 rounded flex justify-center items-center">
-                <span>File 1</span>
-              </div>
-              <div className="h-44 bg-gray-200 rounded flex justify-center items-center">
-                <span>File 2</span>
-              </div>
-              <div className="h-44 bg-gray-200 rounded flex justify-center items-center">
-                <span>File 3</span>
+            {/* File Upload Section */}
+            <div className="mb-6">
+              <h3 className="text-lg font-medium text-gray-800 mb-4">Upload Files</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-8">
+                  <div className="flex justify-center mb-4">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M40 63.635L40 39.945V44.065" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="square" />
+                      <path d="M28.67 51.305L40 39.975L51.33 51.305" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="square" />
+                      <path d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-500">Drop files here</p>
+                </div>
               </div>
             </div>
+
+            {/* Action Buttons */}
+            <div className="flex justify-between mt-4 space-x-4">
+              <button className="text-purple-700 hover:text-purple-900">Cancel</button>
+              <button className="bg-violet-700 rounded-lg h-10 text-white">Upload</button>
+            </div>
+
+            <button className="bg-purple-700 h-10 w-full mt-4 mb-12 text-white">Submit</button>
           </div>
         </div>
       </div>

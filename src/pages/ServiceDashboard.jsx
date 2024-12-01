@@ -14,6 +14,8 @@ import { CorporateTickets } from "../Component/serviceProvider dashboard/HelpAnd
 import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
 import { TicketThread } from "../Component/serviceProvider dashboard/TicketThread";
 import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
+import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
+import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 
 export function ServiceDashboard() {
   const { section } = useParams();
@@ -39,13 +41,13 @@ export function ServiceDashboard() {
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {section === "My profile" && <MyProfile />}
-            {section === "services" && <Servicesform />}
+            {section === "services" && <PostForm/>}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <CorporateTickets />}
             {section === "Industry Relations" && <IndustryRelations />}
-            {section === "My Properties / Services" && <HelpAndSupport />}
+            {section === "My Properties / Services" && <MyPropertiesServices/>}
             {section === "livechat" && <LiveChat />}
             {/* temperory routing */}
             {section === "corporate messages" && <CorporateMessages />}

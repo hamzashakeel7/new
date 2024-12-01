@@ -27,6 +27,18 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
+import TravelService from "./pages/Travel";
+import CardiacCareService from "./pages/Cardiac";
+import { ServiceDashboard } from "./pages/ServiceDashboard";
+import PostForm from "./Component/serviceProvider dashboard/PostService/Postservice";
+import PostFormedit from "./Component/serviceProvider dashboard/PostService/PostserviceEdit";
+import Transportationedit from "./Component/serviceProvider dashboard/Transport/Transportedit";
+import ServiceInfoForm from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import ServiceInfoform from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import ServiceInfoedit from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfoedit";
+import PostTypeModal from "./Component/serviceProvider dashboard/Posttype";
+import PostPropertyForm from "./Component/dashboard/postservice/Postservice";
+import { RentalApplicationForm } from "./Component/dashboard/services/RentalApplication/RentalForm";
 
 function App() {
   return (
@@ -59,7 +71,7 @@ function App() {
           />
           <Route
             path="/servicedashboard/:section"
-            element={<ServiceDashboard />}
+            element={<ServiceDashboard/>}
           />
           {/* Auth setup */}
           <Route path="/register" element={<Register />} />
@@ -75,15 +87,24 @@ function App() {
             }
           />
           <Route path="/completion" element={<Completion />} />
+          <Route path="/transportationedit" element={<Transportationedit/>} />
           <Route path="/propertyform" element={<PropertyForm />} />
+          <Route path="/servicesedit" element={<PostFormedit/>} />
+          <Route path="/servicesinfo" element={<ServiceInfoform/>} />
+          <Route path="/servicesedit" element={<PostFormedit/>} />
+          <Route path="/servicesinfoedit" element={<ServiceInfoedit/>} />
+          <Route path="/postform" element={<PostForm/>} />
           <Route path="/Serviceinfoform" element={<ServiceInformationForm />} />
           <Route path="/Transportationform" element={<Transportationform />} />
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/ApplicationReview" element={<ApplicationReview />} />
           <Route path="/lease" element={<LeaseForm />} />
+          <Route path="/rental" element={<RentalApplicationForm/>} />
           <Route path="/property" element={<Property />} />
           <Route path="/propertydetail" element={<PropertyDetail />} />
           <Route path="/PropertyService" element={<Properties />} />
+          <Route path="/Post" element={<PostTypeModal/>} />
+          <Route path="/Postpropform" element={<PostPropertyForm/>} />
           <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
         </Routes>
       </div>
