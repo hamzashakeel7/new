@@ -27,29 +27,27 @@ import AboutUs from "./pages/About";
 import Property from "./pages/property/Property";
 import PropertyDetail from "./pages/property/PropertyDetail";
 import Properties from "./pages/property/Properties";
-<<<<<<< HEAD
-import TravelService from "./pages/Travel";
+
 import CardiacCareService from "./pages/Cardiac";
 import { ServiceDashboard } from "./pages/ServiceDashboard";
 import PostForm from "./Component/serviceProvider dashboard/PostService/Postservice";
 import PostFormedit from "./Component/serviceProvider dashboard/PostService/PostserviceEdit";
 import Transportationedit from "./Component/serviceProvider dashboard/Transport/Transportedit";
-import ServiceInfoForm from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+
 import ServiceInfoform from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import ServiceInfoedit from "./Component/serviceProvider dashboard/serviceinfo/Serviceinfoedit";
 import PostTypeModal from "./Component/serviceProvider dashboard/Posttype";
 import PostPropertyForm from "./Component/dashboard/postservice/Postservice";
-import { RentalApplicationForm } from "./Component/dashboard/services/RentalApplication/RentalForm";
-=======
-import CardiacCareService from "./pages/Cardiac";
+import { RentalApplicationForm } from "./Component/dashboard/services/RentalApplication/RentalForm"
+
 import TravelService from "./pages/Travel";
-import ServiceDashboard from "./pages/ServiceDashboard";
->>>>>>> a306adf26b938cb0243ad995224725957f7f510c
+
+
 
 function App() {
   return (
     <Router>
-      {" "}
+   
       {/* Single BrowserRouter for the whole app */}
       <div className="App">
         <Routes>

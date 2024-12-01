@@ -30,7 +30,7 @@ export default function Communityform() {
   ];
 
   return (
-    <div className="relative max-w-2xl mx-auto mt-8 p-6 border border-gray-200 rounded-lg">
+    <div className="relative max-w-2xl mx-auto mb-14 mt-8 p-6 border border-gray-200 rounded-lg">
       {/* Background Image behind the form */}
       <div
         className="absolute inset-0 opacity-50 h-[30rem] w-[30rem]"

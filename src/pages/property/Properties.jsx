@@ -160,10 +160,10 @@ export default function Properties() {
       {/* Hero Section */}
       <Navbar />
       <div
-        className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 opacity-50 w-[90vw] h-64 rounded-lg px-8 mx-auto"
+        className="relative flex items-center justify-center bg-cover   bg-center bg-purple-600 opacity-50 w-[90vw] h-72 rounded-lg px-8 mx-auto"
         style={{ backgroundImage: `url(${banner1})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-transparent opacity-60"></div>
+        <div className="absolute rounded-lg inset-0 bg-gradient-to-r from-purple-600 to-transparent opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center text-white">
           <h1 className="text-4xl font-bold">General Services</h1>
           <div className="mt-4">
@@ -201,13 +201,13 @@ export default function Properties() {
               <label className="block text-gray-700">Filter by Price</label>
               <select className="w-full p-2 border rounded">
                 <option>Choose</option>
-                <option>Australia</option>
-                <option>USA</option>
+                <option>1000-2000</option>
+                <option>2000-3000</option>
               </select>
             </div>
 
             <div className="flex  space-x-2">
-              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+              <button className="w-full p-3 text-violet-700 border-2 border-purple-800 rounded-lg">
                 Reset
               </button>
               <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
@@ -231,9 +231,12 @@ export default function Properties() {
               />
               <div className="p-4">
                 <h3 className="text-lg font-bold">{service.title}</h3>
-                <p className="text-gray-500">{service.price}</p>
+                <p className="text-green-400" style={{fontSize: "24px"}}>{service.price}</p>
                 <p className="text-gray-500">{service.location}</p>
-                <p>{service.avaibility}</p>
+               <div className="flex space-x-16 ">
+                <span className="text-yellow-400">{service.rating}</span>
+                <p className="items-end justify-end text-slate-600">{service.avaibility}</p>
+                </div>
                 <div className="flex items-center justify-between mt-4">
                   <button
                     onClick={() => handleRedirect(service.title)}
@@ -241,7 +244,7 @@ export default function Properties() {
                   >
                     Book Now
                   </button>
-                  <span className="text-yellow-400">{service.rating}</span>
+                
                 </div>
               </div>
             </div>
@@ -250,21 +253,21 @@ export default function Properties() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center space-x-4 mt-8">
-        <button className="px-4 py-2  rounded">Previous</button>
+      <div className="flex justify-center mb-32 space-x-4 mt-1">
+        <button className="px-4   rounded">Previous</button>
         {[1, 2, 3].map((page) => (
-          <button key={page} className="px-4 py-2 text-black rounded">
+          <button key={page} className="px-4  text-black rounded">
             {page}
           </button>
         ))}
-        <button className="px-4 py-20 rounded">Next</button>
+        <button className="px-4 rounded">Next</button>
       </div>
 
       <div
         className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 w-[90vw] h-[50vh] rounded-lg px-8 mx-auto"
         style={{ backgroundImage: `url(${banner2})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-60"></div>
+        <div className="absolute rounded-lg inset-0 bg-gradient-to-r from-black to-transparent opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center text-white">
           <h1 className="text-4xl font-bold">Transportation Services</h1>
         </div>
@@ -301,7 +304,7 @@ export default function Properties() {
             </div>
 
             <div className="flex  space-x-2">
-              <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
+            <button className="w-full p-3 text-violet-700 border-2 border-purple-800 rounded-lg">
                 Reset
               </button>
               <button className="w-full p-3 bg-purple-600 text-white rounded-lg">
@@ -313,27 +316,32 @@ export default function Properties() {
 
         {/* Service Cards */}
         <div className="w-full md:w-3/4 p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services1.map((service) => (
+          {services1.map((service1) => (
             <div
-              key={service.id}
+              key={services1.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden"
             >
               <img
-                src={services1.image}
-                alt={services1.title}
+                src={service1.image}
+                alt={service1.title}
                 className="w-full h-40 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-bold">{services1.title}</h3>
-                <p className="text-gray-500">{services1.price}</p>
-                <p className="text-gray-500">{services1.location}</p>
-                <p>{service.avaibility}</p>
+                <h3 className="text-lg font-bold">{service1.title}</h3>
+                <p className="text-green-400" style={{fontSize: "24px"}}>{service1.price}</p>
+                <p className="text-gray-500">{service1.location}</p>
+               <div className="flex space-x-16 ">
+                <span className="text-yellow-400">{service1.rating}</span>
+                <p className="items-end justify-end text-slate-600">{service1.avaibility}</p>
+                </div>
                 <div className="flex items-center justify-between mt-4">
-                  <button className="px-4 py-2 bg-purple-600 text-white rounded-lg">
+                  <button
+                    onClick={() => handleRedirect(service1.title)}
+                    className="px-4 py-2 bg-purple-600 text-white rounded-lg"
+                  >
                     Book Now
                   </button>
-
-                  <span className="text-yellow-400">{services1.rating}</span>
+                
                 </div>
               </div>
             </div>
@@ -342,14 +350,14 @@ export default function Properties() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center space-x-4 mt-8">
+      <div className="flex justify-center mb-10 space-x-4 mt-1">
         <button className="px-4 py-2  rounded">Previous</button>
         {[1, 2, 3].map((page) => (
           <button key={page} className="px-4 py-2 text-black rounded">
             {page}
           </button>
         ))}
-        <button className="px-4 py-20 rounded">Next</button>
+        <button className="px-4 py-1 rounded">Next</button>
       </div>
       <Footer />
     </div>

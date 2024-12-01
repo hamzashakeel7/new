@@ -98,58 +98,80 @@ const Propertycomponent = () => {
         </div>
 
         {/* Banner Content */}
-        <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center text-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl font-bold">Modern Infrastructure</h1>
-            <button className=" text-purple-600  items-start mr-52 px-6 py-2 rounded-lg" style={{ fontSize: "24px" }}>
-              Explore Now->
-            </button>
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-opacity-50 flex items-center justify-center text-center px-4 sm:px-8 md:px-12 lg:px-16">
+  <div className="space-y-6 text-center">
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
+      Modern Infrastructure
+    </h1>
+    {/* Paragraph */}
+    <p className="text-sm sm:text-base mr-14 lg:text-lg text-gray-700 max-w-xl mx-auto">
+      Lorem ipsum dolor sit amet consectetur adipisicing emoem efnoenf mfo
+    </p>
+    {/* Button */}
+    <button
+      className=" text-purple-700 px-6 py-3 sm:mr-96 pr-20 rounded-lg text-lg sm:text-xl    transition-all"
+      style={{ fontSize: "24px" }}
+    >
+      Explore Now →
+    </button>
+  </div>
+</div>
+
       </div>
 
       {/* How It Works Section */}
       <div
-        className="bg-cover bg-center bg-no-repeat mr-96"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <div className="bg-amber-200 w-[100vw] bg-opacity-50 py-12">
-          <h2 className="text-center text-2xl font-bold text-black mb-6">
-            How It Works
-          </h2>
-          <div className="flex justify-around">
-            <div className="text-center flex">
-              <img src={detail1} alt="Step 1" className="w-16 h-16 mx-auto" />
-              <p className="mt-4">Search for properties</p>
-            </div>
-            <div className="text-center flex">
-              <img src={detail2} alt="Step 2" className="w-16 h-16 mx-auto" />
-              <p className="mt-4">Contact the agents</p>
-            </div>
-            <div className="text-center flex">
-              <img src={detail3} alt="Step 3" className="w-16 h-16 mx-auto" />
-              <p className="mt-4">Close the deal</p>
-            </div>
+  className="bg-cover bg-center bg-no-repeat items-start"
+  style={{ backgroundImage: `url(${bg})` }}
+>
+  <div className="bg-orange-100 w-full bg-opacity-50 py-12">
+    <h2 className="text-center text-2xl font-bold text-black mb-6">
+      How It Works
+    </h2>
+    <div className="flex justify-around">
+      <div className="text-center flex flex-col items-center">
+        <img src={detail1} alt="Step 1" className="w-16 h-16 mx-auto" />
+        <p className="mt-4">Search for properties</p>
+      </div>
+      <div className="text-center flex flex-col items-center">
+        <img src={detail2} alt="Step 2" className="w-16 h-16 mx-auto" />
+        <p className="mt-4">Contact the agents</p>
+      </div>
+      <div className="text-center flex flex-col items-center">
+        <img src={detail3} alt="Step 3" className="w-16 h-16 mx-auto" />
+        <p className="mt-4">Close the deal</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Property Cards */}
+  <div className="px-6 mb-9 mt-14" >
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {properties.map((property) => (
+        <div
+          key={property.id}
+          className="bg-white shadow-lg rounded-lg overflow-hidden"
+        >
+          <img
+            src={property.image}
+            alt={property.name}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-4">
+            <h3 className="font-bold text-lg">{property.name}</h3>
+            <p className="text-gray-600">{property.location}</p>
+            <p className="text-purple-600 font-bold">{property.price}</p>
+            <button className="mt-4 w-full bg-purple-600 text-white px-4 py-2 rounded-lg">
+              View Details →
+            </button>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
-      {/* Property Cards */}
-      <div className="grid grid-cols-1 items-center sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-        {properties.map((property) => (
-          <div key={property.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src={property.image} alt={property.name} className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="font-bold text-lg">{property.name}</h3>
-              <p className="text-gray-600">{property.location}</p>
-              <p className="text-purple-600 font-bold">{property.price}</p>
-              <button className="mt-4 w-full bg-purple-600 text-white px-4 py-2 rounded-lg">
-                View Details ->
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

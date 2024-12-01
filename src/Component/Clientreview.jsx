@@ -33,15 +33,15 @@ const ClientReview = () => {
         <img
           src={topRightImg}
           alt="Decorative Element"
-          className="absolute mb-20 top-[-20px] right-[50px] w-64 h-32 md:w-48 md:h-48"
+          className="absolute mb-20 top-[-20px] mix-blend-color-burn right-[50px] w-64 h-32 md:w-48 md:h-48"
         />
 
         {/* Main Content */}
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 ">
           <h2 className="text-3xl font-bold text-left mb-8">
             What Our Clients are Saying
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-20 mix- gap-8">
             {reviews.map((review) => (
               <div
                 key={review.id}
