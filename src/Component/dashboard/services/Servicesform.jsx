@@ -6,6 +6,7 @@ import { Calendar } from "../../../shadcn/components/ui/Calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../shadcn/components/ui/Popover";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../../shadcn/components/ui/Table";
 import { cn } from "../../../shadcn/lib/utils";
+import PostPropertyForm from "../../dashboard/postservice/Postservice"
 
 // Initial services data
 const initialServices = [
@@ -25,26 +26,6 @@ const initialServices = [
   },
   // Add more services as needed
 ];
-
-// PostPropertyForm Modal component
-function PostPropertyForm({ service, onClose }) {
-  if (!service) return null;
-
-  return (
-    <div className="modal fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="modal-content bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-        <h2 className="text-xl font-semibold mb-4">Service Details</h2>
-        <p><strong>Service Name:</strong> {service.name}</p>
-        <p><strong>Service Type:</strong> {service.type}</p>
-        <p><strong>Provider:</strong> {service.provider}</p>
-        <p><strong>Price:</strong> {service.price}</p>
-        <div className="mt-4 flex justify-end gap-2">
-          <Button onClick={onClose} variant="outline" className="w-24">Close</Button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // Main Services Form Component
 export function Servicesform() {
@@ -68,8 +49,9 @@ export function Servicesform() {
 
   // Open modal on "Eye" button click
   const handleView = (service) => {
-    setSelectedService(service);  // Set the selected service
-    setIsModalOpen(true);  // Open the modal
+    console.log("Opening modal for service:", service);
+    setSelectedService(service);
+    setIsModalOpen(true);
   };
 
   // Close the modal
@@ -200,6 +182,7 @@ export function Servicesform() {
           onClose={handleCloseModal}
         />
       )}
+
     </div>
   );
 }

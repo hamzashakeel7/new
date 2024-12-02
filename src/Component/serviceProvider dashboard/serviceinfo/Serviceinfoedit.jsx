@@ -123,15 +123,30 @@ const ServiceInfoedit = () => {
               <div
                 className="flex items-center justify-center w-full h-full text-gray-400 text-lg cursor-pointer"
                 onClick={() => document.getElementById('file-upload').click()}
-              ><svg width="66" height="52" viewBox="0 0 66 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M33 50.635L33 26.945V31.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M21.6699 38.305L32.9999 26.975L44.3299 38.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M41.2397 50.6055C54.1895 49.5253 64.092 38.6031 63.9021 25.6098C63.7121 12.6164 53.4946 1.98838 40.5188 1.28711C27.5429 0.585839 16.2395 10.0508 14.6503 22.948C7.27779 23.6796 1.77369 30.0632 2.13497 37.4631C2.49626 44.863 8.59604 50.68 16.0047 50.69L24.7597 50.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>
-              </svg>
-              <div style={{fontSize:"14px"}}> 
-                  Drag and Upload files
-                  
-                  </div>
+              >
+                
+              </div>
+            )}
+            <input
+              type="file"
+              id="file-upload"
+              className="hidden"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+          </div>
+          <div className="relative w-52 h-52 border-2 border-dashed border-gray-300 rounded-md overflow-hidden">
+            {uploadedImage ? (
+              <img
+                src={uploadedImage}
+                alt="Uploaded"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div
+                className="flex items-center justify-center w-full h-full text-gray-400 text-lg flex-wrap cursor-pointer"
+                onClick={() => document.getElementById('file-upload').click()}
+              >
                 
               </div>
             )}
@@ -154,46 +169,8 @@ const ServiceInfoedit = () => {
               <div
                 className="flex items-center justify-center w-full h-full text-gray-400 text-lg cursor-pointer"
                 onClick={() => document.getElementById('file-upload').click()}
-              ><svg width="66" height="52" viewBox="0 0 66 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M33 50.635L33 26.945V31.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M21.6699 38.305L32.9999 26.975L44.3299 38.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M41.2397 50.6055C54.1895 49.5253 64.092 38.6031 63.9021 25.6098C63.7121 12.6164 53.4946 1.98838 40.5188 1.28711C27.5429 0.585839 16.2395 10.0508 14.6503 22.948C7.27779 23.6796 1.77369 30.0632 2.13497 37.4631C2.49626 44.863 8.59604 50.68 16.0047 50.69L24.7597 50.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>
-              </svg>
-              <div style={{fontSize:"14px"}}> 
-                  Drag and Upload files
-                  
-                  </div>
-                
-              </div>
-            )}
-            <input
-              type="file"
-              id="file-upload"
-              className="hidden"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-          </div>
-          <div className="relative w-52 h-52 border-2 border-dashed border-gray-300 rounded-md overflow-hidden">
-            {uploadedImage ? (
-              <img
-                src={uploadedImage}
-                alt="Uploaded"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div
-                className="flex items-center justify-center w-full h-full text-gray-400 text-lg cursor-pointer"
-                onClick={() => document.getElementById('file-upload').click()}
-              ><svg width="66" height="52" viewBox="0 0 66 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M33 50.635L33 26.945V31.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M21.6699 38.305L32.9999 26.975L44.3299 38.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M41.2397 50.6055C54.1895 49.5253 64.092 38.6031 63.9021 25.6098C63.7121 12.6164 53.4946 1.98838 40.5188 1.28711C27.5429 0.585839 16.2395 10.0508 14.6503 22.948C7.27779 23.6796 1.77369 30.0632 2.13497 37.4631C2.49626 44.863 8.59604 50.68 16.0047 50.69L24.7597 50.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>
-              </svg>
-              <div style={{fontSize:"14px"}}> 
-                  Drag and Upload files
-                  
-                  </div>
+             >
+              
                 
               </div>
             )}

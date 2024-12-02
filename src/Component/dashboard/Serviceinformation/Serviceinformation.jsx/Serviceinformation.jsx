@@ -1,133 +1,103 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
+import img from "../../../../assets/vehicle1.png"; // Correct path for your image
 
 const ServiceInformationForm = () => {
-  const [uploadedImages, setUploadedImages] = useState([null, null, null]);
 
-  const handleImageUpload = (index, event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const newImages = [...uploadedImages];
-      newImages[index] = URL.createObjectURL(file);
-      setUploadedImages(newImages);
-    }
-  };
+  // Handle Image Upload
+ 
+  
 
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-lg">
-      <div className="flex justify-between items-center border-b pb-2 mb-4">
-        <h2 className="text-xl font-semibold flex items-center">
-          <span role="img" aria-label="service-icon" className="mr-2">📄</span> Service Information
+    <div className="w-4/5 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="flex justify-between items-center p-4 bg-gray-100 border-b">
+        <h2 className="text-lg font-semibold flex items-center">
+          <i className="mr-2 text-blue-500"></i>
+          <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.1044 25L5.05444 25L5.05444 3L23.0544 3L23.0544 14" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M9.10718 9L19.0602 9" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M9.10718 14L19.0602 14" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M9.10522 19H13.1052" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M25.1052 20V25H17.1052L17.1052 20L21.1052 17L25.1052 20Z" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M21.1052 23V25" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
+          </svg>
+          Service Information
         </h2>
-        <button
-                className="text-gray-500 hover:text-gray-700"
-              
-              >
-                &times;
-              </button>
+        <button className="font-bold">
+          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.1257 5.98047L6.08569 18.0205" stroke="#323743" stroke-width="2.064" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M18.1257 18.0205L6.08569 5.98047" stroke="#323743" stroke-width="2.064" stroke-miterlimit="10" stroke-linecap="square"/>
+          </svg>
+        </button>
       </div>
 
-      <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="sm:col-span-2 lg:col-span-3">
-          <label className="block w-full text-gray-700 text-sm font-medium mb-1">Company Name</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Company Name" />
+      <div className="p-6">
+        {/* Info Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* First Card */}
+          <div className="border border-gray-200 rounded-lg p-4">
+            {[ 
+              ["Company Name", "Property Title"],
+              ["Address Line 1", "Add Listing ID"],
+              ["Address Line 2", "Enter complete address"],
+              ["Phone", "Enter price"],
+              ["Email", "Flat"],
+              ["Contact Person", "Active"],
+              ["Office Hours", "3"],
+            ].map(([label1, label2], index) => (
+              <div
+                key={index}
+                className="flex justify-between py-2 border-b last:border-0 border-gray-100"
+              >
+                <span>{label1}</span>
+                <span>{label2}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Second Card */}
+          <div className="border border-gray-200 rounded-lg p-4">
+            {[ 
+              ["Website", "Property Title"],
+              ["Geographical Area Serviced", "Add Listing ID"],
+              ["Address Line 2", "Enter complete address"],
+              ["Industry", "Enter price"],
+              ["Services Provided", "Flat"],
+              ["Specialty Services", "Active"],
+              ["Services Schedule in Advance", "3"],
+            ].map(([label1, label2], index) => (
+              <div
+                key={index}
+                className="flex justify-between py-2 border-b last:border-0 border-gray-100"
+              >
+                <span>{label1}</span>
+                <span>{label2}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Uploaded Files Section */}
         <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Address Line 1</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Address Line 1" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Address Line 2</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Address Line 2" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Phone</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Phone" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Email</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="email" placeholder="Email" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Contact Person</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Contact Person" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Website</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Website" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Geographical Area Serviced</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Select Area" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Industry</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Industry" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Specialty Services</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Specialty Services" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Services Schedule in Advance</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Services Schedule in Advance" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Services Provided</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Services Provided" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Office Hours</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Office Hours" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Industry</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Industry" />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-1">Services Provided</label>
-          <input className="border border-gray-300 rounded-md p-2 w-full" type="text" placeholder="Services Provided" />
-        </div>
-      </form>
-
-      <div className="mt-6">
-        <h3 className="text-lg font-medium mb-4">Uploaded files</h3>
-        <div className="flex gap-4">
-          {uploadedImages.map((image, index) => (
-            <div key={index} className="w h-28 relative rounded-md overflow-hidden border border-gray-300">
-              {image ? (
-                <img src={image} alt={`Uploaded file ${index + 1}`} className="w-full h-full object-cover" />
-              ) : (
-                <div
-                  className="w-full h-full flex items-center justify-center text-gray-400 cursor-pointer"
-                  onClick={() => document.getElementById(`file-upload-${index}`).click()}
-                >
-                  + Upload
-                </div>
-              )}
-              <input
-                type="file"
-                id={`file-upload-${index}`}
-                className="hidden"
-                accept="image/*"
-                onChange={(e) => handleImageUpload(index, e)}
-              />
-            </div>
-          ))}
-        </div>
+  <h3 className="text-lg font-semibold mb-4 ">Uploaded Files</h3>
+  <div className="flex gap-4 justify-between overflow-x-scroll">
+    <img
+      src={img}
+      alt="File 1"
+      className="w-full h-60 object-cover rounded-lg border border-gray-200"
+    />
+    <img
+      src={img}
+      alt="File 2"
+      className="w-full h-60 object-cover rounded-lg border border-gray-200"
+    />
+    <img
+      src={img}
+      alt="File 3"
+      className="w-full h-60 object-cover rounded-lg border border-gray-200"
+    />
+  </div>
+</div>
+    
       </div>
     </div>
   );

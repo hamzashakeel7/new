@@ -103,49 +103,56 @@ const ServiceInfoform = () => {
       </form>
 
     {/* Image Upload Section */}
-    <div className="mt-6">
-        <h3 className="text-lg font-medium mb-4 ">Upload Image</h3>
-        <div className="flex justify-center items-center">
-          <div className="relative w-96 h-72 border-2 border-dashed border-gray-300 rounded-md overflow-hidden">
-            {uploadedImage ? (
-              <img
-                src={uploadedImage}
-                alt="Uploaded"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div
-                className="flex items-center justify-center w-full h-full text-gray-400 text-lg cursor-pointer"
-                onClick={() => document.getElementById('file-upload').click()}
-              ><svg width="66" height="52" viewBox="0 0 66 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M33 50.635L33 26.945V31.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M21.6699 38.305L32.9999 26.975L44.3299 38.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
-              <path d="M41.2397 50.6055C54.1895 49.5253 64.092 38.6031 63.9021 25.6098C63.7121 12.6164 53.4946 1.98838 40.5188 1.28711C27.5429 0.585839 16.2395 10.0508 14.6503 22.948C7.27779 23.6796 1.77369 30.0632 2.13497 37.4631C2.49626 44.863 8.59604 50.68 16.0047 50.69L24.7597 50.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>
-              </svg>
-              <div> 
-                  Drag and Upload files
-                  
-                  </div>
-                
-              </div>
-            )}
-            <input
-              type="file"
-              id="file-upload"
-              className="hidden"
-              accept="image/*"
-              onChange={handleImageUpload}
+    <div className="mb-6 flex  w-full">
+  <div className="w-full">
+    <h3 className="text-lg font-medium text-gray-800 mb-4 ">Upload Files</h3>
+    <div className="grid grid-cols-1 gap-4">
+      <div className="border-2 border-dashed w-full border-gray-300 rounded-lg p-8 text-center">
+        <div className="flex justify-center mb-4">
+          <svg
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M40 63.635L40 39.945V44.065"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
             />
-          </div>
+            <path
+              d="M28.67 51.305L40 39.975L51.33 51.305"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
-      </div>
-      <div className="flex justify-end items-center gap-4">
-  <button className="text-purple-600">Cancel</button>
-  <button className="bg-purple-700 text-white rounded-lg h-10 px-4">
-    Upload
-  </button>
-</div>
+        <p className="text-gray-500">Drop files here</p>
+        <p className="text-gray-500">Supported files PNG orJPG</p>
+        <span>OR</span>
 
+        <p className="text-violet-900">Browse Files</p>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<div className='space-x-4 items-end justify-end ml-96 pl-36'>
+  <button className='text-purple-500'>Cancel</button>
+  <button className='text-white bg-purple-600 h-10 rounded-lg'>Upload</button>
+  </div>
 
 <div className='' ><button className='bg-purple-700 w-full mt-5 h-10 rounded-lg text-white'>Save</button></div>
         </div>

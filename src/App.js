@@ -18,6 +18,7 @@ import Notfound from "./pages/Not-Found";
 import PropertyForm from "./Component/dashboard/Propertyform/Propertyform";
 import ServiceInformationForm from "./Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
 import Transportationform from "./Component/dashboard/Transportation/Trasportationform";
+
 import { ApplicationReview } from "./Component/dashboard/services/RentalApplication/ApplicationReview";
 import { LeaseForm } from "./Component/dashboard/services/lease/LeaseForm";
 import Home from "./pages/Home";
@@ -39,6 +40,8 @@ import ServiceInfoedit from "./Component/serviceProvider dashboard/serviceinfo/S
 import PostTypeModal from "./Component/serviceProvider dashboard/Posttype";
 import PostPropertyForm from "./Component/dashboard/postservice/Postservice";
 import { RentalApplicationForm } from "./Component/dashboard/services/RentalApplication/RentalForm"
+import Transportform from "./Component/serviceProvider dashboard/Transport/Transport"
+
 
 import TravelService from "./pages/Travel";
 
@@ -92,14 +95,17 @@ function App() {
           />
           <Route path="/completion" element={<Completion />} />
           <Route path="/transportationedit" element={<Transportationedit/>} />
+         <Route path="/transportform" element={<Transportform/>}        />
+        
           <Route path="/propertyform" element={<PropertyForm />} />
           <Route path="/servicesedit" element={<PostFormedit/>} />
           <Route path="/servicesinfo" element={<ServiceInfoform/>} />
-          <Route path="/servicesedit" element={<PostFormedit/>} />
+        
           <Route path="/servicesinfoedit" element={<ServiceInfoedit/>} />
           <Route path="/postform" element={<PostForm/>} />
           <Route path="/Serviceinfoform" element={<ServiceInformationForm />} />
           <Route path="/Transportationform" element={<Transportationform />} />
+         
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/ApplicationReview" element={<ApplicationReview />} />
           <Route path="/lease" element={<LeaseForm />} />

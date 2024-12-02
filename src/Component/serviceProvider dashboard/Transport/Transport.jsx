@@ -1,6 +1,6 @@
 import React from "react";
 
-const Transportationform = () => {
+const Transportform = () => {
   return (
     <>
       {/* Modal */}
@@ -171,21 +171,52 @@ const Transportationform = () => {
             </div>
 
             {/* File Upload Section */}
-            <div className="mb-6">
-              <h3 className="text-lg font-medium text-gray-800 mb-4">Upload Files</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-8">
-                  <div className="flex justify-center mb-4">
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M40 63.635L40 39.945V44.065" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="square" />
-                      <path d="M28.67 51.305L40 39.975L51.33 51.305" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="square" />
-                      <path d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69" stroke="#6F7787" strokeWidth="2.472" strokeMiterlimit="10" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-500">Drop files here</p>
-                </div>
-              </div>
-            </div>
+            <div className="mb-6 flex  w-full">
+  <div className="w-full">
+    <h3 className="text-lg font-medium text-gray-800 mb-4 ">Upload Files</h3>
+    <div className="grid grid-cols-1 gap-4">
+      <div className="border-2 border-dashed w-full border-gray-300 rounded-lg p-8 text-center">
+        <div className="flex justify-center mb-4">
+          <svg
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M40 63.635L40 39.945V44.065"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M28.67 51.305L40 39.975L51.33 51.305"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69"
+              stroke="#6F7787"
+              strokeWidth="2.472"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+        <p className="text-gray-500">Drop files here</p>
+        <p className="text-gray-500">Supported files PNG orJPG</p>
+        <span>OR</span>
+
+        <p className="text-violet-900">Browse Files</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             {/* Action Buttons */}
             <div className="flex justify-between mt-4 space-x-4">
@@ -201,4 +232,4 @@ const Transportationform = () => {
   );
 };
 
-export default Transportationform;
+export default Transportform;

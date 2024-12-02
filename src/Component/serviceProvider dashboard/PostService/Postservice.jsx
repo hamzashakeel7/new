@@ -121,7 +121,7 @@ const PostForm = () => {
           </div>
           <div>
             <label className="block text-gray-600 text-sm font-medium mb-2">
-              Number of Bathrooms
+              NumberofBathrooms
             </label>
             <select className="w-full border border-gray-300 rounded-lg p-2 focus:border-blue-500">
               <option value="">Select Number</option>
@@ -167,7 +167,7 @@ const PostForm = () => {
           </div>
           <div>
             <label className="block text-gray-600 text-sm font-medium mb-2">
-              Heating and Cooling Type
+              HeatingandCoolingType
             </label>
             <input
               type="text"
@@ -177,7 +177,7 @@ const PostForm = () => {
           </div>
           <div>
             <label className="block text-gray-600 text-sm font-medium mb-2">
-              Extra Room / Features
+              Extra Room /Features
             </label>
             <input
               type="text"
@@ -286,13 +286,13 @@ const PostForm = () => {
              key={idx}
              className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center"
            >
-             <div className=' ml-5   md:ml-20'><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <div className=' ml-14  '><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M40 63.635L40 39.945V44.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M28.67 51.305L40 39.975L51.33 51.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>
 </svg></div>
              <p className="text-gray-500">Drop files here</p>
-              <h4 className='text-grey'>{item}</h4>
+              <h4 className='text-slate-500'>{item}</h4>
            </div>
          ))}
        </div>
