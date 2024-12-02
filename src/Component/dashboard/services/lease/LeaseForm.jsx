@@ -23,6 +23,8 @@ export function LeaseForm() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const api=process.env.REACT_APP_API_URL
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,18 +41,24 @@ export function LeaseForm() {
     });
   };
 
+  const token = "{{vault:json-web-token}}"; // Replace with your actual token
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
-
+  
     try {
       const response = await axios.post(
-        "https://silvertlcbackend.vercel.app/api/v1/individual/leaseform/submit",
+        `${api}/api/v1/individual/leaseform/submit`,
         {
-          leaseFormData: formData, // Wrap form data in leaseFormData key
-          token: "{{vault:json-web-token}}", // Replace with actual token if required
+          leaseFormData: formData, // Form data
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Sending token in the Authorization header
+          }
         }
       );
       console.log("Form submitted successfully:", response.data);
@@ -63,7 +71,7 @@ export function LeaseForm() {
       setLoading(false);
     }
   };
-
+  
   return (
     <form onSubmit={handleSubmit} className="w-full p-0 md:p-6">
       <div className="rounded-lg border p-5 md:p-10 bg-gray-100">

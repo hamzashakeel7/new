@@ -6,10 +6,11 @@ import loginimage from '../assets/login.png';
 import logo from '../assets/image.png';
 import axios from 'axios';
 
-function Otp() {
+function Otp({ type }) { // type can be 'forgot' or 'register'
   const [otp, setOtp] = useState(new Array(6).fill("")); // 6 empty OTP fields
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const api = process.env.REACT_APP_API_URL;
 
   // Initialize Toastify
   const notifySuccess = (message) => toast.success(message);
@@ -27,35 +28,58 @@ function Otp() {
       element.previousSibling.focus();
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const otpCode = otp.join(""); // Join OTP fields to create the full OTP
-
+    const otpCode = otp.join("");
+  
     if (otpCode.length !== 6) {
       notifyError("Please enter a valid 6-digit OTP.");
       return;
     }
-
+  
     setLoading(true);
     try {
-      const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/otpcheck', { otp: otpCode });
-
+      let url = '';
+      if (type === 'forgot') {
+        url = `${api}/api/v1/auth/otpcheck/forgot`;
+      } else if (type === 'register') {
+        url = `${api}/api/v1/auth/otpcheck/account-verified`;
+      }
+  
+      const token = localStorage.getItem('authToken'); // Retrieve token from storage
+      if (!token) {
+        notifyError('Unauthorized access. Please log in.');
+        navigate('/login');
+        return;
+      }
+  
+      const response = await axios.post(
+        url,
+        { otp: otpCode },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+  
       if (response.status === 200) {
         notifySuccess('OTP verified successfully!');
-        localStorage.setItem('otpVerified', 'true');
-        navigate('/changepassword');
+        if (type === 'forgot') {
+          navigate('/changepassword');
+        } else if (type === 'register') {
+          navigate('/login');
+        }
       } else {
         notifyError('Invalid OTP. Please try again.');
       }
     } catch (error) {
       console.error('Failed to verify OTP:', error);
-      notifyError('An error occurred. Please try again later.');
+      notifyError(error.response?.data?.message || 'An error occurred. Please try again later.');
     } finally {
       setLoading(false);
     }
   };
-
+  
+  
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
@@ -77,7 +101,9 @@ function Otp() {
             <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
           </div>
 
-          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">Verify OTP sent to your Email</h2>
+          <h2 className="text-gray-800 text-center text-xl lg:text-2xl font-bold mb-6">
+            Verify OTP sent to your Email
+          </h2>
 
           <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-4">
             <div className="flex justify-center gap-2 mb-4">

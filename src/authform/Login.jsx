@@ -16,6 +16,8 @@ function Login() {
   const [roleError, setRoleError] = useState("");
   const navigate = useNavigate();
 
+  const api=process.env.API
+
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -51,7 +53,7 @@ function Login() {
     if (validateForm()) {
       try {
         const response = await axios.post(
-          "https://silvertlcbackend.vercel.app/api/v1/auth/login",
+          `${api}/api/v1/auth/login`,
           {
             email,
             password,

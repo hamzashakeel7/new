@@ -9,6 +9,8 @@ import logo from "../assets/image.png";
 const Forgotpassword = () => {
   const [email, setemail] = useState("");
   const navigate = useNavigate();
+  const api=process.env.REACT_APP_API_URL
+
 
   const notifySuccess = (message) => toast.success(message);
   const notifyError = (message) => toast.error(message);
@@ -23,7 +25,7 @@ const Forgotpassword = () => {
 
     try {
       const response = await axios.post(
-        "https://silvertlcbackend.vercel.app/api/v1/auth/forgotpassword",
+        `${api}/api/v1/auth/forgotpassword`,
         { email }
       );
 

@@ -83,7 +83,7 @@ function App() {
           {/* Auth setup */}
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<Forgotpassword />} />
-          <Route path="/otp" element={<Otp />} />
+          <Route path="/otp" element={<Otp type="register" />} />
           {/* Protect Change Password route */}
           <Route
             path="/changepassword"

@@ -19,6 +19,10 @@ function Register() {
   const [passwordVisible, setPasswordVisible] = useState(false); // New state for password visibility
   const [activeTab, setActiveTab] = useState("register");
   const navigate = useNavigate();
+  const api=process.env.REACT_APP_API_URL
+
+
+
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -77,7 +81,7 @@ function Register() {
     ) {
       try {
         const response = await axios.post(
-          "https://silvertlcbackend.vercel.app/api/v1/auth/register",
+          `${api}/api/v1/auth/register`,
           {
             name: fullName,
             email,
@@ -89,7 +93,8 @@ function Register() {
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-        navigate("/login");
+        // Navigate to OTP page
+        navigate("/otp", { state: { email, phonenumber } });
       } catch (error) {
         console.error("Registration failed:", error);
         toast.error(error.response?.data?.message || "Registration failed.");
@@ -168,7 +173,7 @@ function Register() {
               >
                   <option value="Individual">Individual</option>
                 <option value="Property Owner">Property Owner</option>
-                <option value="Insurance Company">Insurance Company</option>
+              
                 <option value="Hospital System/Managed Care Organizations">
                   Hospital System/Managed Care Organizations
                 </option>

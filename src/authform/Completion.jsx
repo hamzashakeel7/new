@@ -7,6 +7,8 @@ import { FaCheckCircle } from 'react-icons/fa';
 const Completion = () => {
   const navigate = useNavigate();
 
+
+
   const handleLoginRedirect = () => {
     navigate('/login');
   };

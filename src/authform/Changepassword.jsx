@@ -10,6 +10,8 @@ function Changepassword() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const api=process.env.REACT_APP_API_URL
+
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -29,7 +31,7 @@ function Changepassword() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post('https://silvertlcbackend.vercel.app/api/v1/auth/changepassword', {
+        const response = await axios.post(`${api}/api/v1/auth/changepassword`, {
           password,
         });
         toast.success('Password reset successfully!');
