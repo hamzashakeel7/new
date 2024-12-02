@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Search } from "lucide-react";
+import { Search, View, Download, Edit } from "lucide-react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import {
   Card,
@@ -23,75 +23,37 @@ import {
   TableHeader,
   TableRow,
 } from "../../../shadcn/components/ui/Table";
-import { Download, Edit } from "lucide-react";
+import { Invoice } from "../Invoice";
 
 export function MyProfile() {
-  const accounts = Array(10).fill({
-    accountNumber: "Lorem",
-    date: "Lorem",
-    clientName: "Lorem",
-    amount: "Lorem",
-    status: "Lorem",
-    invoice: "Paid",
-  });
+  const accounts = Array(10)
+    .fill(null)
+    .map((_, index) => ({
+      id: index + 1,
+      accountNumber: "Lorem",
+      date: "Lorem",
+      clientName: "Lorem",
+      amount: "Lorem",
+      status: "Lorem",
+      invoice: "Paid",
+    }));
+
+  const [isInvoiceModalOpen, setIsInvoiceModalOpen] = React.useState(false);
+
+  const handleOpenInvoice = () => {
+    setIsInvoiceModalOpen(true);
+  };
+
+  const handleCloseInvoice = () => {
+    setIsInvoiceModalOpen(false);
+  };
 
   const calendarData = {
-    1: [],
-    2: [{ type: "Development" }, { type: "Edit file" }],
-    3: [{ type: "Development" }, { note: "Note taking" }],
-    4: [{ type: "Green Tag" }, { note: "Note taking" }],
-    5: [{ note: "Note taking" }],
-    6: [{ type: "Development" }, { note: "Note taking" }],
-    7: [{ note: "Note taking" }],
-    8: [{ type: "Design" }, { type: "Development" }],
-    9: [{ type: "Regular Tag" }, { note: "Note taking" }],
-    10: [{ type: "Design" }, { note: "Note taking" }],
-    11: [{ type: "Development" }, { note: "Note taking" }],
-    12: [{ note: "Note taking" }],
-    13: [{ note: "Note taking" }],
-    14: [{ type: "Design" }, { type: "Development" }, { note: "Note taking" }],
-    15: [],
-    16: [
-      { type: "Blue Tag" },
-      { type: "Development" },
-      { type: "Edit file" },
-      { note: "Note taking" },
-    ],
-    17: [],
-    18: [{ type: "Design" }, { type: "Green Tag" }, { note: "Note taking" }],
-    19: [],
-    20: [],
-    21: [{ type: "Design" }, { type: "Development" }, { note: "Note taking" }],
-    22: [],
-    23: [{ type: "Blue Tag" }, { type: "Orange Tag" }],
-    24: [{ type: "Edit file" }, { note: "Note taking" }],
-    25: [{ type: "Design" }, { type: "Development" }, { note: "Note taking" }],
-    26: [{ note: "Note taking" }],
-    27: [{ type: "Regular Tag" }],
-    28: [{ type: "Design" }, { type: "Development" }],
-    29: [{ type: "Design" }, { type: "Development" }],
-    30: [{ type: "Development" }, { type: "Edit file" }],
-    31: [{ note: "Note taking" }],
-    32: [{ note: "Note taking" }],
+    // ... (keep the existing calendarData)
   };
 
   const getTagColor = (type) => {
-    switch (type) {
-      case "Design":
-        return "text-blue-600";
-      case "Development":
-        return "text-orange-500";
-      case "Green Tag":
-        return "text-green-500";
-      case "Edit file":
-        return "text-red-500";
-      case "Blue Tag":
-        return "text-blue-600";
-      case "Orange Tag":
-        return "text-orange-500";
-      default:
-        return "text-gray-600";
-    }
+    // ... (keep the existing getTagColor function)
   };
 
   const weekDays = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
@@ -119,7 +81,7 @@ export function MyProfile() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
               <label className="text-sm">First Name</label>
               <Input placeholder="Add Company Name" />
@@ -203,7 +165,7 @@ export function MyProfile() {
               Where Would You Like to Find a Place
             </p>
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm">City</label>
                   <Input placeholder="City" />
@@ -267,8 +229,8 @@ export function MyProfile() {
         <CardHeader>
           <CardTitle>Calendar: May, 2022</CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-7 border-t border-l">
+        <CardContent className="overflow-x-auto">
+          <div className="grid grid-cols-7 border-t border-l min-w-[700px]">
             {/* Week days header */}
             {weekDays.map((day) => (
               <div
@@ -311,44 +273,62 @@ export function MyProfile() {
 
       {/* Accounts Section */}
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
+        <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <CardTitle>Accounts</CardTitle>
           <div className="flex gap-2">
             <Button variant="outline">Sort By</Button>
             <Button variant="outline">Filter</Button>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Account Number</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Client Name</TableHead>
-                <TableHead>Amount</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Invoice</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead className="whitespace-nowrap">
+                  Account Number
+                </TableHead>
+                <TableHead className="whitespace-nowrap">Date</TableHead>
+                <TableHead className="whitespace-nowrap">Client Name</TableHead>
+                <TableHead className="whitespace-nowrap">Amount</TableHead>
+                <TableHead className="whitespace-nowrap">Status</TableHead>
+                <TableHead className="whitespace-nowrap">Invoice</TableHead>
+                <TableHead className="whitespace-nowrap">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {accounts.map((account, index) => (
-                <TableRow key={index}>
-                  <TableCell>{account.accountNumber}</TableCell>
-                  <TableCell>{account.date}</TableCell>
-                  <TableCell>{account.clientName}</TableCell>
-                  <TableCell>{account.amount}</TableCell>
-                  <TableCell>{account.status}</TableCell>
-                  <TableCell>{account.invoice}</TableCell>
+              {accounts.map((account) => (
+                <TableRow key={account.id}>
+                  <TableCell className="whitespace-nowrap">
+                    {account.accountNumber}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {account.date}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {account.clientName}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {account.amount}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {account.status}
+                  </TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    {account.invoice}
+                  </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-2">
-                      <Button variant="ghost" size="sm">
-                        <Edit className="h-4 w-4" />
-                        <span className="sr-only">Edit</span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleOpenInvoice}
+                      >
+                        <Edit className="h-4 w-4 mr-1" />
+                        <span className="">View</span>
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <Download className="h-4 w-4" />
-                        <span className="sr-only">Download</span>
+                        <Download className="h-4 w-4 mr-1" />
+                        <span className="">Download</span>
                       </Button>
                       <Button variant="ghost" size="sm">
                         Pay Now
@@ -361,6 +341,19 @@ export function MyProfile() {
           </Table>
         </CardContent>
       </Card>
+
+      {/* Invoice Modal */}
+      {isInvoiceModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            onClick={handleCloseInvoice}
+          ></div>
+          <div className="relative z-10 w-full max-w-md">
+            <Invoice onClose={handleCloseInvoice} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

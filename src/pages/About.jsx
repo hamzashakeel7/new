@@ -161,37 +161,37 @@ export default function AboutUs() {
             </div>
 
             {/* items on the wheel */}
-            <div className="absolute top-[50px] left-[93px] lg:top-[100px] lg:left-[230px]">
-              <p className="w-[100px] lg:w-[190px] text-[10px] lg:text-sm text-center  text-white font-semibold">
+            <div className="absolute top-[30px] left-[79px] lg:top-[100px] lg:left-[230px]">
+              <p className="w-[80px] lg:w-[190px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Develop/maintain digital interface and relationships
               </p>
             </div>
-            <div className="absolute top-[80px] right-[58px] lg:top-[150px] lg:right-[150px]">
-              <p className="w-[100px] lg:w-[190px] text-[10px] lg:text-sm text-center  text-white font-semibold">
+            <div className="absolute top-[50px] right-[45px] lg:top-[150px] lg:right-[150px]">
+              <p className="w-[80px] lg:w-[190px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Locate accessible properties
               </p>
             </div>
-            <div className="absolute top-[220px] right-[-4px] lg:top-[410px] lg:right-[8px]">
-              <p className="lg:w-[190px] w-[100px] text-[10px] lg:text-sm text-center  text-white font-semibold">
+            <div className="absolute top-[160px] right-[-4px] lg:top-[410px] lg:right-[8px]">
+              <p className="lg:w-[190px] w-[80px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Pair with available wrap around services.
               </p>
             </div>
-            <div className="absolute bottom-[70px] right-[50px]  lg:bottom-[140px] lg:right-[132px]">
+            <div className="absolute bottom-[50px] right-[35px]  lg:bottom-[140px] lg:right-[132px]">
               <p className="lg:w-[190px] w-[100px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Actively recruit partners
               </p>
             </div>
-            <div className="absolute bottom-[30px] left-[110px] lg:bottom-[82px] lg:left-[252px]">
-              <p className="lg:w-[190px] w-[90px] text-[10px] lg:text-sm text-center  text-white font-semibold">
+            <div className="absolute bottom-[30px] left-[85px] lg:bottom-[82px] lg:left-[252px]">
+              <p className="lg:w-[190px] w-[80px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Place participants in homes with supports
               </p>
             </div>
-            <div className="absolute bottom-[130px] left-[20px] lg:bottom-[270px] lg:left-[66px]">
+            <div className="absolute bottom-[90px] left-[10px] lg:bottom-[270px] lg:left-[66px]">
               <p className="lg:w-[160px] w-[90px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Coordinate with local support networks
               </p>
             </div>
-            <div className="absolute top-[150px] left-0 lg:top-[282px] lg:left-[20px]">
+            <div className="absolute top-[110px] left-0 lg:top-[282px] lg:left-[20px]">
               <p className="lg:w-[190px] w-[90px] text-[10px] lg:text-sm text-center  text-white font-semibold">
                 Ensure ongoing monitoring and feedback
               </p>

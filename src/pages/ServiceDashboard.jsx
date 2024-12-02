@@ -41,17 +41,15 @@ export function ServiceDashboard() {
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {section === "My profile" && <MyProfile />}
-            {section === "services" && <PostForm/>}
+            {section === "services" && <PostForm />}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}
-            {section === "Corporate Tickets" && <CorporateTickets />}
+            {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
-            {section === "My Properties / Services" && <MyPropertiesServices/>}
+            {section === "My Properties / Services" && <MyPropertiesServices />}
             {section === "livechat" && <LiveChat />}
             {/* temperory routing */}
-            {section === "corporate messages" && <CorporateMessages />}
-            {section === "Ticket Thread" && <TicketThread />}
           </main>
         </div>
       </div>

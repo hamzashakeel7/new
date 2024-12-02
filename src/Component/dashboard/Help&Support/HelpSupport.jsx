@@ -19,6 +19,7 @@ import {
 import { CalendarIcon, Eye, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "../../../shadcn/lib/utils";
+import { TicketThread } from "../../serviceProvider dashboard/TicketThread";
 
 const tickets = [
   {
@@ -77,6 +78,8 @@ export function HelpAndSupport() {
   const [dateTo, setDateTo] = useState(null);
   const [showFilters, setShowFilters] = useState(true);
   const [showSubmitTicket, setShowSubmitTicket] = useState(true);
+  const [isTicketThreadOpen, setIsTicketThreadOpen] = useState(false);
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
   const [newTicket, setNewTicket] = useState({
     name: "",
@@ -101,6 +104,16 @@ export function HelpAndSupport() {
     setDateTo(null);
   };
 
+  const handleOpenTicketThread = (ticket) => {
+    setSelectedTicket(ticket);
+    setIsTicketThreadOpen(true);
+  };
+
+  const handleCloseTicketThread = () => {
+    setIsTicketThreadOpen(false);
+    setSelectedTicket(null);
+  };
+
   return (
     <div className="p-0 lg:p-6 space-y-6 w-[75vw] lg:w-full">
       <div className="flex flex-col md:flex-row gap-6">
@@ -108,13 +121,6 @@ export function HelpAndSupport() {
           <div className="w-full md:w-1/4 space-y-4 bg-white p-4 rounded-lg border">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Filters</h3>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowFilters(false)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
             </div>
             {/* Filters section */}
             <div className="space-y-2">
@@ -203,7 +209,11 @@ export function HelpAndSupport() {
                     <TableCell>{ticket.status}</TableCell>
                     <TableCell>{ticket.dateCreated}</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleOpenTicketThread(ticket)}
+                      >
                         <Eye className="h-4 w-4 mr-2" />
                         View
                       </Button>
@@ -221,13 +231,6 @@ export function HelpAndSupport() {
         <div className="bg-gray-100 p-4 rounded-lg border">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Submit a Ticket</h3>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setShowSubmitTicket(false)}
-            >
-              <X className="h-4 w-4" />
-            </Button>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -297,6 +300,22 @@ export function HelpAndSupport() {
               Submit
             </Button>
           </form>
+        </div>
+      )}
+
+      {/* Ticket Thread Modal */}
+      {isTicketThreadOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black  opacity-50 top-[-2rem]"
+            onClick={handleCloseTicketThread}
+          ></div>
+          <div className="relative z-10 w-full max-w-3xl">
+            <TicketThread
+              onClose={handleCloseTicketThread}
+              ticket={selectedTicket}
+            />
+          </div>
         </div>
       )}
     </div>

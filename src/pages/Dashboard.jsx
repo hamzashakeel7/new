@@ -10,6 +10,7 @@ import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport"
 import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 import Message from "../Component/dashboard/messages/Messages";
 import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
+import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -36,7 +37,7 @@ export function Dashboard() {
           <main className="flex-1 overflow-auto p-4">
             {section === "My profile" && <MyProfile />}
             {section === "services" && <Servicesform />}
-            {section === "application" && <RentalApplicationForm />}
+            {section === "application" && <Applications />}
             {section === "accounting" && <AccountingPage />}
             {section === "messages" && <Message />}
             {section === "Help & Support" && <HelpAndSupport />}

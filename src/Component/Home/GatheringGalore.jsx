@@ -22,8 +22,8 @@ const GatheringGalore = () => {
         </h2>
       </div>
       {/* boxes start */}
-      <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-3 px-0 lg:px-28">
-        <div className="flex flex-col items-start justify-start p-2 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
+      <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2 lg:grid-cols-3 w-full md:px-32 ">
+        <div className="flex flex-col items-start justify-start p-5  bg-[#F1F1F1] shadow-lg h-[17rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Building2 />
             <p className="font-bold">Agencies</p>
@@ -34,7 +34,7 @@ const GatheringGalore = () => {
             care/rehabilitation and mental health facilities
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-[#F1F1F1] shadow-lg">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Cog />
             <p className="font-bold">Service Providers</p>
@@ -46,7 +46,7 @@ const GatheringGalore = () => {
             Bill Pay Services.
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-[#F1F1F1] shadow-lg ">
           <div className="flex items-start justify-start gap-4 mb-5">
             <Building />
             <p className="font-bold">Real Estate</p>
@@ -56,7 +56,7 @@ const GatheringGalore = () => {
             State Housing Authorities,
           </p>
         </div>
-        <div className="flex flex-col items-start justify-start p-5 bg-white shadow-lg w-[20rem] lg:w-[25rem] lg:h-[14rem]">
+        <div className="flex flex-col items-start justify-start p-5 bg-[#F1F1F1] shadow-lg h-[17rem]">
           <div className="flex items-start justify-start gap-4 mb-5">
             <DollarSign />
             <p className="font-bold">Non-Profits</p>

@@ -8,22 +8,22 @@ import {
   Twitter,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import footer from "../assets/home/footer/footer.png";
+import FooterImage from "../assets/FooterImage.png";
 import logo from "../assets/logo.png";
 import footer1 from "../assets/home/footer/footer1.jpg";
 import footer2 from "../assets/home/footer/footer2.jpg";
 
 export function Footer() {
   return (
-    <footer className="relative bg-gradient-to-r from-gray-900 to-gray-700  text-white">
+    <footer className="relative bg-gradient-to-r from-gray-900 to-gray-700 text-white">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
+        className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `url(${footer})`,
-          backgroundSize: "110vw 120vh",
+          backgroundImage: `url(${FooterImage})`,
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "top center",
         }}
       />
 

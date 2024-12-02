@@ -19,8 +19,7 @@ export const PurpleSection = () => {
         </div>
         <div>
           {/* boxes */}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center mt-10 gap-5">
             {/* single box */}
             <div className="flex items-center justify-center flex-col">
               <div className=" h-[231px]">

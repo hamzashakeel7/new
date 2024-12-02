@@ -55,7 +55,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
   };
 
   const handleLogout = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   return (

@@ -49,16 +49,6 @@ const menuItems = [
     label: "My Properties / Services",
     section: "My Properties / Services",
   },
-  {
-    icon: Grip,
-    label: "temp corporate messages",
-    section: "corporate messages",
-  },
-  {
-    icon: Grip,
-    label: "temp Ticket Threat",
-    section: "Ticket Thread",
-  },
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
@@ -83,7 +73,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
   };
 
   const handleLogout = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   return (

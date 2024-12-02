@@ -22,7 +22,7 @@ const HeroSection = () => {
           <div className="absolute opacity-30">
             <img src={heart} alt="heart" className="w-[20rem]" />
           </div>
-          <p className="text-gray-100 text-lg lg:text-xl text-center">
+          <p className="text-gray-100 text-lg lg:text-xl text-center w-full md:w-[32rem] lg:w-[45rem]">
             The moral test of government is how that government treats those who
             are in the dawn of life, the children; those who are in the twilight
             of life, the elderly; and those who are in the shadows of life, the

@@ -26,8 +26,12 @@ import {
   CardHeader,
   CardTitle,
 } from "../../../shadcn/components/ui/Card";
+import { Invoice } from "../../dashboard/Invoice";
 
 export function Accounting() {
+  const [isInvoiceModalOpen, setIsInvoiceModalOpen] = React.useState(false);
+  const [selectedInvoice, setSelectedInvoice] = React.useState(null);
+
   const currentEntries = Array(7).fill({
     date: "Lorem",
     clientName: "Lorem",
@@ -43,6 +47,16 @@ export function Accounting() {
     amount: "Lorem",
     status: "Lorem",
   });
+
+  const handleOpenInvoice = (invoice) => {
+    setSelectedInvoice(invoice);
+    setIsInvoiceModalOpen(true);
+  };
+
+  const handleCloseInvoice = () => {
+    setIsInvoiceModalOpen(false);
+    setSelectedInvoice(null);
+  };
 
   return (
     <div className="container mx-auto p-4 space-y-6">
@@ -147,7 +161,11 @@ export function Accounting() {
                         <Edit className="h-4 w-4" />
                         <span className="sr-only">Edit</span>
                       </Button>
-                      <Button variant="ghost" size="sm">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleOpenInvoice(entry)}
+                      >
                         <Eye className="h-4 w-4" />
                         <span className="sr-only">View</span>
                       </Button>
@@ -229,6 +247,19 @@ export function Accounting() {
           </Table>
         </CardContent>
       </Card>
+
+      {/* Invoice Modal */}
+      {isInvoiceModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            onClick={handleCloseInvoice}
+          ></div>
+          <div className="relative z-10 w-full max-w-md">
+            <Invoice onClose={handleCloseInvoice} invoice={selectedInvoice} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

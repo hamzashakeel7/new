@@ -37,7 +37,7 @@ export function Navbar() {
     <div className="relative">
       {/* Main Navigation */}
       <nav className="relative z-20 bg-gray-900/95 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-0">
           <div className="flex h-28 items-center justify-between gap-4">
             {/* Mobile Menu Trigger */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -58,11 +58,28 @@ export function Navbar() {
                   >
                     Home
                   </Link>
-                  <div className="px-4 py-2">
-                    <button className="flex items-center hover:bg-gray-800">
-                      Query <ChevronDown className="ml-1 h-4 w-4 " />
-                    </button>
-                  </div>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="flex items-center gap-1  w-full justify-start px-4 py-2"
+                      >
+                        Query <ChevronDown className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>
+                        <Link to="/property" className="w-full">
+                          Property
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link to="/PropertyService" className="w-full">
+                          Services
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                   <Link
                     to="/community"
                     className="block px-4 py-2 hover:bg-gray-800"
@@ -80,7 +97,7 @@ export function Navbar() {
             </Sheet>
 
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-1 md:gap-2">
               <div className="h-14 w-14 lg:h-20 lg:w-20 overflow-hidden rounded-full">
                 <img
                   src={logo}
@@ -123,15 +140,14 @@ export function Navbar() {
             </div>
 
             {/* Search and Actions */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-0 md:gap-4">
               <div className="relative hidden md:block text-black">
-                {/* <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-red-500" /> */}
                 <Input
                   placeholder="Search"
                   className="w-[200px] pl-9 bg-white border-gray-700 text-black"
                 />
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-0 md:gap-2">
                 <Link to="/register">
                   <Button
                     variant="ghost"
@@ -177,7 +193,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Secondary Bar */}
+      {/* bottom Bar */}
       <div className="relative z-10 bg-white py-2 text-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-start gap-5 lg:gap-10">

@@ -6,7 +6,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../../shadcn/components/ui/Dialog";
-import { X } from "lucide-react";
 import walking from "../../assets/home/walking.png";
 
 export function Mission() {
@@ -15,7 +14,7 @@ export function Mission() {
   return (
     <div className="relative py-6 lg:py-12">
       <div className="container mx-auto px-4">
-        <div className="w-full">
+        <div className="relative w-full z-20">
           <p className="mb-3 lg:mb-6 text-sm lg:text-lg leading-relaxed">
             At The TLC Company, LLC, We Believe That America's Seniors And
             Disabled Deserve The Opportunity To Access Safe And Secure Housing
@@ -41,7 +40,8 @@ export function Mission() {
             Mission
           </Button>
         </div>
-        <div className="absolute top-[7rem] right-[-20rem] lg:top-[2rem] lg:right-[-10rem] w-[60rem] md:block">
+        {/* Adjusted image container */}
+        <div className="absolute top-[13rem] right-[-28rem] lg:top-[-2rem] md:top-[-2rem] lg:right-[-20rem] w-[60rem] md:w-[90rem] z-10 pointer-events-none">
           <img
             src={walking}
             alt="walking"
@@ -50,11 +50,15 @@ export function Mission() {
         </div>
       </div>
 
-      <Dialog open={showMission} onOpenChange={setShowMission}>
-        <DialogContent className="sm:max-w-[600px] bg-white">
-          <div className="">
+      <Dialog
+        open={showMission}
+        onOpenChange={setShowMission}
+        className="h-1/2 overflow-y-scroll"
+      >
+        <DialogContent className="sm:max-w-[600px] max-w-[600px] h-1/2 overflow-y-visible overflow-y-scroll bg-white z-50">
+          <div>
             <DialogHeader className="w-full">
-              <div className="flex items-center justify-between ">
+              <div className="flex items-center justify-between">
                 <DialogTitle className="text-xl font-semibold">
                   Mission
                 </DialogTitle>

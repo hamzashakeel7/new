@@ -15,7 +15,7 @@ import {
 import { Textarea } from "../../shadcn/components/ui/Textarea";
 import avatar from "../../assets/serviceProvider dashboard/messages/avatar2.png";
 
-export function TicketThread() {
+export function TicketThread({ onClose, ticket }) {
   const messages = [
     {
       id: "1",
@@ -44,15 +44,15 @@ export function TicketThread() {
   ];
 
   return (
-    <Card className="max-w-3xl mx-auto">
+    <Card className="max-w-3xl mx-auto lg:h-[80vh] h-[30rem] overflow-y-scroll">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
         <div className="space-y-1">
-          <CardTitle>Query</CardTitle>
+          <CardTitle>{ticket.subject}</CardTitle>
           <p className="text-sm text-muted-foreground">
-            Query Which You Submitted Through Help And Support Form
+            Ticket Number: {ticket.number} | Status: {ticket.status}
           </p>
         </div>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" onClick={onClose}>
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </Button>
