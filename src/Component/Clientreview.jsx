@@ -1,5 +1,5 @@
 import React from "react";
-import clientBg from "../assets/home/prperty/client1.png"; // Replace with actual client review background image
+ // Replace with actual client review background image
 import topRightImg from "../assets/home/prperty/bg.png"; // Replace with actual top-right decorative image
 import happyClientsBg from "../assets/home/prperty/bg2.png"; // Replace with actual Happy Clients background image
 import c1 from "../assets/home/prperty/client1.png"; // First client image

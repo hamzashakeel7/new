@@ -16,7 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../../../shadcn/components/ui/Popover";
-import { CalendarIcon, Eye, X } from "lucide-react";
+import { CalendarIcon, Eye } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "../../../shadcn/lib/utils";
 import { TicketThread } from "../../serviceProvider dashboard/TicketThread";
