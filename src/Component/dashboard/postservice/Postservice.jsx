@@ -5,7 +5,7 @@ import prop3 from "../../../assets/prop3.png";
 import prop4 from "../../../assets/prop4.png";
 import prop5 from "../../../assets/prop5.png";
 import {  useNavigate } from 'react-router-dom';
-import { LeaseForm } from '../services/lease/LeaseForm';
+
 
 const PostPropertyForm = ({service,onClose }) => {
   

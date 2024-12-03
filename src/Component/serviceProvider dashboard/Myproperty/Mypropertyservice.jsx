@@ -4,7 +4,7 @@ import banner from "../../../assets/Serviceasset/sevicebanner.png"
 
 import prop1 from "../../../assets/Serviceasset/sevicebanner.png"
 
-import prop2 from "../../../assets/Serviceasset/sevicebanner.png"
+
 
 export default function MyPropertiesServices() {
   return (

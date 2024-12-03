@@ -1,5 +1,4 @@
 import React from "react";
-import { FaFacebookMessenger } from "react-icons/fa";
 
 const Message = () => {
   return (
