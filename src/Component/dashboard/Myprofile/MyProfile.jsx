@@ -23,7 +23,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../../shadcn/components/ui/Table";
-import { Download, Edit } from "lucide-react";
+
 import { Invoice } from "../Invoice";
 
 export function MyProfile() {
