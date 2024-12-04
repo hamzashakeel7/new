@@ -46,8 +46,8 @@ const menuItems = [
   },
   {
     icon: Grip,
-    label: "My Properties / Services",
-    section: "My Properties / Services",
+    label: "My Properties/Services",
+    section: "MyPropertyServices",
   },
 ];
 
