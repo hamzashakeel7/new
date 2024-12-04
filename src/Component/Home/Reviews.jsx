@@ -40,7 +40,10 @@ export function Reviews() {
 
   return (
     <div className="py-12">
-      <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-8">
+      <h4 className="text-center text-purple-600 text-xs font-semibold mb-4">
+        Trusted Voices
+      </h4>
+      <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-6">
         Listen To What Our Members Have To Say
       </h2>
       <div className="relative flex items-center justify-center flex-col lg:flex-row mx-auto p-1 lg:p-10 h-full w-full lg:w-[60vw]  lg:h-[37vh]">

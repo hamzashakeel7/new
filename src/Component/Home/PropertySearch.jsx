@@ -14,10 +14,10 @@ export function PropertySearch() {
       />
       <div className="absolute inset-0 bg-purple-900/30" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-white">
-        <h2 className="lg:mb-2 mt-5 text-2xl lg:text-3xl font-semibold">
+        <h2 className="lg:mb-2 mt-5 text-2xl lg:text-3xl font-bold">
           Property Search
         </h2>
-        <p className="mb-4 lg:mb-8 text-sm text-gray-200">
+        <p className="mb-4 lg:mb-8 text-lg text-gray-200">
           Where would you like to find a place?
         </p>
         <div className="flex w-full lg:max-w-4xl h-full flex-col gap-4 sm:flex-row text-black">
@@ -31,10 +31,10 @@ export function PropertySearch() {
             <Input
               id="city"
               className="h-10 bg-white/90 text-gray-900 placeholder:text-gray-500 "
-              placeholder="Enter city"
+              placeholder="Add Company Name"
             />
           </div>
-          <div className="w-full sm:w-24">
+          <div className="w-full sm:w-[20rem]">
             <label
               htmlFor="number"
               className="mb-1 block text-sm text-white font-semibold"
@@ -44,7 +44,7 @@ export function PropertySearch() {
             <Input
               id="number"
               className="h-10 bg-white/90 text-gray-900 placeholder:text-gray-500"
-              placeholder="2"
+              placeholder="Add address"
             />
           </div>
           <div className="flex-1 mb-6 lg:mb-0">
@@ -57,7 +57,7 @@ export function PropertySearch() {
             <Input
               id="zip"
               className="h-10 bg-white/90 text-gray-900 placeholder:text-gray-500"
-              placeholder="Enter ZIP code"
+              placeholder="Select city"
             />
           </div>
         </div>

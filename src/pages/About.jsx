@@ -41,10 +41,12 @@ export default function AboutUs() {
         <div className="relative">
           {/* Background Image */}
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+            className="absolute inset-0 bg-cover bg-center opacity-30 ml-20"
             style={{
-              backgroundImage: `url(${bgImg})`, // Background image
-              backgroundPosition: "top",
+              backgroundImage: `url(${bgImg})`,
+              backgroundSize: "60vw",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "left",
             }}
           ></div>
 
@@ -155,7 +157,7 @@ export default function AboutUs() {
             <div className="">
               <img
                 src={goals}
-                className="shadow-xl h-[50vh] lg:h-full"
+                className=" h-[50vh] lg:h-full"
                 alt="Our team goals"
               />
             </div>

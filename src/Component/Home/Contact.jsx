@@ -10,7 +10,7 @@ const Contact = () => {
 
   return (
     <div className="">
-      <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-4 mt-7">
+      <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-6 mt-7 lg:mt-0">
         Contact Us
       </h2>
       <div className="relative w-full lg:max-w-[75vw] mx-auto h-64">

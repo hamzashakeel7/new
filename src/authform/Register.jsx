@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import loginimage from "../assets/register.png";
-import logo from "../assets/image.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Eye, EyeOff } from "lucide-react";
+import { cn } from "../shadcn/lib/utils";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../shadcn/components/ui/Select";
+import { Button } from "../shadcn/components/ui/Button";
+import { Input } from "../shadcn/components/ui/Input";
+import axios from "axios";
+import register from "../assets/register.png";
+import logo from "../assets/image.png";
 
-function Register() {
+export default function Register() {
+  const [activeTab, setActiveTab] = useState("register");
   const [fullName, setFullName] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -16,14 +28,12 @@ function Register() {
   const [fullNameError, setFullNameError] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false); // New state for password visibility
-  const [activeTab, setActiveTab] = useState("register");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
-  const api=process.env.REACT_APP_API_URL
 
+  const api = process.env.REACT_APP_API_URL;
 
-
-
+  // Keeping all validation functions unchanged
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -67,12 +77,12 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!role) {
       toast.error("Please select a role.");
       return;
     }
-  
+
     if (
       validateEmail(email) &&
       validateFullName(fullName) &&
@@ -80,20 +90,16 @@ function Register() {
       validatePassword(password)
     ) {
       try {
-        const response = await axios.post(
-          `${api}/api/v1/auth/register`,
-          {
-            name: fullName,
-            email,
-            password,
-            phonenumber,
-            role,
-          }
-        );
+        const response = await axios.post(`${api}/api/v1/auth/register`, {
+          name: fullName,
+          email,
+          password,
+          phonenumber,
+          role,
+        });
         toast.success(
           "Registration successful! Please check your email for OTP."
         );
-        // Navigate to OTP page
         navigate("/otp", { state: { email, phonenumber } });
       } catch (error) {
         console.error("Registration failed:", error);
@@ -101,169 +107,195 @@ function Register() {
       }
     }
   };
-  
 
   return (
-    <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 py-10 lg:px-10 bg-gray-100 pl-8 lg:pl-16 overflow-auto w-full">
-      <ToastContainer />
+    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-4">
+      <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-      <div className="flex shadow-lg rounded-xl bg-white w-full lg:w-[60rem] h-auto lg:h-[77vh] overflow-hidden relative flex-col lg:flex-row">
-        <div className=" w-[30rem] relative">
+        {/* Left side - Image */}
+        <div className="lg:w-1/2 relative h-64 lg:h-auto rounded-[2rem] overflow-hidden">
           <img
-            src={loginimage}
-            alt="login"
-            className="md:h-[44rem] object-cover"
+            src={register}
+            alt="Healthcare professional at work"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="absolute bottom-5 md:left-1/2 left-[12rem] transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-            <h2 className="text-2xl font-bold m-0 whitespace-nowrap text-center">
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute bottom-8 left-0 right-0 text-center text-white p-6">
+            <h2 className="text-3xl font-bold mb-2">
               Your Health, Our Priority
             </h2>
-            <p className="text-lg m-0 whitespace-nowrap">
-              Caring for You, Every Step
-            </p>
+            <p className="text-xl">Caring for You, Every Step</p>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 p-8 lg:p-10 mt-5 lg:mt-0 overflow-auto">
-          <div className="flex justify-center gap-6 items-center mb-5">
-            <h2 className="text-gray-800 text-xl lg:text-2xl font-bold ml-4">
+        {/* Right side - Form */}
+        <div className="lg:w-1/2 p-8 lg:p-12 relative">
+          <div className="absolute top-10 md:right-8 right-2">
+            <img src={logo} alt="SilverTLC Logo" className="w-20 h-14" />
+          </div>
+
+          <div className="max-w-md mx-auto">
+            <h1 className="text-2xl font-bold text-center mb-8">
               Welcome to SilverTLC
-            </h2>
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-12 h-auto sm:w-16 md:w-20 lg:w-14"
-            />
-          </div>
+            </h1>
 
-          <div className="flex justify-center gap-4 mb-6 w-full">
-            <button
-              onClick={() => {
-                setActiveTab("login");
-                navigate("/Login");
-              }}
-              className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === "login"
-                  ? "bg-purple-600 text-white"
-                  : "bg-transparent text-black border-2 border-black"
-              }`}
-            >
-              Login
-            </button>
-            <button
-              onClick={() => setActiveTab("register")}
-              className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === "register"
-                  ? "bg-purple-600 text-white"
-                  : "bg-transparent text-black border-2 border-black"
-              }`}
-            >
-              Register
-            </button>
-          </div>
+            {/* Login/Register Toggle with smooth transition */}
+            <div className="w-full max-w-xs mx-auto mb-4 relative bg-gray-100 rounded-full p-1">
+              <div
+                className="absolute inset-y-1 w-1/2 bg-purple-600 rounded-full transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(${
+                    activeTab === "register" ? "100%" : "0%"
+                  })`,
+                }}
+              />
+              <div className="relative z-10 flex">
+                <button
+                  className={cn(
+                    "w-1/2 py-2 text-center rounded-full transition-colors duration-300",
+                    activeTab === "login" ? "text-white" : "text-gray-700"
+                  )}
+                  onClick={() => {
+                    setActiveTab("login");
+                    navigate("/Login");
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className={cn(
+                    "w-1/2 py-2 text-center rounded-full transition-colors duration-300",
+                    activeTab === "register" ? "text-white" : "text-gray-700"
+                  )}
+                  onClick={() => setActiveTab("register")}
+                >
+                  Register
+                </button>
+              </div>
+            </div>
 
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block mb-1 text-gray-600">User Role</label>
-              <select
-                className="w-full px-3 py-2 rounded-full border border-gray-300 bg-gray-100"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  User Role
+                </label>
+                <Select value={role} onValueChange={setRole}>
+                  <SelectTrigger className="w-full rounded-full">
+                    <SelectValue placeholder="Select Role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Individual">Individual</SelectItem>
+                    <SelectItem value="Property Owner">
+                      Property Owner
+                    </SelectItem>
+                    <SelectItem value="Hospital System/Managed Care Organizations">
+                      Hospital System/Managed Care Organizations
+                    </SelectItem>
+                    <SelectItem value="Real Estate Professionals">
+                      Real Estate Professionals
+                    </SelectItem>
+                    <SelectItem value="Service Provider">
+                      Service Provider
+                    </SelectItem>
+                    <SelectItem value="Non Profits">Non Profits</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Full Name
+                </label>
+                <Input
+                  type="text"
+                  placeholder="Enter your full name"
+                  className="rounded-full"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  onBlur={() => validateFullName(fullName)}
+                />
+                {fullNameError && (
+                  <p className="text-sm text-red-500">{fullNameError}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <Input
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  className="rounded-full"
+                  value={phonenumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  onBlur={() => validatePhoneNumber(phonenumber)}
+                />
+                {phoneNumberError && (
+                  <p className="text-sm text-red-500">{phoneNumberError}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="rounded-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => validateEmail(email)}
+                />
+                {emailError && (
+                  <p className="text-sm text-red-500">{emailError}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <div className="relative">
+                  <Input
+                    type={passwordVisible ? "text" : "password"}
+                    placeholder="Enter your password"
+                    className="rounded-full pr-10"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onBlur={() => validatePassword(password)}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-2 top-1/2 -translate-y-1/2"
+                    onClick={() => setPasswordVisible(!passwordVisible)}
+                  >
+                    {passwordVisible ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </Button>
+                </div>
+                {passwordError && (
+                  <p className="text-sm text-red-500">{passwordError}</p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full rounded-full bg-purple-600 hover:bg-purple-700"
               >
-                  <option value="Individual">Individual</option>
-                <option value="Property Owner">Property Owner</option>
-                
-                <option value="Hospital System/Managed Care Organizations">
-                  Hospital System/Managed Care Organizations
-                </option>
-                <option value="Real Estate Professionals">
-                  Real Estate Professionals
-                </option>
-                <option value="Service Provider">Service Provider</option>
-                <option value="Non Profits">Non Profits</option>
-               
-              </select>
-            </div>
-
-            <div className="mb-4">
-              <label className="block mb-1 text-gray-600">Full Name</label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full px-3 py-2 rounded-full border border-gray-300"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                onBlur={() => validateFullName(fullName)}
-              />
-              {fullNameError && (
-                <p className="text-red-500 text-sm">{fullNameError}</p>
-              )}
-            </div>
-
-            <div className="mb-4">
-              <label className="block mb-1 text-gray-600">Phone Number</label>
-              <input
-                type="text"
-                placeholder="Enter your phone number"
-                className="w-full px-3 py-2 rounded-full border border-gray-300"
-                value={phonenumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                onBlur={() => validatePhoneNumber(phonenumber)}
-              />
-              {phoneNumberError && (
-                <p className="text-red-500 text-sm">{phoneNumberError}</p>
-              )}
-            </div>
-
-            <div className="mb-4">
-              <label className="block mb-1 text-gray-600">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-3 py-2 rounded-full border border-gray-300"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={() => validateEmail(email)}
-              />
-              {emailError && (
-                <p className="text-red-500 text-sm">{emailError}</p>
-              )}
-            </div>
-
-            <div className="mb-4 relative">
-              <label className="block mb-1 text-gray-600">Password</label>
-              <input
-                type={passwordVisible ? "text" : "password"}
-                placeholder="Enter your password"
-                className="w-full px-3 py-2 rounded-full border border-gray-300"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onBlur={() => validatePassword(password)}
-              />
-              <button
-                type="button"
-                onClick={() => setPasswordVisible(!passwordVisible)}
-                className="absolute mt-6 inset-y-0 right-3 flex items-center text-gray-500"
-              >
-                {passwordVisible ? "Hide" : "Show"}
-              </button>
-              {passwordError && (
-                <p className="text-red-500 text-sm">{passwordError}</p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-purple-600 text-white py-2 rounded-full mt-4 hover:bg-purple-700 transition duration-300"
-            >
-              Register
-            </button>
-          </form>
+                Sign Up
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Register;

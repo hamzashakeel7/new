@@ -6,13 +6,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../../shadcn/components/ui/Dialog";
+import { X } from "lucide-react";
 import walking from "../../assets/home/walking.png";
+import gathering from "../../assets/home/gathering.webp";
 
 export function Mission() {
   const [showMission, setShowMission] = React.useState(false);
 
   return (
-    <div className="relative py-6 lg:py-12">
+    <div className="relative py-6 md:mt-5">
       <div className="container mx-auto px-4">
         <div className="relative w-full z-20">
           <p className="mb-3 lg:mb-6 text-sm lg:text-lg leading-relaxed">
@@ -40,7 +42,7 @@ export function Mission() {
             Mission
           </Button>
         </div>
-        {/* Adjusted image container */}
+        {/* Background image */}
         <div className="absolute top-[13rem] right-[-28rem] lg:top-[-2rem] md:top-[-2rem] lg:right-[-20rem] w-[60rem] md:w-[90rem] z-10 pointer-events-none">
           <img
             src={walking}
@@ -50,52 +52,64 @@ export function Mission() {
         </div>
       </div>
 
-      <Dialog
-        open={showMission}
-        onOpenChange={setShowMission}
-        className="h-1/2 overflow-y-scroll"
-      >
-        <DialogContent className="sm:max-w-[600px] max-w-[600px] h-1/2 overflow-y-visible overflow-y-scroll bg-white z-50">
-          <div>
-            <DialogHeader className="w-full">
-              <div className="flex items-center justify-between">
-                <DialogTitle className="text-xl font-semibold">
-                  Mission
-                </DialogTitle>
-              </div>
-            </DialogHeader>
+      <Dialog open={showMission} onOpenChange={setShowMission}>
+        <DialogContent className="sm:max-w-[900px] p-0 overflow-hidden bg-white text-white ">
+          {/* Purple header with close button */}
+          <div className="bg-purple-500 p-4 flex justify-between items-center">
+            <DialogTitle className="text-xl text-white font-semibold">
+              Mission
+            </DialogTitle>
           </div>
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <span className="font-bold">1.</span>
-              <p>
-                Recruit, maintain, and expand relationships with property
-                owners, management companies, Residential Assisted Living (RAL)
-                organizations, developers, and fixed and stable housing
-                authorities to produce, manage, and hold additional inventory
-                for these senior and disabled markets.
-              </p>
+
+          {/* Content with background image */}
+          <div className="relative">
+            {/* Background image */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={gathering}
+                alt=""
+                className="w-full h-full object-cover opacity-10"
+              />
             </div>
-            <div className="flex gap-4">
-              <span className="font-bold">2.</span>
-              <p>
-                Recruit, maintain, and expand relationships with service
-                organizations and companies including, but not limited to,
-                transportation, physical therapists, mental health
-                clinics/therapists, adult day care, specialized nursing care,
-                customer care specialist, moving services, construction service
-                companies to provide specific and routine needs for primary and
-                secondary clients.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <span className="font-bold">3.</span>
-              <p>
-                Develop and manage a customer relations management website and
-                application (internal and to licensees) to manage all connected
-                business between primary and secondary clients, as well as,
-                service providers.
-              </p>
+
+            {/* Content overlay */}
+            <div className="relative z-10 p-6 space-y-6 max-h-[70vh] overflow-y-auto">
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <span className="font-bold text-lg">1.</span>
+                  <p className="text-gray-800">
+                    <span className="mr-3">1.</span> Recruit, maintain, and
+                    expand relationships with property owners, management
+                    companies, Residential Assisted Living (RAL) organizations,
+                    developers, and local and state housing authorities to
+                    produce, manage, and hold dedicated inventory for these
+                    senior and disabled markets;
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <span className="font-bold text-lg">2.</span>
+                  <p className="text-gray-800">
+                    <span className="mr-3">2.</span> Recruit, maintain, and
+                    expand relationships with service organizations and
+                    companies including; but not limited to, transportation,
+                    physical therapists, mental health clinics/therapists, adult
+                    day care, specialized nursing care, customer care
+                    specialist, moving services, construction service companies
+                    to provide specific and routine needs for primary and
+                    secondary clients;
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <span className="font-bold text-lg">3.</span>
+                  <p className="text-gray-800">
+                    <span className="mr-3">3.</span>Develop and manage a
+                    customer relations management website and application
+                    (android and ios formats) to manage all connected business
+                    between primary and secondary clients; as well as, service
+                    providers
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </DialogContent>

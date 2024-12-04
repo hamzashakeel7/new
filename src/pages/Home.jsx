@@ -18,7 +18,7 @@ const Home = () => {
       <div>
         <Navbar />
         <HeroSection />
-        <div className="lg:py-10 lg:px-40 px-5">
+        <div className="lg:px-40 px-5">
           <PropertySearch />
           <ServiceSearch />
           <Mission />

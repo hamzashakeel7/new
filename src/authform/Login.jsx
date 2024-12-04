@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import loginimage from "../assets/login.png";
-import logo from "../assets/image.png";
+import { Eye, EyeOff } from "lucide-react";
+import { cn } from "../shadcn/lib/utils";
+import { Button } from "../shadcn/components/ui/Button";
+import { Input } from "../shadcn/components/ui/Input";
+import { Checkbox } from "../shadcn/components/ui/Checkbox";
 import axios from "axios";
+import login from "../assets/login.png";
+import logo from "../assets/image.png";
 
-function Login() {
+export default function Login() {
   const [activeTab, setActiveTab] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false); // For show/hide password
-  const [role, setRole] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [emailError, setEmailError] = useState("");
-  const [roleError, setRoleError] = useState("");
   const navigate = useNavigate();
 
-  const api=process.env.API
+  const api = process.env.REACT_APP_API_URL;
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,61 +32,28 @@ function Login() {
   };
 
   const validateForm = () => {
-    let isValid = true;
-
-    if (!email || !password || !role) {
+    if (!email || !password) {
       toast.error("Please fill in all fields.");
-      isValid = false;
+      return false;
     }
-    if (!validateEmail(email)) {
-      isValid = false;
-    }
-    if (!role) {
-      setRoleError("Please select a role.");
-      isValid = false;
-    } else {
-      setRoleError("");
-    }
-
-    return isValid;
+    return validateEmail(email);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post(
-          `${api}/api/v1/auth/login`,
-          {
-            email,
-            password,
-            role,
-          }
-        );
-        console.log("Response Data:", response.data);
+        const response = await axios.post(`${api}/api/v1/auth/login`, {
+          email,
+          password,
+        });
 
         const token = response.data.token;
 
         toast.success("Login successful!");
-
         localStorage.setItem("token", token);
-        localStorage.setItem("role", role);
 
-        switch (role) {
-          case "Individual":
-            navigate("/dashboard");
-            break;
-          case "Property Owner":
-          case "Insurance Company":
-          case "Hospital System/Managed Care Organizations":
-          case "Real Estate Professionals":
-          case "Non Profits":
-          case "Service Provider":
-            navigate("/servicedashboard");
-            break;
-          default:
-            navigate("/dashboard");
-        }
+        navigate("/dashboard");
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
         toast.error(
@@ -94,145 +64,148 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200 p-4 lg:p-8">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-4">
+      <div className="w-full max-w-5xl bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-        <div className="w-full lg:w-2/5 relative">
+        {/* Left side - Image */}
+        <div className="lg:w-2/3 relative h-64 lg:h-auto rounded-[2rem] overflow-hidden">
           <img
-            src={loginimage}
-            alt="login"
-            className="w-96 h-full object-cover"
+            src={login}
+            alt="Healthcare professionals caring for elderly"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white p-2.5 rounded-lg text-center">
-            <h2 className="text-2xl font-bold m-0 whitespace-nowrap">
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute bottom-8 left-0 right-0 text-center text-white p-6">
+            <h2 className="text-3xl font-bold mb-2">
               Your Health, Our Priority
             </h2>
-            <p className="text-lg m-0 whitespace-nowrap">
-              Caring for You, Every Step
-            </p>
+            <p className="text-xl">Caring for You, Every Step</p>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
-          <div className="absolute top-6 right-4 md:top-4 md:right-0 z-10">
-            <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
+        {/* Right side - Form */}
+        <div className="lg:w-1/2 p-8 lg:p-12 relative">
+          <div className="absolute top-8 right-5">
+            <img src={logo} alt="SilverTLC Logo" className="w-20 h-14" />
           </div>
 
-          <h2 className="text-gray-800 pt-4 text-center text-xl lg:text-2xl font-bold mb-6">
-            Welcome to SilverTLC
-          </h2>
+          <div className="max-w-md mx-auto">
+            <h1 className="text-2xl font-bold text-center mb-8">
+              Welcome to SilverTLC
+            </h1>
 
-          <div className="flex justify-center gap-4 mb-4 w-full">
-            <button
-              onClick={() => setActiveTab("login")}
-              className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === "login"
-                  ? "bg-purple-600 text-white"
-                  : "bg-transparent text-black border-2 border-black"
-              }`}
-            >
-              Login
-            </button>
-            <button
-              onClick={() => {
-                setActiveTab("register");
-                navigate("/Register");
-              }}
-              className={`px-6 py-2 rounded-full font-semibold text-lg ${
-                activeTab === "register"
-                  ? "bg-purple-600 text-white"
-                  : "bg-transparent text-black border-2 border-black"
-              }`}
-            >
-              Register
-            </button>
+            <div className="w-full max-w-xs mx-auto mb-8 relative bg-gray-100 rounded-full p-1">
+              <div
+                className="absolute inset-y-1 w-1/2 bg-purple-600 rounded-full transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(${
+                    activeTab === "register" ? "100%" : "0%"
+                  })`,
+                }}
+              />
+              <div className="relative z-10 flex">
+                <button
+                  className={cn(
+                    "w-1/2 py-2 text-center rounded-full transition-colors duration-300",
+                    activeTab === "login" ? "text-white" : "text-gray-700"
+                  )}
+                  onClick={() => setActiveTab("login")}
+                >
+                  Login
+                </button>
+                <button
+                  className={cn(
+                    "w-1/2 py-2 text-center rounded-full transition-colors duration-300",
+                    activeTab === "register" ? "text-white" : "text-gray-700"
+                  )}
+                  onClick={() => {
+                    setActiveTab("register");
+                    navigate("/Register");
+                  }}
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="rounded-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => validateEmail(email)}
+                />
+                {emailError && (
+                  <p className="text-sm text-red-500 mt-1">{emailError}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <div className="relative">
+                  <Input
+                    type={passwordVisible ? "text" : "password"}
+                    placeholder="Enter your password"
+                    className="rounded-full pr-10"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-2 top-1/2 -translate-y-1/2"
+                    onClick={() => setPasswordVisible(!passwordVisible)}
+                  >
+                    {passwordVisible ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </Button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="remember" />
+                  <label
+                    htmlFor="remember"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    Remember me
+                  </label>
+                </div>
+                <Button
+                  variant="link"
+                  className="text-purple-600 hover:text-purple-700"
+                  onClick={() => navigate("/Forgotpassword")}
+                >
+                  Forgot Password?
+                </Button>
+              </div>
+
+              <div className="pt-4">
+                <Button
+                  type="submit"
+                  className="w-32 rounded-full bg-purple-600 hover:bg-purple-700 float-right"
+                >
+                  Login
+                </Button>
+              </div>
+            </form>
           </div>
-
-          <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-4">
-            <div>
-              <label className="block mb-1 text-gray-600">User Role</label>
-              <select
-                className="w-full px-4 py-2 rounded-full border border-gray-300 bg-white"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-              >
-                <option value="">Select Role</option>
-                <option value="Individual">Individual</option>
-                <option value="Property Owner">Property Owner</option>
-                <option value="Insurance Company">Insurance Company</option>
-                <option value="Hospital System/Managed Care Organizations">
-                  Hospital System/Managed Care Organizations
-                </option>
-                <option value="Real Estate Professionals">
-                  Real Estate Professionals
-                </option>
-                <option value="Non Profits">Non Profits</option>
-                <option value="Service Provider">Service Provider</option>
-              </select>
-              {roleError && <p className="text-red-500 text-sm">{roleError}</p>}
-            </div>
-
-            <div>
-              <label className="block text-gray-600">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 rounded-full border border-gray-300"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={() => validateEmail(email)}
-              />
-              {emailError && (
-                <p className="text-red-500 text-sm">{emailError}</p>
-              )}
-            </div>
-
-            <div className="relative">
-              <label className="block mb-1 text-gray-600">Password</label>
-              <input
-                type={passwordVisible ? "text" : "password"}
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 rounded-full border border-gray-300"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="button"
-                onClick={() => setPasswordVisible(!passwordVisible)}
-                className="absolute inset-y-0 right-3 mt-6 flex items-center text-gray-500"
-              >
-                {passwordVisible ? "Hide" : "Show"}
-              </button>
-            </div>
-
-            <div className="flex justify-between items-center">
-              <label className="text-gray-600">
-                <input type="checkbox" className="mr-2" />
-                Remember me
-              </label>
-              <a
-                href="/Forgotpassword"
-                className="text-purple-600 no-underline text-sm"
-              >
-                Forgot Password?
-              </a>
-            </div>
-
-            <div className="flex justify-end pb-6">
-              <button
-                type="submit"
-                className="w-32 px-4 py-2 rounded-full bg-purple-600 text-white font-bold text-lg"
-              >
-                Login
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
   );
 }
-
-export default Login;
