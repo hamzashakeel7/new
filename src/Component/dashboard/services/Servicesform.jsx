@@ -3,28 +3,53 @@ import { format } from "date-fns";
 import { CalendarIcon, Eye, Trash2 } from "lucide-react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import { Calendar } from "../../../shadcn/components/ui/Calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../shadcn/components/ui/Popover";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../../shadcn/components/ui/Table";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../../../shadcn/components/ui/Popover";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../../../shadcn/components/ui/Table";
 import { cn } from "../../../shadcn/lib/utils";
-import PostPropertyForm from "../../dashboard/postservice/Postservice"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import PropertyForm from "../Propertyform/Propertyform";
+import ServiceInfoform from "../../serviceProvider dashboard/serviceinfo/Serviceinfo";
+import Trasportationform from "../../dashboard/Transportation/Trasportationform";
 
 // Initial services data
 const initialServices = [
   {
     id: 1,
     name: "Name 1",
-    type: "Central House",
+    type: "Property",
     provider: "North Carolina",
     price: "22$",
   },
   {
     id: 2,
     name: "Name 2",
-    type: "House",
-    provider: "Texas",
-    price: "35$",
+    type: "Generic",
+    provider: "North Carolina",
+    price: "22$",
   },
-  // Add more services as needed
+  {
+    id: 3,
+    name: "Name 3",
+    type: "Transportation",
+    provider: "North Carolina",
+    price: "22$",
+  },
 ];
 
 // Main Services Form Component
@@ -32,32 +57,30 @@ export function Servicesform() {
   const [services, setServices] = useState(initialServices);
   const [fromDate, setFromDate] = useState(null);
   const [toDate, setToDate] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);  // State for controlling the modal
-  const [selectedService, setSelectedService] = useState(null); // State to hold selected service details
+  const navigate = useNavigate(); // Hook for navigation
 
   // Delete functionality
   const handleDelete = (id) => {
-    console.log("Deleting service with id:", id);
-    setServices((prevServices) => {
-      const updatedServices = prevServices.filter(
-        (service) => service.id !== id
-      );
-      console.log("Updated services:", updatedServices);
-      return updatedServices;
-    });
+    setServices((prevServices) =>
+      prevServices.filter((service) => service.id !== id)
+    );
   };
 
-  // Open modal on "Eye" button click
-  const handleView = (service) => {
-    console.log("Opening modal for service:", service);
-    setSelectedService(service);
-    setIsModalOpen(true);
-  };
-
-  // Close the modal
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null); // Reset the selected service
+  // Handle view button click and navigate
+  const handleView = (type) => {
+    switch (type) {
+      case "Property":
+        navigate("/dashboard/propertyform");
+        break;
+      case "Generic":
+        navigate("/dashboard/Serviceinfoform");
+        break;
+      case "Transportation":
+        navigate("/dashboard/Transportationform");
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -66,7 +89,6 @@ export function Servicesform() {
       <div className="rounded-lg border bg-card p-4 w-full bg-gray-100">
         <h3 className="mb-4 text-lg font-medium">Sort By</h3>
         <div className="flex flex-col gap-4 sm:flex-row">
-          {/* Popover for Date Range */}
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -160,7 +182,7 @@ export function Servicesform() {
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => handleView(service)} // Trigger modal on "Eye" click
+                          onClick={() => handleView(service.type)}
                         >
                           <Eye className="h-4 w-4" />
                           <span className="">View</span>
@@ -174,15 +196,23 @@ export function Servicesform() {
           </div>
         </div>
       </div>
-
-      {/* Modal for PostPropertyForm */}
-      {isModalOpen && selectedService && (
-        <PostPropertyForm
-          service={selectedService}
-          onClose={handleCloseModal}
-        />
-      )}
-
     </div>
+  );
+}
+
+// App Component with Routing
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Servicesform />} />
+        <Route path="/dashboard/property" element={<PropertyForm />} />
+        <Route path="/dashboard/generic" element={<ServiceInfoform />} />
+        <Route
+          path="/dashboard/transportation"
+          element={<Trasportationform />}
+        />
+      </Routes>
+    </Router>
   );
 }

@@ -3,14 +3,15 @@ import { Topbar } from "../Component/dashboard/Topbar";
 import { DashboardSidebar as Sidebar } from "../Component/dashboard/Sidebar";
 import { useParams } from "react-router-dom";
 import { Servicesform } from "../Component/dashboard/services/Servicesform";
-import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
 import { useEffect, useState } from "react";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
-import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 import Message from "../Component/dashboard/messages/Messages";
 import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
 import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import Trasportationform from "../Component/dashboard/Transportation/Trasportationform";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -41,8 +42,10 @@ export function Dashboard() {
             {section === "accounting" && <AccountingPage />}
             {section === "messages" && <Message />}
             {section === "Help & Support" && <HelpAndSupport />}
+            {section === "propertyform" && <PropertyForm />}
+            {section === "Serviceinfoform" && <ServiceInfoform />}
+            {section === "Transportationform" && <Trasportationform />}
             {/* tempperory routes */}
-            {section === "lease Form" && <LeaseForm />}
           </main>
         </div>
       </div>

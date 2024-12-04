@@ -18,7 +18,7 @@ export function Footer() {
     <footer className="relative bg-gradient-to-r from-gray-900 to-gray-700 text-white">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-20 hidden lg:block"
         style={{
           backgroundImage: `url(${FooterImage})`,
           backgroundSize: "100% 100%",

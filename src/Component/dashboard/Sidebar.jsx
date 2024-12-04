@@ -31,6 +31,7 @@ const menuItems = [
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
   { icon: HelpCircle, label: "Help & Support", section: "Help & Support" },
+  // { icon: HelpCircle, label: "Help & Support", section: "Property" },
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
