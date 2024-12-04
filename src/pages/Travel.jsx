@@ -10,6 +10,7 @@ import slider6 from "../assets/cardiac&travel/slider6.png";
 import bgImg from "../assets/cardiac&travel/bg-img.png";
 import Newsletter from "../Component/Home/Newsletter";
 import { Footer } from "../Component/Footer";
+import {Company,CompanyAddress,Email ,Phone ,Contact,Officeh,Website,Geography,Industry,Serviceh,Specialitys,Servicea } from "../assets/svg"
 
 const serviceSlides = [
   {
@@ -72,6 +73,25 @@ const serviceSlides = [
     specialtyService: "Lorem ipsum dolor sit",
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
+];
+const serviceData = [
+  { icon: <Company/>, label: "Company Name", value: "SilverTLC" },
+  { icon: <CompanyAddress/>, label: "Company Address", value: "Lorem Ipsum dolor sit" },
+  { icon: <Email/>, label: "Company Email", value: "Lorem Ipsum dolor sit" },
+  { icon: <Phone/>, label: "Company Phone", value: "Lorem Ipsum dolor sit" },
+  { icon: <Contact/>, label: "Contact Person", value: "SilverTLC" },
+  { icon: <Officeh/>, label: "Office Hours", value: "Lorem Ipsum dolor sit" },
+  { icon: <Website/>, label: "Website", value: "Lorem Ipsum dolor sit" },
+  { icon: <Geography/>, label: "Geographical Area Serviced", value: "Lorem Ipsum dolor sit" },
+  { icon: <Industry/>, label: "Industry", value: "Silvertlc" },
+  { icon: <Serviceh/>, label: "Service Provided", value: "Lorem Ipsum dolor sit" },
+  { icon: <Specialitys/>, label: "Specialty Service", value: "Lorem Ipsum dolor sit" },
+  { icon: <Servicea/>, label: "Service Schedule in Advance", value: "Lorem Ipsum dolor sit" },
+];
+const groupedData = [
+  serviceData.slice(0, 4), // First table group
+  serviceData.slice(4, 8), // Second table group
+  serviceData.slice(8),    // Third table group
 ];
 
 export default function TravelService() {
@@ -206,99 +226,51 @@ export default function TravelService() {
               </svg>
               <h2 className="text-lg font-semibold">Service Information</h2>
             </div>
-
+          
             <div className="relative overflow-hidden">
               <div
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
+                
               >
-                {serviceSlides.map((slide, index) => (
-                  <div
-                    key={index}
-                    className="lg:min-w-[33.333%] min-w-[53.333%] px-2"
-                  >
-                    <div className="bg-white rounded-lg overflow-hidden">
-                      <img
-                        src={slide.image}
-                        alt={`Service ${index + 1}`}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-4 space-y-4">
-                        <div className="grid  grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Company Name
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.companyName}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Company Address
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.companyAddress}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Company Email
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.companyEmail}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-medium">
-                                Company Phone
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.companyPhone}
-                              </span>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Contact Person
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.contactPerson}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Office Hours
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.officeHours}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-medium">
-                                Website
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.website}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-medium">
-                                Area Serviced
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {slide.geographicalArea}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  {serviceSlides.map((slide, index) => (
+          <div
+            key={index}
+            className="lg:min-w-[33.333%] min-w-[53.333%] px-2 relative"
+          >
+            <div className="bg-white rounded-lg overflow-hidden">
+              <img
+                src={slide.image}
+                alt={`Service ${index + 1}`}
+                className="w-full h-48 object-cover"
+              />
+            </div>
+          </div>
+        ))}
+                
               </div>
+              <div className="flex flex-col md:flex-row gap-6 p-6  rounded-lg shadow-md">
+      {groupedData.map((group, index) => (
+        <div
+          key={index}
+          className="w-full md:w-1/3 bg-white rounded-lg shadow border overflow-hidden"
+        >
+          <table className="w-full table-auto text-sm">
+            <tbody>
+              {group.map((item, idx) => (
+                <tr key={idx} className="border-b last:border-none">
+                  <td className="flex items-center gap-2 p-3 font-medium text-gray-700">
+                    {item.icon}
+                    {item.label}
+                  </td>
+                  <td className="p-3 text-gray-600">{item.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
 
               <button
                 onClick={prevSlide}
@@ -365,12 +337,15 @@ export default function TravelService() {
               </div>
             </div>
           </div>
-        </div>
+        
 
         {/* newsletter & footer */}
-        <Newsletter />
-        <Footer />
+       
       </div>
+      <Newsletter />
+      <Footer />
+      </div>
+      
     </>
   );
 }

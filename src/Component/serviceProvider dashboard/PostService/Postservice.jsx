@@ -299,7 +299,7 @@ const PostForm = () => {
      </div>
 
      {/* Submit Button */}
-     <div className="text-end">
+     <div className="text-end space-x-4">
        <button className='text-purple-700'>
          Cancel
        </button>

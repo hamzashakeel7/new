@@ -86,7 +86,7 @@ export default function MyPropertiesServices() {
       </thead>
       <tbody>
         {[...Array(6)].map((_, i) => (
-          <tr key={i} className="border-b">
+          <tr key={i} className="border-b ">
             <td className="p-4 text-sm">Lorem</td>
             <td className="p-4 text-sm">Transport</td>
             <td className="p-4 text-sm">Provider</td>

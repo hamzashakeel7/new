@@ -5,7 +5,7 @@ import newsletter from "../../assets/home/fundraising/newsletter.webp";
 
 const Newsletter = () => {
   return (
-    <div className="mt-[-50px] mb-10">
+    <div className=" mt-24 mb-10 ">
       <div className="relative bg-gradient-to-r from-red-500 to-pink-500 lg:py-12 py-4 px-3 text-white w-full">
         <div className="container mx-auto flex items-center justify-evenly">
           <div className="flex items-center lg:gap-12 gap-0 lg:flex-row flex-col-reverse">
