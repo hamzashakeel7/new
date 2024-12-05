@@ -45,6 +45,8 @@ import Transportform from "./Component/serviceProvider dashboard/Transport/Trans
 
 import TravelService from "./pages/Travel";
 import { AnimatePresence, motion } from "framer-motion";
+import { HospitalDashboard } from "./pages/Hospitaldashboard";
+import { NonprofitDashboard } from "./pages/Nonprofit";
 import { PropertyOwnerDashboard } from "./pages/PropertyOwnerDashboard";
 import { RealEstateDashboard } from "./pages/RealEstateDashboard";
 
@@ -90,7 +92,25 @@ function App() {
               path="/servicedashboard/:section"
               element={<ServiceDashboard />}
             />
-            {/* property owner dashborad */}
+            {/* Hospital managment dashboard */}
+            <Route
+              path="/HospitalManagement"
+              element={<Navigate to="/HospitalManagement/My profile" replace />}
+            />
+            <Route
+              path="/HospitalManagement/:section"
+              element={<HospitalDashboard />}
+            />
+            {/* non profit dashboard */}
+            <Route
+              path="/nonprofit"
+              element={<Navigate to="/nonprofit/My profile" replace />}
+            />
+            <Route
+              path="/nonprofit/:section"
+              element={<NonprofitDashboard />}
+            />
+            {/* property owner dashboard */}
             <Route
               path="/propertyownerdashboard"
               element={
