@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FiDownload } from "react-icons/fi"; // Import the download icon
 import bgImg from "../../assets/community/bg-img.png";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Icons for toggle
 
 export default function Communityform() {
   const [open, setOpen] = useState(null);
@@ -30,94 +30,127 @@ export default function Communityform() {
   ];
 
   return (
-    <div className="relative max-w-2xl mx-auto mb-14 mt-8 p-6 border border-gray-200 rounded-lg">
-      {/* Background Image behind the form */}
+    <div className="relative max-w-full mx-auto mb-14 mt-8 p-6 rounded-lg">
+      {/* Background Image */}
       <div
-        className="absolute inset-0 opacity-50 h-[30rem] w-[30rem]"
+        className="absolute inset-0 opacity-50 h-[30rem] w-[120vw] rounded-lg"
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
+        left: "-450px",
+          top: "-10px",
         }}
       ></div>
 
-      {/* Content */}
-      <div className="relative z-10">
-        <h2 className="text-2xl font-bold text-center mb-6">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          {faqData.map((item, index) => (
-            <div key={index} className="border rounded-lg">
-              <div
-                className="flex justify-between items-center p-4 cursor-pointer text-lg font-semibold text-gray-800 bg-gray-100 rounded-lg"
-                onClick={() => toggleOpen(index)}
-              >
-                <span>{item.question}</span>
-                <FiDownload
-                  className={`text-gray-500 transition-transform ${
-                    open === index ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
-              {open === index && (
-                <div className="p-4 text-gray-700 bg-gray-50 rounded-b-lg">
-                  {item.answer}
-                </div>
-              )}
-            </div>
-          ))}
+      {/* FAQ Content */}
+      <h2 className="text-2xl font-bold text-center mb-6 text-black">
+  Frequently Asked Questions
+</h2>
+<div className="relative z-10 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto px-4 sm:px-6 md:px-10">
+  <div className="space-y-4 text-left">
+    {faqData.map((item, index) => (
+      <div
+        key={index}
+        className="border border-gray-200 rounded-lg shadow-md transition-all duration-300"
+      >
+        {/* Question */}
+        <div
+          className="flex justify-between items-center p-4 cursor-pointer text-lg sm:text-xl font-semibold text-gray-800 bg-orange-100 bg-opacity-20 hover:bg-orange-200"
+          onClick={() => toggleOpen(index)}
+        >
+          <span className="text-left text-black">{item.question}</span>
+          {open === index ? (
+            <FiChevronUp className="text-gray-500" />
+          ) : (
+            <FiChevronDown className="text-gray-500" />
+          )}
         </div>
-        <div className="mt-8 p-6 mb-10 border-t border-gray-200">
-          <h3 className="text-xl font-semibold mb-4">
-            Need Further Assistance
-          </h3>
-          <form className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Name"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              <input
-                type="text"
-                placeholder="Company Number"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              <input
-                type="text"
-                placeholder="Location"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Phone Number"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-              <textarea
-                placeholder="Message"
-                className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 h-20 md:h-full"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full p-3 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+
+        {/* Answer */}
+        {open === index && (
+          <div className="p-4 text-gray-700 bg-orange-100 bg-opacity-20 text-sm sm:text-base">
+            {item.answer}
+          </div>
+        )}
       </div>
+    ))}
+  </div>
+
+
+      </div>
+      
+      <div className="max-w-4xl mx-auto p-8">
+  <h2 className="text-2xl font-bold mb-6">Need Further Assistance</h2>
+  <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Name</label>
+      <input
+        type="text"
+        placeholder="Name"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
     </div>
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Number</label>
+      <input
+        type="text"
+        placeholder="Company Number"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+    </div>
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Email</label>
+      <input
+        type="email"
+        placeholder="Email"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+    </div>
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Email</label>
+      <input
+        type="email"
+        placeholder="Company Email"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+    </div>
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+      <input
+        type="tel"
+        placeholder="Phone Number"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+    </div>
+    <div>
+      <label className="block text-gray-700 font-medium mb-2">Location</label>
+      <input
+        type="text"
+        placeholder="Location"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+    </div>
+    <div className="col-span-1 md:col-span-2">
+      <label className="block text-gray-700 font-medium mb-2">Message</label>
+      <textarea
+        placeholder="Message"
+        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 h-32"
+      ></textarea>
+    </div>
+    <div className="col-span-1 md:col-span-2">
+      <button
+        type="submit"
+        className="w-full bg-purple-600 text-white rounded-lg p-3 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+    </div>
+
   );
 }
