@@ -45,6 +45,8 @@ import Transportform from "./Component/serviceProvider dashboard/Transport/Trans
 
 import TravelService from "./pages/Travel";
 import { AnimatePresence, motion } from "framer-motion";
+import { PropertyOwnerDashboard } from "./pages/PropertyOwnerDashboard";
+import { RealEstateDashboard } from "./pages/RealEstateDashboard";
 
 function App() {
   const location = useLocation();
@@ -87,6 +89,28 @@ function App() {
             <Route
               path="/servicedashboard/:section"
               element={<ServiceDashboard />}
+            />
+            {/* property owner dashborad */}
+            <Route
+              path="/propertyownerdashboard"
+              element={
+                <Navigate to="/propertyownerdashboard/My Profile" replace />
+              }
+            />
+            <Route
+              path="/propertyownerdashboard/:section"
+              element={<PropertyOwnerDashboard />}
+            />
+            {/* Real Estate dashborad */}
+            <Route
+              path="/realestatedashboard"
+              element={
+                <Navigate to="/realestatedashboard/My Profile" replace />
+              }
+            />
+            <Route
+              path="/realestatedashboard/:section"
+              element={<RealEstateDashboard />}
             />
             {/* Auth setup */}
             <Route

@@ -17,7 +17,6 @@ import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 
-
 export function ServiceDashboard() {
   const { section } = useParams();
   const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
@@ -48,9 +47,9 @@ export function ServiceDashboard() {
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
-          
-      {section === "livechat" && <LiveChat />}
-            {section === "MyPropertyServices" && <MyPropertiesServices/> }
+
+            {section === "livechat" && <LiveChat />}
+            {section === "MyPropertyServices" && <MyPropertiesServices />}
             {/* temperory routing */}
           </main>
         </div>

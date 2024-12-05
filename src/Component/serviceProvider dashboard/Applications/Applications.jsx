@@ -50,19 +50,12 @@ export function Applications() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-6">
+    <div className="flex flex-col md:flex-row gap-6 p-0 lg:p-6">
       {/* Filters Section */}
       {showFilters && (
         <div className="w-full md:w-64 space-y-6">
           <div className="flex justify-between items-center">
             <h3 className="font-semibold">Filters</h3>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setShowFilters(false)}
-            >
-              <X className="h-4 w-4" />
-            </Button>
           </div>
 
           <div className="space-y-4">
@@ -175,7 +168,7 @@ export function Applications() {
 
       {/* Main Content */}
       <div className="flex-1">
-        <div className="mb-6">
+        <div className="lg:mb-6 mb-2 mt-5 lg:mt-0">
           <div className="relative">
             <Input
               placeholder="Search"
