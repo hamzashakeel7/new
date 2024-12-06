@@ -380,15 +380,7 @@ export default function ProfileForm() {
 
           </div>
 
-          <div className="flex justify-end items-end">
-  <button className="bg-purple-600 h-9 w-44 flex items-center gap-2 rounded-lg text-white">
-    <svg className="mt-1 ml-2" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.55556 5.1875H13.4444M4.55556 8.9375H13.4444M17 15.5L14.0451 13.9417C13.8211 13.8236 13.7091 13.7645 13.5916 13.7229C13.4875 13.6859 13.3802 13.6592 13.2713 13.6431C13.1486 13.625 13.0234 13.625 12.773 13.625H3.84444C2.84879 13.625 2.35097 13.625 1.97068 13.4206C1.63617 13.2409 1.3642 12.954 1.19377 12.6013C1 12.2002 1 11.6751 1 10.625V3.5C1 2.4499 1 1.92485 1.19377 1.52377C1.3642 1.17096 1.63617 0.884122 1.97068 0.704366C2.35097 0.5 2.8488 0.5 3.84444 0.5H14.1556C15.1512 0.5 15.6491 0.5 16.0293 0.704366C16.3638 0.884122 16.6358 1.17096 16.8062 1.52377C17 1.92485 17 2.44991 17 3.5V15.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Chat with seller
-  </button>
-</div>
-
+   
 
 
 

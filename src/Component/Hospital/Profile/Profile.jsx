@@ -1,4 +1,5 @@
 import React from 'react';
+import Account from './Account page';
 
 export default function ProfileForm() {
   return (
@@ -379,7 +380,14 @@ export default function ProfileForm() {
     
 
           </div>
-
+          <div className="flex justify-end items-end">
+  <button className=" space-x-10 ml-4 px-3  bg-purple-600 h-9 w-44 flex items-center gap-2 rounded-lg text-white">
+   Register New User
+    
+  </button>
+</div>
+         <Account/>
+   
           <div className="flex justify-end items-end">
   <button className="bg-purple-600 h-9 w-44 flex items-center gap-2 rounded-lg text-white">
     <svg className="mt-1 ml-2" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -45,6 +45,8 @@ import Transportform from "./Component/serviceProvider dashboard/Transport/Trans
 
 import TravelService from "./pages/Travel";
 import { AnimatePresence, motion } from "framer-motion";
+import { HospitalDashboard } from "./pages/Hospitaldashboard";
+import { NonprofitDashboard } from "./pages/Nonprofit";
 
 function App() {
   const location = useLocation();
@@ -87,6 +89,22 @@ function App() {
             <Route
               path="/servicedashboard/:section"
               element={<ServiceDashboard />}
+            />
+            <Route
+              path="/HospitalManagement"
+              element={<Navigate to="/HospitalManagement/My profile" replace />}
+            />
+            <Route
+              path="/HospitalManagement/:section"
+              element={<HospitalDashboard/>}
+            />
+            <Route
+              path="/nonprofit"
+              element={<Navigate to="/nonprofit/My profile" replace />}
+            />
+            <Route
+              path="/nonprofit/:section"
+              element={<NonprofitDashboard/>}
             />
             {/* Auth setup */}
             <Route
