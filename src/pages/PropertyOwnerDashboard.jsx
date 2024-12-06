@@ -10,6 +10,7 @@ import { Applications } from "../Component/serviceProvider dashboard/Application
 import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
+import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 
 export function PropertyOwnerDashboard() {
   const { section } = useParams();
@@ -39,7 +40,7 @@ export function PropertyOwnerDashboard() {
             {section === "properties" && <MyProperties />}
             {section === "applications" && <Applications />}
             {section === "messages" && <Message />}
-            {section === "accounting" && <AccountingPage />}
+            {section === "accounting" && <Accounting />}
             {section === "Help & Support" && <HelpAndSupport />}
 
             {/* temperory routing */}

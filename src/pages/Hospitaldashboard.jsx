@@ -18,7 +18,6 @@ import PostForm from "../Component/serviceProvider dashboard/PostService/Postser
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 import ProfileForm from "../Component/Hospital/Profile/Profile";
 
-
 export function HospitalDashboard() {
   const { section } = useParams();
   const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
@@ -38,20 +37,20 @@ export function HospitalDashboard() {
   return (
     <SidebarProvider className="">
       <div className="flex min-h-screen w-full">
-       <Sidebar  isOpen={isOpen} toggleSidebar={toggleSidebar}/>
+        <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My profile"&&<ProfileForm/>}
-            {section === "services"  }
-            {section === "application" }
-            {section === "messages" }
-            {section === "accounting" }
-            {section === "Corporate Tickets"}
-            {section === "Industry Relations"  }
-          
-      {section === "livechat"}
-            {section === "MyPropertyServices" }
+            {section === "My profile" && <ProfileForm />}
+            {section === "services" && <PostForm />}
+            {section === "application" && <Applications />}
+            {section === "messages" && <MessageBoard />}
+            {section === "accounting" && <Accounting />}
+            {section === "Corporate Tickets" && <HelpAndSupport />}
+            {section === "Industry Relations" && <IndustryRelations />}
+
+            {section === "livechat" && <LiveChat />}
+            {section === "MyPropertyServices" && <MyPropertiesServices />}
             {/* temperory routing */}
           </main>
         </div>

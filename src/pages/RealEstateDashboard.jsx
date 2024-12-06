@@ -11,6 +11,7 @@ import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
+import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 
 export function RealEstateDashboard() {
   const { section } = useParams();
@@ -40,7 +41,7 @@ export function RealEstateDashboard() {
             {section === "properties" && <MyProperties />}
             {section === "applications" && <Applications />}
             {section === "messages" && <Message />}
-            {section === "accounting" && <AccountingPage />}
+            {section === "accounting" && <Accounting />}
             {section === "Help & Support" && <HelpAndSupport />}
             {section === "Industry relations" && <IndustryRelations />}
           </main>
