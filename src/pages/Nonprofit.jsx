@@ -20,7 +20,7 @@ export function NonprofitDashboard() {
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
   };
-
+  // solving merge confilts
   return (
     <SidebarProvider className="">
       <div className="flex min-h-screen w-full">
