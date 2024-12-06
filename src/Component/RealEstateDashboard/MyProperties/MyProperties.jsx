@@ -1,145 +1,132 @@
-import * as React from "react";
-import { Building, Pencil, Trash2, ChevronDown } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../../../shadcn/components/ui/Table";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-} from "../../../shadcn/components/ui/Dropdown-menu";
-import { Button } from "../../../shadcn/components/ui/Button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "../../../shadcn/components/ui/Card";
-import prop1 from "../../../assets/prop1.png";
+import React from "react";
 
-const properties = [
-  {
-    id: 1,
-    image: prop1,
-    name: "Central House",
-    address: "North Carolina",
-    price: "22$",
-  },
-  {
-    id: 2,
-    image: prop1,
-    name: "Lorem",
-    address: "Lorem",
-    price: "Lorem",
-  },
-];
+import banner from "../../../assets/Serviceasset/sevicebanner.png";
 
-export default function MyProperties() {
-  const handleEdit = (id) => {
-    console.log("Edit property:", id);
-  };
+import prop1 from "../../../assets/Serviceasset/sevicebanner.png";
+import { Link } from "react-router-dom";
 
-  const handleDelete = (id) => {
-    console.log("Delete property:", id);
-  };
-
+export default function MyPropertiesServices() {
   return (
-    <div className="space-y-8 w-[76vw] lg:w-full">
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold flex items-center gap-2">
-            <Building className="h-5 w-5" />
-            My Properties
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="rounded-md border overflow-x-scroll lg:overflow-x-hidden">
-            <div className="min-w-[500px]">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[300px]">
-                      Thumbnail Image
-                      <DropdownMenu>
-                        <DropdownMenuTrigger className="ml-2">
-                          <ChevronDown className="h-4 w-4" />
-                        </DropdownMenuTrigger>
-                      </DropdownMenu>
-                    </TableHead>
-                    <TableHead>
-                      Property Name
-                      <DropdownMenu>
-                        <DropdownMenuTrigger className="ml-2">
-                          <ChevronDown className="h-4 w-4" />
-                        </DropdownMenuTrigger>
-                      </DropdownMenu>
-                    </TableHead>
-                    <TableHead>
-                      Address
-                      <DropdownMenu>
-                        <DropdownMenuTrigger className="ml-2">
-                          <ChevronDown className="h-4 w-4" />
-                        </DropdownMenuTrigger>
-                      </DropdownMenu>
-                    </TableHead>
-                    <TableHead>
-                      Price
-                      <DropdownMenu>
-                        <DropdownMenuTrigger className="ml-2">
-                          <ChevronDown className="h-4 w-4" />
-                        </DropdownMenuTrigger>
-                      </DropdownMenu>
-                    </TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {properties.map((property) => (
-                    <TableRow key={property.id}>
-                      <TableCell>
-                        <div className="relative h-[100px] w-[150px] rounded-md overflow-hidden">
-                          <img
-                            src={property.image}
-                            alt={property.name}
-                            className="object-cover w-full h-full"
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>{property.name}</TableCell>
-                      <TableCell>{property.address}</TableCell>
-                      <TableCell>{property.price}</TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-2">
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            onClick={() => handleEdit(property.id)}
-                          >
-                            <Pencil className="h-4 w-4" />
-                            <span className="sr-only">Edit</span>
-                          </Button>
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            onClick={() => handleDelete(property.id)}
-                          >
-                            <Trash2 className="h-4 w-4" />
-                            <span className="sr-only">Delete</span>
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+    <div className="p-8 bg-gray-100">
+      {/* Properties Table */}
+      <div className=" overflow-x-auto bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl flex font-bold mb-4 items-center">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mr-2"
+          >
+            <path
+              d="M22.9564 22.4348H20.6086V1.5652H21.3912C21.8234 1.5652 22.1738 1.21481 22.1738 0.782578C22.1738 0.350344 21.8234 0 21.3912 0C19.8626 0 3.31816 0 2.60857 0C2.17638 0 1.82595 0.350391 1.82595 0.782625C1.82595 1.21486 2.17634 1.56525 2.60857 1.56525H3.3912V22.4348H1.04337C0.61118 22.4348 0.260742 22.7852 0.260742 23.2174C0.260742 23.6497 0.611133 24 1.04337 24C1.51835 24 20.9871 24 22.9564 24C23.3886 24 23.739 23.6496 23.739 23.2174C23.739 22.7851 23.3886 22.4348 22.9564 22.4348ZM19.0434 22.4348H4.9564V1.5652H19.0434V22.4348Z"
+              fill="black"
+            />
+          </svg>
+          My Properties
+          <svg
+            width="5"
+            height="5"
+            viewBox="0 0 5 5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="ml-2"
+          >
+            <circle cx="2.19095" cy="2.3815" r="2.19095" fill="#949494" />
+          </svg>
+        </h2>
+        <table className="table-auto  w-full border-b text-left border-collapse">
+          <thead>
+            <tr className="border-b">
+              <th className="p-4">Thumbnail Image</th>
+              <th className="p-4">Property Name</th>
+              <th className="p-4">Address</th>
+              <th className="p-4">Price</th>
+              <th className="p-4">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(2)].map((_, i) => (
+              <tr key={i} className="border-b">
+                <td className="p-4">
+                  <img
+                    src={prop1}
+                    alt="Thumbnail"
+                    className="h-16 w-16 object-cover rounded"
+                  />
+                </td>
+                <td className="p-4">Central House</td>
+                <td className="p-4">North Carolina</td>
+                <td className="p-4">$255,000</td>
+                <td className="p-4 space-x-4 flex justify-start">
+                  <button className="text-blue-600 flex items-center space-x-2 text-sm">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.13388 14.8751L14.1339 4.87509L10.125 0.866211L0.125 10.8663V14.8751H4.13388ZM10.125 2.63398L12.3662 4.87509L10.75 6.49125L8.5089 4.25011L10.125 2.63398ZM7.62498 5.13399L9.86615 7.37509L3.61612 13.6251H1.375V11.384L7.62498 5.13399Z"
+                        fill="#171A1F"
+                      />
+                    </svg>
+                    <Link to="/propertyownerdashboard/propertyform">Edit</Link>
+                  </button>
+                  <button className="text-red-600 flex items-center space-x-2 text-sm">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.5599 5.3L11.5599 12.14C11.5599 12.7696 11.0495 13.28 10.4199 13.28L3.57994 13.28C2.95034 13.28 2.43994 12.7696 2.43994 12.14L2.43994 5.3"
+                        stroke="#565D6D"
+                        stroke-width="1.368"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M0.72998 3L13.27 3"
+                        stroke="#565D6D"
+                        stroke-width="1.368"
+                        stroke-miterlimit="10"
+                        stroke-linecap="square"
+                      />
+                      <path
+                        d="M4.71997 3L4.71997 0.720001L9.27997 0.720001V3"
+                        stroke="#565D6D"
+                        stroke-width="1.368"
+                        stroke-miterlimit="10"
+                        stroke-linecap="square"
+                      />
+                      <path
+                        d="M8.71004 7L5.29004 10.42"
+                        stroke="#565D6D"
+                        stroke-width="1.368"
+                        stroke-miterlimit="10"
+                        stroke-linecap="square"
+                      />
+                      <path
+                        d="M8.71004 10.42L5.29004 7"
+                        stroke="#565D6D"
+                        stroke-width="1.368"
+                        stroke-miterlimit="10"
+                        stroke-linecap="square"
+                      />
+                    </svg>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

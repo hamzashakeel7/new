@@ -11,7 +11,9 @@ import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Ac
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
 import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
-import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
+import MyPropertiesServices from "../Component/Non-Pofit/MyPropertiesServices/MyPropertiesServices";
+import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function NonprofitDashboard() {
   const { section } = useParams();
@@ -43,9 +45,11 @@ export function NonprofitDashboard() {
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
-
             {section === "livechat" && <LiveChat />}
             {section === "MyPropertyServices" && <MyPropertiesServices />}
+
+            {section === "propertyform" && <PropertyForm />}
+            {section === "Serviceinfoform" && <ServiceInfoform />}
             {/* temperory routing */}
           </main>
         </div>

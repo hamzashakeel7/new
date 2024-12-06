@@ -17,6 +17,8 @@ import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 import ProfileForm from "../Component/Hospital/Profile/Profile";
+import MyServices from "../Component/Hospital/MyServices/MyServices";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function HospitalDashboard() {
   const { section } = useParams();
@@ -50,7 +52,8 @@ export function HospitalDashboard() {
             {section === "Industry Relations" && <IndustryRelations />}
 
             {section === "livechat" && <LiveChat />}
-            {section === "MyPropertyServices" && <MyPropertiesServices />}
+            {section === "My Services" && <MyServices />}
+            {section === "Serviceinfoform" && <ServiceInfoform />}
             {/* temperory routing */}
           </main>
         </div>

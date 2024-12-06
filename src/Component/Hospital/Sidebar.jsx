@@ -35,7 +35,7 @@ const menuItems = [
     label: "Post a Service",
     section: "services",
   },
-  { icon: LayoutGrid, label: "My services", section: "my services" },
+  { icon: LayoutGrid, label: "My services", section: "My Services" },
   { icon: LayoutGrid, label: "Application", section: "application" },
   { icon: Mail, label: "Message", section: "messages" },
   { icon: Receipt, label: "Acconting Page", section: "accounting" },

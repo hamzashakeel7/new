@@ -11,6 +11,7 @@ import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
+import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 
 export function PropertyOwnerDashboard() {
   const { section } = useParams();
@@ -42,6 +43,7 @@ export function PropertyOwnerDashboard() {
             {section === "messages" && <Message />}
             {section === "accounting" && <Accounting />}
             {section === "Help & Support" && <HelpAndSupport />}
+            {section === "propertyform" && <PropertyForm />}
 
             {/* temperory routing */}
           </main>
