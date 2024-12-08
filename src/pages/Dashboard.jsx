@@ -12,6 +12,8 @@ import { Applications } from "../Component/serviceProvider dashboard/Application
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import Trasportationform from "../Component/dashboard/Transportation/Trasportationform";
+import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
+import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -45,6 +47,10 @@ export function Dashboard() {
             {section === "propertyform" && <PropertyForm />}
             {section === "Serviceinfoform" && <ServiceInfoform />}
             {section === "Transportationform" && <Trasportationform />}
+
+            {section === "rental" && <RentalApplicationForm />}
+            {section === "lease" && <LeaseForm />}
+
             {/* tempperory routes */}
           </main>
         </div>
