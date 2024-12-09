@@ -221,6 +221,7 @@ export default function ProfileForm() {
   </div>
 </div>
 
+
             <div className="col-span-3">
               <label className="block text-gray-700"> Description of Business</label>
               <textarea
@@ -296,6 +297,7 @@ export default function ProfileForm() {
 
           
         </div>
+        
 <div className="items-end justify-end ml-">
         <div 
   className="flex items-end ml-96 justify-center gap-2 bg-violet-700 hover:bg-violet-800 rounded-lg w-72 p-2 text-white cursor-pointer"
@@ -320,10 +322,11 @@ export default function ProfileForm() {
 </div>
 </div>
 
-        
+     </div>
+     </div>   
           </div>
         
-      </form>
-    </div>
+      
+    
   );
 }

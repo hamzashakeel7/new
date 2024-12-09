@@ -23,9 +23,10 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import PropertyForm from "../Propertyform/Propertyform";
-import ServiceInfoform from "../../serviceProvider dashboard/serviceinfo/Serviceinfo";
-import Trasportationform from "../../dashboard/Transportation/Trasportationform";
+
+import PostPropertyForm from "../postservice/Postservice";
+import Transport from "../../dashboard/Transportation/Trasportationform";
+import ServiceInformationForm from "../Serviceinformation/Serviceinformation.jsx/Serviceinformation.jsx";
 
 // Initial services data
 const initialServices = [
@@ -70,19 +71,23 @@ export function Servicesform() {
   const handleView = (type) => {
     switch (type) {
       case "Property":
-        navigate("/dashboard/propertyform");
+        console.log("Navigating to /dashboard/propertyforms");
+        navigate("/dashboard/propertyforms");
         break;
       case "Generic":
-        navigate("/dashboard/Serviceinfoform");
+        console.log("Navigating to /dashboard/generic");
+        navigate("/dashboard/generic");
         break;
       case "Transportation":
-        navigate("/dashboard/Transportationform");
+        console.log("Navigating to /dashboard/transport");
+        navigate("/dashboard/transport");
         break;
       default:
+        console.log("Unknown type");
         break;
     }
   };
-
+  
   return (
     <div className="space-y-6 md:p-6 w-[75vw] lg:w-full">
       {/* Sort By Section */}
@@ -200,18 +205,13 @@ export function Servicesform() {
   );
 }
 
-// App Component with Routing
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Servicesform />} />
-        <Route path="/dashboard/property" element={<PropertyForm />} />
-        <Route path="/dashboard/generic" element={<ServiceInfoform />} />
-        <Route
-          path="/dashboard/transportation"
-          element={<Trasportationform />}
-        />
+        <Route path="/dashboard/propertyforms" element={<PostPropertyForm />} />
+        <Route path="/dashboard/transport" element={<Transport />} />
+        <Route path="/dashboard/generic" element={<ServiceInformationForm/>} />
       </Routes>
     </Router>
   );

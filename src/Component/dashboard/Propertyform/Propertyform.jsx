@@ -323,27 +323,20 @@ const PropertyForm = () => {
         <button className="px-4 py-2 bg-purple-600 text-white rounded flex items-center">
           <FaComment className="mr-2" /> Chat with Provider
         </button>
-        <div className="relative">
+        <div className="relative space-x-6 gap-10">
+          <button
+            className="px-4 py-2 bg-purple-600  text-white rounded"
+            
+          >
+            Edit
+          </button>
           <button
             className="px-4 py-2 bg-purple-600 text-white rounded"
-            onClick={toggleActionMenu}
+            
           >
-            Action ▾
+            Save
           </button>
-          {actionMenuOpen && (
-            <div className="absolute right-0 mt-2 bg-white border shadow-lg rounded">
-              <Link to="/rental">
-                <button className="w-full text-left px-4 py-2 hover:bg-gray-100 focus:outline-none whitespace-nowrap">
-                  Submit an App Rental
-                </button>
-              </Link>
-              <Link to="/lease">
-                <button className="w-full text-left px-4 py-2 hover:bg-gray-100 focus:outline-none whitespace-nowrap">
-                  Submit a Lease Form
-                </button>
-              </Link>
-            </div>
-          )}
+          
         </div>
       </footer>
     </div>

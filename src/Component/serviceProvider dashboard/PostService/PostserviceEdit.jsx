@@ -16,13 +16,13 @@ const PostFormedit = () => {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen  p-6">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
 
 
 
      
       {/* Form Section */}
-      <div className="bg-white shadow-lg rounded-lg p-8 mb-6">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-[90vw] md:w-[70vw] lg:w-[50vw] max-h-[90vh] overflow-y-auto relative6">
       <div>
         <div>
             <h3>Post a Property or Service</h3>

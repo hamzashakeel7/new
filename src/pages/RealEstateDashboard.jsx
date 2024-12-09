@@ -37,7 +37,7 @@ export function RealEstateDashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My Profile" && <MyProfile />}
+            {section === "My profile" && <MyProfile />}
             {section === "services" && <PostForm />}
             {section === "properties" && <MyProperties />}
             {section === "applications" && <Applications />}
