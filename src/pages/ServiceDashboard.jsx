@@ -18,8 +18,7 @@ function Modal({ isOpen, onClose, children }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      
-      <PostTypeModal/>
+      <PostTypeModal />
     </div>
   );
 }
@@ -66,15 +65,13 @@ export function ServiceDashboard() {
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {/* Modal Logic */}
-            <Modal
-              isOpen={isModalOpen}
-              onClose={() => setIsModalOpen(false)}
-            >
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
               <PostTypeModal />
             </Modal>
 
             {/* Render Other Sections */}
-        
+
+            {section === "My profile" && <ProfileForm />}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}

@@ -112,6 +112,44 @@ export function MyProfile() {
 
   const weekDays = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
 
+  // the saved data from signup journey to be displayed in the myprofile setion
+  const [profileData, setProfileData] = React.useState({
+    firstName: "",
+    lastName: "",
+    mobileNumber: "",
+    address: "",
+    city: "",
+    email: "",
+    education: "",
+    countryOfBirth: "",
+    birthDate: "",
+  });
+
+  // fecting data from localStorage
+  React.useEffect(() => {
+    const savedData = {
+      firstName: localStorage.getItem("firstName") || "",
+      lastName: localStorage.getItem("lastName") || "",
+      mobileNumber: localStorage.getItem("mobileNumber") || "",
+      address: localStorage.getItem("address") || "",
+      city: localStorage.getItem("city") || "",
+      email: localStorage.getItem("email") || "",
+      education: localStorage.getItem("education") || "",
+      countryOfBirth: localStorage.getItem("countryOfBirth") || "",
+      birthDate: localStorage.getItem("birthDate") || "",
+    };
+    setProfileData(savedData);
+  }, []);
+
+  // function to change data from the profile
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
   return (
     <div className="container mx-auto p-4 space-y-6">
       {/* Individual Information Form */}
@@ -138,67 +176,88 @@ export function MyProfile() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
               <label className="text-sm">First Name</label>
-              <Input placeholder="Add Company Name" />
+              <Input
+                id="firstName"
+                value={profileData.firstName}
+                onChange={handleChange}
+                placeholder="Enter first name"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Last Name</label>
-              <Input placeholder="Add address" />
+              <Input
+                id="lastName"
+                value={profileData.lastName}
+                onChange={handleChange}
+                placeholder="Enter last name"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Mobile Number</label>
-              <Input placeholder="Select city" />
+              <Input
+                id="mobileNumber"
+                value={profileData.mobileNumber}
+                onChange={handleChange}
+                placeholder="Enter mobile number"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Address</label>
-              <Input placeholder="select city" />
+              <Input
+                id="address"
+                value={profileData.address}
+                onChange={handleChange}
+                placeholder="Enter address"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">City</label>
-              <Input placeholder="City" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm">State</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="State" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="ny">New York</SelectItem>
-                  <SelectItem value="ca">California</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm">ZIP</label>
-              <Input placeholder="ZIP" />
+              <Input
+                id="city"
+                value={profileData.city}
+                onChange={handleChange}
+                placeholder="Enter city"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Email</label>
-              <Input placeholder="select city" />
+              <Input
+                id="email"
+                value={profileData.email}
+                onChange={handleChange}
+                placeholder="Enter email"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Education</label>
-              <Input placeholder="Education" />
+              <Input
+                id="education"
+                value={profileData.education}
+                onChange={handleChange}
+                placeholder="Enter education"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Country of Birth</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Country of birth" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="us">United States</SelectItem>
-                  <SelectItem value="uk">United Kingdom</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                id="countryOfBirth"
+                value={profileData.countryOfBirth}
+                onChange={handleChange}
+                placeholder="Enter country of birth"
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm">Birth Date</label>
-              <Input type="date" />
+              <Input
+                id="birthDate"
+                type="date"
+                value={profileData.birthDate}
+                onChange={handleChange}
+              />
             </div>
           </div>
           <div className="flex justify-end gap-2 mt-6">
-            <Button variant="outline">Edit</Button>
+            <Button variant="outline">Cancel</Button>
             <Button className="bg-purple-600 hover:bg-purple-700">Save</Button>
           </div>
         </CardContent>
