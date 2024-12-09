@@ -336,7 +336,20 @@ const PropertyForm = () => {
           >
             Save
           </button>
-          
+          {actionMenuOpen && (
+            <div className="absolute right-0 mt-2 bg-white border shadow-lg rounded">
+              <Link to="/rental">
+                <button className="w-full text-left px-4 py-2 hover:bg-gray-100 focus:outline-none whitespace-nowrap">
+                  Submit an App Rental
+                </button>
+              </Link>
+              <Link to="/lease">
+                <button className="w-full text-left px-4 py-2 hover:bg-gray-100 focus:outline-none whitespace-nowrap">
+                  Submit a Lease Form
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </footer>
     </div>
