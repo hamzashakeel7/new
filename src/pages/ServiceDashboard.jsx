@@ -12,16 +12,12 @@ import { Applications } from "../Component/serviceProvider dashboard/Application
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 import PostTypeModal from "../Component/serviceProvider dashboard/Posttype";
 import ProfileForm from "../Component/serviceProvider dashboard/Profile/Profile";
-
-function Modal({ isOpen, onClose, children }) {
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <PostTypeModal />
-    </div>
-  );
-}
+import PostFormedit from "../Component/serviceProvider dashboard/PostService/PostserviceEdit";
+import Transportationedit from "../Component/serviceProvider dashboard/Transport/Transportedit";
+import ServiceInfoedit from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfoedit";
+import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
+import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function ServiceDashboard() {
   const { section } = useParams(); // Get 'section' from the URL params
@@ -36,15 +32,6 @@ export function ServiceDashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Open the modal when 'section' is 'service'
-  useEffect(() => {
-    if (section === "service") {
-      setIsModalOpen(true);
-    } else {
-      setIsModalOpen(false);
-    }
-  }, [section]);
-
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
   };
@@ -52,22 +39,11 @@ export function ServiceDashboard() {
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full">
-        <Sidebar
-          isOpen={isOpen}
-          toggleSidebar={toggleSidebar}
-          onSectionClick={(clickedSection) => {
-            if (clickedSection === "services") {
-              setIsModalOpen(true); // Open modal when "services" is clicked
-            }
-          }}
-        />
+        <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
         <div className="flex-1 flex flex-col">
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {/* Modal Logic */}
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-              <PostTypeModal />
-            </Modal>
 
             {/* Render Other Sections */}
 
@@ -79,6 +55,16 @@ export function ServiceDashboard() {
             {section === "Industry Relations" && <IndustryRelations />}
             {section === "livechat" && <LiveChat />}
             {section === "MyPropertyServices" && <MyPropertiesServices />}
+
+            {/* my properties edit links */}
+            {section === "propertyform" && <PostForm />}
+            {section === "Serviceinfoform" && <ServiceInfoform />}
+
+            {/* modal links */}
+            {section === "Property" && <PostForm />}
+            {section === "Transportation" && <Transportform />}
+            {section === "Service Information" && <ServiceInfoform />}
+            {section === "Health Care"}
           </main>
         </div>
       </div>

@@ -98,7 +98,7 @@ function Otp({ type }) {
         if (type === "forgot") {
           navigate("/changepassword");
         } else if (type === "register") {
-          navigate("/login");
+          navigate("/signup/firstStep");
         }
       } else {
         notifyError("Invalid OTP. Please try again.");
