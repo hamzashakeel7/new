@@ -5,7 +5,7 @@ const Communitysearch = () => {
     <div className="min-h-screen px-4">
       {/* Header Section */}
       <div
-        className="relative w-full h-96 shadow-lg rounded-xl bg-cover bg-center"
+        className="relative w-[95vw] lg:ml-4 sm:mr-16 h-96 shadow-lg rounded-xl bg-cover bg-center"
         style={{ backgroundImage: "url('/communitypng.png')" }}
       >
         <div className="absolute inset-0 shadow-lg bg-purple-600 bg-opacity-50 flex items-center justify-center rounded-xl">
@@ -16,12 +16,12 @@ const Communitysearch = () => {
       </div>
 
       {/* Search Section */}
-      <div className="w-full max-w-full mx-auto my-8">
+      <div className="w-[95vw] max-w-full mx-auto my-8">
         <div className="flex flex-col sm:flex-row items-center border border-gray-300 sm:flex rounded-full bg-white overflow-hidden shadow-md w-full">
           <input
             type="text"
             placeholder="Search for Supported Topics, Resources and Questions"
-            className="flex-1 rounded-full px-4 py-2 outline-none w-full"
+            className="flex-1 rounded-full px-4 py-2 outline-none w-[80vw]"
           />
           <button className="bg-purple-500 rounded-full text-white px-6 py-2 sm:rounded-l-none sm:w-auto sm:rounded-r-md hover:bg-purple-600 w-full ">
             Search
@@ -30,7 +30,7 @@ const Communitysearch = () => {
       </div>
 
       {/* Dropdown Sections */}
-      <div className="w-full max-w-full mx-auto space-y-4">
+      <div className="w-[95vw] max-w-full mx-auto space-y-4">
         {[
           "Support Groups",
           "Local Assistance Centers",

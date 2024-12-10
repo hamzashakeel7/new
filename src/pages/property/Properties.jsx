@@ -149,6 +149,9 @@ export default function Properties() {
     if (title === "Cardiac Service") {
       navigate("/cardiac");
     } else if (title === "Health care") {
+      navigate("/Cardaic");
+    } 
+     else if (title ==="Ambulance Service") {
       navigate("/travel");
     } else {
       navigate("/"); // Default fallback route
@@ -160,17 +163,17 @@ export default function Properties() {
       {/* Hero Section */}
       <Navbar />
       <div
-        className="relative flex items-center justify-center bg-cover   bg-center bg-purple-600 opacity-50 w-[90vw] h-72 rounded-lg px-8 mx-auto"
+        className="relative flex items-center justify-center bg-cover   bg-center bg-purple-600 opacity-90 w-[91vw] h-96 rounded-lg px-8 mx-auto"
         style={{ backgroundImage: `url(${banner1})` }}
       >
         <div className="absolute rounded-lg inset-0 bg-gradient-to-r from-purple-600 to-transparent opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center text-white">
-          <h1 className="text-4xl font-bold">General Services</h1>
+          <h1 className="text-7xl font-bold">General Services</h1>
           <div className="mt-4">
             <input
               type="text"
               placeholder="Search for Services"
-              className="px-6 py-3 rounded-full text-black w-96 shadow-lg focus:outline-none"
+              className="px-6 py-3 rounded-full text-black w-[50vw] shadow-lg focus:outline-none"
             />
           </div>
         </div>
@@ -264,12 +267,19 @@ export default function Properties() {
       </div>
 
       <div
-        className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 w-[90vw] h-[50vh] rounded-lg px-8 mx-auto"
+        className="relative flex items-center justify-center bg-cover bg-center bg-purple-600 w-[91vw] h-96    rounded-lg px-8 mx-auto"
         style={{ backgroundImage: `url(${banner2})` }}
       >
         <div className="absolute rounded-lg inset-0 bg-gradient-to-r from-black to-transparent opacity-60"></div>
         <div className="relative z-10 flex flex-col items-center justify-center text-white">
-          <h1 className="text-4xl font-bold">Transportation Services</h1>
+          <h1 className="text-6xl font-bold">Transportation Services</h1>
+          <div className="mt-4">
+            <input
+              type="text"
+              placeholder="Search for Services"
+              className="px-6 py-3 rounded-full text-black w-[50vw] shadow-lg focus:outline-none"
+            />
+          </div>
         </div>
       </div>
 
