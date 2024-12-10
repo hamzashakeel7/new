@@ -92,7 +92,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
             isMobile && !isOpen ? "justify-center" : ""
           }`}
         >
-          <div className="h-8 w-8 rounded-full bg-purple-100 flex-shrink-0">
+          <div className="h-10 w-12 md:w-14 rounded-full bg-purple-100 flex-shrink-0">
             <img src={logoimage} alt="Logo" className="rounded-full" />
           </div>
           {(!isMobile || isOpen) && (

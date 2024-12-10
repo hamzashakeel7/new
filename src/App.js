@@ -50,6 +50,9 @@ import { NonprofitDashboard } from "./pages/Nonprofit";
 import { PropertyOwnerDashboard } from "./pages/PropertyOwnerDashboard";
 import { RealEstateDashboard } from "./pages/RealEstateDashboard";
 import Transport from "./Component/dashboard/Transportation/Trasportationform";
+import { FirstStep } from "./authform/Signup-Journey/FirstStep";
+import { SecondStep } from "./authform/Signup-Journey/SecondStep";
+import { ThirdStep } from "./authform/Signup-Journey/ThirdStep";
 
 function App() {
   const location = useLocation();
@@ -84,12 +87,21 @@ function App() {
               element={<Navigate to="/dashboard/My profile" replace />}
             />
             <Route path="/dashboard/:section" element={<Dashboard />} />
-            <Route path="/dashboard/propertyforms" element={<PostPropertyForm />} />
-        <Route path="/dashboard/transport" element={<Transport/>} />
-        <Route path="/dashboard/generic" element={<ServiceInformationForm/>} />
+            <Route
+              path="/dashboard/propertyforms"
+              element={<PostPropertyForm />}
+            />
+            <Route path="/dashboard/transport" element={<Transport />} />
+            <Route
+              path="/dashboard/generic"
+              element={<ServiceInformationForm />}
+            />
+            {/* signup journey */}
+            <Route path="/signup/firstStep" element={<FirstStep />} />
+            <Route path="/signup/secondStep" element={<SecondStep />} />
+            <Route path="/signup/thirdStep" element={<ThirdStep />} />
             {/* Service provider dashboard */}
             <Route
-
               path="/servicedashboard"
               element={<Navigate to="/servicedashboard/My profile" replace />}
             />
