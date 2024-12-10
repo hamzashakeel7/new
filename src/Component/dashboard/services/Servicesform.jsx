@@ -17,16 +17,7 @@ import {
   TableRow,
 } from "../../../shadcn/components/ui/Table";
 import { cn } from "../../../shadcn/lib/utils";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
-
-import PostPropertyForm from "../postservice/Postservice";
-import Transport from "../../dashboard/Transportation/Trasportationform";
-import ServiceInformationForm from "../Serviceinformation/Serviceinformation.jsx/Serviceinformation.jsx";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
 // Initial services data
 const initialServices = [
@@ -72,22 +63,22 @@ export function Servicesform() {
     switch (type) {
       case "Property":
         console.log("Navigating to /dashboard/propertyforms");
-        navigate("/dashboard/propertyforms");
+        navigate("/dashboard/propertyform");
         break;
       case "Generic":
         console.log("Navigating to /dashboard/generic");
-        navigate("/dashboard/generic");
+        navigate("/dashboard/ServiceInformationForm");
         break;
       case "Transportation":
         console.log("Navigating to /dashboard/transport");
-        navigate("/dashboard/transport");
+        navigate("/dashboard/Transportationform");
         break;
       default:
         console.log("Unknown type");
         break;
     }
   };
-  
+
   return (
     <div className="space-y-6 md:p-6 w-[75vw] lg:w-full">
       {/* Sort By Section */}
@@ -153,7 +144,7 @@ export function Servicesform() {
           <div className="min-w-[600px]">
             <Table>
               <TableHeader>
-                <TableRow className="hover:bg-transparent">
+                <TableRow className="hover:bg-gray-200 bg-gray-100">
                   <TableHead className="border-x">Service Name</TableHead>
                   <TableHead className="border-x">Service Type</TableHead>
                   <TableHead className="border-x">Provider</TableHead>
@@ -202,17 +193,5 @@ export function Servicesform() {
         </div>
       </div>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/dashboard/propertyforms" element={<PostPropertyForm />} />
-        <Route path="/dashboard/transport" element={<Transport />} />
-        <Route path="/dashboard/generic" element={<ServiceInformationForm/>} />
-      </Routes>
-    </Router>
   );
 }

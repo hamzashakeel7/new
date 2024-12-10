@@ -192,13 +192,13 @@ export function HelpAndSupport() {
           <h2 className="text-2xl font-semibold mb-4">Tickets</h2>
           <div className="overflow-x-auto">
             <Table className="bg-white">
-              <TableHeader>
+              <TableHeader className="bg-gray-100">
                 <TableRow>
                   <TableHead>Number</TableHead>
                   <TableHead>Subject</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Date Created</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -208,7 +208,7 @@ export function HelpAndSupport() {
                     <TableCell>{ticket.subject}</TableCell>
                     <TableCell>{ticket.status}</TableCell>
                     <TableCell>{ticket.dateCreated}</TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="text-center">
                       <Button
                         variant="ghost"
                         size="sm"

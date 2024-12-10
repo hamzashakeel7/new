@@ -171,7 +171,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
               <SidebarMenuButton asChild className="w-full">
                 <button
                   onClick={handleLogout}
-                  className={`flex items-center gap-2 px-4 py-4 w-full text-left hover:bg-purple-100 ${
+                  className={`flex items-center gap-2 px-4 py-6 w-full text-left hover:bg-purple-100 ${
                     isMobile && !isOpen ? "justify-center" : ""
                   }`}
                 >

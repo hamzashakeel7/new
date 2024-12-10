@@ -60,7 +60,21 @@ export function RentalApplicationForm() {
       <form onSubmit={handleSubmit} className="space-y-8">
         <Card className="bg-gray-100">
           <CardHeader>
-            <CardTitle>Rental Application</CardTitle>
+            <CardTitle className="flex gap-2">
+              <svg
+                width="27"
+                height="28"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.9091 27.273H4.09093V25.9094H2.72729V4.09118H4.09093V2.72754H25.9091V4.09118H27.2727V25.9094H25.9091V27.273ZM24.5455 8.18208V5.45481H5.45457V8.18208H24.5455ZM24.5455 24.5457V10.9094H5.45457V24.5457H24.5455Z"
+                  fill="#323743"
+                />
+              </svg>
+              Rental Application
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Personal Information */}

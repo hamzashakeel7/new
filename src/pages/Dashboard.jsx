@@ -14,6 +14,9 @@ import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/
 import Trasportationform from "../Component/dashboard/Transportation/Trasportationform";
 import { RentalApplicationForm } from "../Component/dashboard/services/RentalApplication/RentalForm";
 import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
+import PostPropertyForm from "../Component/dashboard/postservice/Postservice";
+import Transport from "../Component/dashboard/Transportation/Trasportationform";
+import ServiceInformationForm from "../Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -44,9 +47,10 @@ export function Dashboard() {
             {section === "accounting" && <AccountingPage />}
             {section === "messages" && <Message />}
             {section === "Help & Support" && <HelpAndSupport />}
-            {section === "propertyform" && <PropertyForm />}
-            {section === "Serviceinfoform" && <ServiceInfoform />}
-            {section === "Transportationform" && <Trasportationform />}
+
+            {section === "propertyform" && <PostPropertyForm />}
+            {section === "ServiceInformationForm" && <ServiceInformationForm />}
+            {section === "Transportationform" && <Transport />}
 
             {section === "rental" && <RentalApplicationForm />}
             {section === "lease" && <LeaseForm />}

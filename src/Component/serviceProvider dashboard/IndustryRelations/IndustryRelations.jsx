@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter, Clock } from "lucide-react";
+import { Filter, Clock, Search } from "lucide-react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import { Input } from "../../../shadcn/components/ui/Input";
 import { Badge } from "../../../shadcn/components/ui/Badge";
@@ -69,13 +69,16 @@ export function IndustryRelations() {
           </h1>
           <div className="w-full max-w-3xl flex gap-2 lg:flex-row flex-col">
             <div className="relative flex-1">
-              {/* <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" /> */}
               <Input
                 placeholder="Search for discussions, professionals, or chat rooms"
                 className="w-full pl-10 bg-white"
               />
+              <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
             </div>
-            <Button variant="secondary" className="gap-2">
+            <Button
+              variant="secondary"
+              className="gap-2 bg-blue-500 text-white hover:bg-blue-600"
+            >
               <Filter className="h-4 w-4" />
               Filter By Topic
             </Button>

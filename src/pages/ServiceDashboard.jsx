@@ -61,7 +61,7 @@ export function ServiceDashboard() {
             {section === "Serviceinfoform" && <ServiceInfoform />}
 
             {/* modal links */}
-            {section === "Property" && <PostForm />}
+            {/* {section === "Property" && <PostForm />} closed temporary */}
             {section === "Transportation" && <Transportform />}
             {section === "Service Information" && <ServiceInfoform />}
             {section === "Health Care"}

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Button } from "../../../shadcn/components/ui/Button";
 import { Input } from "../../../shadcn/components/ui/Input";
@@ -12,6 +10,7 @@ import {
 import { CalendarIcon, ChevronDown, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "../../../shadcn/lib/utils";
+import { Link } from "react-router-dom";
 
 const applications = Array.from({ length: 8 }, (_, i) => ({
   id: `APP${i + 1}`,
@@ -214,12 +213,21 @@ export function Applications() {
                       <span className="text-gray-600">Submission Date</span>
                       <span>{app.submissionDate}</span>
                     </div>
-                    <Button
-                      className="w-full mt-2 bg-red-100 hover:bg-red-200 text-red-600"
-                      variant="ghost"
-                    >
-                      Open
-                    </Button>
+                    <div className="flex items-center justify-center gap-20">
+                      <Button
+                        className="w-full mt-2 rounded-full bg-red-100 hover:bg-red-200 text-red-600"
+                        variant="ghost"
+                      >
+                        <Link to="/dashboard/lease">Open</Link>
+                      </Button>
+
+                      <Button
+                        className="w-full mt-2  rounded-full bg-[#7415E2] hover:bg-purple-700 hover:text-white text-white"
+                        variant="ghost"
+                      >
+                        <Link to="/dashboard/rental">Edit</Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ))}

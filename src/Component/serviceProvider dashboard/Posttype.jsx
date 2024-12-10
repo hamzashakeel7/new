@@ -55,7 +55,7 @@ const PostTypeModal = ({ onClose }) => {
             className="block w-full border border-gray-300 rounded-md p-2 text-gray-700"
           >
             <option value="">Select</option>
-            <option value="Property">Property</option>
+            {/* <option value="Property">Property</option> */}
             <option value="Transportation">Transportation</option>
             <option value="Service Information">Service Information</option>
             <option value="Health Care">Health Care</option>
