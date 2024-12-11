@@ -12,6 +12,9 @@ import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
+import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
+import { MessageBoard } from "../Component/PropertyOwnerDashboard/messages/MessageBoard";
+import { LiveChat } from "../Component/PropertyOwnerDashboard/messages/LiveChat";
 
 export function PropertyOwnerDashboard() {
   const { section } = useParams();
@@ -40,10 +43,13 @@ export function PropertyOwnerDashboard() {
             {section === "services" && <PostForm />}
             {section === "properties" && <MyProperties />}
             {section === "applications" && <Applications />}
-            {section === "messages" && <Message />}
+            {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}
             {section === "Help & Support" && <HelpAndSupport />}
             {section === "propertyform" && <PropertyForm />}
+            {section === "Industry relations" && <IndustryRelations />}
+
+            {section === "livechat" && <LiveChat />}
 
             {/* temperory routing */}
           </main>

@@ -6,17 +6,17 @@ import { Servicesform } from "../Component/dashboard/services/Servicesform";
 import { useEffect, useState } from "react";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
-import { MessageBoard } from "../Component/serviceProvider dashboard/messages/MessageBoard";
-import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
+import { MessageBoard } from "../Component/Hospital/messages/MessageBoard";
+import { LiveChat } from "../Component/Hospital/messages/LiveChat";
 import { CorporateMessages } from "../Component/serviceProvider dashboard/messages/CorporateMessages";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 import { CorporateTickets } from "../Component/serviceProvider dashboard/HelpAndSupport/CorporateTickets";
 import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
 import { TicketThread } from "../Component/serviceProvider dashboard/TicketThread";
-import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
+import MyProfile from "../Component/Hospital/Profile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
-import ProfileForm from "../Component/Hospital/Profile/Profile";
+import ProfileForm from "../Component/Hospital/Profile/MyProfile";
 import MyServices from "../Component/Hospital/MyServices/MyServices";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
@@ -43,7 +43,7 @@ export function HospitalDashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My profile" && <ProfileForm />}
+            {section === "My profile" && <MyProfile />}
             {section === "services" && <PostForm />}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}

@@ -53,6 +53,7 @@ import Transport from "./Component/dashboard/Transportation/Trasportationform";
 import { FirstStep } from "./authform/Signup-Journey/FirstStep";
 import { SecondStep } from "./authform/Signup-Journey/SecondStep";
 import { ThirdStep } from "./authform/Signup-Journey/ThirdStep";
+import { SuperAdmin } from "./pages/SuperAdmin";
 
 function App() {
   const location = useLocation();
@@ -149,6 +150,12 @@ function App() {
               path="/realestatedashboard/:section"
               element={<RealEstateDashboard />}
             />
+            {/* Super Admin dashborad */}
+            <Route
+              path="/superadmin"
+              element={<Navigate to="/superadmin/My Profile" replace />}
+            />
+            <Route path="/superadmin/:section" element={<SuperAdmin />} />
             {/* Auth setup */}
             <Route
               path="/login"

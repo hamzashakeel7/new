@@ -35,9 +35,14 @@ const menuItems = [
     label: "Post a Service",
     section: "services",
   },
-  { icon: Mail, label: "Application", section: "application" },
-  { icon: Receipt, label: "Message", section: "messages" },
-  { icon: LayoutGrid, label: "Acconting Page", section: "accounting" },
+  {
+    icon: Grip,
+    label: "My Services",
+    section: "MyPropertyServices",
+  },
+  { icon: LayoutGrid, label: "Applications", section: "application" },
+  { icon: Mail, label: "Messages", section: "messages" },
+  { icon: Receipt, label: "Accounting Page", section: "accounting" },
   {
     icon: HelpCircle,
     label: "Help & Support",
@@ -45,13 +50,8 @@ const menuItems = [
   },
   {
     icon: ChartArea,
-    label: "Industry Relation",
+    label: "Industry Relations",
     section: "Industry Relations",
-  },
-  {
-    icon: Grip,
-    label: "My Properties / Services",
-    section: "MyPropertyServices",
   },
 ];
 

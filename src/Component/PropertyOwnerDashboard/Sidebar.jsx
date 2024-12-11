@@ -44,6 +44,11 @@ const menuItems = [
     label: "Help & Support",
     section: "Help & Support",
   },
+  {
+    icon: ChartArea,
+    label: "Industry Relations",
+    section: "Industry relations",
+  },
 ];
 
 export function DashboardSidebar({ isOpen, toggleSidebar }) {
