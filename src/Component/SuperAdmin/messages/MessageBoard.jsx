@@ -72,7 +72,7 @@ export function MessageBoard() {
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start">
                     <h3 className="font-medium text-sm">{message.user.name}</h3>
-                    <Link to="/realestatedashboard/livechat">
+                    <Link to="/superadmin/livechat">
                       <Button
                         variant="ghost"
                         size="sm"

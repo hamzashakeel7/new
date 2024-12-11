@@ -15,8 +15,8 @@ import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Ac
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import MyPropertiesServices from "../Component/RealEstateDashboard/MyProperties/MyProperties";
 import ProfileForm from "../Component/RealEstateDashboard/MyProfile/MyProfile";
-import { MessageBoard } from "../Component/RealEstateDashboard/messages/MessageBoard";
-import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
+import { MessageBoard } from "../Component/SuperAdmin/messages/MessageBoard";
+import { LiveChat } from "../Component/SuperAdmin/messages/LiveChat";
 
 export function SuperAdmin() {
   const { section } = useParams();
