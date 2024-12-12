@@ -1,9 +1,9 @@
 import { SidebarProvider } from "../shadcn/components/ui/Sidebar";
 import { Topbar } from "../Component/dashboard/Topbar";
-import { DashboardSidebar as Sidebar } from "../Component/RealEstateDashboard/Sidebar";
+import { DashboardSidebar as Sidebar } from "../Component/SuperAdmin/Sidebar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import MyProfile from "../Component/RealEstateDashboard/MyProfile/MyProfile";
+import MyProfile from "../Component/SuperAdmin/MyProfile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyProperties from "../Component/RealEstateDashboard/MyProperties/MyProperties";
 import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
@@ -15,10 +15,10 @@ import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Ac
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import MyPropertiesServices from "../Component/RealEstateDashboard/MyProperties/MyProperties";
 import ProfileForm from "../Component/RealEstateDashboard/MyProfile/MyProfile";
-import { MessageBoard } from "../Component/RealEstateDashboard/messages/MessageBoard";
-import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
+import { MessageBoard } from "../Component/SuperAdmin/messages/MessageBoard";
+import { LiveChat } from "../Component/SuperAdmin/messages/LiveChat";
 
-export function RealEstateDashboard() {
+export function SuperAdmin() {
   const { section } = useParams();
   const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
 
@@ -41,7 +41,7 @@ export function RealEstateDashboard() {
         <div className={`flex-1 flex flex-col`}>
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
-            {section === "My Profile" && <ProfileForm />}
+            {section === "My Profile" && <MyProfile />}
             {section === "services" && <PostForm />}
             {section === "properties" && <MyProperties />}
             {section === "applications" && <Applications />}

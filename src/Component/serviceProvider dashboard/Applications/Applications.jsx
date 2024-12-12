@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../../../shadcn/components/ui/Popover";
-import { CalendarIcon, ChevronDown, X } from "lucide-react";
+import { CalendarIcon, ChevronDown, Search, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "../../../shadcn/lib/utils";
 import { Link } from "react-router-dom";
@@ -169,8 +169,9 @@ export function Applications() {
       <div className="flex-1">
         <div className="lg:mb-6 mb-2 mt-5 lg:mt-0">
           <div className="relative">
+            <Search className="absolute left-2 top-1/2 w-[20px] -translate-y-1/2 text-gray-400" />
             <Input
-              placeholder="Search"
+              placeholder="        Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 pr-4 "
@@ -213,7 +214,7 @@ export function Applications() {
                       <span className="text-gray-600">Submission Date</span>
                       <span>{app.submissionDate}</span>
                     </div>
-                    <div className="flex items-center justify-center gap-20">
+                    <div className="flex items-center justify-center gap-2 md:gap-10 w-full">
                       <Button
                         className="w-full mt-2 rounded-full bg-red-100 hover:bg-red-200 text-red-600"
                         variant="ghost"

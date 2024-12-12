@@ -1,4 +1,4 @@
-// Real Estate dashboard sidebar
+// Super admin dashboard sidebar
 
 import { useState, useEffect } from "react";
 import {
@@ -32,10 +32,14 @@ const menuItems = [
   { icon: Home, label: "My Profile", section: "My Profile" },
   {
     icon: BaggageClaim,
-    label: "Post a Property",
+    label: "Post a Service / Property",
     section: "services",
   },
-  { icon: BaggageClaim, label: "My Properties", section: "properties" },
+  {
+    icon: Grip,
+    label: "My Services / Properties",
+    section: "properties",
+  },
   { icon: LayoutGrid, label: "Applications", section: "applications" },
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
@@ -66,7 +70,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
 
   const handleSectionClick = (section) => {
     setActiveLink(section);
-    navigate(`/realestatedashboard/${section}`);
+    navigate(`/superadmin/${section}`);
     if (isMobile && isOpen) {
       toggleSidebar();
     }

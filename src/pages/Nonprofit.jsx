@@ -3,14 +3,14 @@ import { Topbar } from "../Component/dashboard/Topbar";
 import { DashboardSidebar as Sidebar } from "../Component/Non-Pofit/Sidebar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ProfileForm from "../Component/Non-Pofit/Profile/Profile";
+import ProfileForm from "../Component/serviceProvider dashboard/Profile/Profile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
-import { MessageBoard } from "../Component/serviceProvider dashboard/messages/MessageBoard";
+import { MessageBoard } from "../Component/Non-Pofit/Messages/MessageBoard";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
-import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
+import { LiveChat } from "../Component/Non-Pofit/Messages/LiveChat";
 import MyPropertiesServices from "../Component/Non-Pofit/MyPropertiesServices/MyPropertiesServices";
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
@@ -45,11 +45,11 @@ export function NonprofitDashboard() {
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
-            {section === "livechat" && <LiveChat />}
             {section === "MyPropertyServices" && <MyPropertiesServices />}
 
             {section === "propertyform" && <PropertyForm />}
             {section === "Serviceinfoform" && <ServiceInfoform />}
+            {section === "livechat" && <LiveChat />}
             {/* temperory routing */}
           </main>
         </div>
