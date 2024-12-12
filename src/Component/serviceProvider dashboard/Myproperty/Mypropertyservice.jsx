@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function MyPropertiesServices() {
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 bg-gray-100 min-h-screen lg:overflow-x-scroll">
       {/* Header Section */}
       <div
         className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
@@ -16,17 +16,15 @@ export default function MyPropertiesServices() {
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-white px-4 sm:px-6 lg:px-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              My Properties / Services
+              My  Services
             </h1>
-            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-2">
               <input
                 type="text"
                 placeholder="Search for services"
-                className="w-full sm:w-96 p-3 rounded-l-lg border-none focus:ring-0"
+                className="w-[90vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
               />
-              <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg">
-                Search
-              </button>
+             
               <button className="w-full sm:w-auto ml-0 sm:ml-4 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
                 <svg
                   width="18"
@@ -137,7 +135,7 @@ export default function MyPropertiesServices() {
                   <td className="p-4">
                     <div className="flex flex-wrap gap-2">
                       <Link to="/servicedashboard/Serviceinfoform">
-                        <button className="text-blue-600 flex items-center space-x-2 text-sm">
+                        <button className=" flex items-center space-x-2 text-sm">
                           <svg
                             width="15"
                             height="15"
@@ -153,7 +151,7 @@ export default function MyPropertiesServices() {
                           Edit
                         </button>
                       </Link>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center space-x-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -170,7 +168,7 @@ export default function MyPropertiesServices() {
                         </svg>
                         Cancel
                       </button>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center space-x-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -241,21 +239,25 @@ export default function MyPropertiesServices() {
       </div>
 
       {/* Properties Table */}
-      <div className="mt-12 overflow-x-auto bg-white shadow-lg rounded-lg p-6">
+ {/*     <div className="mt-12 overflow-x-auto bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-2"
-          >
-            <path
-              d="M22.9564 22.4348H20.6086V1.5652H21.3912C21.8234 1.5652 22.1738 1.21481 22.1738 0.782578C22.1738 0.350344 21.8234 0 21.3912 0C19.8626 0 3.31816 0 2.60857 0C2.17638 0 1.82595 0.350391 1.82595 0.782625C1.82595 1.21486 2.17634 1.56525 2.60857 1.56525H3.3912V22.4348H1.04337C0.61118 22.4348 0.260742 22.7852 0.260742 23.2174C0.260742 23.6497 0.611133 24 1.04337 24C1.51835 24 20.9871 24 22.9564 24C23.3886 24 23.739 23.6496 23.739 23.2174C23.739 22.7851 23.3886 22.4348 22.9564 22.4348ZM19.0434 22.4348H4.9564V1.5652H19.0434V22.4348Z"
-              fill="black"
-            />
-          </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_853_1365)">
+<path d="M22.9564 22.4348H20.6086V1.5652H21.3912C21.8234 1.5652 22.1738 1.21481 22.1738 0.782578C22.1738 0.350344 21.8234 0 21.3912 0C19.8626 0 3.31816 0 2.60857 0C2.17638 0 1.82595 0.350391 1.82595 0.782625C1.82595 1.21486 2.17634 1.56525 2.60857 1.56525H3.3912V22.4348H1.04337C0.61118 22.4348 0.260742 22.7852 0.260742 23.2174C0.260742 23.6497 0.611133 24 1.04337 24C1.51835 24 20.9871 24 22.9564 24C23.3886 24 23.739 23.6496 23.739 23.2174C23.739 22.7851 23.3886 22.4348 22.9564 22.4348ZM19.0434 22.4348H4.9564V1.5652H19.0434V22.4348Z" fill="black"/>
+<path d="M10.4348 3.65217H7.30435C6.87217 3.65217 6.52173 4.00256 6.52173 4.4348V7.56525C6.52173 7.99744 6.87212 8.34788 7.30435 8.34788H10.4348C10.867 8.34788 11.2174 7.99748 11.2174 7.56525V4.4348C11.2174 4.00256 10.867 3.65217 10.4348 3.65217ZM9.65218 6.78263H8.08698V5.21742H9.65218V6.78263Z" fill="black"/>
+<path d="M16.6955 3.65217H13.5651C13.1329 3.65217 12.7825 4.00256 12.7825 4.4348V7.56525C12.7825 7.99744 13.1329 8.34788 13.5651 8.34788H16.6955C17.1277 8.34788 17.4782 7.99748 17.4782 7.56525V4.4348C17.4782 4.00256 17.1277 3.65217 16.6955 3.65217ZM15.9129 6.78263H14.3477V5.21742H15.9129V6.78263Z" fill="black"/>
+<path d="M10.4348 9.91303H7.30435C6.87217 9.91303 6.52173 10.2634 6.52173 10.6957V13.8261C6.52173 14.2583 6.87212 14.6087 7.30435 14.6087H10.4348C10.867 14.6087 11.2174 14.2583 11.2174 13.8261V10.6957C11.2174 10.2634 10.867 9.91303 10.4348 9.91303ZM9.65218 13.0435H8.08698V11.4783H9.65218V13.0435Z" fill="black"/>
+<path d="M16.6955 9.91303H13.5651C13.1329 9.91303 12.7825 10.2634 12.7825 10.6957V13.8261C12.7825 14.2583 13.1329 14.6087 13.5651 14.6087H16.6955C17.1277 14.6087 17.4782 14.2583 17.4782 13.8261V10.6957C17.4782 10.2634 17.1277 9.91303 16.6955 9.91303ZM15.9129 13.0435H14.3477V11.4783H15.9129V13.0435Z" fill="black"/>
+<path d="M10.4348 16.1739H7.30435C6.87217 16.1739 6.52173 16.5243 6.52173 16.9565V20.087C6.52173 20.5192 6.87212 20.8696 7.30435 20.8696H10.4348C10.867 20.8696 11.2174 20.5192 11.2174 20.087V16.9565C11.2174 16.5243 10.867 16.1739 10.4348 16.1739ZM9.65218 19.3043H8.08698V17.7391H9.65218V19.3043Z" fill="black"/>
+<path d="M16.6955 16.1739H13.5651C13.1329 16.1739 12.7825 16.5243 12.7825 16.9565V20.087C12.7825 20.5192 13.1329 20.8696 13.5651 20.8696H16.6955C17.1277 20.8696 17.4782 20.5192 17.4782 20.087V16.9565C17.4782 16.5243 17.1277 16.1739 16.6955 16.1739ZM15.9129 19.3043H14.3477V17.7391H15.9129V19.3043Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_853_1365">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
           My Properties
           <svg
             width="5"
@@ -293,7 +295,7 @@ export default function MyPropertiesServices() {
                 <td className="p-4">$255,000</td>
                 <td className="p-4 space-x-4 flex justify-start">
                   <Link to="/servicedashboard/propertyform">
-                    <button className="text-blue-600 flex items-center space-x-2 text-sm">
+                    <button className=" flex items-center space-x-2 text-sm">
                       <svg
                         width="15"
                         height="15"
@@ -309,7 +311,7 @@ export default function MyPropertiesServices() {
                       Edit
                     </button>
                   </Link>
-                  <button className="text-red-600 flex items-center space-x-2 text-sm">
+                  <button className=" flex items-center space-x-2 text-sm">
                     <svg
                       width="14"
                       height="14"
@@ -360,7 +362,7 @@ export default function MyPropertiesServices() {
             ))}
           </tbody>
         </table>
-      </div>
+      </div>*/}
     </div>
   );
 }

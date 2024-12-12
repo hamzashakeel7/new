@@ -53,6 +53,7 @@ import Transport from "./Component/dashboard/Transportation/Trasportationform";
 import { FirstStep } from "./authform/Signup-Journey/FirstStep";
 import { SecondStep } from "./authform/Signup-Journey/SecondStep";
 import { ThirdStep } from "./authform/Signup-Journey/ThirdStep";
+import MyPropertiesServices from "./Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 
 function App() {
   const location = useLocation();
@@ -77,6 +78,7 @@ function App() {
             <Route path="/Community" element={<Community />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/property" element={<Property />} />
+            <Route path="/propertyservice" element={<MyPropertiesServices/>} />
             <Route path="/propertydetail" element={<PropertyDetail />} />
             <Route path="/PropertyService" element={<Properties />} />
             <Route path="/cardiac" element={<CardiacCareService />} />

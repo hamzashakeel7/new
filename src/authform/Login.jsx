@@ -47,13 +47,35 @@ export default function Login() {
           email,
           password,
         });
-
-        const token = response.data.token;
-
+  
+        const { token, role } = response.data;
+  
         toast.success("Login successful!");
         localStorage.setItem("token", token);
-
-        navigate("/dashboard");
+  
+        // Navigate to respective dashboards based on role
+        switch (role) {
+          case "Individual":
+            navigate("/individual-dashboard");
+            break;
+          case "Property Owner":
+            navigate("/property-owner-dashboard");
+            break;
+          case "Hospital System/Managed Care Organizations":
+            navigate("/hospital-dashboard");
+            break;
+          case "Real Estate Professionals":
+            navigate("/real-estate-dashboard");
+            break;
+          case "Service Provider":
+            navigate("/service-provider-dashboard");
+            break;
+          case "Non Profits":
+            navigate("/non-profits-dashboard");
+            break;
+          default:
+            navigate("/dashboard");
+        }
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
         toast.error(
@@ -62,6 +84,7 @@ export default function Login() {
       }
     }
   };
+  
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-4">

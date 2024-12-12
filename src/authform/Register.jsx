@@ -78,10 +78,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!role) {
-      toast.error("Please select a role.");
-      return;
-    }
+   
 
     if (
       validateEmail(email) &&

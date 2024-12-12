@@ -18,6 +18,7 @@ import ServiceInfoedit from "../Component/serviceProvider dashboard/serviceinfo/
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import Message from "../Component/serviceProvider dashboard/messages/Message";
 
 export function ServiceDashboard() {
   const { section } = useParams(); // Get 'section' from the URL params
@@ -49,7 +50,7 @@ export function ServiceDashboard() {
 
             {section === "My profile" && <ProfileForm />}
             {section === "application" && <Applications />}
-            {section === "messages" && <MessageBoard />}
+            {section === "messages" && <Message/>}
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
