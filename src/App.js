@@ -53,6 +53,10 @@ import Transport from "./Component/dashboard/Transportation/Trasportationform";
 import { FirstStep } from "./authform/Signup-Journey/FirstStep";
 import { SecondStep } from "./authform/Signup-Journey/SecondStep";
 import { ThirdStep } from "./authform/Signup-Journey/ThirdStep";
+import {SuperAdmin }from "./pages/SuperAdmin"
+import MyPropertiesServices from "./Component/Non-Pofit/MyPropertiesServices/MyPropertiesServices";
+
+
 
 function App() {
   const location = useLocation();
