@@ -51,6 +51,7 @@ function Otp() {
   // }, [type, api, navigate]);
 
   useEffect(() => {
+<<<<<<< HEAD
     if(type === "register"){
       toast.success(
         "OTP sent successfully to your email."
@@ -61,20 +62,38 @@ function Otp() {
         toast.error(
           "Login failed! First Verify Your Account"
         );
+=======
+    if (type === "register") {
+      toast.success("OTP sent successfully to your email.");
+    }
+    const sendOtp = async () => {
+      try {
+        toast.error("Login failed! First Verify Your Account");
+>>>>>>> c7365b6 (login and register error fixed)
         const token = localStorage.getItem("authToken"); // Retrieve email from localStorage
         if (!token) {
           notifyError("Account not found. Please register again.");
           navigate("/register");
           return;
         }
+<<<<<<< HEAD
         const response = await axios.post(`${api}/api/v1/auth/otpcheck/account-verified/resend`, {
           token,
         });
+=======
+        const response = await axios.post(
+          `${api}/api/v1/auth/otpcheck/account-verified/resend`,
+          {
+            token,
+          }
+        );
+>>>>>>> c7365b6 (login and register error fixed)
 
         if (response.status === 200) {
           notifySuccess("OTP sent successfully to your email.");
         }
       } catch (error) {
+<<<<<<< HEAD
         if(error.status === 401){
           toast.error(
             "Invalid or Expire Token"
@@ -89,6 +108,16 @@ function Otp() {
           );
           navigate("/login");
         }else{
+=======
+        if (error.status === 401) {
+          toast.error("Invalid or Expire Token");
+        } else if (error.status === 404) {
+          toast.error("User Not Found");
+        } else if (error.status === 409) {
+          toast.error("Account is Already Verified");
+          navigate("/login");
+        } else {
+>>>>>>> c7365b6 (login and register error fixed)
           notifyError(
             error.response?.data?.message ||
               "Failed to send OTP. Please try again."

@@ -47,12 +47,12 @@ export default function Login() {
           email,
           password,
         });
-  
+
         const { token, role } = response.data;
 
         toast.success("Login successful!");
         localStorage.setItem("token", token);
-  
+
         // Navigate to respective dashboards based on role
         switch (role) {
           case "Individual":
@@ -78,12 +78,19 @@ export default function Login() {
         }
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
+<<<<<<< HEAD
         if(error.status === 409){
           toast.error(
             "Login Failed! First Verify Your Account"
           );
           navigate("/otp", { state: { type: "login" } });
         }else{
+=======
+        if (error.status === 409) {
+          toast.error("Login Failed! First Verify Your Account");
+          navigate("/otp", { state: { type: "login" } });
+        } else {
+>>>>>>> c7365b6 (login and register error fixed)
           toast.error(
             "Login failed! Please check your credentials and try again."
           );
@@ -91,7 +98,6 @@ export default function Login() {
       }
     }
   };
-  
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-4">
