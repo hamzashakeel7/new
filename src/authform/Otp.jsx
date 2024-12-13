@@ -1,49 +1,104 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loginimage from "../assets/login.png";
 import logo from "../assets/image.png";
 import axios from "axios";
+import { ConstructionIcon } from "lucide-react";
 
-function Otp({ type }) {
+function Otp() {
   const [otp, setOtp] = useState(new Array(6).fill("")); // 6 empty OTP fields
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const api = process.env.REACT_APP_API_URL;
+
+  // Get The Type
+  const location = useLocation(); // useLocation hook se state access karein
+  const { type } = location.state || {}; // state ko destructure karein
 
   // Initialize Toastify
   const notifySuccess = (message) => toast.success(message);
   const notifyError = (message) => toast.error(message);
 
   // Trigger OTP sending on component load if type is 'register'
+  // useEffect(() => {
+  //   const sendOtp = async () => {
+  //     try {
+  //       const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
+  //       if (!email) {
+  //         notifyError("Email not found. Please register again.");
+  //         navigate("/register");
+  //         return;
+  //       }
+
+  //       const response = await axios.post(`${api}/api/v1/auth/send-otp`, {
+  //         email,
+  //       });
+
+  //       if (response.status === 200) {
+  //         notifySuccess("OTP sent successfully to your email.");
+  //       }
+  //     } catch (error) {
+  //       notifyError(
+  //         error.response?.data?.message ||
+  //           "Failed to send OTP. Please try again."
+  //       );
+  //     }
+  //   };
+
+  //   if (type === "register") sendOtp();
+  // }, [type, api, navigate]);
+
   useEffect(() => {
+    if(type === "register"){
+      toast.success(
+        "OTP sent successfully to your email."
+      );
+    }
     const sendOtp = async () => {
       try {
-        const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
-        if (!email) {
-          notifyError("Email not found. Please register again.");
+        toast.error(
+          "Login failed! First Verify Your Account"
+        );
+        const token = localStorage.getItem("authToken"); // Retrieve email from localStorage
+        if (!token) {
+          notifyError("Account not found. Please register again.");
           navigate("/register");
           return;
         }
-
-        const response = await axios.post(`${api}/api/v1/auth/send-otp`, {
-          email,
+        const response = await axios.post(`${api}/api/v1/auth/otpcheck/account-verified/resend`, {
+          token,
         });
 
         if (response.status === 200) {
           notifySuccess("OTP sent successfully to your email.");
         }
       } catch (error) {
-        notifyError(
-          error.response?.data?.message ||
-            "Failed to send OTP. Please try again."
-        );
+        if(error.status === 401){
+          toast.error(
+            "Invalid or Expire Token"
+          );
+        }else if(error.status === 404){
+          toast.error(
+            "User Not Found"
+          );
+        }else if(error.status === 409){
+          toast.error(
+            "Account is Already Verified"
+          );
+          navigate("/login");
+        }else{
+          notifyError(
+            error.response?.data?.message ||
+              "Failed to send OTP. Please try again."
+          );
+        }
       }
     };
 
-    if (type === "register") sendOtp();
-  }, [type, api, navigate]);
+    if (type === "login") sendOtp();
+  }, []);
 
   const handleChange = (element, index) => {
     const newOtp = [...otp];

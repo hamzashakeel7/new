@@ -49,7 +49,7 @@ export default function Login() {
         });
   
         const { token, role } = response.data;
-  
+
         toast.success("Login successful!");
         localStorage.setItem("token", token);
   
@@ -78,9 +78,16 @@ export default function Login() {
         }
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
-        toast.error(
-          "Login failed! Please check your credentials and try again."
-        );
+        if(error.status === 409){
+          toast.error(
+            "Login Failed! First Verify Your Account"
+          );
+          navigate("/otp", { state: { type: "login" } });
+        }else{
+          toast.error(
+            "Login failed! Please check your credentials and try again."
+          );
+        }
       }
     }
   };
