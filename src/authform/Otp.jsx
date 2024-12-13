@@ -70,6 +70,7 @@ function Otp({ type }) {
     setLoading(true);
     try {
       const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
+      const authtoken = localStorage.getItem("authToken"); // Retrieve email from localStorage
       if (!email) {
         notifyError("Email not found. Please register again.");
         navigate("/register");
@@ -83,14 +84,15 @@ function Otp({ type }) {
 
       const response = await axios.post(url, {
         otp: otpCode,
-        email, // Pass email directly in the payload
+        token: authtoken, // Pass token directly in the payload
       });
 
-      if (response.status === 200 && response.data.verified) {
+      if (response.status === 200 && response.data.status) {
         notifySuccess("OTP verified successfully!");
         const role = localStorage.getItem("userRole"); // Get the role
         localStorage.setItem("signupRole", role);
-        localStorage.removeItem("authToken"); // Clean up token
+        localStorage.setItem("authToken", response.data.data.token);
+        // localStorage.removeItem("authToken"); // Clean up token
         navigate(type === "forgot" ? "/changepassword" : "/signup/firstStep");
       } else {
         notifyError("Account verification failed. Please try again.");
