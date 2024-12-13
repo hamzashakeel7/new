@@ -92,12 +92,12 @@ export default function Register() {
           phonenumber,
           role,
         });
-        // ok
+
         if (response.status === 200 || response.status === 201) {
           toast.success("Registration successful! Check your email for OTP.");
           localStorage.setItem("userEmail", email); // Save email for OTP validation
           localStorage.setItem("userRole", role); // Save role for redirection
-          const token = response.data.token;
+          const token = response.data.data.token;
           if (token) localStorage.setItem("authToken", token);
           navigate("/otp", { state: { type: "register" } });
         } else {
@@ -112,7 +112,6 @@ export default function Register() {
       }
     }
   };
-  // o
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50 p-4">
