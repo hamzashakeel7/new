@@ -49,32 +49,38 @@ export default function Login() {
         });
 
         const { token, role } = response.data;
+        // saving the token
+        if (token) {
+          localStorage.setItem("authToken", token); // Save token to local storage
+        }
+        if (role) {
+          localStorage.setItem("userRole", role); // Save role to local storage
+        }
 
         toast.success("Login successful!");
-        localStorage.setItem("token", token);
 
         // Navigate to respective dashboards based on role
         switch (role) {
           case "Individual":
-            navigate("/individual-dashboard");
+            navigate("/dashboard");
             break;
           case "Property Owner":
-            navigate("/property-owner-dashboard");
+            navigate("/propertyownerdashboard");
             break;
           case "Hospital System/Managed Care Organizations":
-            navigate("/hospital-dashboard");
+            navigate("/HospitalManagement");
             break;
           case "Real Estate Professionals":
-            navigate("/real-estate-dashboard");
+            navigate("/realestatedashboard");
             break;
           case "Service Provider":
             navigate("/service-provider-dashboard");
             break;
           case "Non Profits":
-            navigate("/non-profits-dashboard");
+            navigate("/nonprofit");
             break;
           default:
-            navigate("/dashboard");
+            navigate("/");
         }
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
