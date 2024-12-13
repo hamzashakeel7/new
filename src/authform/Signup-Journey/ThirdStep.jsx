@@ -27,7 +27,7 @@ export function ThirdStep() {
   const [formData, setFormData] = React.useState({
     education: "",
     countryOfBirth: "",
-    birthDate: null | null,
+    birthDate: null,
   });
   const [errorMessage, setErrorMessage] = React.useState("");
   const [showWelcome, setShowWelcome] = React.useState(false);
@@ -48,12 +48,63 @@ export function ThirdStep() {
     localStorage.setItem("countryOfBirth", countryOfBirth);
     localStorage.setItem("birthDate", birthDate.toISOString());
 
-    // Show welcome animation
-    setShowWelcome(true);
+    // Determine role and redirect to the appropriate dashboard
+    const role = localStorage.getItem("signupRole"); // Role set during OTP verification
+    localStorage.removeItem("signupRole"); // Clean up after use
+
+    switch (role) {
+      case "Individual":
+        navigate("/dashboard");
+        break;
+      case "Property Owner":
+        navigate("/propertyownerdashboard");
+        break;
+      case "Hospital System/Managed Care Organizations":
+        navigate("/HospitalManagement");
+        break;
+      case "Real Estate Professionals":
+        navigate("/realestatedashboard");
+        break;
+      case "Service Provider":
+        navigate("/servicedashboard");
+        break;
+      case "Non Profits":
+        navigate("/nonprofit");
+        break;
+      default:
+        navigate("/"); // Fallback dashboard
+        break;
+    }
   };
 
   const handleSkip = () => {
-    setShowWelcome(true);
+    // Redirect to the appropriate dashboard without saving form data
+    const role = localStorage.getItem("signupRole");
+    localStorage.removeItem("signupRole");
+
+    switch (role) {
+      case "Individual":
+        navigate("/dashboard");
+        break;
+      case "Property Owner":
+        navigate("/propertyownerdashboard");
+        break;
+      case "Hospital System/Managed Care Organizations":
+        navigate("/HospitalManagement");
+        break;
+      case "Real Estate Professionals":
+        navigate("/realestatedashboard");
+        break;
+      case "Service Provider":
+        navigate("/servicedashboard");
+        break;
+      case "Non Profits":
+        navigate("/nonprofit");
+        break;
+      default:
+        navigate("/"); // Fallback dashboard
+        break;
+    }
   };
 
   if (showWelcome) {
@@ -140,7 +191,6 @@ export function ThirdStep() {
                 <SelectItem value="us">United States</SelectItem>
                 <SelectItem value="uk">United Kingdom</SelectItem>
                 <SelectItem value="ca">Canada</SelectItem>
-                {/* Add more countries as needed */}
               </SelectContent>
             </Select>
           </motion.div>
