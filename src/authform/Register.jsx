@@ -19,7 +19,7 @@ import logo from "../assets/image.png";
 
 export default function Register() {
   const [activeTab, setActiveTab] = useState("register");
-  const [fullName, setFullName] = useState("");
+  const [name, setName] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,29 +78,37 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   
-
     if (
       validateEmail(email) &&
-      validateFullName(fullName) &&
+      validateFullName(name) &&
       validatePhoneNumber(phonenumber) &&
       validatePassword(password)
     ) {
       try {
         const response = await axios.post(`${api}/api/v1/auth/register`, {
-          name: fullName,
+          name: name,
           email,
           password,
           phonenumber,
           role,
         });
-        toast.success(
-          "Registration successful! Please check your email for OTP."
-        );
-        navigate("/otp", { state: { email, phonenumber } });
+
+        if (response.status === 200 || response.status === 201) {
+          toast.success("Registration successful! Check your email for OTP.");
+          localStorage.setItem("userEmail", email); // Save email for OTP validation
+          localStorage.setItem("userRole", role); // Save role for redirection
+          const token = response.data.token;
+          if (token) localStorage.setItem("authToken", token);
+          navigate("/otp", { state: { type: "register" } });
+        } else {
+          toast.error("Registration failed. Please try again.");
+          return;
+        }
       } catch (error) {
         console.error("Registration failed:", error);
-        toast.error(error.response?.data?.message || "Registration failed.");
+        const errorMessage =
+          error.response?.data?.message || "Registration failed.";
+        toast.error(errorMessage);
       }
     }
   };
@@ -208,9 +216,9 @@ export default function Register() {
                   type="text"
                   placeholder="Enter your full name"
                   className="rounded-full"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  onBlur={() => validateFullName(fullName)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onBlur={() => validateFullName(name)}
                 />
                 {fullNameError && (
                   <p className="text-sm text-red-500">{fullNameError}</p>

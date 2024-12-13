@@ -7,7 +7,6 @@ import logo from "../assets/image.png";
 import axios from "axios";
 
 function Otp({ type }) {
-  // type can be 'forgot' or 'register'
   const [otp, setOtp] = useState(new Array(6).fill("")); // 6 empty OTP fields
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -21,16 +20,17 @@ function Otp({ type }) {
   useEffect(() => {
     const sendOtp = async () => {
       try {
-        const email = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage after registration
+        const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
         if (!email) {
           notifyError("Email not found. Please register again.");
-          // navigate("/register");
+          navigate("/register");
           return;
         }
 
         const response = await axios.post(`${api}/api/v1/auth/send-otp`, {
           email,
         });
+
         if (response.status === 200) {
           notifySuccess("OTP sent successfully to your email.");
         }
@@ -50,11 +50,9 @@ function Otp({ type }) {
     newOtp[index] = element.value;
     setOtp(newOtp);
 
-    // Auto-focus the next input
     if (element.nextSibling && element.value) {
       element.nextSibling.focus();
     }
-    // Auto-focus the previous input if the current is empty
     if (element.previousSibling && !element.value) {
       element.previousSibling.focus();
     }
@@ -71,43 +69,39 @@ function Otp({ type }) {
 
     setLoading(true);
     try {
-      let url = "";
-      if (type === "forgot") {
-        url = `${api}/api/v1/auth/otpcheck/forgot`;
-      } else if (type === "register") {
-        url = `${api}/api/v1/auth/otpcheck/account-verified`;
-      }
-
-      const token = localStorage.getItem("authToken"); // Retrieve token from storage
-      if (!token) {
-        notifyError("Unauthorized access. Please log in.");
-        navigate("/login");
+      const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
+      if (!email) {
+        notifyError("Email not found. Please register again.");
+        navigate("/register");
         return;
       }
 
-      const response = await axios.post(
-        url,
-        { otp: otpCode },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const url =
+        type === "forgot"
+          ? `${api}/api/v1/auth/otpcheck/forgot`
+          : `${api}/api/v1/auth/otpcheck/account-verified`;
 
-      if (response.status === 200) {
+      const response = await axios.post(url, {
+        otp: otpCode,
+        email, // Pass email directly in the payload
+      });
+
+      if (response.status === 200 && response.data.verified) {
         notifySuccess("OTP verified successfully!");
-        if (type === "forgot") {
-          navigate("/changepassword");
-        } else if (type === "register") {
-          navigate("/signup/firstStep");
-        }
+        const role = localStorage.getItem("userRole"); // Get the role
+        localStorage.setItem("signupRole", role);
+        localStorage.removeItem("authToken"); // Clean up token
+        navigate(type === "forgot" ? "/changepassword" : "/signup/firstStep");
       } else {
-        notifyError("Invalid OTP. Please try again.");
+        notifyError("Account verification failed. Please try again.");
       }
     } catch (error) {
-      console.error("Failed to verify OTP:", error);
+      console.error(
+        "Failed to verify OTP:",
+        error.response?.data || error.message
+      );
       notifyError(
-        error.response?.data?.message ||
-          "An error occurred. Please try again later."
+        error.response?.data?.message || "An error occurred. Please try again."
       );
     } finally {
       setLoading(false);
@@ -119,7 +113,6 @@ function Otp({ type }) {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg flex flex-col lg:flex-row lg:h-[77vh] overflow-hidden">
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
 
-        {/* Left Section - Image with Overlay Text */}
         <div className="w-full lg:w-2/5 relative">
           <img
             src={loginimage}
@@ -137,7 +130,6 @@ function Otp({ type }) {
           </div>
         </div>
 
-        {/* Right Section - OTP Form */}
         <div className="w-full lg:w-1/2 px-6 py-8 lg:py-12 flex flex-col items-center justify-center relative">
           <div className="absolute top-4 right-0 z-10">
             <img src={logo} alt="Logo" className="w-12 lg:w-16 h-auto" />
