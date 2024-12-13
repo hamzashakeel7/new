@@ -2,18 +2,12 @@ import React, { useState } from "react";
 
 const Transportationedit = () => {
   // State to control modal visibility
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+  
   return (
     <>
       {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 overflow-y-auto bg-black bg-opacity-50 flex justify-center items-center">
+     
+        <div className="fixed   flex justify-center items-center">
           <div
             className="bg-white w-full max-w-3xl rounded-lg p-6 shadow-lg overflow-hidden"
             style={{ maxHeight: "90vh" }}
@@ -27,7 +21,7 @@ const Transportationedit = () => {
                 Transportation
               </h2>
               <button
-                onClick={closeModal}
+               
                 className="text-gray-500 hover:text-gray-700"
               >
                 &times;
@@ -232,7 +226,7 @@ const Transportationedit = () => {
             </div>
           </div>
         </div>
-      )}
+
     </>
   );
 };
