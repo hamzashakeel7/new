@@ -31,6 +31,7 @@ import {
 } from "../shadcn/components/ui/Avatar";
 import { useState } from "react";
 import { useEffect } from "react";
+// ok
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
