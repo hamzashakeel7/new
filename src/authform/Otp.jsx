@@ -52,6 +52,7 @@ function Otp() {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(type === "register"){
       toast.success(
         "OTP sent successfully to your email."
@@ -70,6 +71,14 @@ function Otp() {
       try {
         toast.error("Login failed! First Verify Your Account");
 >>>>>>> c7365b6 (login and register error fixed)
+=======
+    if (type === "register") {
+      toast.success("OTP sent successfully to your email.");
+    }
+    const sendOtp = async () => {
+      try {
+        toast.error("Login failed! First Verify Your Account");
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
         const token = localStorage.getItem("authToken"); // Retrieve email from localStorage
         if (!token) {
           notifyError("Account not found. Please register again.");
@@ -77,22 +86,29 @@ function Otp() {
           return;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         const response = await axios.post(`${api}/api/v1/auth/otpcheck/account-verified/resend`, {
           token,
         });
 =======
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
         const response = await axios.post(
           `${api}/api/v1/auth/otpcheck/account-verified/resend`,
           {
             token,
           }
         );
+<<<<<<< HEAD
 >>>>>>> c7365b6 (login and register error fixed)
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
 
         if (response.status === 200) {
           notifySuccess("OTP sent successfully to your email.");
         }
       } catch (error) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         if(error.status === 401){
           toast.error(
@@ -109,6 +125,8 @@ function Otp() {
           navigate("/login");
         }else{
 =======
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
         if (error.status === 401) {
           toast.error("Invalid or Expire Token");
         } else if (error.status === 404) {
@@ -117,7 +135,10 @@ function Otp() {
           toast.error("Account is Already Verified");
           navigate("/login");
         } else {
+<<<<<<< HEAD
 >>>>>>> c7365b6 (login and register error fixed)
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
           notifyError(
             error.response?.data?.message ||
               "Failed to send OTP. Please try again."

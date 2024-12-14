@@ -85,6 +85,7 @@ export default function Login() {
       } catch (error) {
         console.error("Login failed:", error.response?.data || error.message);
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(error.status === 409){
           toast.error(
             "Login Failed! First Verify Your Account"
@@ -92,11 +93,16 @@ export default function Login() {
           navigate("/otp", { state: { type: "login" } });
         }else{
 =======
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
         if (error.status === 409) {
           toast.error("Login Failed! First Verify Your Account");
           navigate("/otp", { state: { type: "login" } });
         } else {
+<<<<<<< HEAD
 >>>>>>> c7365b6 (login and register error fixed)
+=======
+>>>>>>> 46200a4843320c7d9fe15cdb24807d7019adba36
           toast.error(
             "Login failed! Please check your credentials and try again."
           );
