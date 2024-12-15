@@ -19,7 +19,7 @@ import {
   Facebook,
   Instagram,
   Menu,
-  MessageCircle,
+
   PhoneIcon as WhatsApp,
   XIcon as TwitterX,
   ChevronDown,

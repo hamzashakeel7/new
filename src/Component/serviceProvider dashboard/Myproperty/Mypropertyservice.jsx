@@ -9,36 +9,24 @@ import ServicesInfoEdit from"../serviceinfo/Serviceinfoedit"
 import PostFormedit from "../PostService/PostserviceEdit";
 import { useState } from "react";
 const services = [
-  { id: 1, name: 'Lorem', type: 'Transport', provider: 'Provider A', price: 99.99 },
-  { id: 2, name: 'Ipsum', type: 'Service information', provider: 'Provider B', price: 149.99 },
-  { id: 3, name: 'Dolor', type: 'Property', provider: 'Provider C', price: 199.99 },
-  { id: 4, name: 'Sit', type: 'Property', provider: 'Provider D', price: 49.99 },
-  { id: 5, name: 'Amet', type: 'Transport', provider: 'Provider E', price: 89.99 },
-  { id: 6, name: 'Consectetur', type: 'Healthcare', provider: 'Provider F', price: 129.99 },
+  { id: 1, name: "Lorem", type: "Transportation", provider: "Provider A", price: 99.99 },
+  { id: 2, name: "Ipsum", type: "ServicesInfo", provider: "Provider B", price: 149.99 },
+  { id: 3, name: "Dolor", type: "PostForm", provider: "Provider C", price: 199.99 },
+  { id: 4, name: "Sit", type: "PostForm", provider: "Provider D", price: 49.99 },
+  { id: 5, name: "Amet", type: "Transportation", provider: "Provider E", price: 89.99 },
+  { id: 6, name: "Consectetur", type: "ServicesInfo", provider: "Provider F", price: 129.99 },
 ];
 
 
 export default function MyPropertiesServices() {
-  const [activeComponent, setActiveComponent] = useState(null);
+  
+  const [activeService, setActiveService] = useState(null); 
+  const navigate = useNavigate();
 
-  // Handle edit button click
-  const handleEditClick = (service) => {
-    setActiveComponent(service);
+  // Handle service type click
+  const handleServiceClick = (service) => {
+    setActiveService(service);
   };
-
-  const componentsMap = {
-    Transportation: Transportationedit,
-    ServicesInfo: ServicesInfoEdit,
-    PostForm: PostFormedit,
-  };
-  
-  const renderActiveComponent = () => {
-    if (!activeComponent) return null;
-  
-    const ActiveComponent = componentsMap[activeComponent.type];
-    return ActiveComponent ? <ActiveComponent service={activeComponent} /> : null;
-  };
-  
 
 
 
@@ -47,46 +35,46 @@ export default function MyPropertiesServices() {
     <div className="p-8 bg-gray-100 min-h-screen lg:overflow-x-scroll">
       {/* Header Section */}
   <div
-        className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
-        style={{ backgroundImage: `url(${banner})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              My  Services
-            </h1>
-            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-2">
-              <input
-                type="text"
-                placeholder="Search for services"
-                className="w-[90vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
-              />
-             
-              <button className="w-full sm:w-auto ml-0 sm:ml-4 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2"
-                >
-                  <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
-                  <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
-                  <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
-                  <path
-                    d="M11.25 16.875H6.75V14.625H11.25V16.875Z"
-                    fill="white"
-                  />
-                </svg>
-                Filter
-              </button>
-            </div>
-          </div>
-        </div>
+  className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
+  style={{ backgroundImage: `url(${banner})` }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="text-center text-white px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        My Services
+      </h1>
+      <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
+        <input
+          type="text"
+          placeholder="Search for services"
+          className="w-[40vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
+        />
+        <button className="w-full sm:w-auto sm:ml-4 mt-2 sm:mt-0 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mr-2"
+          >
+            <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
+            <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
+            <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
+            <path
+              d="M11.25 16.875H6.75V14.625H11.25V16.875Z"
+              fill="white"
+            />
+          </svg>
+          Filter
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
+
+      <div className="mt-12 bg-white shadow-lg w-[70vw]  overflow-x-auto lg:w-[75vw] rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
           <svg
             width="29"
@@ -116,8 +104,8 @@ export default function MyPropertiesServices() {
           Services
         </h2>
         {/* Add wrapper for responsiveness */}
-        <div className="overflow-x-auto">
-          <table className="table-auto w-full text-left border-collapse">
+        <div className=" w-[50vw]">
+          <table className="table-auto w-[70vw] text-left border-collapse">
             <thead>
               <tr className="border-b">
                 {[
@@ -172,7 +160,7 @@ export default function MyPropertiesServices() {
           <td className="p-4">
             <div className="flex flex-wrap gap-2">
               <button
-              onClick={() => handleEditClick(service.type)}
+                 onClick={() => handleServiceClick(service)}
                 className="flex items-center space-x-2 text-sm"
               >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,7 +170,7 @@ export default function MyPropertiesServices() {
                 Edit
               </button>
               <button
-                onClick={() => handleEditClick(service)}
+               
                 className="flex items-center space-x-2 text-sm"
               >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -219,24 +207,30 @@ export default function MyPropertiesServices() {
       </div>
 
       {/* Sorting Section */}
-      <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-bold mb-4">Sort By</h2>
-        <div className="flex flex-col sm:flex-row sm:space-x-6">
-          <div className="mb-4 sm:mb-0">
-            <label className="block text-gray-700 mb-2">From Date</label>
-            <input type="date" className="w-full p-2 border rounded" />
-          </div>
-          <div>
-            <label className="block text-gray-700 mb-2">To Date</label>
-            <input type="date" className="w-full p-2 border rounded" />
-          </div>
+      <div className="mt-12 bg-center items-center w-full sm:w-[75vw] bg-white shadow-lg rounded-lg p-6">
+  <h2 className="text-2xl font-bold mb-4">Sort By</h2>
+  <div className="flex flex-col sm:flex-row sm:space-x-6">
+    <div className="mb-4 sm:mb-0 sm:w-1/2">
+      <label className="block text-gray-700 mb-2">From Date</label>
+      <input type="date" className="w-full p-2 border rounded" />
+    </div>
+    <div className="sm:w-1/2">
+      <label className="block text-gray-700 mb-2">To Date</label>
+      <input type="date" className="w-full p-2 border rounded" />
+    </div>
+  </div>
+</div>
 
-
-          {renderActiveComponent()}
+      {activeService && (
+        <div className="mt-12">
+          {activeService.type === "Transportation" && <Transportationedit service={activeService} />}
+          {activeService.type === "ServicesInfo" && <ServicesInfoEdit service={activeService} />}
+          {activeService.type === "PostForm" && <PostFormedit service={activeService} />}
         </div>
-      </div>
+      )}
+    </div>
 
-     </div>
+    
   
   );
 }
