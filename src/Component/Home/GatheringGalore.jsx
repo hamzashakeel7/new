@@ -4,7 +4,7 @@ import gathering from "../../assets/home/gathering.webp";
 
 const GatheringGalore = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center mb-6 lg:px-10 mt-5 lg:mt-24">
+    <div className="relative flex flex-col items-center justify-center mb-6  mt-5 lg:mt-24">
       <div
         className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-10 w-[500px] lg:w-full md:block"
         style={{
@@ -23,7 +23,7 @@ const GatheringGalore = () => {
       </div>
       {/* boxes start */}
       <div className="w-full max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-6 auto-rows-fr">
           {/* First Row */}
           <div className="flex flex-col items-start p-6 bg-[#F1F1F1] shadow-lg rounded-lg">
             <div className="flex items-center gap-3 mb-4">

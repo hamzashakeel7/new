@@ -19,7 +19,7 @@ export const PurpleSection = () => {
         </div>
         <div>
           {/* boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center mt-10 gap-5 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 place-items-center justify-center mt-10 gap-5 auto-rows-fr w-[82vw]">
             {/* single box */}
             <div className="flex items-center justify-center flex-col">
               <div className=" h-[231px]">
@@ -62,7 +62,7 @@ export const PurpleSection = () => {
               </div>
             </div>
             {/* single box */}
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-center justify-center mt-5 flex-col">
               <div className=" h-[231px]">
                 <img
                   src={purpleSection4}
@@ -77,7 +77,7 @@ export const PurpleSection = () => {
               </div>
             </div>
             {/* single box */}
-            <div className="flex items-center justify-center md:col-start-2 flex-col">
+            <div className="flex items-center justify-center  flex-col">
               <div className=" h-[231px]">
                 <img
                   src={purpleSection5}
@@ -92,7 +92,7 @@ export const PurpleSection = () => {
               </div>
             </div>
             {/* single box */}
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-center justify-center flex-col md:col-start-3">
               <div className=" h-[231px]">
                 <img
                   src={purpleSection6}

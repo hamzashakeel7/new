@@ -6,7 +6,7 @@ import heart from "../../assets/home/hero/heart.png";
 const HeroSection = () => {
   return (
     <div className="flex items-center justify-center lg:flex-row flex-col-reverse w-full ">
-      <div className="lg:h-[760px] object-cover flex items-center justify-center">
+      <div className="lg:h-[760px] h-full object-cover flex items-center justify-center">
         <img
           src={hero}
           alt="heroimage"
@@ -18,7 +18,7 @@ const HeroSection = () => {
           <h3 className="text-white text-xl lg:text-2xl ">Hello</h3>
           <h1 className="text-white text-4xl lg:text-6xl font-bold text-right w-full mb-5">
             Welcome To{" "}
-            <span className="line-clamp-1">The TLC Company, LLC</span>
+            <span className="md:line-clamp-1">The TLC Company, LLC</span>
           </h1>
           <div className="absolute opacity-30">
             <img src={heart} alt="heart" className="w-[20rem]" />
@@ -35,7 +35,7 @@ const HeroSection = () => {
           <img
             src={herohand}
             alt="hands"
-            className="h-[38rem] mt-[-5rem] lg:w-full"
+            className="lg:h-[38rem] mt-[-5rem] lg:w-full"
           />
         </div>
       </div>

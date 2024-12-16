@@ -26,7 +26,7 @@ const Home = () => {
           <Contact />
           <Reviews />
         </div>
-        <div>
+        <div className="">
           <PurpleSection />
         </div>
         <div>

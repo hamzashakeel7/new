@@ -53,7 +53,7 @@ export default function AboutUs() {
           {/* Content */}
           <div className="relative z-10">
             {/* Mission Section */}
-            <div className="w-full lg:max-w-[74.5vw] mx-auto px-6 mb-16">
+            <div className="w-full lg:max-w-[77.5vw] mx-auto px-6 mb-16">
               <h2 className="text-3xl font-bold text-purple-600 text-center mb-8">
                 The TLC Mission Is To:
               </h2>
@@ -84,7 +84,7 @@ export default function AboutUs() {
             </div>
 
             {/* Why Section */}
-            <div className="w-full lg:max-w-[74.5vw] mx-auto px-6 mb-16">
+            <div className="w-full lg:max-w-[77.5vw] mx-auto px-6 mb-16">
               <h2 className="text-3xl font-bold text-purple-600 text-center mb-8">
                 Our Why:
               </h2>

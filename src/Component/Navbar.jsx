@@ -19,19 +19,17 @@ import {
   Facebook,
   Instagram,
   Menu,
-
   PhoneIcon as WhatsApp,
   XIcon as TwitterX,
   ChevronDown,
+  Search,
 } from "lucide-react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "../shadcn/components/ui/Avatar";
-import { useState } from "react";
-import { useEffect } from "react";
-// ok
+import { useState, useEffect } from "react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -193,25 +191,26 @@ export function Navbar() {
             </div>
 
             {/* Search and Actions */}
-            <div className="flex items-center gap-0 md:gap-4">
+            <div className="flex items-center md:gap-2">
               <div className="relative hidden md:block text-black">
                 <Input
                   placeholder="Search"
                   className="w-[200px] pl-9 bg-white border-gray-700 text-black"
                 />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
               </div>
-              <div className="flex items-center gap-0 md:gap-2">
+              <div className="flex items-center justify-center md:space-x-2">
                 <Link to="/register">
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="hidden md:inline-flex"
+                    className="hidden md:inline-flex hover:text-black"
                   >
                     <svg
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
-                      fill="none"
+                      fill="black"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -222,13 +221,19 @@ export function Navbar() {
                     Register
                   </Button>
                 </Link>
-                <Link to="/login">
-                  <Button variant="ghost" size="sm">
+                {/* login and logout functionmaloity */}
+                {authToken ? (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="mr-2 hover:text-black"
+                    onClick={handleLogout}
+                  >
                     <svg
                       width="31"
                       height="31"
                       viewBox="0 0 31 31"
-                      fill="none"
+                      fill="black"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -251,15 +256,53 @@ export function Navbar() {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    Login
+                    Logout
                   </Button>
-                </Link>
-                <Button variant="ghost" size="icon">
+                ) : (
+                  <Link to="/login">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="mr-2 hover:text-black"
+                    >
+                      <svg
+                        width="31"
+                        height="31"
+                        viewBox="0 0 31 31"
+                        fill="black"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.332 20.6673C10.332 24.3207 10.332 26.1473 11.467 27.2823C12.602 28.4173 14.4287 28.4173 18.082 28.4173H19.3737C23.027 28.4173 24.8537 28.4173 25.9887 27.2823C27.1237 26.1473 27.1237 24.3207 27.1237 20.6673V10.334C27.1237 6.6806 27.1237 4.85391 25.9887 3.71895C24.8537 2.58398 23.027 2.58398 19.3737 2.58398H18.082C14.4287 2.58398 12.602 2.58398 11.467 3.71895C10.332 4.85391 10.332 6.6806 10.332 10.334"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          opacity="0.5"
+                          d="M10.3333 25.1875C7.28885 25.1875 5.76661 25.1875 4.8208 24.2417C3.875 23.2959 3.875 21.7736 3.875 18.7292V12.2708C3.875 9.22635 3.875 7.70411 4.8208 6.7583C5.76661 5.8125 7.28885 5.8125 10.3333 5.8125"
+                          stroke="white"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M7.75 15.5007H19.375M19.375 15.5007L16.1458 18.7298M19.375 15.5007L16.1458 12.2715"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      Login
+                    </Button>
+                  </Link>
+                )}
+
+                <Button variant="ghost" size="icon" className=" w-full p-2">
                   <svg
                     width="28"
                     height="28"
                     viewBox="0 0 28 28"
-                    fill="none"
+                    fill="black"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -274,32 +317,29 @@ export function Navbar() {
                 </Button>
                 {/* avatar */}
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full text-black"
-                    >
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage src="" alt="User" />
-                        <AvatarFallback>U</AvatarFallback>
-                      </Avatar>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    {authToken ? (
-                      <>
+                  {authToken ? (
+                    <>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="rounded-full text-black"
+                        >
+                          <Avatar className="h-8 w-8">
+                            <AvatarImage src="" alt="User" />
+                            <AvatarFallback>U</AvatarFallback>
+                          </Avatar>
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={handleDashboardNavigation}>
                           Dashboard
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={handleLogout}>
-                          Logout
-                        </DropdownMenuItem>
-                      </>
-                    ) : (
-                      <div className="bg-[#1D2432]"></div>
-                    )}
-                  </DropdownMenuContent>
+                      </DropdownMenuContent>
+                    </>
+                  ) : (
+                    <div></div>
+                  )}
                 </DropdownMenu>
               </div>
             </div>
@@ -338,7 +378,7 @@ export function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <span className="">Mon To Sat 9:00 AM to 8:00 PM</span>
+              <span>Mon To Sat 9:00 AM to 8:00 PM</span>
             </div>
           </div>
         </div>
