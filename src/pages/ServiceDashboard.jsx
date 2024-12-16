@@ -19,6 +19,8 @@ import PostForm from "../Component/serviceProvider dashboard/PostService/Postser
 import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import Message from "../Component/serviceProvider dashboard/messages/Message";
+import FilledLeaseForm from "../Component/serviceProvider dashboard/Applications/Filledleaseform";
+import FilledRentalApplication from "../Component/serviceProvider dashboard/Applications/Filledrentalform";
 
 export function ServiceDashboard() {
   const { section } = useParams(); // Get 'section' from the URL params
@@ -50,7 +52,7 @@ export function ServiceDashboard() {
 
             {section === "My profile" && <ProfileForm />}
             {section === "application" && <Applications />}
-            {section === "messages" && <Message/>}
+            {section === "messages" && <Message />}
             {section === "accounting" && <Accounting />}
             {section === "Corporate Tickets" && <HelpAndSupport />}
             {section === "Industry Relations" && <IndustryRelations />}
@@ -66,6 +68,8 @@ export function ServiceDashboard() {
             {section === "Transportation" && <Transportform />}
             {section === "Service Information" && <ServiceInfoform />}
             {section === "Health Care"}
+            {section === "lease" && <FilledLeaseForm />}
+            {section === "rental" && <FilledRentalApplication />}
           </main>
         </div>
       </div>
