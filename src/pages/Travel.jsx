@@ -210,82 +210,89 @@ export default function TravelService() {
 
           {/* slider with items */}
           <div className="relative bg-white rounded-lg p-6 shadow-sm border w-full">
-            <div className="flex items-center gap-2 mb-6">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h2 className="text-lg font-semibold">Service Information</h2>
-            </div>
-          
-            <div className="relative overflow-hidden">
-              <div
-                className="flex transition-transform duration-300 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
-                
-              >
-                  {serviceSlides.map((slide, index) => (
-          <div
-            key={index}
-            className="lg:min-w-[33.333%] min-w-[53.333%] px-2 relative"
-          >
-            <div className="bg-white rounded-lg overflow-hidden">
-              <img
-                src={slide.image}
-                alt={`Service ${index + 1}`}
-                className="w-full h-48 object-cover"
-              />
-            </div>
-          </div>
-        ))}
-                
-              </div>
-              <div className="flex flex-col md:flex-row gap-6 p-6  rounded-lg shadow-md">
-      {groupedData.map((group, index) => (
+  <div className="flex items-center gap-2 mb-6">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <h2 className="text-lg font-semibold">Service Information</h2>
+  </div>
+
+  {/* Carousel Section */}
+  <div className="relative overflow-hidden">
+    <div
+      className="flex transition-transform duration-300 ease-in-out"
+      style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+    >
+      {serviceSlides.map((slide, index) => (
         <div
           key={index}
-          className="w-full md:w-1/3 bg-white rounded-lg shadow border overflow-hidden"
+          className="w-full sm:w-1/2 lg:w-1/3 px-2"
         >
-          <table className="w-full table-auto text-sm">
-            <tbody>
-              {group.map((item, idx) => (
-                <tr key={idx} className="border-b last:border-none">
-                  <td className="flex items-center gap-2 p-3 font-medium text-gray-700">
-                    {item.icon}
-                    {item.label}
-                  </td>
-                  <td className="p-3 text-gray-600">{item.value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="bg-white rounded-lg overflow-hidden">
+            <img
+              src={slide.image}
+              alt={`Service ${index + 1}`}
+              className="w-full h-48 sm:h-64 object-cover"
+            />
+          </div>
         </div>
       ))}
     </div>
 
-              <button
-                onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg hover:bg-white"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg hover:bg-white"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
+    {/* Navigation Buttons (outside the slides) */}
+    <div className="absolute inset-y-0 flex justify-between items-center w-full px-4">
+      {/* Left Button */}
+      <button
+        onClick={prevSlide}
+        className=" rounded-full p-3 shadow-lg hover:bg-white transition"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      {/* Right Button */}
+      <button
+        onClick={nextSlide}
+        className=" rounded-full p-3 shadow-lg hover:bg-white transition"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+    </div>
+  </div>
+
+  {/* Grouped Data Section */}
+  <div className="flex flex-col md:flex-row gap-6 p-6 rounded-lg shadow-md">
+    {groupedData.map((group, index) => (
+      <div
+        key={index}
+        className="w-full md:w-1/3 bg-white rounded-lg shadow border overflow-hidden"
+      >
+        <table className="w-full table-auto text-sm">
+          <tbody>
+            {group.map((item, idx) => (
+              <tr key={idx} className="border-b last:border-none">
+                <td className="flex items-center gap-2 p-3 font-medium text-gray-700">
+                  {item.icon}
+                  {item.label}
+                </td>
+                <td className="p-3 text-gray-600">{item.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))}
+  </div>
+</div>
+
 
           {/* Service Type and Availability Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-20">

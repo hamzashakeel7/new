@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import img from "../../../../assets/vehicle1.png"; // Correct path for your image
 
 const ServiceInformationForm = () => {
+  const navigate=useNavigate()
   // Handle Image Upload
 
   return (
     <div className="w-4/5 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="flex justify-between items-center p-4 bg-gray-100 border-b">
-        <h2 className="text-lg font-semibold flex items-center">
+        <h2 className="text-lg font-semibold flex gap-3 items-center">
           <i className="mr-2 text-blue-500"></i>
           <svg
             width="29"
@@ -60,7 +62,7 @@ const ServiceInformationForm = () => {
           </svg>
           Service Information
         </h2>
-        <button className="font-bold">
+        <button onClick={()=>navigate("/dashboard/services")} className="font-bold">
           <svg
             width="25"
             height="24"

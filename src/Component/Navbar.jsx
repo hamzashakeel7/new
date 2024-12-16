@@ -125,7 +125,7 @@ export function Navbar() {
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        <Link to="/PropertyService" className="w-full">
+                        <Link to="/Properties" className="w-full">
                           Services
                         </Link>
                       </DropdownMenuItem>
@@ -178,7 +178,7 @@ export function Navbar() {
                     <Link to="/property">Property</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/PropertyService">Services</Link>
+                    <Link to="/Properties">Services</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

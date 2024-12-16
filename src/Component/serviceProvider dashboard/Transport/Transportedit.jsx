@@ -22,7 +22,7 @@ const Transportationedit = () => {
               </h2>
               <button
                
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 text-3xl hover:text-gray-700"
               >
                 &times;
               </button>
@@ -181,7 +181,7 @@ const Transportationedit = () => {
               {/* File Upload Section */}
               <div className="mb-6">
                 <h3 className="text-lg font-medium text-gray-800 mb-4">Upload Files</h3>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
   <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
     <div className="flex justify-center mb-4">
       <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -214,8 +214,6 @@ const Transportationedit = () => {
   </div>
 </div>
 </div>
-
-
 
               {/* Action Buttons */}
            

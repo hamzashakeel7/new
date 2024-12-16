@@ -91,7 +91,7 @@ const PostFormedit = () => {
           </svg>
           Post a Service or Property
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Property Form Fields */}
           <div>
             <label className="block text-gray-600 text-sm font-medium mb-2">

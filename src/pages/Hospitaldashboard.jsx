@@ -21,6 +21,7 @@ import MyServices from "../Component/Hospital/MyServices/MyServices";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import FilledLeaseForm from "../Component/Hospital/Application/Filledleaseform";
 import FilledRentalApplication from "../Component/Hospital/Application/Filledrentalform";
+import PostTypeModal from "../Component/serviceProvider dashboard/Posttype";
 
 export function HospitalDashboard() {
   const { section } = useParams();
@@ -46,7 +47,7 @@ export function HospitalDashboard() {
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {section === "My profile" && <MyProfile />}
-            {section === "services" && <PostForm />}
+            {section === "services" && <PostTypeModal />}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}

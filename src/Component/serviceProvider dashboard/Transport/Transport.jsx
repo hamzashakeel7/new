@@ -4,7 +4,7 @@ const Transportform = () => {
   return (
     <>
       {/* Modal */}
-      <div className="fixed inset-0 overflow-y-auto flex justify-center mt-[5rem] h-full items-center">
+      <div className=" w-[80vw] mx-auto  bg-white rounded-lg p-6 shadow-lg">
         <div className="bg-white w-full max-w-6xl rounded-lg p-6 shadow-lg overflow-hidden">
           {/* Modal Header */}
           <div className="flex justify-between items-center border-b pb-2 mb-4">
@@ -14,7 +14,7 @@ const Transportform = () => {
               </span>
               Transportation
             </h2>
-            <button className="text-gray-500 hover:text-gray-700">
+            <button className="text-gray-500 text-3xl hover:text-gray-700">
               &times;
             </button>
           </div>
@@ -220,7 +220,7 @@ const Transportform = () => {
               <button className="text-purple-700 hover:text-purple-900">
                 Cancel
               </button>
-              <button className="bg-violet-700 rounded-lg h-10 text-white">
+              <button className="bg-violet-700 px-2 py-2 rounded-lg h-10 text-white">
                 Upload
               </button>
             </div>

@@ -38,7 +38,7 @@ const PostTypeModal = ({ onClose }) => {
           <h2 className="text-xl font-semibold">Post Type</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 text-xl"
+            className="text-gray-500 hover:text-gray-700 text-3xl"
           >
             &times;
           </button>
@@ -65,7 +65,7 @@ const PostTypeModal = ({ onClose }) => {
         <div className="flex justify-between items-center mt-6">
           <button
             onClick={handleSubmit}
-            className="bg-purple-700 text-white w-full py-2 rounded-lg hover:bg-purple-800"
+            className="bg-purple-700  text-white w-full py-2 rounded-lg hover:bg-purple-800"
           >
             Submit
           </button>
