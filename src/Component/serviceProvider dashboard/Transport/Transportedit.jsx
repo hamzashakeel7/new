@@ -7,9 +7,9 @@ const Transportationedit = () => {
     <>
       {/* Modal */}
      
-        <div className="fixed   flex justify-center items-center">
+        <div className="   flex justify-center items-center">
           <div
-            className="bg-white w-full max-w-3xl rounded-lg p-6 shadow-lg overflow-hidden"
+            className="bg-white w-full max-w-[80vw] rounded-lg p-6 shadow-lg overflow-hidden"
             style={{ maxHeight: "90vh" }}
           >
             {/* Modal Header */}

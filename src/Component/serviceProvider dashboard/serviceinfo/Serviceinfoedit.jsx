@@ -18,8 +18,8 @@ const ServiceInfoedit = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-[90vw] md:w-[70vw] lg:w-[50vw] max-h-[90vh] overflow-y-auto relative">
+    <div className="p-6 w-full md:w-[80vw] lg:w-[80vw] max-h-[90vh] ">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-[80vw] md:w-[80vw] lg:w-[72vw] max-h-[90vh] overflow-y-auto relative">
         {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
