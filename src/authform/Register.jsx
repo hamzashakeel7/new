@@ -99,6 +99,7 @@ export default function Register() {
           toast.success("Registration successful! Check your email for OTP.");
           localStorage.setItem("userEmail", email); // Save email for OTP validation
           localStorage.setItem("userRole", role); // Save role for redirection
+          localStorage.setItem("name", name); // Save name to use at topbar
           const token = response.data.data.token;
           if (token) localStorage.setItem("authToken", token);
           navigate("/otp", { state: { type: "register" } });
