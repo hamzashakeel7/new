@@ -22,6 +22,7 @@ import Message from "../Component/serviceProvider dashboard/messages/Message";
 import FilledLeaseForm from "../Component/serviceProvider dashboard/Applications/Filledleaseform";
 import FilledRentalApplication from "../Component/serviceProvider dashboard/Applications/Filledrentalform";
 
+
 export function ServiceDashboard() {
   const { section } = useParams(); // Get 'section' from the URL params
   const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
@@ -67,7 +68,7 @@ export function ServiceDashboard() {
             {/* {section === "Property" && <PostForm />} closed temporary */}
             {section === "Transportation" && <Transportform />}
             {section === "Service Information" && <ServiceInfoform />}
-            {section === "Health Care"}
+            {section === "Property" && <PostForm/>}
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}
           </main>

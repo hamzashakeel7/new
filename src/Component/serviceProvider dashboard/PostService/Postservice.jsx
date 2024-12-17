@@ -2,9 +2,9 @@ import React from 'react';
 
 const PostForm = () => {
   return (
-    <div className="bg-gray-100 min-h-screen w-[80vw] p-6">
+    <div className="bg-white min-h-screen w-[80vw] p-6">
       {/* Form Section */}
-      <div className="bg-white shadow-lg rounded-lg p-8 mb-6">
+      <div className=" bg-white  p-8 mb-6">
         <h2 className="text-2xl flex items-center font-bold mb-4 text-gray-800">
           <svg
             width="28"
@@ -247,7 +247,7 @@ const PostForm = () => {
         {/* Neighbor Fact, Pet Allowed, and Bath Fields */}
         <div className="grid grid-cols-1 md:flex flex-row space-x-6">
   <div className="mb-4 md:mb-0">
-    <label className="block text-gray-600 text-sm font-medium mb-2">
+  <label className="block text-gray-600 text-sm font-medium mb-2">
       Neighbor Fact
     </label>
     <input
@@ -260,7 +260,7 @@ const PostForm = () => {
     <label className="block text-gray-600 text-sm font-medium mb-2">
       Pet Allowed
     </label>
-    <select className="w-full md:w-[25vw] border border-gray-300 rounded-lg p-2 focus:border-blue-500">
+    <select className="w-full md:w-[30vw] border border-gray-300 rounded-lg p-2 focus:border-blue-500">
       <option value="">Select</option>
     </select>
   </div>
@@ -286,7 +286,7 @@ const PostForm = () => {
              key={idx}
              className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center"
            >
-             <div className=' ml-14  '><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <div className=' ml-0 lg:ml-14 '><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M40 63.635L40 39.945V44.065" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M28.67 51.305L40 39.975L51.33 51.305" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M48.2397 63.6055C61.1895 62.5253 71.092 51.6031 70.9021 38.6098C70.7121 25.6164 60.4946 14.9884 47.5188 14.2871C34.5429 13.5859 23.2395 23.0508 21.6503 35.948C14.2778 36.6796 8.77369 43.0632 9.13497 50.4631C9.49626 57.863 15.596 63.68 23.0047 63.69L31.7597 63.69" stroke="#6F7787" stroke-width="2.472" stroke-miterlimit="10" stroke-linecap="round"/>

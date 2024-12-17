@@ -18,11 +18,9 @@ const PostFormedit = () => {
   return (
     <div className=" flex items-center justify-center">
       {/* Form Section */}
-      <div className="rounded-lg p-8 bg-white w-[90vw] md:w-[90vw] lg:w-[75vw] max-h-[90vh] overflow-y-auto relative6">
+      <div className="rounded-lg p-8 bg-white w-[65vw] md:w-[90vw] lg:w-[75vw] max-h-[90vh] overflow-y-auto relative6">
         <div>
-          <div>
-            <h3>Post a Property or Service</h3>
-          </div>
+         
           <h1 onClick={closeForm}>
             {" "}
             <svg

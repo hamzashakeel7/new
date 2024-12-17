@@ -1,55 +1,81 @@
 import React from "react";
+
 import banner from "../../../assets/Serviceasset/sevicebanner.png";
+
 import prop1 from "../../../assets/Serviceasset/sevicebanner.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Transportationedit from "../Transport/Transportationedit";
+import ServicesInfoEdit from"../Serviceinfo/Serviceinfoedit"
+
+import { useState } from "react";
+const services = [
+  { id: 1, name: "Lorem", type: "Transportation", provider: "Provider A", price: 99.99 },
+  { id: 2, name: "Ipsum", type: "ServicesInfo", provider: "Provider B", price: 149.99 },
+  { id: 3, name: "Dolor", type: "PostForm", provider: "Provider C", price: 199.99 },
+  { id: 4, name: "Sit", type: "PostForm", provider: "Provider D", price: 49.99 },
+  { id: 5, name: "Amet", type: "Transportation", provider: "Provider E", price: 89.99 },
+  { id: 6, name: "Consectetur", type: "ServicesInfo", provider: "Provider F", price: 129.99 },
+];
+
 
 export default function MyServices() {
+  
+  const [activeService, setActiveService] = useState(null); 
+  const navigate = useNavigate();
+
+  // Handle service type click
+  const handleServiceClick = (service) => {
+    setActiveService(service);
+  };
+
+
+
+
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 bg-white min-h-screen lg:overflow-x-scroll">
       {/* Header Section */}
       <div
-        className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
-        style={{ backgroundImage: `url(${banner})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              My Services
-            </h1>
-            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <input
-                type="text"
-                placeholder="Search for services"
-                className="w-full sm:w-96 p-3 rounded-l-lg border-none focus:ring-0"
-              />
-              <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg">
-                Search
-              </button>
-              <button className="w-full sm:w-auto ml-0 sm:ml-4 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2"
-                >
-                  <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
-                  <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
-                  <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
-                  <path
-                    d="M11.25 16.875H6.75V14.625H11.25V16.875Z"
-                    fill="white"
-                  />
-                </svg>
-                Filter
-              </button>
-            </div>
-          </div>
-        </div>
+  className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
+  style={{ backgroundImage: `url(${banner})` }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="text-center text-white px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">My Services</h1>
+      <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-0">
+        {/* Search Input */}
+        <input
+          type="text"
+          placeholder="Search for services"
+          className="w-[40vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
+        />
+        {/* Search Button */}
+        <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg flex justify-center items-center">
+          Search
+        </button>
+        {/* Filter Button */}
+        <button className="w-full sm:w-auto sm:ml-4 mt-2 sm:mt-0 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mr-2"
+          >
+            <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
+            <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
+            <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
+            <path d="M11.25 16.875H6.75V14.625H11.25V16.875Z" fill="white" />
+          </svg>
+          Filter
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
+
+      <div className="mt-12 bg-white shadow-lg w-[70vw]  overflow-x-auto lg:w-[75vw] rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
           <svg
             width="29"
@@ -79,8 +105,8 @@ export default function MyServices() {
           Services
         </h2>
         {/* Add wrapper for responsiveness */}
-        <div className="overflow-x-auto">
-          <table className="table-auto w-full text-left border-collapse">
+        <div className=" w-[50vw]">
+          <table className="table-auto w-[70vw] text-left border-collapse">
             <thead>
               <tr className="border-b">
                 {[
@@ -126,104 +152,86 @@ export default function MyServices() {
               </tr>
             </thead>
             <tbody>
-              {[...Array(6)].map((_, i) => (
-                <tr key={i} className="border-b ">
-                  <td className="p-4 text-sm">Lorem</td>
-                  <td className="p-4 text-sm">Transport</td>
-                  <td className="p-4 text-sm">Provider</td>
-                  <td className="p-4 text-sm">$99.99</td>
-                  <td className="p-4">
-                    <div className="flex flex-wrap gap-2">
-                      <Link to="/HospitalManagement/Serviceinfoform">
-                        <button className="text-blue-600 flex items-center space-x-2 text-sm">
-                          <svg
-                            width="15"
-                            height="15"
-                            viewBox="0 0 15 15"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M4.13388 14.8751L14.1339 4.87509L10.125 0.866211L0.125 10.8663V14.8751H4.13388ZM10.125 2.63398L12.3662 4.87509L10.75 6.49125L8.5089 4.25011L10.125 2.63398ZM7.62498 5.13399L9.86615 7.37509L3.61612 13.6251H1.375V11.384L7.62498 5.13399Z"
-                              fill="#171A1F"
-                            />
-                          </svg>
-                          Edit
-                        </button>
-                      </Link>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M7 14C5.61553 14 4.26213 13.5895 3.11099 12.8203C1.95984 12.0511 1.06266 10.9579 0.532843 9.67879C0.0030297 8.3997 -0.135589 6.99224 0.134507 5.63437C0.404604 4.2765 1.07128 3.02922 2.05024 2.05026C3.02921 1.07129 4.27651 0.404603 5.63437 0.134506C6.99224 -0.13559 8.39971 0.003033 9.67879 0.532846C10.9579 1.06266 12.0511 1.95987 12.8203 3.11101C13.5895 4.26216 14 5.61553 14 7C14 8.85652 13.2625 10.637 11.9497 11.9498C10.637 13.2625 8.85651 14 7 14ZM7 1.16667C5.84627 1.16667 4.71844 1.50879 3.75916 2.14976C2.79987 2.79074 2.05222 3.70178 1.61071 4.76768C1.1692 5.83359 1.05366 7.00648 1.27874 8.13803C1.50382 9.26959 2.05941 10.309 2.87522 11.1248C3.69103 11.9406 4.7304 12.4962 5.86195 12.7213C6.99351 12.9463 8.16642 12.8308 9.23232 12.3893C10.2982 11.9478 11.2093 11.2001 11.8502 10.2408C12.4912 9.28154 12.8333 8.15373 12.8333 7C12.8333 5.45291 12.2187 3.96918 11.1248 2.87521C10.0308 1.78125 8.54709 1.16667 7 1.16667ZM9.74516 9.74517C9.69364 9.79669 9.63249 9.83756 9.56518 9.86544C9.49787 9.89332 9.42573 9.90768 9.35287 9.90768C9.28002 9.90768 9.20788 9.89332 9.14057 9.86544C9.07326 9.83756 9.01211 9.79669 8.96059 9.74517L6.99124 7.77584L5.02192 9.74517C4.97109 9.79906 4.90996 9.8422 4.84215 9.87204C4.77435 9.90187 4.70125 9.9178 4.62718 9.91887C4.55311 9.91994 4.47959 9.90613 4.41096 9.87826C4.34232 9.8504 4.27996 9.80904 4.2276 9.75664C4.17523 9.70424 4.13393 9.64186 4.10612 9.5732C4.0783 9.50455 4.06454 9.43101 4.06567 9.35694C4.06679 9.28287 4.08278 9.20978 4.11267 9.142C4.14255 9.07422 4.18574 9.01312 4.23967 8.96234L6.20898 6.993L4.23967 5.02367C4.18574 4.97288 4.14255 4.91179 4.11267 4.84401C4.08278 4.77623 4.06679 4.70314 4.06567 4.62907C4.06454 4.555 4.0783 4.48146 4.10612 4.4128C4.13393 4.34415 4.17523 4.28177 4.2276 4.22937C4.27996 4.17697 4.34232 4.13561 4.41096 4.10774C4.47959 4.07988 4.55311 4.06607 4.62718 4.06714C4.70125 4.06821 4.77435 4.08413 4.84215 4.11397C4.90996 4.14381 4.97109 4.18695 5.02192 4.24084L6.99124 6.21017L8.96059 4.24084C9.01178 4.18846 9.07283 4.14676 9.14025 4.11815C9.20766 4.08955 9.28007 4.0746 9.3533 4.07418C9.42653 4.07376 9.49911 4.08787 9.56685 4.1157C9.63459 4.14353 9.69615 4.18453 9.74793 4.23631C9.79972 4.2881 9.84073 4.34964 9.86856 4.41738C9.89639 4.48512 9.91049 4.55771 9.91007 4.63094C9.90965 4.70417 9.89471 4.77659 9.8661 4.844C9.8375 4.91142 9.79579 4.97249 9.74341 5.02367L7.77409 6.993L9.74341 8.96234C9.8473 9.066 9.90583 9.20663 9.90616 9.35339C9.90649 9.50015 9.84858 9.64105 9.74516 9.74517Z"
-                            fill="black"
-                          />
-                        </svg>
-                        Cancel
-                      </button>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.5599 5.29999L11.5599 12.14C11.5599 12.7696 11.0495 13.28 10.4199 13.28L3.57994 13.28C2.95034 13.28 2.43994 12.7696 2.43994 12.14L2.43994 5.29999"
-                            stroke="#565D6D"
-                            stroke-width="1.368"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                          />
-                          <path
-                            d="M0.72998 3L13.27 3"
-                            stroke="#565D6D"
-                            stroke-width="1.368"
-                            stroke-miterlimit="10"
-                            stroke-linecap="square"
-                          />
-                          <path
-                            d="M4.71997 2.99997L4.71997 0.719971L9.27997 0.719971V2.99997"
-                            stroke="#565D6D"
-                            stroke-width="1.368"
-                            stroke-miterlimit="10"
-                            stroke-linecap="square"
-                          />
-                          <path
-                            d="M8.71004 7L5.29004 10.42"
-                            stroke="#565D6D"
-                            stroke-width="1.368"
-                            stroke-miterlimit="10"
-                            stroke-linecap="square"
-                          />
-                          <path
-                            d="M8.71004 10.42L5.29004 7"
-                            stroke="#565D6D"
-                            stroke-width="1.368"
-                            stroke-miterlimit="10"
-                            stroke-linecap="square"
-                          />
-                        </svg>
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+      {services.map((service) => (
+        <tr key={service.id} className="border-b">
+          <td className="p-4 text-sm">{service.name}</td>
+          <td className="p-4 text-sm">{service.type}</td>
+          <td className="p-4 text-sm">{service.provider}</td>
+          <td className="p-4 text-sm">${service.price.toFixed(2)}</td>
+          <td className="p-4">
+            <div className="flex flex-wrap gap-2">
+              <button
+                 onClick={() => handleServiceClick(service)}
+                className="flex items-center space-x-2 text-sm"
+              >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.13388 16.8751L17.1339 6.87509L13.125 2.86621L3.125 12.8663V16.8751H7.13388ZM13.125 4.63398L15.3662 6.87509L13.75 8.49125L11.5089 6.25011L13.125 4.63398ZM10.625 7.13399L12.8661 9.37509L6.61612 15.6251H4.375V13.384L10.625 7.13399Z" fill="#171A1F"/>
+</svg>
+
+                Edit
+              </button>
+              <button
+               
+                className="flex items-center space-x-2 text-sm"
+              >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C5.61553 14 4.26213 13.5895 3.11099 12.8203C1.95984 12.0511 1.06266 10.9579 0.532843 9.67879C0.0030297 8.3997 -0.135589 6.99224 0.134507 5.63437C0.404604 4.2765 1.07128 3.02922 2.05024 2.05026C3.02921 1.07129 4.27651 0.404603 5.63437 0.134506C6.99224 -0.13559 8.39971 0.003033 9.67879 0.532846C10.9579 1.06266 12.0511 1.95987 12.8203 3.11101C13.5895 4.26216 14 5.61553 14 7C14 8.85652 13.2625 10.637 11.9497 11.9498C10.637 13.2625 8.85651 14 7 14ZM7 1.16667C5.84627 1.16667 4.71844 1.50879 3.75916 2.14976C2.79987 2.79074 2.05222 3.70178 1.61071 4.76768C1.1692 5.83359 1.05366 7.00648 1.27874 8.13803C1.50382 9.26959 2.05941 10.309 2.87522 11.1248C3.69103 11.9406 4.7304 12.4962 5.86195 12.7213C6.99351 12.9463 8.16642 12.8308 9.23232 12.3893C10.2982 11.9478 11.2093 11.2001 11.8502 10.2408C12.4912 9.28154 12.8333 8.15373 12.8333 7C12.8333 5.45291 12.2187 3.96918 11.1248 2.87521C10.0308 1.78125 8.54709 1.16667 7 1.16667ZM9.74516 9.74517C9.69364 9.79669 9.63249 9.83756 9.56518 9.86544C9.49787 9.89332 9.42573 9.90768 9.35287 9.90768C9.28002 9.90768 9.20788 9.89332 9.14057 9.86544C9.07326 9.83756 9.01211 9.79669 8.96059 9.74517L6.99124 7.77584L5.02192 9.74517C4.97109 9.79906 4.90996 9.8422 4.84215 9.87204C4.77435 9.90187 4.70125 9.9178 4.62718 9.91887C4.55311 9.91994 4.47959 9.90613 4.41096 9.87826C4.34232 9.8504 4.27996 9.80904 4.2276 9.75664C4.17523 9.70424 4.13393 9.64186 4.10612 9.5732C4.0783 9.50455 4.06454 9.43101 4.06567 9.35694C4.06679 9.28287 4.08278 9.20978 4.11267 9.142C4.14255 9.07422 4.18574 9.01312 4.23967 8.96234L6.20898 6.993L4.23967 5.02367C4.18574 4.97288 4.14255 4.91179 4.11267 4.84401C4.08278 4.77623 4.06679 4.70314 4.06567 4.62907C4.06454 4.555 4.0783 4.48146 4.10612 4.4128C4.13393 4.34415 4.17523 4.28177 4.2276 4.22937C4.27996 4.17697 4.34232 4.13561 4.41096 4.10774C4.47959 4.07988 4.55311 4.06607 4.62718 4.06714C4.70125 4.06821 4.77435 4.08413 4.84215 4.11397C4.90996 4.14381 4.97109 4.18695 5.02192 4.24084L6.99124 6.21017L8.96059 4.24084C9.01178 4.18846 9.07283 4.14676 9.14025 4.11815C9.20766 4.08955 9.28007 4.0746 9.3533 4.07418C9.42653 4.07376 9.49911 4.08787 9.56685 4.1157C9.63459 4.14353 9.69615 4.18453 9.74793 4.23631C9.79972 4.2881 9.84073 4.34964 9.86856 4.41738C9.89639 4.48512 9.91049 4.55771 9.91007 4.63094C9.90965 4.70417 9.89471 4.77659 9.8661 4.844C9.8375 4.91142 9.79579 4.97249 9.74341 5.02367L7.77409 6.993L9.74341 8.96234C9.8473 9.066 9.90583 9.20663 9.90616 9.35339C9.90649 9.50015 9.84858 9.64105 9.74516 9.74517Z" fill="black"/>
+</svg>
+
+
+                Cancel
+              </button>
+              <button
+              
+                className="flex items-center space-x-2 text-sm"
+              >
+           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.5599 5.29999L11.5599 12.14C11.5599 12.7696 11.0495 13.28 10.4199 13.28L3.57994 13.28C2.95034 13.28 2.43994 12.7696 2.43994 12.14L2.43994 5.29999" stroke="#565D6D" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M0.72998 3L13.27 3" stroke="#565D6D" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M4.71997 3L4.71997 0.720001L9.27997 0.720001V3" stroke="#565D6D" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M8.71004 7L5.29004 10.42" stroke="#565D6D" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M8.71004 10.42L5.29004 7" stroke="#565D6D" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"/>
+</svg>
+
+
+
+                Delete
+              </button>
+              {/* Add more buttons like Edit, Delete if needed */}
+            </div>
+          </td>
+        </tr>
+      ))}
+    </tbody>
           </table>
         </div>
       </div>
 
       {/* Sorting Section */}
+      <div className="mt-12 bg-center items-center w-full sm:w-[75vw] bg-white shadow-lg rounded-lg p-6">
+  <h2 className="text-2xl font-bold mb-4">Sort By</h2>
+  <div className="flex flex-col sm:flex-row sm:space-x-6">
+    <div className="mb-4 sm:mb-0 sm:w-1/2">
+      <label className="block text-gray-700 mb-2">From Date</label>
+      <input type="date" className="w-full p-2 border rounded" />
     </div>
+    <div className="sm:w-1/2">
+      <label className="block text-gray-700 mb-2">To Date</label>
+      <input type="date" className="w-full p-2 border rounded" />
+    </div>
+  </div>
+</div>
+
+      {activeService && (
+        <div className="mt-12 bg-white">
+          {activeService.type === "Transportation" && <Transportationedit service={activeService} />}
+          {activeService.type === "ServicesInfo" && <ServicesInfoEdit service={activeService} />}
+
+        </div>
+      )}
+    </div>
+
+    
+  
   );
 }

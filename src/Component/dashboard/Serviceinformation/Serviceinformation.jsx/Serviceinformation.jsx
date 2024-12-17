@@ -6,8 +6,8 @@ const ServiceInformationForm = () => {
   // Handle Image Upload
 
   return (
-    <div className="w-4/5 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="flex justify-between items-center p-4 bg-gray-100 border-b">
+    <div className="w-[80vw] mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="flex justify-between items-center p-4 ">
         <h2 className="text-lg font-semibold flex gap-3 items-center">
           <i className="mr-2 text-blue-500"></i>
           <svg

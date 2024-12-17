@@ -10,46 +10,44 @@ export default function MyPropertiesServices() {
     <div className="p-8 bg-gray-100 min-h-screen">
       {/* Header Section */}
       <div
-        className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
-        style={{ backgroundImage: `url(${banner})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              My Properties / Services
-            </h1>
-            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <input
-                type="text"
-                placeholder="Search for services"
-                className="w-full sm:w-96 p-3 rounded-l-lg border-none focus:ring-0"
-              />
-              <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg">
-                Search
-              </button>
-              <button className="w-full sm:w-auto ml-0 sm:ml-4 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2"
-                >
-                  <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
-                  <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
-                  <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
-                  <path
-                    d="M11.25 16.875H6.75V14.625H11.25V16.875Z"
-                    fill="white"
-                  />
-                </svg>
-                Filter
-              </button>
-            </div>
-          </div>
-        </div>
+  className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
+  style={{ backgroundImage: `url(${banner})` }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="text-center text-white px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">My Properties/ Services</h1>
+      <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-0">
+        {/* Search Input */}
+        <input
+          type="text"
+          placeholder="Search for services"
+          className="w-[40vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
+        />
+        {/* Search Button */}
+        <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg flex justify-center items-center">
+          Search
+        </button>
+        {/* Filter Button */}
+        <button className="w-full sm:w-auto sm:ml-4 mt-2 sm:mt-0 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mr-2"
+          >
+            <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
+            <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
+            <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
+            <path d="M11.25 16.875H6.75V14.625H11.25V16.875Z" fill="white" />
+          </svg>
+          Filter
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
       <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">

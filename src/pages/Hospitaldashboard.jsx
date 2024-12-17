@@ -18,10 +18,17 @@ import PostForm from "../Component/serviceProvider dashboard/PostService/Postser
 import MyPropertiesServices from "../Component/serviceProvider dashboard/Myproperty/Mypropertyservice";
 import ProfileForm from "../Component/Hospital/Profile/MyProfile";
 import MyServices from "../Component/Hospital/MyServices/MyServices";
-import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+
 import FilledLeaseForm from "../Component/Hospital/Application/Filledleaseform";
 import FilledRentalApplication from "../Component/Hospital/Application/Filledrentalform";
-import PostTypeModal from "../Component/serviceProvider dashboard/Posttype";
+import PostTypeModal from "../Component/Hospital/PostType";
+
+import ServiceInfoform from "../Component/Hospital/Serviceinfo/Serviceinfo";
+
+import Transport from "../Component/Hospital/Transport/Transport";
+
+
+
 
 export function HospitalDashboard() {
   const { section } = useParams();
@@ -56,7 +63,8 @@ export function HospitalDashboard() {
 
             {section === "livechat" && <LiveChat />}
             {section === "My Services" && <MyServices />}
-            {section === "Serviceinfoform" && <ServiceInfoform />}
+            {section === "Service Information" &&<ServiceInfoform/>}
+            {section === "Transportation" &&<Transport/>}
 
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}

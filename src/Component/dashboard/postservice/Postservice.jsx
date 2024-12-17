@@ -78,35 +78,8 @@ const PostPropertyForm = ({ service, onClose }) => {
   }, []);
 
   return (
-    <div className="flex flex-col p-8 bg-white shadow-lg rounded-lg w-full max-w-7xl mx-auto">
+    <div className="flex flex-col p-8 bg-white  rounded-lg w-full max-w-11xl mx-auto">
       {/* Header Section */}
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Post a Service or Property</h2>
-        <div className="flex items-center space-x-4">
-          <span className="font-medium">Amanda Smith</span>
-          <button className="text-gray-500 hover:text-gray-700">
-            <svg
-              width="20"
-              height="22"
-              viewBox="0 0 20 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16.0199 10.1391V7.55906C16.0199 4.23431 13.3247 1.53906 9.9999 1.53906C6.67515 1.53906 3.9799 4.23431 3.9799 7.55906L3.9799 10.1391C3.9799 12.9771 1.3999 13.6651 1.3999 15.2991C1.3999 16.7611 4.7539 17.8791 9.9999 17.8791C15.2459 17.8791 18.5999 16.7611 18.5999 15.2991C18.5999 13.6651 16.0199 12.9771 16.0199 10.1391Z"
-                stroke="#9095A1"
-                stroke-width="2.064"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-              />
-              <path
-                d="M9.99973 19.5626C9.13027 19.5626 8.31327 19.5333 7.54443 19.4766C7.88084 20.5497 8.87514 21.28 9.99973 21.28C11.1243 21.28 12.1186 20.5497 12.455 19.4766C11.6862 19.5333 10.8692 19.5626 9.99973 19.5626Z"
-                fill="#9095A1"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
       <div className="flex mb-6">
         {/*close*/}
         <button onClick={()=>navigate('/dashboard/services')} variant="ghost" size="sm">
@@ -129,6 +102,11 @@ const PostPropertyForm = ({ service, onClose }) => {
         </button>
       </div>
 
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-semibold">Post a Service or Property</h2>
+       
+      </div>
+      
       {/* Property Details Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Left Section */}

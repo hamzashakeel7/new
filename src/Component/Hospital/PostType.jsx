@@ -13,18 +13,14 @@ const PostTypeModal = ({ onClose }) => {
     if (selectedPostType) {
       // Navigate to the specific page based on the selected post type
       switch (selectedPostType) {
-        case "Property":
-          navigate("/servicedashboard/Property");
-          break;
+      
         case "Transportation":
-          navigate("/servicedashboard/Transportation");
+          navigate("/HospitalManagement/Transportation");
           break;
         case "Service Information":
-          navigate("/servicedashboard/Service Information");
+          navigate("/HospitalManagement/Service Information");
           break;
-        case "Health Care":
-          navigate("/servicedashboard/Health Care");
-          break;
+        
         default:
           break;
       }
@@ -56,10 +52,10 @@ const PostTypeModal = ({ onClose }) => {
           >
             <option value="">Select</option>
             {/* <option value="Property">Property</option> */}
-            <option value="Property">Property</option>
+            
             <option value="Transportation">Transportation</option>
             <option value="Service Information">Service Information</option>
-            <option value="Health Care">Health Care</option>
+        
           </select>
         </div>
 
