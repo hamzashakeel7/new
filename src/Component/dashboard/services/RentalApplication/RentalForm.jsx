@@ -10,7 +10,7 @@ import {
 } from "../../../../shadcn/components/ui/Card";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export function RentalApplicationForm() {
   const navigate = useNavigate();

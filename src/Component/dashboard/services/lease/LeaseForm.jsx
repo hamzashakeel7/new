@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BookText } from "lucide-react";
 import { Input } from "../../../../shadcn/components/ui/Input";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export function LeaseForm() {
   const navigate = useNavigate();
