@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const dashboardPaths = {
   superadmin: "/superadmin/properties",
@@ -18,6 +18,8 @@ const getCurrentDashboard = (pathname) => {
 const PostForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  console.log(location.pathname);
 
   const handleBreadcrumbClick = () => {
     const currentDashboard = getCurrentDashboard(location.pathname);

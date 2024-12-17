@@ -54,10 +54,8 @@ import Transport from "./Component/dashboard/Transportation/Trasportationform";
 import { FirstStep } from "./authform/Signup-Journey/FirstStep";
 import { SecondStep } from "./authform/Signup-Journey/SecondStep";
 import { ThirdStep } from "./authform/Signup-Journey/ThirdStep";
-import {SuperAdmin }from "./pages/SuperAdmin"
+import { SuperAdmin } from "./pages/SuperAdmin";
 import MyPropertiesServices from "./Component/Non-Pofit/MyPropertiesServices/MyPropertiesServices";
-
-
 
 function App() {
   const location = useLocation();
@@ -72,7 +70,7 @@ function App() {
   return (
     <>
       {/* Single BrowserRouter for the whole app */}
-         
+
       <div className="App" style={{ overflow: "hidden" }}>
         {/* AnimatePresence is used to handle route transitions */}
         <AnimatePresence mode="wait">
@@ -83,9 +81,9 @@ function App() {
             <Route path="/Community" element={<Community />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/property" element={<Property />} />
-            <Route path="/propertyservice" element={<MyPropertiesServices/>} />
+            <Route path="/propertyservice" element={<MyPropertiesServices />} />
             <Route path="/propertydetail" element={<PropertyDetail />} />
-            <Route path="/Properties" element={<Properties/>} />
+            <Route path="/Properties" element={<Properties />} />
             <Route path="/cardiac" element={<CardiacCareService />} />
             <Route path="/travel" element={<TravelService />} />
             {/* User dashboard route */}
@@ -233,9 +231,7 @@ function App() {
             <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
           </Routes>
         </AnimatePresence>
-        
       </div>
-     
     </>
   );
 }
