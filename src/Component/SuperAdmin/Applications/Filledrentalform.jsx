@@ -5,7 +5,7 @@ export default function FilledRentalApplication() {
   const navigate = useNavigate();
 
   const handleBreadcrumbClick = () => {
-    navigate("/propertyownerdashboard/applications");
+    navigate("/superadmin/applications");
   };
 
   return (

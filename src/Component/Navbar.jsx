@@ -33,6 +33,7 @@ import { useState, useEffect } from "react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const [authToken, setAuthToken] = useState(null);
@@ -49,12 +50,20 @@ export function Navbar() {
   // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    localStorage.removeItem("userEmail");
+    localStorage.removeItem("name");
     localStorage.removeItem("userRole");
     setAuthToken(null);
     setUserRole(null);
     navigate("/login");
   };
+
+  useEffect(() => {
+    // Fetch the username from localStorage
+    const storedName = localStorage.getItem("name"); // Ensure you save this during registration
+    if (storedName) {
+      setUsername(storedName);
+    }
+  }, []);
 
   // Handle dashboard redirection
   const handleDashboardNavigation = () => {
@@ -327,7 +336,11 @@ export function Navbar() {
                         >
                           <Avatar className="h-8 w-8">
                             <AvatarImage src="" alt="User" />
-                            <AvatarFallback>U</AvatarFallback>
+                            <AvatarFallback>
+                              {username
+                                ? username.charAt(0).toUpperCase()
+                                : "U"}
+                            </AvatarFallback>
                           </Avatar>
                         </Button>
                       </DropdownMenuTrigger>

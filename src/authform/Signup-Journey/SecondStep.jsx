@@ -10,7 +10,7 @@ import logo from "../../assets/logo.png";
 export function SecondStep() {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState({
-    mobileNumber: "",
+    mobileNumber: localStorage.getItem("phonenumber") || "",
     address: "",
     city: "",
   });

@@ -2,8 +2,10 @@ import { useState } from "react";
 import { BookText } from "lucide-react";
 import { Input } from "../../../../shadcn/components/ui/Input";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export function LeaseForm() {
+  const navigate = useNavigate();
   const leaseFormData = {
     landlord: "",
     landlordAddress: "",
@@ -71,9 +73,25 @@ export function LeaseForm() {
     }
   };
 
+  // breadcrumb
+  const handleBreadcrumbClick = () => {
+    navigate("/dashboard/propertyform");
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="w-full p-0 md:p-6">
-      <div className="rounded-lg border p-5 md:p-10 bg-gray-100">
+    <form onSubmit={handleSubmit} className="w-full px-5">
+      <div className="rounded-lg border p-5 md:p-8">
+        {/* Breadcrumbs */}
+        <div className="mb-4 text-sm">
+          <button
+            onClick={handleBreadcrumbClick}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            Property Form
+          </button>
+          <span className="mx-2 text-gray-400">&gt;</span>
+          <span className="text-purple-600 font-medium">Lease Form</span>
+        </div>
         <div className="mb-6 flex items-center gap-2">
           <div className="rounded-lg">
             <svg

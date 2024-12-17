@@ -324,16 +324,10 @@ const PropertyForm = () => {
           <FaComment className="mr-2" /> Chat with Provider
         </button>
         <div className="relative space-x-6 gap-10">
-          <button
-            className="px-4 py-2 bg-purple-600  text-white rounded"
-            
-          >
+          <button className="px-4 py-2 bg-purple-600  text-white rounded">
             Edit
           </button>
-          <button
-            className="px-4 py-2 bg-purple-600 text-white rounded"
-            
-          >
+          <button className="px-4 py-2 bg-purple-600 text-white rounded">
             Save
           </button>
           {actionMenuOpen && (

@@ -19,6 +19,8 @@ import { MessageBoard } from "../Component/RealEstateDashboard/messages/MessageB
 import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
 import FilledLeaseForm from "../Component/RealEstateDashboard/Application/Filledleaseform";
 import FilledRentalApplication from "../Component/RealEstateDashboard/Application/Filledrentalform";
+import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function RealEstateDashboard() {
   const { section } = useParams();
@@ -51,12 +53,14 @@ export function RealEstateDashboard() {
             {section === "accounting" && <Accounting />}
             {section === "Help & Support" && <HelpAndSupport />}
             {section === "Industry relations" && <IndustryRelations />}
-
             {section === "propertyform" && <PropertyForm />}
             {section === "livechat" && <LiveChat />}
-
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}
+
+            {section === "Property" && <PostForm />}
+            {section === "Transportation" && <Transportform />}
+            {section === "Service Information" && <ServiceInfoform />}
           </main>
         </div>
       </div>

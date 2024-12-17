@@ -39,7 +39,7 @@ const menuItems = [
     label: "My Services",
     section: "MyPropertyServices",
   },
- 
+
   { icon: LayoutGrid, label: "Applications", section: "application" },
   { icon: Mail, label: "Messages", section: "messages" },
   { icon: Receipt, label: "Accounting Page", section: "accounting" },
@@ -77,7 +77,11 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
     }
   };
 
+  // Handle logout
   const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("name");
+    localStorage.removeItem("userRole");
     navigate("/");
   };
 

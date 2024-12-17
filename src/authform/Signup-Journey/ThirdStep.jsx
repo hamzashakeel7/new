@@ -48,33 +48,37 @@ export function ThirdStep() {
     localStorage.setItem("countryOfBirth", countryOfBirth);
     localStorage.setItem("birthDate", birthDate.toISOString());
 
-    // Determine role and redirect to the appropriate dashboard
-    const role = localStorage.getItem("signupRole"); // Role set during OTP verification
-    localStorage.removeItem("signupRole"); // Clean up after use
+    setShowWelcome(true);
 
-    switch (role) {
-      case "Individual":
-        navigate("/dashboard");
-        break;
-      case "Property Owner":
-        navigate("/propertyownerdashboard");
-        break;
-      case "Hospital System/Managed Care Organizations":
-        navigate("/HospitalManagement");
-        break;
-      case "Real Estate Professionals":
-        navigate("/realestatedashboard");
-        break;
-      case "Service Provider":
-        navigate("/servicedashboard");
-        break;
-      case "Non Profits":
-        navigate("/nonprofit");
-        break;
-      default:
-        navigate("/"); // Fallback dashboard
-        break;
-    }
+    // Determine role and redirect to the appropriate dashboard
+    setTimeout(() => {
+      const role = localStorage.getItem("signupRole"); // Role set during OTP verification
+      localStorage.removeItem("signupRole"); // Clean up after use
+
+      switch (role) {
+        case "Individual":
+          navigate("/dashboard");
+          break;
+        case "Property Owner":
+          navigate("/propertyownerdashboard");
+          break;
+        case "Hospital System/Managed Care Organizations":
+          navigate("/HospitalManagement");
+          break;
+        case "Real Estate Professionals":
+          navigate("/realestatedashboard");
+          break;
+        case "Service Provider":
+          navigate("/servicedashboard");
+          break;
+        case "Non Profits":
+          navigate("/nonprofit");
+          break;
+        default:
+          navigate("/"); // Fallback dashboard
+          break;
+      }
+    }, 3000); // Adjust the timeout duration based on your animation
   };
 
   const handleSkip = () => {

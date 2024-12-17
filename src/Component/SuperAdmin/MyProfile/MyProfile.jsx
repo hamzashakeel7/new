@@ -216,7 +216,7 @@ export default function MyProfile() {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container lg:mx-auto lg:px-3 w-[75vw] md:w-full lg:w-[80vw]">
         {/* Property Owner Information */}
         <Card className="mb-2 md:mb-5">
           <CardHeader>
@@ -244,7 +244,7 @@ export default function MyProfile() {
                   </clipPath>
                 </defs>
               </svg>
-              Property Owner Information
+              Personal Information
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -499,9 +499,9 @@ export default function MyProfile() {
         </Card>
       </div>
 
-      <div className="space-y-8 w-[76vw] lg:px-12 lg:w-full mt-5">
+      <div className="space-y-8 w-[75vw] md:w-[90vw] lg:px-9 lg:w-full mt-5">
         {/* Registered users */}
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-2">
           <div className="flex justify-between items-center mb-6 ">
             <h2 className="text-xl font-semibold">Registered Users</h2>
             <Dialog open={open} onOpenChange={setOpen} className="">

@@ -23,7 +23,7 @@ export default function FilledLeaseForm() {
   const navigate = useNavigate();
 
   const handleBreadcrumbClick = () => {
-    navigate("/HospitalManagement/application");
+    navigate("/Dashboard/application");
   };
 
   return (

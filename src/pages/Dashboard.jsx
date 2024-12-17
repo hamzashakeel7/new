@@ -8,7 +8,7 @@ import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
 import Message from "../Component/dashboard/messages/Messages";
 import { MyProfile } from "../Component/dashboard/Myprofile/MyProfile";
-import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { Applications } from "../Component/dashboard/Applications/Applications";
 import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import Trasportationform from "../Component/dashboard/Transportation/Trasportationform";
@@ -17,6 +17,8 @@ import { LeaseForm } from "../Component/dashboard/services/lease/LeaseForm";
 import PostPropertyForm from "../Component/dashboard/postservice/Postservice";
 import Transport from "../Component/dashboard/Transportation/Trasportationform";
 import ServiceInformationForm from "../Component/dashboard/Serviceinformation/Serviceinformation.jsx/Serviceinformation";
+import FilledLeaseForm from "../Component/dashboard/Applications/Filledleaseform";
+import FilledRentalApplication from "../Component/dashboard/Applications/Filledrentalform";
 
 export function Dashboard() {
   const { section } = useParams();
@@ -54,6 +56,9 @@ export function Dashboard() {
 
             {section === "rental" && <RentalApplicationForm />}
             {section === "lease" && <LeaseForm />}
+
+            {section === "filledlease" && <FilledLeaseForm />}
+            {section === "filledrental" && <FilledRentalApplication />}
 
             {/* tempperory routes */}
           </main>

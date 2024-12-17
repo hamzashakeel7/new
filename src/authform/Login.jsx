@@ -50,10 +50,10 @@ export default function Login() {
           password,
         });
 
-        // console.log(response.data);
+        console.log(response.data);
 
         // Extract token and role from the response
-        const { token, role } = response.data.data;
+        const { token, role, name } = response.data.data;
 
         // Save authToken and role to local storage
         if (token) {
@@ -61,6 +61,9 @@ export default function Login() {
         }
         if (role) {
           localStorage.setItem("userRole", role); // Save role
+        }
+        if (role) {
+          localStorage.setItem("name", name); // Save role
         }
 
         toast.success("Login successful!");
