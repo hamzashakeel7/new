@@ -2,20 +2,19 @@ import { CheckCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../Component/Navbar";
 import { useState } from "react";
-import hero from "../assets/cardiac&travel/hero.png";
-import health from "../assets/cardiac&travel/health.png";
-import slider1 from "../assets/cardiac&travel/slider1.png";
-import slider2 from "../assets/cardiac&travel/slider2.png";
-import slider3 from "../assets/cardiac&travel/slider3.png";
+import hero2 from "../assets/cardiac&travel/hero.png";
+import health from "../assets/cardiac&travel/health.png"
+import slider4 from "../assets/cardiac&travel/slider1.png";
+import slider5 from "../assets/cardiac&travel/slider2.png";
+import slider6 from "../assets/cardiac&travel/slider3.png";
 import bgImg from "../assets/cardiac&travel/bg-img.png";
 import Newsletter from "../Component/Home/Newsletter";
 import { Footer } from "../Component/Footer";
-
 import {Company,CompanyAddress,Email ,Phone ,Contact,Officeh,Website,Geography,Industry,Serviceh,Specialitys,Servicea } from "../assets/svg"
 
 const serviceSlides = [
   {
-    image: slider1,
+    image: slider4,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -30,7 +29,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider2,
+    image: slider5,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -45,7 +44,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider3,
+    image: slider6,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -60,7 +59,7 @@ const serviceSlides = [
     scheduleInAdvance: "Lorem ipsum dolor sit",
   },
   {
-    image: slider1,
+    image: slider5,
     companyName: "SilverTLC",
     companyAddress: "Lorem ipsum dolor sit",
     companyEmail: "Lorem ipsum dolor sit",
@@ -95,10 +94,10 @@ const groupedData = [
   serviceData.slice(8),    // Third table group
 ];
 
-export default function CardiacCareService() {
+export default function TravelService() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-const nextSlide = () => {
+  const nextSlide = () => {
     setCurrentSlide((prev) =>
       prev === serviceSlides.length - 3 ? 0 : prev + 1
     );
@@ -113,7 +112,7 @@ const nextSlide = () => {
   return (
     <>
       <Navbar />
-      <div className="px-6 py-4">
+      <div className="min-h-screen">
         {/* Breadcrumb */}
         <div className="bg-white px-6 py-4">
           <div className="flex items-center gap-2 text-sm">
@@ -128,7 +127,7 @@ const nextSlide = () => {
               Query Services
             </Link>
             <ChevronRight className="h-4 w-4 text-gray-400" />
-            <span className="text-purple-600">Cardiac Care Service</span>
+            <span className="text-purple-600">Cardiac care Service</span>
           </div>
         </div>
 
@@ -137,14 +136,14 @@ const nextSlide = () => {
           <div
             className="absolute inset-0 bg-cover bg-top"
             style={{
-              backgroundImage: `url(${hero})`,
+              backgroundImage: `url(${hero2})`,
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 to-purple-500/40" />
           </div>
           <div className="relative flex h-full items-center justify-center">
             <h1 className="text-3xl lg:text-6xl font-bold text-white tracking-widest">
-              Cardiac Care Service
+              Cardiac Care service
             </h1>
           </div>
         </div>
@@ -168,9 +167,7 @@ const nextSlide = () => {
               <div className="space-y-8">
                 {/* Service Description */}
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">
-                    Cardiac Care Service
-                  </h2>
+                  <h2 className="text-2xl font-bold mb-4">Travel Service</h2>
                   <p className="text-gray-600 leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -213,92 +210,100 @@ const nextSlide = () => {
 
           {/* slider with items */}
           <div className="relative bg-white rounded-lg p-6 shadow-sm border w-full">
-            <div className="flex items-center gap-2 mb-6">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h2 className="text-lg font-semibold">Service Information</h2>
-            </div>
+  {/* Section Header */}
+  <div className="flex items-center gap-2 mb-6">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <h2 className="text-lg font-semibold">Service Information</h2>
+  </div>
 
-
-
-  
-    <div className="relative overflow-hidden">
-      {/* Slider */}
-      <div
-        className="flex transition-transform duration-300 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
-      >
-        {serviceSlides.map((slide, index) => (
-          <div
-            key={index}
-            className="lg:min-w-[33.333%] min-w-[53.333%] px-2"
-          >
-            <div className="bg-white rounded-lg overflow-hidden">
-              <img
-                src={slide.image}
-                alt={`Service ${index + 1}`}
-                className="w-full h-48 object-cover"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-     
-
-
-             <div className="flex flex-col md:flex-row gap-6 p-6  rounded-lg shadow-md">
-      {groupedData.map((group, index) => (
-        <div
-          key={index}
-          className="w-full md:w-1/3 bg-white rounded-lg shadow border overflow-hidden"
-        >
-          <table className="w-full table-auto text-sm">
-            <tbody>
-              {group.map((item, idx) => (
-                <tr key={idx} className="border-b last:border-none">
-                  <td className="flex items-center gap-2 p-3 font-medium text-gray-700">
-                    {item.icon}
-                    {item.label}
-                  </td>
-                  <td className="p-3 text-gray-600">{item.value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
-    </div>
-
+  {/* Carousel Container */}
+  <div className="relative flex items-center">
+    {/* Left Button */}
     <button
-                onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg hover:bg-white"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg hover:bg-white"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
+      onClick={prevSlide}
+      className="absolute left-0 -ml-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
+    >
+     <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538406 6.65686 0.928931L0.292893 7.29289ZM22 7L1 7L1 9L22 9L22 7Z" fill="#7415E2"/>
+</svg>
 
-              
-            </div>
-          
+    </button>
+
+  {/* Carousel Slides */}
+{/* Carousel Slides */}
+{/* Carousel Container */}
+<div className="overflow-hidden w-full">
+  <div
+    className="flex transition-transform duration-300 ease-in-out"
+    style={{
+      transform: `translateX(-${currentSlide * 100}%)`, // Slide logic
+    }}
+  >
+    {serviceSlides.map((slide, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 px-2 w-full lg:w-1/4" // w-full for mobile, lg:w-1/4 for PC
+      >
+        <img
+          src={slide.image}
+          alt={`Service ${index + 1}`}
+          className="w-full h-48 sm:h-64 object-cover rounded-lg shadow"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+
+    {/* Right Button */}
+    <button
+      onClick={nextSlide}
+      className="absolute right-0 -mr-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
+    >
+   <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.7071 8.70711C22.0976 8.31659 22.0976 7.68342 21.7071 7.2929L15.3431 0.928935C14.9526 0.53841 14.3195 0.53841 13.9289 0.928935C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM-1.74846e-07 9L21 9L21 7L1.74846e-07 7L-1.74846e-07 9Z" fill="#7415E2"/>
+</svg>
+
+    </button>
+  </div>
+
+  {/* Grouped Data Section */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+    {groupedData.map((group, index) => (
+      <div
+        key={index}
+        className="bg-white border rounded-lg shadow p-4"
+      >
+        <table className="w-full text-sm">
+          <tbody>
+            {group.map((item, idx) => (
+              <tr key={idx} className="border-b last:border-none">
+                <td className="flex items-center gap-2 p-2 font-medium text-gray-700">
+                  {item.icon}
+                  {item.label}
+                </td>
+                <td className="p-2 text-gray-600">{item.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))}
+  </div>
+</div>
+
 
           {/* Service Type and Availability Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-20">
@@ -323,7 +328,7 @@ const nextSlide = () => {
                 <img src={health} alt="Healthcare" className="w-[130px]" />
               </div>
               <p className="text-center text-2xl text-gray-400 tracking-[0.5em] mt-4">
-                TRANSPORTATION
+                HEALTH CARE
               </p>
             </div>
 
@@ -350,14 +355,14 @@ const nextSlide = () => {
               </div>
             </div>
           </div>
-        
-
 
         {/* newsletter & footer */}
-        <Newsletter  />
-        <Footer />
-        
-       </div>
+       
+      </div>
+      <Newsletter />
+      <Footer />
+      </div>
+      
     </>
   );
 }
