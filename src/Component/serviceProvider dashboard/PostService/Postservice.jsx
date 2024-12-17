@@ -29,7 +29,7 @@ const PostForm = () => {
       {/* Form Section */}
       <div className=" bg-white px-6">
         {/* Breadcrumbs */}
-        <div className="mb-4 text-sm">
+        {/* <div className="mb-4 text-sm">
           <button
             onClick={handleBreadcrumbClick}
             className="text-gray-500 hover:text-gray-700"
@@ -38,7 +38,7 @@ const PostForm = () => {
           </button>
           <span className="mx-2 text-gray-400">&gt;</span>
           <span className="text-purple-600 font-medium">Property</span>
-        </div>
+        </div> */}
         <h2 className="text-2xl flex items-center font-bold mb-4 text-gray-800">
           <svg
             width="28"

@@ -68,11 +68,7 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
 
   const handleSectionClick = (section) => {
     setActiveLink(section);
-    if (section === "services") {
-      setIsModalOpen(true); // Open the modal when "services" is clicked
-    } else {
-      navigate(`/realestatedashboard/${section}`);
-    }
+    navigate(`/realestatedashboard/${section}`);
     if (isMobile && isOpen) {
       toggleSidebar();
     }
