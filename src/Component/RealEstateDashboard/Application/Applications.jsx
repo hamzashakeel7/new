@@ -48,6 +48,8 @@ export function Applications() {
     });
   };
 
+  // ok
+
   return (
     <div className="flex flex-col md:flex-row gap-6 p-0 lg:p-6">
       {/* Filters Section */}
