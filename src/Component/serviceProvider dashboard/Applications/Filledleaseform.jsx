@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Card } from "../../../shadcn/components/ui/Card";
 
 const leftDetails = [
