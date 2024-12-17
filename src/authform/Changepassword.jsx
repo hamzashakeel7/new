@@ -22,7 +22,7 @@ function Changepassword() {
     if (password !== confirmPassword) {
       setPasswordError('Passwords do not match.');
       return false;
-    }
+    }//
     setPasswordError('');
     return true;
   };

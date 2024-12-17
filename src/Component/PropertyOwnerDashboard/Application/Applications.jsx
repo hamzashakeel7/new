@@ -19,7 +19,7 @@ const applications = Array.from({ length: 8 }, (_, i) => ({
   submissionDate: "20 20 2024",
   status: "open",
 }));
-
+//
 export function Applications() {
   const [searchQuery, setSearchQuery] = useState("");
   const [dateFrom, setDateFrom] = useState();
