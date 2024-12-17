@@ -219,14 +219,14 @@ export function Applications() {
                         className="w-full mt-2 rounded-full bg-red-100 hover:bg-red-200 text-red-600"
                         variant="ghost"
                       >
-                        <Link to="/servicedashboard/lease">Open</Link>
+                        <Link to="/nonprofit/lease">Open</Link>
                       </Button>
 
                       <Button
                         className="w-full mt-2  rounded-full bg-[#7415E2] hover:bg-purple-700 hover:text-white text-white"
                         variant="ghost"
                       >
-                        <Link to="/servicedashboard/rental">Edit</Link>
+                        <Link to="/nonprofit/rental">Edit</Link>
                       </Button>
                     </div>
                   </div>

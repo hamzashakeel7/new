@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import MyProfile from "../Component/RealEstateDashboard/MyProfile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyProperties from "../Component/RealEstateDashboard/MyProperties/MyProperties";
-import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { Applications } from "../Component/RealEstateDashboard/Application/Applications";
 import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
@@ -17,6 +17,8 @@ import MyPropertiesServices from "../Component/RealEstateDashboard/MyProperties/
 import ProfileForm from "../Component/RealEstateDashboard/MyProfile/MyProfile";
 import { MessageBoard } from "../Component/RealEstateDashboard/messages/MessageBoard";
 import { LiveChat } from "../Component/serviceProvider dashboard/messages/LiveChat";
+import FilledLeaseForm from "../Component/RealEstateDashboard/Application/Filledleaseform";
+import FilledRentalApplication from "../Component/RealEstateDashboard/Application/Filledrentalform";
 
 export function RealEstateDashboard() {
   const { section } = useParams();
@@ -52,6 +54,9 @@ export function RealEstateDashboard() {
 
             {section === "propertyform" && <PropertyForm />}
             {section === "livechat" && <LiveChat />}
+
+            {section === "lease" && <FilledLeaseForm />}
+            {section === "rental" && <FilledRentalApplication />}
           </main>
         </div>
       </div>

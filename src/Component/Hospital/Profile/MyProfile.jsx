@@ -53,6 +53,7 @@ import {
 import prop1 from "../../../assets/prop1.png";
 import { useState } from "react";
 import { Invoice } from "../../dashboard/Invoice";
+import { IndividualInformationModal } from "./IndividualModal";
 
 const properties = [
   {
@@ -173,6 +174,14 @@ export default function MyProfile() {
 
   const handleCloseInvoice = () => {
     setSelectedInvoice(null); // Reset the selected invoice to null
+  };
+
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewClick = (user) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
   };
 
   // Registered users information
@@ -604,61 +613,88 @@ export default function MyProfile() {
             </Dialog>
           </div>
 
+          {/* colums start */}
           <div className="overflow-x-auto border rounded-lg">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-gray-100">
-                  <TableHead className="w-[150px]">Name</TableHead>
-                  <TableHead>Address</TableHead>
-                  <TableHead>Phone Number</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>City</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead className="text-center">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {users.map((user, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{user.name}</TableCell>
-                    <TableCell>{user.address}</TableCell>
-                    <TableCell>{user.phoneNumber}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.city}</TableCell>
-                    <TableCell>{user.type}</TableCell>
-                    <TableCell>
-                      <div className="flex justify-center gap-2">
-                        <Button variant="ghost" size="sm">
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M7.13388 16.8751L17.1339 6.87509L13.125 2.86621L3.125 12.8663V16.8751H7.13388ZM13.125 4.63398L15.3662 6.87509L13.75 8.49125L11.5089 6.25011L13.125 4.63398ZM10.625 7.13399L12.8661 9.37509L6.61612 15.6251H4.375V13.384L10.625 7.13399Z"
-                              fill="#171A1F"
-                            />
-                          </svg>
-                          <span className="">Edit</span>
-                        </Button>
-                        <Button variant="ghost" size="sm">
-                          <Eye className="h-4 w-4" />
-                          <span className="">View</span>
-                        </Button>
-                        <Button variant="ghost" size="sm">
-                          <Trash className="h-4 w-4" />
-                          <span className="">Delete</span>
-                        </Button>
-                      </div>
-                    </TableCell>
+            <>
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-gray-100">
+                    <TableHead className="w-[150px]">Name</TableHead>
+                    <TableHead>Address</TableHead>
+                    <TableHead>Phone Number</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>City</TableHead>
+                    <TableHead>Type</TableHead>
+                    <TableHead className="text-center">Actions</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {users.map((user, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{user.name}</TableCell>
+                      <TableCell>{user.address}</TableCell>
+                      <TableCell>{user.phoneNumber}</TableCell>
+                      <TableCell>{user.email}</TableCell>
+                      <TableCell>{user.city}</TableCell>
+                      <TableCell>{user.type}</TableCell>
+                      <TableCell>
+                        <div className="flex justify-center gap-2">
+                          <Button variant="ghost" size="sm">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M7.13388 16.8751L17.1339 6.87509L13.125 2.86621L3.125 12.8663V16.8751H7.13388ZM13.125 4.63398L15.3662 6.87509L13.75 8.49125L11.5089 6.25011L13.125 4.63398ZM10.625 7.13399L12.8661 9.37509L6.61612 15.6251H4.375V13.384L10.625 7.13399Z"
+                                fill="#171A1F"
+                              />
+                            </svg>
+                            <span className="">Edit</span>
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleViewClick(user)}
+                          >
+                            <Eye className="h-4 w-4" />
+                            <span className="">View</span>
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Trash className="h-4 w-4" />
+                            <span className="">Delete</span>
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+
+              {selectedUser && (
+                <IndividualInformationModal
+                  isOpen={isModalOpen}
+                  onClose={() => setIsModalOpen(false)}
+                  userData={{
+                    firstName: selectedUser.firstName,
+                    lastName: selectedUser.lastName,
+                    mobileNumber: selectedUser.mobileNumber,
+                    address: selectedUser.address,
+                    city: selectedUser.city,
+                    state: selectedUser.state,
+                    zip: selectedUser.zip,
+                    email: selectedUser.email,
+                    education: selectedUser.education,
+                    countryOfBirth: selectedUser.countryOfBirth,
+                    birthDate: selectedUser.birthDate,
+                  }}
+                />
+              )}
+            </>
           </div>
         </div>
 

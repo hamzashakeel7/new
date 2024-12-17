@@ -11,7 +11,7 @@ import { LiveChat } from "../Component/Hospital/messages/LiveChat";
 import { CorporateMessages } from "../Component/serviceProvider dashboard/messages/CorporateMessages";
 import { Accounting } from "../Component/serviceProvider dashboard/Accounting/Accounting";
 import { CorporateTickets } from "../Component/serviceProvider dashboard/HelpAndSupport/CorporateTickets";
-import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { Applications } from "../Component/Hospital/Application/Applications";
 import { TicketThread } from "../Component/serviceProvider dashboard/TicketThread";
 import MyProfile from "../Component/Hospital/Profile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
@@ -19,6 +19,8 @@ import MyPropertiesServices from "../Component/serviceProvider dashboard/Myprope
 import ProfileForm from "../Component/Hospital/Profile/MyProfile";
 import MyServices from "../Component/Hospital/MyServices/MyServices";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import FilledLeaseForm from "../Component/Hospital/Application/Filledleaseform";
+import FilledRentalApplication from "../Component/Hospital/Application/Filledrentalform";
 import PostTypeModal from "../Component/serviceProvider dashboard/Posttype";
 
 export function HospitalDashboard() {
@@ -45,7 +47,7 @@ export function HospitalDashboard() {
           <Topbar section={section} />
           <main className="flex-1 overflow-auto p-4">
             {section === "My profile" && <MyProfile />}
-            {section === "services" && <PostTypeModal/>}
+            {section === "services" && <PostTypeModal />}
             {section === "application" && <Applications />}
             {section === "messages" && <MessageBoard />}
             {section === "accounting" && <Accounting />}
@@ -55,6 +57,9 @@ export function HospitalDashboard() {
             {section === "livechat" && <LiveChat />}
             {section === "My Services" && <MyServices />}
             {section === "Serviceinfoform" && <ServiceInfoform />}
+
+            {section === "lease" && <FilledLeaseForm />}
+            {section === "rental" && <FilledRentalApplication />}
             {/* temperory routing */}
           </main>
         </div>

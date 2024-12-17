@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import MyProfile from "../Component/PropertyOwnerDashboard/Profile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyProperties from "../Component/PropertyOwnerDashboard/MyProperties/MyProperties";
-import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { Applications } from "../Component/PropertyOwnerDashboard/Application/Applications";
 import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
@@ -15,6 +15,8 @@ import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import { IndustryRelations } from "../Component/serviceProvider dashboard/IndustryRelations/IndustryRelations";
 import { MessageBoard } from "../Component/PropertyOwnerDashboard/messages/MessageBoard";
 import { LiveChat } from "../Component/PropertyOwnerDashboard/messages/LiveChat";
+import FilledLeaseForm from "../Component/PropertyOwnerDashboard/Application/Filledleaseform";
+import FilledRentalApplication from "../Component/PropertyOwnerDashboard/Application/Filledrentalform";
 
 export function PropertyOwnerDashboard() {
   const { section } = useParams();
@@ -50,6 +52,8 @@ export function PropertyOwnerDashboard() {
             {section === "Industry relations" && <IndustryRelations />}
 
             {section === "livechat" && <LiveChat />}
+            {section === "lease" && <FilledLeaseForm />}
+            {section === "rental" && <FilledRentalApplication />}
 
             {/* temperory routing */}
           </main>
