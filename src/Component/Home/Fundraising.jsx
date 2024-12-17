@@ -33,7 +33,7 @@ export function Fundraising() {
   ];
 
   return (
-    <div className="py-12">
+    <div className="py-8">
       <div className="flex items-center justify-center flex-col">
         <h2 className="text-center text-sm text-purple-600 mb-2">
           Small Acts, Big Impact
@@ -47,7 +47,7 @@ export function Fundraising() {
           Organizations Based On Your Giving Terms And Territory.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-6 mb-12">
+      <div className="flex flex-wrap justify-center gap-6 md:mb-2 mb-0">
         {funds.map((fund, index) => (
           <div
             key={index}

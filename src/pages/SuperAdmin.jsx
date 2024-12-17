@@ -17,6 +17,8 @@ import MyPropertiesServices from "../Component/RealEstateDashboard/MyProperties/
 import ProfileForm from "../Component/RealEstateDashboard/MyProfile/MyProfile";
 import { MessageBoard } from "../Component/SuperAdmin/messages/MessageBoard";
 import { LiveChat } from "../Component/SuperAdmin/messages/LiveChat";
+import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function SuperAdmin() {
   const { section } = useParams();
@@ -52,6 +54,12 @@ export function SuperAdmin() {
 
             {section === "propertyform" && <PropertyForm />}
             {section === "livechat" && <LiveChat />}
+
+            {/* post a service form */}
+            {section === "Property" && <PostForm />}
+            {section === "Transportation" && <Transportform />}
+            {section === "Service Information" && <ServiceInfoform />}
+            {section === "Health Care"}
           </main>
         </div>
       </div>

@@ -14,8 +14,8 @@ export function Mission() {
   const [showMission, setShowMission] = React.useState(false);
 
   return (
-    <div className="relative py-6 md:mt-5">
-      <div className="container mx-auto px-4">
+    <div className="relative py-6 md:mt-5 lg:w-[80vw] w-full">
+      <div className="container mx-auto">
         <div className="relative w-full z-20">
           <p className="mb-3 lg:mb-6 text-sm lg:text-lg leading-relaxed">
             At The TLC Company, LLC, We Believe That America's Seniors And

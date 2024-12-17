@@ -12,56 +12,26 @@ function Otp() {
   const navigate = useNavigate();
   const api = process.env.REACT_APP_API_URL;
 
-  // Get The Type
-  const location = useLocation(); // useLocation hook se state access karein
-  const { type } = location.state || {}; // state ko destructure karein
+  const location = useLocation();
+  const { type } = location.state || {};
 
-  // Initialize Toastify
   const notifySuccess = (message) => toast.success(message);
   const notifyError = (message) => toast.error(message);
 
-  // Trigger OTP sending on component load if type is 'register'
-  // useEffect(() => {
-  //   const sendOtp = async () => {
-  //     try {
-  //       const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
-  //       if (!email) {
-  //         notifyError("Email not found. Please register again.");
-  //         navigate("/register");
-  //         return;
-  //       }
-
-  //       const response = await axios.post(`${api}/api/v1/auth/send-otp`, {
-  //         email,
-  //       });
-
-  //       if (response.status === 200) {
-  //         notifySuccess("OTP sent successfully to your email.");
-  //       }
-  //     } catch (error) {
-  //       notifyError(
-  //         error.response?.data?.message ||
-  //           "Failed to send OTP. Please try again."
-  //       );
-  //     }
-  //   };
-
-  //   if (type === "register") sendOtp();
-  // }, [type, api, navigate]);
-
   useEffect(() => {
-    if (type === "register") {
-      toast.success("OTP sent successfully to your email.");
-    }
     const sendOtp = async () => {
       try {
-        toast.error("Login failed! First Verify Your Account");
-        const token = localStorage.getItem("authToken"); // Retrieve email from localStorage
+        if (type === "register") {
+          notifySuccess("OTP sent successfully to your email.");
+        }
+
+        const token = localStorage.getItem("authToken");
         if (!token) {
           notifyError("Account not found. Please register again.");
           navigate("/register");
           return;
         }
+
         const response = await axios.post(
           `${api}/api/v1/auth/otpcheck/account-verified/resend`,
           {
@@ -73,12 +43,12 @@ function Otp() {
           notifySuccess("OTP sent successfully to your email.");
         }
       } catch (error) {
-        if (error.status === 401) {
-          toast.error("Invalid or Expire Token");
-        } else if (error.status === 404) {
-          toast.error("User Not Found");
-        } else if (error.status === 409) {
-          toast.error("Account is Already Verified");
+        if (error.response?.status === 401) {
+          notifyError("Invalid or expired token.");
+        } else if (error.response?.status === 404) {
+          notifyError("User not found.");
+        } else if (error.response?.status === 409) {
+          notifyError("Account is already verified.");
           navigate("/login");
         } else {
           notifyError(
@@ -90,7 +60,7 @@ function Otp() {
     };
 
     if (type === "login") sendOtp();
-  }, []);
+  }, [api, type, navigate]);
 
   const handleChange = (element, index) => {
     const newOtp = [...otp];
@@ -116,10 +86,9 @@ function Otp() {
 
     setLoading(true);
     try {
-      const email = localStorage.getItem("userEmail"); // Retrieve email from localStorage
-      const authtoken = localStorage.getItem("authToken"); // Retrieve email from localStorage
-      if (!email) {
-        notifyError("Email not found. Please register again.");
+      const authtoken = localStorage.getItem("authToken");
+      if (!authtoken) {
+        notifyError("Token not found. Please register again.");
         navigate("/register");
         return;
       }
@@ -131,24 +100,19 @@ function Otp() {
 
       const response = await axios.post(url, {
         otp: otpCode,
-        token: authtoken, // Pass token directly in the payload
+        token: authtoken,
       });
 
       if (response.status === 200 && response.data.status) {
         notifySuccess("OTP verified successfully!");
-        const role = localStorage.getItem("userRole"); // Get the role
+        const role = localStorage.getItem("userRole");
         localStorage.setItem("signupRole", role);
         localStorage.setItem("authToken", response.data.data.token);
-        // localStorage.removeItem("authToken"); // Clean up token
         navigate(type === "forgot" ? "/changepassword" : "/signup/firstStep");
       } else {
         notifyError("Account verification failed. Please try again.");
       }
     } catch (error) {
-      console.error(
-        "Failed to verify OTP:",
-        error.response?.data || error.message
-      );
       notifyError(
         error.response?.data?.message || "An error occurred. Please try again."
       );

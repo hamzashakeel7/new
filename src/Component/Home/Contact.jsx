@@ -13,7 +13,7 @@ const Contact = () => {
       <h2 className="text-center text-2xl lg:text-3xl font-bold text-purple-600 mb-6 mt-7 lg:mt-0">
         Contact Us
       </h2>
-      <div className="relative w-full lg:max-w-[75vw] mx-auto h-64">
+      <div className="relative w-full lg:max-w-[85vw] mx-auto h-64">
         {/* Larger background box with image and overlay */}
         <div className="absolute inset-0 rounded-lg overflow-hidden">
           <img
@@ -25,7 +25,7 @@ const Contact = () => {
         </div>
 
         {/* Three overlay boxes */}
-        <div className="absolute inset-0 grid grid-cols-2 p-3 lg:flex justify-center items-center gap-2 lg:gap-6">
+        <div className="absolute inset-0 grid grid-cols-2 p-3 lg:flex justify-center items-center gap-2 lg:gap-14">
           {titles.map((title, index) => (
             <div
               key={index}
