@@ -12,13 +12,13 @@ const ServiceInfoform = () => {
 
   
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-lg">
+    <div className=" w-[80vw] mx-auto  bg-white rounded-lg p-6 shadow-lg">
       <div className="flex justify-between items-center border-b pb-2 mb-4">
         <h2 className="text-xl font-semibold flex items-center">
           <span role="img" aria-label="service-icon" className="mr-2">📄</span> Service Information
         </h2>
         <button
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 text-3xl hover:text-gray-700"
               
               >
                 &times;
@@ -149,9 +149,9 @@ const ServiceInfoform = () => {
   </div>
  
 </div>
-<div className='space-x-4 items-end justify-end ml-96 pl-36'>
+<div className='space-x-4 items-end justify-end ml-96 pl-96'>
   <button className='text-purple-500'>Cancel</button>
-  <button className='text-white bg-purple-600 h-10 rounded-lg'>Upload</button>
+  <button className='text-white bg-purple-600 h-10 px-2 py-2 rounded-lg'>Upload</button>
   </div>
 
 <div className='' ><button className='bg-purple-700 w-full mt-5 h-10 rounded-lg text-white'>Save</button></div>

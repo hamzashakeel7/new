@@ -136,7 +136,7 @@ export default function MyPropertiesServices() {
                   <td className="p-4 text-sm">$99.99</td>
                   <td className="p-4">
                     <div className="flex flex-wrap gap-2">
-                      <button className="text-blue-600 flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center space-x-2 text-sm">
                         <svg
                           width="15"
                           height="15"
@@ -151,7 +151,7 @@ export default function MyPropertiesServices() {
                         </svg>
                         <Link to="/nonprofit/Serviceinfoform">Edit</Link>
                       </button>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center space-x-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -168,7 +168,7 @@ export default function MyPropertiesServices() {
                         </svg>
                         Cancel
                       </button>
-                      <button className="text-red-600 flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center space-x-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -290,7 +290,7 @@ export default function MyPropertiesServices() {
                 <td className="p-4">North Carolina</td>
                 <td className="p-4">$255,000</td>
                 <td className="p-4 space-x-4 flex justify-start">
-                  <button className="text-blue-600 flex items-center space-x-2 text-sm">
+                  <button className=" flex items-center space-x-2 text-sm">
                     <svg
                       width="15"
                       height="15"
@@ -305,7 +305,7 @@ export default function MyPropertiesServices() {
                     </svg>
                     <Link to="/nonprofit/propertyform">Edit</Link>
                   </button>
-                  <button className="text-red-600 flex items-center space-x-2 text-sm">
+                  <button className=" flex items-center space-x-2 text-sm">
                     <svg
                       width="14"
                       height="14"

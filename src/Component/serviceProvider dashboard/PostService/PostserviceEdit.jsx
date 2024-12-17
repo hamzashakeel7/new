@@ -22,7 +22,7 @@ const PostFormedit = () => {
 
      
       {/* Form Section */}
-      <div className="rounded-lg p-8 bg-white w-[90vw] md:w-[90vw] lg:w-[75vw] max-h-[90vh] overflow-y-auto relative6">
+      <div className="rounded-lg p-8 bg-white w-[70vw] md:w-[90vw] lg:w-[75vw] max-h-[90vh] overflow-y-auto relative">
       <div>
         <div>
             <h3>Post a Property or Service</h3>
@@ -84,7 +84,7 @@ const PostFormedit = () => {
           </svg>
           Post a Service or Property
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Property Form Fields */}
           <div>
             <label className="block text-gray-600 text-sm font-medium mb-2">

@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
   useLocation,
+  BrowserRouter,
 } from "react-router-dom";
 import Login from "./authform/Login";
 import Register from "./authform/Register";
@@ -71,6 +72,7 @@ function App() {
   return (
     <>
       {/* Single BrowserRouter for the whole app */}
+         
       <div className="App" style={{ overflow: "hidden" }}>
         {/* AnimatePresence is used to handle route transitions */}
         <AnimatePresence mode="wait">
@@ -83,7 +85,7 @@ function App() {
             <Route path="/property" element={<Property />} />
             <Route path="/propertyservice" element={<MyPropertiesServices/>} />
             <Route path="/propertydetail" element={<PropertyDetail />} />
-            <Route path="/PropertyService" element={<Properties />} />
+            <Route path="/Properties" element={<Properties/>} />
             <Route path="/cardiac" element={<CardiacCareService />} />
             <Route path="/travel" element={<TravelService />} />
             {/* User dashboard route */}
@@ -231,7 +233,9 @@ function App() {
             <Route path="*" element={<Notfound />} /> {/* Optional 404 page */}
           </Routes>
         </AnimatePresence>
+        
       </div>
+     
     </>
   );
 }

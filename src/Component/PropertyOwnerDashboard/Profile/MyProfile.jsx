@@ -422,83 +422,52 @@ export default function MyProfile() {
             </div>
 
             {/* Upload Sections */}
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card className="col-span-1">
-                <CardHeader>
-                  <CardTitle className="text-lg">
-                    Upload Product Portfolio
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-6 cursor-pointer hover:border-primary">
-                    <Upload className="h-10 w-10 text-muted-foreground mb-2" />
-                    <p className="text-sm text-muted-foreground text-center">
-                      Drop files here or click to upload
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="col-span-1">
-                <CardHeader>
-                  <CardTitle className="text-lg">Upload Awards</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-6 cursor-pointer hover:border-primary">
-                    <Upload className="h-10 w-10 text-muted-foreground mb-2" />
-                    <p className="text-sm text-muted-foreground text-center">
-                      Drop files here or click to upload
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="col-span-1">
-                <CardHeader>
-                  <CardTitle className="text-lg">Upload Testimonials</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-6 cursor-pointer hover:border-primary">
-                    <Upload className="h-10 w-10 text-muted-foreground mb-2" />
-                    <p className="text-sm text-muted-foreground text-center">
-                      Drop files here or click to upload
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="col-span-1">
-                <CardHeader>
-                  <CardTitle className="text-lg">
-                    Upload Certifications
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-6 cursor-pointer hover:border-primary">
-                    <Upload className="h-10 w-10 text-muted-foreground mb-2" />
-                    <p className="text-sm text-muted-foreground text-center">
-                      Drop files here or click to upload
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="col-span-1">
-                <CardHeader>
-                  <CardTitle className="text-lg">
-                    Specialty Designator or recognized Pr...
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-6 cursor-pointer hover:border-primary">
-                    <Upload className="h-10 w-10 text-muted-foreground mb-2" />
-                    <p className="text-sm text-muted-foreground text-center">
-                      Drop files here or click to upload
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            {/* Upload Sections */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {["Product Portfolio", "Awards", "Testimonials", "Certifications"].map((label, index) => (
+    <div key={index} className="bg-white border rounded-lg shadow-md p-4">
+      <h4 className="text-lg md:text-xl font-semibold mb-4 text-center">{label}</h4>
+      <div className="border-dashed border-2 border-gray-300 p-6 text-center rounded-lg flex flex-col items-center justify-center gap-2">
+        <svg
+          width="66"
+          height="52"
+          viewBox="0 0 66 52"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mx-auto mb-2"
+        >
+          <path
+            d="M33 50.635L33 26.945V31.065"
+            stroke="#6F7787"
+            strokeWidth="2.472"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+          />
+          <path
+            d="M21.6699 38.305L32.9999 26.975L44.3299 38.305"
+            stroke="#6F7787"
+            strokeWidth="2.472"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+          />
+          <path
+            d="M41.2397 50.6055C54.1895 49.5253 64.092 38.6031 63.9021 25.6098C63.7121 12.6164 53.4946 1.98838 40.5188 1.28711C27.5429 0.585839 16.2395 10.0508 14.6503 22.948C7.27779 23.6796 1.77369 30.0632 2.13497 37.4631C2.49626 44.863 8.59604 50.68 16.0047 50.69L24.7597 50.69"
+            stroke="#6F7787"
+            strokeWidth="2.472"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+        </svg>
+        <span className="font-bold text-gray-800">Drag files here</span>
+        <span className="text-gray-500 text-sm">Supported format: PNG, JPG</span>
+        <span className="text-gray-500 text-sm">OR</span>
+        <span className="text-purple-600 font-semibold cursor-pointer hover:underline">
+          Browse files
+        </span>
+      </div>
+    </div>
+  ))}
+</div>
 
             <div className="mt-6 flex justify-end gap-4">
               <Button variant="outline">Edit</Button>

@@ -1,15 +1,40 @@
-import React from "react";
-
-import banner from "../../../assets/Serviceasset/sevicebanner.png";
-
-import prop1 from "../../../assets/Serviceasset/sevicebanner.png";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import banner from "../../../assets/Serviceasset/sevicebanner.png";
+import prop1 from "../../../assets/Serviceasset/sevicebanner.png";
+
 export default function MyPropertiesServices() {
+  // State to handle the search input
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Sample properties data
+  const properties = [
+    {
+      id: 1,
+      name: "Central House",
+      address: "North Carolina",
+      price: "$255,000",
+      image: prop1,
+    },
+    {
+      id: 2,
+      name: "Lakeview Apartment",
+      address: "New York",
+      price: "$350,000",
+      image: prop1,
+    },
+  ];
+
+  // Filter properties based on the search query
+  const filteredProperties = properties.filter((property) =>
+    property.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="p-8 bg-gray-100">
       {/* Properties Table */}
-      <div className=" overflow-x-auto bg-white shadow-lg rounded-lg p-6">
+      <div className="overflow-x-auto bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
           <svg
             width="24"
@@ -36,7 +61,17 @@ export default function MyPropertiesServices() {
             <circle cx="2.19095" cy="2.3815" r="2.19095" fill="#949494" />
           </svg>
         </h2>
-        <table className="table-auto  w-full border-b text-left border-collapse">
+        {/* Search Bar */}
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Search properties..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <table className="table-auto w-full border-b text-left border-collapse">
           <thead>
             <tr className="border-b">
               <th className="p-4">Thumbnail Image</th>
@@ -47,18 +82,18 @@ export default function MyPropertiesServices() {
             </tr>
           </thead>
           <tbody>
-            {[...Array(2)].map((_, i) => (
-              <tr key={i} className="border-b">
+            {filteredProperties.map((property) => (
+              <tr key={property.id} className="border-b">
                 <td className="p-4">
                   <img
-                    src={prop1}
+                    src={property.image}
                     alt="Thumbnail"
                     className="h-16 w-16 object-cover rounded"
                   />
                 </td>
-                <td className="p-4">Central House</td>
-                <td className="p-4">North Carolina</td>
-                <td className="p-4">$255,000</td>
+                <td className="p-4">{property.name}</td>
+                <td className="p-4">{property.address}</td>
+                <td className="p-4">{property.price}</td>
                 <td className="p-4 space-x-4 flex justify-start">
                   <button className="text-blue-600 flex items-center space-x-2 text-sm">
                     <svg
@@ -86,37 +121,37 @@ export default function MyPropertiesServices() {
                       <path
                         d="M11.5599 5.3L11.5599 12.14C11.5599 12.7696 11.0495 13.28 10.4199 13.28L3.57994 13.28C2.95034 13.28 2.43994 12.7696 2.43994 12.14L2.43994 5.3"
                         stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
+                        strokeWidth="1.368"
+                        strokeMiterlimit="10"
+                        strokeLinecap="round"
                       />
                       <path
                         d="M0.72998 3L13.27 3"
                         stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.368"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                       <path
                         d="M4.71997 3L4.71997 0.720001L9.27997 0.720001V3"
                         stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.368"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                       <path
                         d="M8.71004 7L5.29004 10.42"
                         stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.368"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                       <path
                         d="M8.71004 10.42L5.29004 7"
                         stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
+                        strokeWidth="1.368"
+                        strokeMiterlimit="10"
+                        strokeLinecap="square"
                       />
                     </svg>
                     Delete
@@ -126,6 +161,11 @@ export default function MyPropertiesServices() {
             ))}
           </tbody>
         </table>
+        {filteredProperties.length === 0 && (
+          <p className="text-center text-gray-500 mt-4">
+            No properties match your search.
+          </p>
+        )}
       </div>
     </div>
   );

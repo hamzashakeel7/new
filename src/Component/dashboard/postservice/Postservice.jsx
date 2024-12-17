@@ -109,7 +109,7 @@ const PostPropertyForm = ({ service, onClose }) => {
       </div>
       <div className="flex mb-6">
         {/*close*/}
-        <button onClick={() => setSelectedInvoice()} variant="ghost" size="sm">
+        <button onClick={()=>navigate('/dashboard/services')} variant="ghost" size="sm">
           <svg
             width="26"
             height="26"
@@ -302,47 +302,53 @@ const PostPropertyForm = ({ service, onClose }) => {
       </div>
       {/* Property Pictures/Videos Section */}
       <div className="mb-8">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Property Pictures/Videos
-        </label>
-        <div className="flex space-x-4">
-          <div className="w-1/4">
-            <img
-              src={prop1}
-              alt="Property 1"
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-          <div className="w-1/4">
-            <img
-              src={prop2}
-              alt="Property 2"
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-          <div className="w-1/4">
-            <img
-              src={prop3}
-              alt="Property 3"
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-          <div className="w-1/4">
-            <img
-              src={prop4}
-              alt="Property 4"
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-          <div className="w-1/4">
-            <img
-              src={prop5}
-              alt="Property 5"
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-        </div>
-      </div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Property Pictures/Videos
+  </label>
+  <div className="flex space-x-4">
+    {/* Image 1 */}
+    <div className="flex-1 aspect-square">
+      <img
+        src={prop1}
+        alt="Property 1"
+        className="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    {/* Image 2 */}
+    <div className="flex-1 aspect-square">
+      <img
+        src={prop2}
+        alt="Property 2"
+        className="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    {/* Image 3 */}
+    <div className="flex-1 aspect-square">
+      <img
+        src={prop3}
+        alt="Property 3"
+        className="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    {/* Image 4 */}
+    <div className="flex-1 aspect-square">
+      <img
+        src={prop4}
+        alt="Property 4"
+        className="w-full h-full object-cover rounded-md"
+      />
+    </div>
+    {/* Image 5 */}
+    <div className="flex-1 aspect-square">
+      <img
+        src={prop5}
+        alt="Property 5"
+        className="w-full h-full object-cover rounded-md"
+      />
+    </div>
+  </div>
+</div>
+
 
       {/* Property Action Dropdown */}
       <div className="relative items-end justify-end flex">

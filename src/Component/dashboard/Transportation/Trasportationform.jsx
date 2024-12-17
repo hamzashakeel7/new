@@ -1,11 +1,14 @@
 import React from "react";
 import img from "../../../assets/vehicle.png"
+import { useNavigate } from "react-router-dom";
 
 const Transport = () => {
+
+  const navigate=useNavigate();
   return (
     <div className="w-4/5 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="flex justify-between items-center p-4 bg-gray-100 border-b">
-        <h2 className="text-lg font-semibold flex items-center">
+        <h2 className="text-lg font-semibold gap-3 flex items-center">
           <i className="mr-2 text-blue-500"></i><svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.99995 24L1.94995 24L1.94995 2L19.95 2L19.95 13" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M6.00342 8L15.9564 8" stroke="#004A61" stroke-width="2.4" stroke-miterlimit="10" stroke-linecap="square"/>
@@ -17,7 +20,7 @@ const Transport = () => {
 
 Transportation
         </h2>
-        <button className=" font-bold"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button onClick={()=> navigate("/dashboard/services")} className=" font-bold"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M18.1257 5.98047L6.08569 18.0205" stroke="#323743" stroke-width="2.064" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M18.1257 18.0205L6.08569 5.98047" stroke="#323743" stroke-width="2.064" stroke-miterlimit="10" stroke-linecap="square"/>
 </svg>
