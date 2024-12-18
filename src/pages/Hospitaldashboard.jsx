@@ -27,9 +27,6 @@ import ServiceInfoform from "../Component/Hospital/Serviceinfo/Serviceinfo";
 
 import Transport from "../Component/Hospital/Transport/Transport";
 
-
-
-
 export function HospitalDashboard() {
   const { section } = useParams();
   const [isOpen, setIsOpen] = useState(window.innerWidth <= 1024);
@@ -63,8 +60,8 @@ export function HospitalDashboard() {
 
             {section === "livechat" && <LiveChat />}
             {section === "My Services" && <MyServices />}
-            {section === "Service Information" &&<ServiceInfoform/>}
-            {section === "Transportation" &&<Transport/>}
+            {section === "Service Information" && <ServiceInfoform />}
+            {section === "Transportation" && <Transport />}
 
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}

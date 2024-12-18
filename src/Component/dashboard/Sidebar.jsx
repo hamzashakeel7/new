@@ -55,7 +55,11 @@ export function DashboardSidebar({ isOpen, toggleSidebar }) {
     }
   };
 
+  // Handle logout
   const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("name");
+    localStorage.removeItem("userRole");
     navigate("/");
   };
 

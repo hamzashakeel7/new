@@ -214,6 +214,44 @@ export default function MyProfile() {
     },
   ];
 
+  // the saved data from signup journey to be displayed in the myprofile setion
+  const [profileData, setProfileData] = React.useState({
+    firstName: "",
+    lastName: "",
+    mobileNumber: "",
+    address: "",
+    city: "",
+    email: "",
+    education: "",
+    countryOfBirth: "",
+    birthDate: "",
+  });
+
+  // fecting data from localStorage
+  React.useEffect(() => {
+    const savedData = {
+      firstName: localStorage.getItem("name") || "",
+      lastName: localStorage.getItem("lastName") || "",
+      mobileNumber: localStorage.getItem("mobileNumber") || "",
+      address: localStorage.getItem("address") || "",
+      city: localStorage.getItem("city") || "",
+      email: localStorage.getItem("userEmail") || "",
+      education: localStorage.getItem("education") || "",
+      countryOfBirth: localStorage.getItem("countryOfBirth") || "",
+      birthDate: localStorage.getItem("birthDate") || "",
+    };
+    setProfileData(savedData);
+  }, []);
+
+  // function to change data from the profile
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
   return (
     <>
       <div className="container mx-auto">
@@ -244,30 +282,55 @@ export default function MyProfile() {
                   </clipPath>
                 </defs>
               </svg>
-              Property Owner Information
+              Property Owner Personal Information
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" placeholder="Enter first name" />
+                <Input
+                  id="firstName"
+                  placeholder="Enter first name"
+                  value={profileData.firstName}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" placeholder="Enter last name" />
+                <Input
+                  id="lastName"
+                  placeholder="Enter last name"
+                  value={profileData.lastName}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="mobileNumber">Mobile Number</Label>
-                <Input id="mobileNumber" placeholder="Enter mobile number" />
+                <Input
+                  id="mobileNumber"
+                  placeholder="Enter mobile number"
+                  value={profileData.mobileNumber}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="address">Address</Label>
-                <Input id="address" placeholder="Enter address" />
+                <Input
+                  id="address"
+                  placeholder="Enter address"
+                  value={profileData.address}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="city">City</Label>
-                <Input id="city" placeholder="Enter city" />
+                <Input
+                  id="city"
+                  placeholder="Enter city"
+                  value={profileData.city}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="state">State</Label>
@@ -289,11 +352,22 @@ export default function MyProfile() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Enter email" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter email"
+                  value={profileData.email}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="education">Education</Label>
-                <Input id="education" placeholder="Enter education" />
+                <Input
+                  id="education"
+                  placeholder="Enter education"
+                  value={profileData.education}
+                  onChange={handleChange}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="countryOfBirth">Country of Birth</Label>

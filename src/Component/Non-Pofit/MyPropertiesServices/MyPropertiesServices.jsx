@@ -10,44 +10,49 @@ export default function MyPropertiesServices() {
     <div className="p-8 bg-gray-100 min-h-screen">
       {/* Header Section */}
       <div
-  className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
-  style={{ backgroundImage: `url(${banner})` }}
->
-  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">My Properties/ Services</h1>
-      <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-0">
-        {/* Search Input */}
-        <input
-          type="text"
-          placeholder="Search for services"
-          className="w-[40vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
-        />
-        {/* Search Button */}
-        <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg flex justify-center items-center">
-          Search
-        </button>
-        {/* Filter Button */}
-        <button className="w-full sm:w-auto sm:ml-4 mt-2 sm:mt-0 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-2"
-          >
-            <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
-            <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
-            <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
-            <path d="M11.25 16.875H6.75V14.625H11.25V16.875Z" fill="white" />
-          </svg>
-          Filter
-        </button>
+        className="relative bg-cover bg-center h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md"
+        style={{ backgroundImage: `url(${banner})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="text-center text-white px-4 sm:px-6 lg:px-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+              My Properties/ Services
+            </h1>
+            <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-0">
+              {/* Search Input */}
+              <input
+                type="text"
+                placeholder="Search for services"
+                className="w-[40vw] sm:w-[40rem] p-2 rounded-l-lg border-none text-lg focus:ring-0"
+              />
+              {/* Search Button */}
+              <button className="w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-r-lg flex justify-center items-center">
+                Search
+              </button>
+              {/* Filter Button */}
+              <button className="w-full sm:w-auto sm:ml-4 mt-2 sm:mt-0 px-6 py-2 bg-purple-600 text-white rounded-lg flex justify-center items-center">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mr-2"
+                >
+                  <path d="M0 3.375H18V1.125H0V3.375Z" fill="white" />
+                  <path d="M2.25 7.875H15.75V5.625H2.25V7.875Z" fill="white" />
+                  <path d="M4.5 12.375H13.5V10.125H4.5V12.375Z" fill="white" />
+                  <path
+                    d="M11.25 16.875H6.75V14.625H11.25V16.875Z"
+                    fill="white"
+                  />
+                </svg>
+                Filter
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
@@ -149,7 +154,7 @@ export default function MyPropertiesServices() {
                         </svg>
                         <Link to="/nonprofit/Serviceinfoform">Edit</Link>
                       </button>
-                      <button className=" flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center gap-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -166,7 +171,7 @@ export default function MyPropertiesServices() {
                         </svg>
                         Cancel
                       </button>
-                      <button className=" flex items-center space-x-2 text-sm">
+                      <button className=" flex items-center gap-2 text-sm">
                         <svg
                           width="14"
                           height="14"
@@ -219,141 +224,6 @@ export default function MyPropertiesServices() {
             </tbody>
           </table>
         </div>
-      </div>
-
-      {/* Sorting Section */}
-      <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-bold mb-4">Sort By</h2>
-        <div className="flex flex-col sm:flex-row sm:space-x-6">
-          <div className="mb-4 sm:mb-0">
-            <label className="block text-gray-700 mb-2">From Date</label>
-            <input type="date" className="w-full p-2 border rounded" />
-          </div>
-          <div>
-            <label className="block text-gray-700 mb-2">To Date</label>
-            <input type="date" className="w-full p-2 border rounded" />
-          </div>
-        </div>
-      </div>
-
-      {/* Properties Table */}
-      <div className="mt-12 overflow-x-auto bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl flex font-bold mb-4 items-center">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-2"
-          >
-            <path
-              d="M22.9564 22.4348H20.6086V1.5652H21.3912C21.8234 1.5652 22.1738 1.21481 22.1738 0.782578C22.1738 0.350344 21.8234 0 21.3912 0C19.8626 0 3.31816 0 2.60857 0C2.17638 0 1.82595 0.350391 1.82595 0.782625C1.82595 1.21486 2.17634 1.56525 2.60857 1.56525H3.3912V22.4348H1.04337C0.61118 22.4348 0.260742 22.7852 0.260742 23.2174C0.260742 23.6497 0.611133 24 1.04337 24C1.51835 24 20.9871 24 22.9564 24C23.3886 24 23.739 23.6496 23.739 23.2174C23.739 22.7851 23.3886 22.4348 22.9564 22.4348ZM19.0434 22.4348H4.9564V1.5652H19.0434V22.4348Z"
-              fill="black"
-            />
-          </svg>
-          My Properties
-          <svg
-            width="5"
-            height="5"
-            viewBox="0 0 5 5"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-2"
-          >
-            <circle cx="2.19095" cy="2.3815" r="2.19095" fill="#949494" />
-          </svg>
-        </h2>
-        <table className="table-auto  w-full border-b text-left border-collapse">
-          <thead>
-            <tr className="border-b">
-              <th className="p-4">Thumbnail Image</th>
-              <th className="p-4">Property Name</th>
-              <th className="p-4">Address</th>
-              <th className="p-4">Price</th>
-              <th className="p-4">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(2)].map((_, i) => (
-              <tr key={i} className="border-b">
-                <td className="p-4">
-                  <img
-                    src={prop1}
-                    alt="Thumbnail"
-                    className="h-16 w-16 object-cover rounded"
-                  />
-                </td>
-                <td className="p-4">Central House</td>
-                <td className="p-4">North Carolina</td>
-                <td className="p-4">$255,000</td>
-                <td className="p-4 space-x-4 flex justify-start">
-                  <button className=" flex items-center space-x-2 text-sm">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4.13388 14.8751L14.1339 4.87509L10.125 0.866211L0.125 10.8663V14.8751H4.13388ZM10.125 2.63398L12.3662 4.87509L10.75 6.49125L8.5089 4.25011L10.125 2.63398ZM7.62498 5.13399L9.86615 7.37509L3.61612 13.6251H1.375V11.384L7.62498 5.13399Z"
-                        fill="#171A1F"
-                      />
-                    </svg>
-                    <Link to="/nonprofit/propertyform">Edit</Link>
-                  </button>
-                  <button className=" flex items-center space-x-2 text-sm">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.5599 5.3L11.5599 12.14C11.5599 12.7696 11.0495 13.28 10.4199 13.28L3.57994 13.28C2.95034 13.28 2.43994 12.7696 2.43994 12.14L2.43994 5.3"
-                        stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M0.72998 3L13.27 3"
-                        stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
-                      />
-                      <path
-                        d="M4.71997 3L4.71997 0.720001L9.27997 0.720001V3"
-                        stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
-                      />
-                      <path
-                        d="M8.71004 7L5.29004 10.42"
-                        stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
-                      />
-                      <path
-                        d="M8.71004 10.42L5.29004 7"
-                        stroke="#565D6D"
-                        stroke-width="1.368"
-                        stroke-miterlimit="10"
-                        stroke-linecap="square"
-                      />
-                    </svg>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );

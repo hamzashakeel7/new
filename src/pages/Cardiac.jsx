@@ -1,16 +1,29 @@
 import { CheckCheck, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../Component/Navbar";
 import { useState } from "react";
 import hero2 from "../assets/cardiac&travel/hero.png";
-import health from "../assets/cardiac&travel/health.png"
+import health from "../assets/cardiac&travel/health.png";
 import slider4 from "../assets/cardiac&travel/slider1.png";
 import slider5 from "../assets/cardiac&travel/slider2.png";
 import slider6 from "../assets/cardiac&travel/slider3.png";
 import bgImg from "../assets/cardiac&travel/bg-img.png";
 import Newsletter from "../Component/Home/Newsletter";
 import { Footer } from "../Component/Footer";
-import {Company,CompanyAddress,Email ,Phone ,Contact,Officeh,Website,Geography,Industry,Serviceh,Specialitys,Servicea } from "../assets/svg"
+import {
+  Company,
+  CompanyAddress,
+  Email,
+  Phone,
+  Contact,
+  Officeh,
+  Website,
+  Geography,
+  Industry,
+  Serviceh,
+  Specialitys,
+  Servicea,
+} from "../assets/svg";
 
 const serviceSlides = [
   {
@@ -75,26 +88,47 @@ const serviceSlides = [
   },
 ];
 const serviceData = [
-  { icon: <Company/>, label: "Company Name", value: "SilverTLC" },
-  { icon: <CompanyAddress/>, label: "Company Address", value: "Lorem Ipsum dolor sit" },
-  { icon: <Email/>, label: "Company Email", value: "Lorem Ipsum dolor sit" },
-  { icon: <Phone/>, label: "Company Phone", value: "Lorem Ipsum dolor sit" },
-  { icon: <Contact/>, label: "Contact Person", value: "SilverTLC" },
-  { icon: <Officeh/>, label: "Office Hours", value: "Lorem Ipsum dolor sit" },
-  { icon: <Website/>, label: "Website", value: "Lorem Ipsum dolor sit" },
-  { icon: <Geography/>, label: "Geographical Area Serviced", value: "Lorem Ipsum dolor sit" },
-  { icon: <Industry/>, label: "Industry", value: "Silvertlc" },
-  { icon: <Serviceh/>, label: "Service Provided", value: "Lorem Ipsum dolor sit" },
-  { icon: <Specialitys/>, label: "Specialty Service", value: "Lorem Ipsum dolor sit" },
-  { icon: <Servicea/>, label: "Service Schedule in Advance", value: "Lorem Ipsum dolor sit" },
+  { icon: <Company />, label: "Company Name", value: "SilverTLC" },
+  {
+    icon: <CompanyAddress />,
+    label: "Company Address",
+    value: "Lorem Ipsum dolor sit",
+  },
+  { icon: <Email />, label: "Company Email", value: "Lorem Ipsum dolor sit" },
+  { icon: <Phone />, label: "Company Phone", value: "Lorem Ipsum dolor sit" },
+  { icon: <Contact />, label: "Contact Person", value: "SilverTLC" },
+  { icon: <Officeh />, label: "Office Hours", value: "Lorem Ipsum dolor sit" },
+  { icon: <Website />, label: "Website", value: "Lorem Ipsum dolor sit" },
+  {
+    icon: <Geography />,
+    label: "Geographical Area Serviced",
+    value: "Lorem Ipsum dolor sit",
+  },
+  { icon: <Industry />, label: "Industry", value: "Silvertlc" },
+  {
+    icon: <Serviceh />,
+    label: "Service Provided",
+    value: "Lorem Ipsum dolor sit",
+  },
+  {
+    icon: <Specialitys />,
+    label: "Specialty Service",
+    value: "Lorem Ipsum dolor sit",
+  },
+  {
+    icon: <Servicea />,
+    label: "Service Schedule in Advance",
+    value: "Lorem Ipsum dolor sit",
+  },
 ];
 const groupedData = [
   serviceData.slice(0, 4), // First table group
   serviceData.slice(4, 8), // Second table group
-  serviceData.slice(8),    // Third table group
+  serviceData.slice(8), // Third table group
 ];
 
 export default function TravelService() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -109,26 +143,26 @@ export default function TravelService() {
     );
   };
 
+  const handleBreadcrumbClick = () => {
+    navigate("/Properties");
+  };
+
   return (
     <>
       <Navbar />
       <div className="min-h-screen">
-        {/* Breadcrumb */}
-        <div className="bg-white px-6 py-4">
-          <div className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-600 hover:text-purple-600">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
-            <Link
-              href="/query-services"
-              className="text-gray-600 hover:text-purple-600"
-            >
-              Query Services
-            </Link>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
-            <span className="text-purple-600">Cardiac care Service</span>
-          </div>
+        {/* Breadcrumbs */}
+        <div className="mb-4 text-sm lg:px-24 px-3">
+          <button
+            onClick={handleBreadcrumbClick}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            Properties
+          </button>
+          <span className="mx-2 text-gray-400">&gt;</span>
+          <span className="text-purple-600 font-medium">
+            Cardiac Care service
+          </span>
         </div>
 
         {/* Hero Section */}
@@ -210,100 +244,114 @@ export default function TravelService() {
 
           {/* slider with items */}
           <div className="relative bg-white rounded-lg p-6 shadow-sm border w-full">
-  {/* Section Header */}
-  <div className="flex items-center gap-2 mb-6">
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    </svg>
-    <h2 className="text-lg font-semibold">Service Information</h2>
-  </div>
+            {/* Section Header */}
+            <div className="flex items-center gap-2 mb-6">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h2 className="text-lg font-semibold">Service Information</h2>
+            </div>
 
-  {/* Carousel Container */}
-  <div className="relative flex items-center">
-    {/* Left Button */}
-    <button
-      onClick={prevSlide}
-      className="absolute left-0 -ml-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
-    >
-     <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538406 6.65686 0.928931L0.292893 7.29289ZM22 7L1 7L1 9L22 9L22 7Z" fill="#7415E2"/>
-</svg>
+            {/* Carousel Container */}
+            <div className="relative flex items-center">
+              {/* Left Button */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-0 -ml-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
+              >
+                <svg
+                  width="22"
+                  height="16"
+                  viewBox="0 0 22 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538406 6.65686 0.928931L0.292893 7.29289ZM22 7L1 7L1 9L22 9L22 7Z"
+                    fill="#7415E2"
+                  />
+                </svg>
+              </button>
 
-    </button>
+              {/* Carousel Slides */}
+              {/* Carousel Slides */}
+              {/* Carousel Container */}
+              <div className="overflow-hidden w-full">
+                <div
+                  className="flex transition-transform duration-300 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentSlide * 100}%)`, // Slide logic
+                  }}
+                >
+                  {serviceSlides.map((slide, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 px-2 w-full lg:w-1/4" // w-full for mobile, lg:w-1/4 for PC
+                    >
+                      <img
+                        src={slide.image}
+                        alt={`Service ${index + 1}`}
+                        className="w-full h-48 sm:h-64 object-cover rounded-lg shadow"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-  {/* Carousel Slides */}
-{/* Carousel Slides */}
-{/* Carousel Container */}
-<div className="overflow-hidden w-full">
-  <div
-    className="flex transition-transform duration-300 ease-in-out"
-    style={{
-      transform: `translateX(-${currentSlide * 100}%)`, // Slide logic
-    }}
-  >
-    {serviceSlides.map((slide, index) => (
-      <div
-        key={index}
-        className="flex-shrink-0 px-2 w-full lg:w-1/4" // w-full for mobile, lg:w-1/4 for PC
-      >
-        <img
-          src={slide.image}
-          alt={`Service ${index + 1}`}
-          className="w-full h-48 sm:h-64 object-cover rounded-lg shadow"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+              {/* Right Button */}
+              <button
+                onClick={nextSlide}
+                className="absolute right-0 -mr-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
+              >
+                <svg
+                  width="22"
+                  height="16"
+                  viewBox="0 0 22 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.7071 8.70711C22.0976 8.31659 22.0976 7.68342 21.7071 7.2929L15.3431 0.928935C14.9526 0.53841 14.3195 0.53841 13.9289 0.928935C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM-1.74846e-07 9L21 9L21 7L1.74846e-07 7L-1.74846e-07 9Z"
+                    fill="#7415E2"
+                  />
+                </svg>
+              </button>
+            </div>
 
-
-    {/* Right Button */}
-    <button
-      onClick={nextSlide}
-      className="absolute right-0 -mr-5 z-10 rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition shadow"
-    >
-   <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.7071 8.70711C22.0976 8.31659 22.0976 7.68342 21.7071 7.2929L15.3431 0.928935C14.9526 0.53841 14.3195 0.53841 13.9289 0.928935C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM-1.74846e-07 9L21 9L21 7L1.74846e-07 7L-1.74846e-07 9Z" fill="#7415E2"/>
-</svg>
-
-    </button>
-  </div>
-
-  {/* Grouped Data Section */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-    {groupedData.map((group, index) => (
-      <div
-        key={index}
-        className="bg-white border rounded-lg shadow p-4"
-      >
-        <table className="w-full text-sm">
-          <tbody>
-            {group.map((item, idx) => (
-              <tr key={idx} className="border-b last:border-none">
-                <td className="flex items-center gap-2 p-2 font-medium text-gray-700">
-                  {item.icon}
-                  {item.label}
-                </td>
-                <td className="p-2 text-gray-600">{item.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    ))}
-  </div>
-</div>
-
+            {/* Grouped Data Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+              {groupedData.map((group, index) => (
+                <div
+                  key={index}
+                  className="bg-white border rounded-lg shadow p-4"
+                >
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {group.map((item, idx) => (
+                        <tr key={idx} className="border-b last:border-none">
+                          <td className="flex items-center gap-2 p-2 font-medium text-gray-700">
+                            {item.icon}
+                            {item.label}
+                          </td>
+                          <td className="p-2 text-gray-600">{item.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Service Type and Availability Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-20">
@@ -356,13 +404,11 @@ export default function TravelService() {
             </div>
           </div>
 
-        {/* newsletter & footer */}
-       
+          {/* newsletter & footer */}
+        </div>
+        <Newsletter />
+        <Footer />
       </div>
-      <Newsletter />
-      <Footer />
-      </div>
-      
     </>
   );
 }

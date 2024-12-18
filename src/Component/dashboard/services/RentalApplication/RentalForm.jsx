@@ -10,8 +10,10 @@ import {
 } from "../../../../shadcn/components/ui/Card";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export function RentalApplicationForm() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -55,11 +57,29 @@ export function RentalApplicationForm() {
     }
   };
 
+  // breadcrumb
+  const handleBreadcrumbClick = () => {
+    navigate("/dashboard/propertyform");
+  };
+
   return (
-    <div className="container mx-auto p-0 md:p-6">
+    <div className="container mx-auto p-0">
       <form onSubmit={handleSubmit} className="space-y-8">
         <Card className="bg-gray-100">
           <CardHeader>
+            {/* Breadcrumbs */}
+            <div className="mb-4 text-sm">
+              <button
+                onClick={handleBreadcrumbClick}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                Property Form
+              </button>
+              <span className="mx-2 text-gray-400">&gt;</span>
+              <span className="text-purple-600 font-medium">
+                Rental Application
+              </span>
+            </div>
             <CardTitle className="flex gap-2">
               <svg
                 width="27"

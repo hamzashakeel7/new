@@ -10,9 +10,9 @@ import logo from "../../assets/logo.png";
 export function FirstStep() {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState({
-    firstName: "",
+    firstName: localStorage.getItem("name") || "",
     lastName: "",
-    email: "",
+    email: localStorage.getItem("userEmail") || "",
   });
   const [errorMessage, setErrorMessage] = React.useState("");
 
@@ -29,9 +29,9 @@ export function FirstStep() {
     }
 
     // data Saved to localStorage
-    localStorage.setItem("firstName", firstName);
+    // localStorage.setItem("name", firstName);
     localStorage.setItem("lastName", lastName);
-    localStorage.setItem("email", email);
+    // localStorage.setItem("email", email);
 
     // Navigate to the next step
     navigate("/signup/secondStep");

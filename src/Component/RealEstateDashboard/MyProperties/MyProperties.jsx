@@ -32,9 +32,9 @@ export default function MyPropertiesServices() {
   );
 
   return (
-    <div className="p-8 bg-gray-100">
+    <div className="p-8">
       {/* Properties Table */}
-      <div className="overflow-x-auto bg-white shadow-lg rounded-lg p-6">
+      <div className="overflow-x-auto bg-white rounded-lg p-6">
         <h2 className="text-2xl flex font-bold mb-4 items-center">
           <svg
             width="24"
@@ -88,14 +88,14 @@ export default function MyPropertiesServices() {
                   <img
                     src={property.image}
                     alt="Thumbnail"
-                    className="h-16 w-16 object-cover rounded"
+                    className="h-32 w-48 object-cover rounded"
                   />
                 </td>
                 <td className="p-4">{property.name}</td>
                 <td className="p-4">{property.address}</td>
                 <td className="p-4">{property.price}</td>
-                <td className="p-4 space-x-4 flex justify-start">
-                  <button className=" flex items-center space-x-2 text-sm">
+                <td className="p-4 space-x-4 flex justify-start items-center mt-[3rem]">
+                  <button className=" flex items-center justify-center gap-2 text-sm">
                     <svg
                       width="15"
                       height="15"
@@ -110,7 +110,7 @@ export default function MyPropertiesServices() {
                     </svg>
                     <Link to="/propertyownerdashboard/propertyform">Edit</Link>
                   </button>
-                  <button className=" flex items-center space-x-2 text-sm">
+                  <button className=" flex items-center justify-center gap-2 text-sm">
                     <svg
                       width="14"
                       height="14"

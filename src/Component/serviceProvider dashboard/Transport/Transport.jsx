@@ -1,22 +1,57 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router";
+
+const dashboardPaths = {
+  superadmin: "/superadmin/properties",
+  property: "/propertyownerdashboard/properties",
+  nonprofit: "/nonprofit/MyPropertyServices",
+  realestate: "/realestatedashboard/properties",
+};
+
+const getCurrentDashboard = (pathname) => {
+  const dashboard = Object.keys(dashboardPaths).find((key) =>
+    pathname.includes(key)
+  );
+  return dashboard || "superadmin"; // Default to superadmin if no match found
+};
 
 const Transportform = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleBreadcrumbClick = () => {
+    const currentDashboard = getCurrentDashboard(location.pathname);
+    const path = dashboardPaths[currentDashboard];
+    navigate(path);
+  };
   return (
     <>
       {/* Modal */}
-      <div className=" w-[80vw] mx-auto  rounded-lg p-6 shadow-lg">
-        <div className=" w-full max-w-6xl rounded-lg p-6 overflow-hidden">
+      <div className=" w-[80vw] lg:w-full mx-auto  rounded-lg p-6">
+        <div className=" w-full rounded-lg px-4 overflow-hidden">
           {/* Modal Header */}
-          <div className="flex justify-between items-center border-b pb-2 mb-4">
-            <h2 className="text-lg font-semibold">
-              <span role="img" aria-label="service-icon" className="mr-2">
-                📄
-              </span>
-              Transportation
-            </h2>
-            <button className="text-gray-500 text-3xl hover:text-gray-700">
-              &times;
-            </button>
+          <div className="flex justify-start items-center border-b pb-2 mb-4">
+            <div>
+              {/* Breadcrumbs */}
+              <div className="mb-4 text-sm">
+                <button
+                  onClick={handleBreadcrumbClick}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  post a service / property
+                </button>
+                <span className="mx-2 text-gray-400">&gt;</span>
+                <span className="text-purple-600 font-medium">
+                  Transportation
+                </span>
+              </div>
+              <h2 className="text-lg font-semibold">
+                <span role="img" aria-label="service-icon" className="mr-2">
+                  📄
+                </span>
+                Transportation
+              </h2>
+            </div>
           </div>
 
           {/* Modal Body */}

@@ -2,12 +2,28 @@ import { useNavigate } from "react-router-dom";
 import img from "../../../../assets/vehicle1.png"; // Correct path for your image
 
 const ServiceInformationForm = () => {
-  const navigate=useNavigate()
-  // Handle Image Upload
+  const navigate = useNavigate();
+
+  const handleBreadcrumbClick = () => {
+    navigate("/Dashboard/services");
+  };
 
   return (
-    <div className="w-[80vw] mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="flex justify-between items-center p-4 ">
+    <div className="w-[80vw] lg:w-full mx-auto bg-white rounded-lg overflow-hidden">
+      <div className="flex justify-start items-start flex-col p-4 ">
+        {/* Breadcrumbs */}
+        <div className="mb-4 text-sm px-4">
+          <button
+            onClick={handleBreadcrumbClick}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            My Services
+          </button>
+          <span className="mx-2 text-gray-400">&gt;</span>
+          <span className="text-purple-600 font-medium">
+            Service Information
+          </span>
+        </div>
         <h2 className="text-lg font-semibold flex gap-3 items-center">
           <i className="mr-2 text-blue-500"></i>
           <svg
@@ -62,33 +78,8 @@ const ServiceInformationForm = () => {
           </svg>
           Service Information
         </h2>
-        <button onClick={()=>navigate("/dashboard/services")} className="font-bold">
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.1257 5.98047L6.08569 18.0205"
-              stroke="#323743"
-              stroke-width="2.064"
-              stroke-miterlimit="10"
-              stroke-linecap="square"
-            />
-            <path
-              d="M18.1257 18.0205L6.08569 5.98047"
-              stroke="#323743"
-              stroke-width="2.064"
-              stroke-miterlimit="10"
-              stroke-linecap="square"
-            />
-          </svg>
-        </button>
       </div>
-
-      <div className="p-6">
+      <div className="px-6">
         {/* Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* First Card */}

@@ -1,9 +1,29 @@
+import { useNavigate } from "react-router";
 import { Card } from "../../../shadcn/components/ui/Card";
 
 export default function FilledRentalApplication() {
+  const navigate = useNavigate();
+
+  const handleBreadcrumbClick = () => {
+    navigate("/nonprofit/application");
+  };
+
   return (
     <div className="p-6">
-      <div className="flex items-center mb-6">
+      <div className="flex items-start  mb-6 flex-col">
+        {/* Breadcrumbs */}
+        <div className="mb-4 text-sm">
+          <button
+            onClick={handleBreadcrumbClick}
+            className="text-gray-500 hover:text-gray-700"
+          >
+            Applications
+          </button>
+          <span className="mx-2 text-gray-400">&gt;</span>
+          <span className="text-purple-600 font-medium">
+            Rental Application
+          </span>
+        </div>
         <h2 className="text-lg font-medium">Rental Application</h2>
       </div>
 

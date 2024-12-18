@@ -14,16 +14,16 @@ const PostTypeModal = ({ onClose }) => {
       // Navigate to the specific page based on the selected post type
       switch (selectedPostType) {
         case "Property":
-          navigate("/superadmin/Property");
+          navigate("/realestatedashboard/Property");
           break;
         case "Transportation":
-          navigate("/superadmin/Transportation");
+          navigate("/realestatedashboard/Transportation");
           break;
         case "Service Information":
-          navigate("/superadmin/Service Information");
+          navigate("/realestatedashboard/Service Information");
           break;
         case "Health Care":
-          navigate("/superadmin/Health Care");
+          navigate("/realestatedashboard/Health Care");
           break;
         default:
           break;
@@ -55,6 +55,7 @@ const PostTypeModal = ({ onClose }) => {
             className="block w-full border border-gray-300 rounded-md p-2 text-gray-700"
           >
             <option value="">Select</option>
+            {/* <option value="Property">Property</option> */}
             <option value="Property">Property</option>
             <option value="Transportation">Transportation</option>
             <option value="Service Information">Service Information</option>
@@ -65,7 +66,7 @@ const PostTypeModal = ({ onClose }) => {
         <div className="flex justify-between items-center mt-6">
           <button
             onClick={handleSubmit}
-            className="bg-purple-700 text-white w-full py-2 rounded-lg hover:bg-purple-800"
+            className="bg-purple-700  text-white w-full py-2 rounded-lg hover:bg-purple-800"
           >
             Submit
           </button>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import MyProfile from "../Component/SuperAdmin/MyProfile/MyProfile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import MyProperties from "../Component/RealEstateDashboard/MyProperties/MyProperties";
-import { Applications } from "../Component/serviceProvider dashboard/Applications/Applications";
+import { Applications } from "../Component/SuperAdmin/Applications/Applications";
 import Message from "../Component/dashboard/messages/Messages";
 import { AccountingPage } from "../Component/dashboard/Accounting/AccountingPage";
 import { HelpAndSupport } from "../Component/dashboard/Help&Support/HelpSupport";
@@ -19,6 +19,8 @@ import { MessageBoard } from "../Component/SuperAdmin/messages/MessageBoard";
 import { LiveChat } from "../Component/SuperAdmin/messages/LiveChat";
 import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
+import FilledLeaseForm from "../Component/SuperAdmin/Applications/Filledleaseform";
+import FilledRentalApplication from "../Component/SuperAdmin/Applications/Filledrentalform";
 
 export function SuperAdmin() {
   const { section } = useParams();
@@ -60,6 +62,9 @@ export function SuperAdmin() {
             {section === "Transportation" && <Transportform />}
             {section === "Service Information" && <ServiceInfoform />}
             {section === "Health Care"}
+
+            {section === "lease" && <FilledLeaseForm />}
+            {section === "rental" && <FilledRentalApplication />}
           </main>
         </div>
       </div>

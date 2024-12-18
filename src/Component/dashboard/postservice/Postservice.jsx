@@ -77,36 +77,31 @@ const PostPropertyForm = ({ service, onClose }) => {
     };
   }, []);
 
+  // breadcrumb
+  const handleBreadcrumbClick = () => {
+    navigate("/Dashboard/services");
+  };
+
   return (
     <div className="flex flex-col p-8 bg-white  rounded-lg w-full max-w-11xl mx-auto">
       {/* Header Section */}
-      <div className="flex mb-6">
-        {/*close*/}
-        <button onClick={()=>navigate('/dashboard/services')} variant="ghost" size="sm">
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+      <div className="flex justify-start items-start flex-col mb-6">
+        {/* Breadcrumbs */}
+        <div className="mb-4 text-sm">
+          <button
+            onClick={handleBreadcrumbClick}
+            className="text-gray-500 hover:text-gray-700"
           >
-            <path
-              d="M5.6875 12.1875H21.9375C22.153 12.1875 22.3597 12.2731 22.512 12.4255C22.6644 12.5778 22.75 12.7845 22.75 13C22.75 13.2155 22.6644 13.4222 22.512 13.5745C22.3597 13.7269 22.153 13.8125 21.9375 13.8125H5.6875C5.47201 13.8125 5.26535 13.7269 5.11298 13.5745C4.9606 13.4222 4.875 13.2155 4.875 13C4.875 12.7845 4.9606 12.5778 5.11298 12.4255C5.26535 12.2731 5.47201 12.1875 5.6875 12.1875Z"
-              fill="black"
-            />
-            <path
-              d="M6.02386 12.9991L12.7627 19.7363C12.9153 19.8889 13.001 20.0958 13.001 20.3116C13.001 20.5273 12.9153 20.7343 12.7627 20.8868C12.6102 21.0394 12.4032 21.1251 12.1875 21.1251C11.9717 21.1251 11.7648 21.0394 11.6122 20.8868L4.29974 13.5743C4.22407 13.4988 4.16404 13.4092 4.12308 13.3105C4.08212 13.2118 4.06104 13.1059 4.06104 12.9991C4.06104 12.8922 4.08212 12.7864 4.12308 12.6877C4.16404 12.589 4.22407 12.4993 4.29974 12.4238L11.6122 5.11132C11.7648 4.95876 11.9717 4.87305 12.1875 4.87305C12.4032 4.87305 12.6102 4.95876 12.7627 5.11132C12.9153 5.26389 13.001 5.47081 13.001 5.68657C13.001 5.90233 12.9153 6.10926 12.7627 6.26182L6.02386 12.9991Z"
-              fill="black"
-            />
-          </svg>
-        </button>
+            My Services
+          </button>
+          <span className="mx-2 text-gray-400">&gt;</span>
+          <span className="text-purple-600 font-medium">
+            Post a Service or Property
+          </span>
+        </div>
+        <h2 className="text-2xl font-semibold">Post a Service or Property</h2>
       </div>
 
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Post a Service or Property</h2>
-       
-      </div>
-      
       {/* Property Details Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Left Section */}
@@ -280,53 +275,52 @@ const PostPropertyForm = ({ service, onClose }) => {
       </div>
       {/* Property Pictures/Videos Section */}
       <div className="mb-8">
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Property Pictures/Videos
-  </label>
-  <div className="flex space-x-4">
-    {/* Image 1 */}
-    <div className="flex-1 aspect-square">
-      <img
-        src={prop1}
-        alt="Property 1"
-        className="w-full h-full object-cover rounded-md"
-      />
-    </div>
-    {/* Image 2 */}
-    <div className="flex-1 aspect-square">
-      <img
-        src={prop2}
-        alt="Property 2"
-        className="w-full h-full object-cover rounded-md"
-      />
-    </div>
-    {/* Image 3 */}
-    <div className="flex-1 aspect-square">
-      <img
-        src={prop3}
-        alt="Property 3"
-        className="w-full h-full object-cover rounded-md"
-      />
-    </div>
-    {/* Image 4 */}
-    <div className="flex-1 aspect-square">
-      <img
-        src={prop4}
-        alt="Property 4"
-        className="w-full h-full object-cover rounded-md"
-      />
-    </div>
-    {/* Image 5 */}
-    <div className="flex-1 aspect-square">
-      <img
-        src={prop5}
-        alt="Property 5"
-        className="w-full h-full object-cover rounded-md"
-      />
-    </div>
-  </div>
-</div>
-
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Property Pictures/Videos
+        </label>
+        <div className="flex space-x-4">
+          {/* Image 1 */}
+          <div className="flex-1 aspect-square">
+            <img
+              src={prop1}
+              alt="Property 1"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          {/* Image 2 */}
+          <div className="flex-1 aspect-square">
+            <img
+              src={prop2}
+              alt="Property 2"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          {/* Image 3 */}
+          <div className="flex-1 aspect-square">
+            <img
+              src={prop3}
+              alt="Property 3"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          {/* Image 4 */}
+          <div className="flex-1 aspect-square">
+            <img
+              src={prop4}
+              alt="Property 4"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          {/* Image 5 */}
+          <div className="flex-1 aspect-square">
+            <img
+              src={prop5}
+              alt="Property 5"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* Property Action Dropdown */}
       <div className="relative items-end justify-end flex">

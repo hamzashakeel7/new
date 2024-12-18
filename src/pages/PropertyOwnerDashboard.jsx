@@ -17,6 +17,8 @@ import { MessageBoard } from "../Component/PropertyOwnerDashboard/messages/Messa
 import { LiveChat } from "../Component/PropertyOwnerDashboard/messages/LiveChat";
 import FilledLeaseForm from "../Component/PropertyOwnerDashboard/Application/Filledleaseform";
 import FilledRentalApplication from "../Component/PropertyOwnerDashboard/Application/Filledrentalform";
+import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
+import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 
 export function PropertyOwnerDashboard() {
   const { section } = useParams();
@@ -54,6 +56,10 @@ export function PropertyOwnerDashboard() {
             {section === "livechat" && <LiveChat />}
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}
+
+            {section === "Property" && <PostForm />}
+            {section === "Transportation" && <Transportform />}
+            {section === "Service Information" && <ServiceInfoform />}
 
             {/* temperory routing */}
           </main>

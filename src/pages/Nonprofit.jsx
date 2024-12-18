@@ -3,7 +3,7 @@ import { Topbar } from "../Component/dashboard/Topbar";
 import { DashboardSidebar as Sidebar } from "../Component/Non-Pofit/Sidebar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ProfileForm from "../Component/serviceProvider dashboard/Profile/Profile";
+import ProfileForm from "../Component/Non-Pofit/Profile/Profile";
 import PostForm from "../Component/serviceProvider dashboard/PostService/Postservice";
 import { Applications } from "../Component/Non-Pofit/Application/Applications";
 import { MessageBoard } from "../Component/Non-Pofit/Messages/MessageBoard";
@@ -16,6 +16,7 @@ import PropertyForm from "../Component/dashboard/Propertyform/Propertyform";
 import ServiceInfoform from "../Component/serviceProvider dashboard/serviceinfo/Serviceinfo";
 import FilledLeaseForm from "../Component/Non-Pofit/Application/Filledleaseform";
 import FilledRentalApplication from "../Component/Non-Pofit/Application/Filledrentalform";
+import Transportform from "../Component/serviceProvider dashboard/Transport/Transport";
 
 export function NonprofitDashboard() {
   const { section } = useParams();
@@ -55,6 +56,10 @@ export function NonprofitDashboard() {
 
             {section === "lease" && <FilledLeaseForm />}
             {section === "rental" && <FilledRentalApplication />}
+
+            {/* {section === "Property" && <PostForm />} */}
+            {section === "Transportation" && <Transportform />}
+            {section === "Service Information" && <ServiceInfoform />}
             {/* temperory routing */}
           </main>
         </div>
